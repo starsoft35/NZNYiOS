@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Yw1-s7-4Im" customClass="CYMyLiveView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZSe-gf-iar" userLabel="1.直播列表-View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="618.5"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIv-el-vn2" userLabel="2.我要上直播-View">
+                    <rect key="frame" x="0.0" y="618.5" width="375" height="48.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuU-mk-c2w" userLabel="2.1-我要上直播-Button">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="48.5"/>
+                            <state key="normal" title="我要上直播" backgroundImage="Title1.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="VuU-mk-c2w" firstAttribute="leading" secondItem="zIv-el-vn2" secondAttribute="leading" id="UAE-gY-aI4"/>
+                        <constraint firstAttribute="trailing" secondItem="VuU-mk-c2w" secondAttribute="trailing" id="bxj-8B-A7T"/>
+                        <constraint firstItem="VuU-mk-c2w" firstAttribute="top" secondItem="zIv-el-vn2" secondAttribute="top" id="gX8-b4-Gc2"/>
+                        <constraint firstAttribute="bottom" secondItem="VuU-mk-c2w" secondAttribute="bottom" id="rae-Mv-1fA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ZSe-gf-iar" firstAttribute="top" secondItem="Yw1-s7-4Im" secondAttribute="top" id="Hjf-eM-Lfz"/>
+                <constraint firstItem="zIv-el-vn2" firstAttribute="height" secondItem="Yw1-s7-4Im" secondAttribute="height" multiplier="88:1206" id="JuP-KZ-Lmf"/>
+                <constraint firstItem="ZSe-gf-iar" firstAttribute="leading" secondItem="Yw1-s7-4Im" secondAttribute="leading" id="K73-Hl-FRe"/>
+                <constraint firstItem="zIv-el-vn2" firstAttribute="leading" secondItem="Yw1-s7-4Im" secondAttribute="leading" id="Uag-uz-dar"/>
+                <constraint firstAttribute="trailing" secondItem="ZSe-gf-iar" secondAttribute="trailing" id="Zsr-8Y-LKM"/>
+                <constraint firstAttribute="trailing" secondItem="zIv-el-vn2" secondAttribute="trailing" id="bkT-zh-LMC"/>
+                <constraint firstAttribute="bottom" secondItem="zIv-el-vn2" secondAttribute="bottom" id="mF4-ZW-ekr"/>
+                <constraint firstItem="zIv-el-vn2" firstAttribute="top" secondItem="ZSe-gf-iar" secondAttribute="bottom" id="rrO-eP-cHq"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="gotoLiveBtn" destination="VuU-mk-c2w" id="1vj-qt-NcN"/>
+                <outlet property="liveTrailerRecordView" destination="ZSe-gf-iar" id="L9i-3j-QMp"/>
+            </connections>
+            <point key="canvasLocation" x="19" y="82"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Title1.png" width="375" height="64"/>
+    </resources>
+</document>

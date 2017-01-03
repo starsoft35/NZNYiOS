@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Lnh-NI-9dQ" customClass="CYVideoCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认头像.png" translatesAutoresizingMaskIntoConstraints="NO" id="oyB-fL-dOc" userLabel="1.1-视频背景-Image View">
+                    <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="主页视频阴影-.png" translatesAutoresizingMaskIntoConstraints="NO" id="YyC-YC-fO4" userLabel="1.2-视频显示文本的阴影-Image View">
+                    <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JP-HK-Nbf" userLabel="1.3-上部简介-View">
+                    <rect key="frame" x="5" y="5" width="160" height="12"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="九零后、双鱼座" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Zfe-vK-zwe" userLabel="1.3.1-简介-Label">
+                            <rect key="frame" x="0.0" y="0.0" width="160" height="12"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.91768163442611694" green="0.51090770959854126" blue="0.18271613121032715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Zfe-vK-zwe" firstAttribute="leading" secondItem="0JP-HK-Nbf" secondAttribute="leading" id="E0z-Mo-E0f"/>
+                        <constraint firstAttribute="trailing" secondItem="Zfe-vK-zwe" secondAttribute="trailing" id="Tad-TL-zcZ"/>
+                        <constraint firstAttribute="bottom" secondItem="Zfe-vK-zwe" secondAttribute="bottom" id="Tcr-ab-dkl"/>
+                        <constraint firstItem="Zfe-vK-zwe" firstAttribute="top" secondItem="0JP-HK-Nbf" secondAttribute="top" id="bFe-qj-eUZ"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QdP-IO-lNU" userLabel="1.4-下部性别、姓名、联系-View">
+                    <rect key="frame" x="5" y="147" width="80" height="15"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="女.png" translatesAutoresizingMaskIntoConstraints="NO" id="br8-Dh-b0d" userLabel="1.4.1-性别-Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="br8-Dh-b0d" secondAttribute="height" id="iEX-rc-ukR"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张小小小" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="EeO-fY-wcq" userLabel="1.4.2-姓名-Label">
+                            <rect key="frame" x="25" y="0.0" width="55" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="EeO-fY-wcq" secondAttribute="trailing" id="3yp-AN-xaS"/>
+                        <constraint firstAttribute="bottom" secondItem="br8-Dh-b0d" secondAttribute="bottom" id="MxN-3O-bGM"/>
+                        <constraint firstAttribute="bottom" secondItem="EeO-fY-wcq" secondAttribute="bottom" id="V1U-ZQ-hkh"/>
+                        <constraint firstItem="EeO-fY-wcq" firstAttribute="top" secondItem="QdP-IO-lNU" secondAttribute="top" id="bah-QS-5QQ"/>
+                        <constraint firstItem="br8-Dh-b0d" firstAttribute="leading" secondItem="QdP-IO-lNU" secondAttribute="leading" id="jua-0A-vqQ"/>
+                        <constraint firstItem="EeO-fY-wcq" firstAttribute="leading" secondItem="br8-Dh-b0d" secondAttribute="trailing" constant="10" id="m2v-Be-sJy"/>
+                        <constraint firstItem="br8-Dh-b0d" firstAttribute="top" secondItem="QdP-IO-lNU" secondAttribute="top" id="xME-fi-y0b"/>
+                    </constraints>
+                </view>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUI-kh-1eP" userLabel="1.6-播放-Button">
+                    <rect key="frame" x="60" y="60" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="wUI-kh-1eP" secondAttribute="height" id="Hx7-bO-5ZT"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="视频播放按钮.png"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pOF-FA-Ix5" userLabel="1.5-联系他-Button">
+                    <rect key="frame" x="90" y="130" width="75" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="pOF-FA-Ix5" secondAttribute="height" multiplier="150:70" id="VqB-Fz-0vZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="联系 TA" backgroundImage="联系Ta.png">
+                        <color key="titleColor" red="0.35845804209999999" green="0.63922595979999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="YyC-YC-fO4" firstAttribute="leading" secondItem="Lnh-NI-9dQ" secondAttribute="leading" id="AVv-R6-ck3"/>
+                <constraint firstAttribute="bottom" secondItem="YyC-YC-fO4" secondAttribute="bottom" id="Cg6-UQ-hMj"/>
+                <constraint firstItem="oyB-fL-dOc" firstAttribute="top" secondItem="Lnh-NI-9dQ" secondAttribute="top" id="Cqm-6h-nhp"/>
+                <constraint firstItem="pOF-FA-Ix5" firstAttribute="leading" secondItem="QdP-IO-lNU" secondAttribute="trailing" constant="5" id="Ghm-Mb-Cjv"/>
+                <constraint firstItem="0JP-HK-Nbf" firstAttribute="leading" secondItem="Lnh-NI-9dQ" secondAttribute="leading" constant="5" id="IwU-LE-NTR"/>
+                <constraint firstItem="YyC-YC-fO4" firstAttribute="top" secondItem="Lnh-NI-9dQ" secondAttribute="top" id="Kga-W8-Y4j"/>
+                <constraint firstItem="wUI-kh-1eP" firstAttribute="height" secondItem="Lnh-NI-9dQ" secondAttribute="height" multiplier="100:340" id="LQw-IW-Kvi"/>
+                <constraint firstItem="0JP-HK-Nbf" firstAttribute="top" secondItem="Lnh-NI-9dQ" secondAttribute="top" constant="5" id="Pl9-gs-uxA"/>
+                <constraint firstItem="pOF-FA-Ix5" firstAttribute="width" secondItem="Lnh-NI-9dQ" secondAttribute="width" multiplier="150:340" id="cKC-mA-Oko"/>
+                <constraint firstItem="QdP-IO-lNU" firstAttribute="bottom" secondItem="pOF-FA-Ix5" secondAttribute="bottom" constant="-3" id="di6-3Y-Mzt"/>
+                <constraint firstAttribute="trailing" secondItem="oyB-fL-dOc" secondAttribute="trailing" id="g00-Xm-dv9"/>
+                <constraint firstAttribute="trailing" secondItem="0JP-HK-Nbf" secondAttribute="trailing" constant="5" id="h2f-jJ-f6f"/>
+                <constraint firstAttribute="trailing" secondItem="YyC-YC-fO4" secondAttribute="trailing" id="h4Q-sC-USI"/>
+                <constraint firstItem="wUI-kh-1eP" firstAttribute="centerY" secondItem="Lnh-NI-9dQ" secondAttribute="centerY" id="h8j-ES-ahw"/>
+                <constraint firstItem="QdP-IO-lNU" firstAttribute="height" secondItem="pOF-FA-Ix5" secondAttribute="height" multiplier="30:70" id="hKn-O2-8Ki"/>
+                <constraint firstItem="QdP-IO-lNU" firstAttribute="leading" secondItem="Lnh-NI-9dQ" secondAttribute="leading" constant="5" id="iVT-AE-iHQ"/>
+                <constraint firstItem="0JP-HK-Nbf" firstAttribute="height" secondItem="Lnh-NI-9dQ" secondAttribute="height" multiplier="24:340" id="n8R-Go-ucE"/>
+                <constraint firstAttribute="bottom" secondItem="pOF-FA-Ix5" secondAttribute="bottom" constant="5" id="nEr-Et-CzF"/>
+                <constraint firstAttribute="trailing" secondItem="pOF-FA-Ix5" secondAttribute="trailing" constant="5" id="tau-Du-jby"/>
+                <constraint firstItem="wUI-kh-1eP" firstAttribute="centerX" secondItem="Lnh-NI-9dQ" secondAttribute="centerX" id="uyu-2l-2bK"/>
+                <constraint firstAttribute="bottom" secondItem="oyB-fL-dOc" secondAttribute="bottom" id="wmF-RU-gvp"/>
+                <constraint firstItem="oyB-fL-dOc" firstAttribute="leading" secondItem="Lnh-NI-9dQ" secondAttribute="leading" id="xzJ-mP-emG"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="ageAndStarSignLab" destination="Zfe-vK-zwe" id="t9T-kp-23O"/>
+                <outlet property="connectBtn" destination="pOF-FA-Ix5" id="QGO-zF-zkq"/>
+                <outlet property="genderImgView" destination="br8-Dh-b0d" id="7mP-lA-gPD"/>
+                <outlet property="nameLab" destination="EeO-fY-wcq" id="WI5-p5-Aiw"/>
+                <outlet property="playBtn" destination="wUI-kh-1eP" id="TcG-Nf-Eeb"/>
+                <outlet property="videoBgImgView" destination="oyB-fL-dOc" id="WHh-4M-OWU"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="主页视频阴影-.png" width="170" height="170"/>
+        <image name="女.png" width="11" height="11"/>
+        <image name="联系Ta.png" width="75" height="35"/>
+        <image name="视频播放按钮.png" width="75" height="75"/>
+        <image name="默认头像.png" width="300" height="300"/>
+    </resources>
+</document>

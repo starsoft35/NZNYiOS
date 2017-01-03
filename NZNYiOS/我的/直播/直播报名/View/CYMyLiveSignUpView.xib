@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="WBY-gS-ggD" customClass="CYMyLiveSignUpView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6W-U1-7kP" userLabel="1.上部信息-View">
+                    <rect key="frame" x="13" y="5" width="349" height="168"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="直播TAB.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ntg-Up-0N9" userLabel="1.1.0-姓名背景-Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="349" height="49.5"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张大大" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xks-pN-XUK" userLabel="1.1-姓名-Label">
+                            <rect key="frame" x="0.0" y="0.0" width="349" height="49.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="直播TAB.png" translatesAutoresizingMaskIntoConstraints="NO" id="axL-Q4-7F8" userLabel="1.2.0-手机号背景-Image View">
+                            <rect key="frame" x="0.0" y="59.5" width="349" height="49.5"/>
+                        </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZE1-zb-ba6" userLabel="1.2-手机号-Round Style Text Field">
+                            <rect key="frame" x="0.0" y="59.5" width="349" height="49.5"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="直播TAB.png" translatesAutoresizingMaskIntoConstraints="NO" id="QOT-eg-Na6" userLabel="1.3.0-直播主题背景-Image View">
+                            <rect key="frame" x="0.0" y="119" width="349" height="49"/>
+                        </imageView>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入直播主题" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ij-Wg-MMX" userLabel="1.3-直播主题-Round Style Text Field">
+                            <rect key="frame" x="0.0" y="119" width="349" height="49"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="0Ij-Wg-MMX" firstAttribute="top" secondItem="ZE1-zb-ba6" secondAttribute="bottom" constant="10" id="8uV-Hq-egk"/>
+                        <constraint firstItem="xks-pN-XUK" firstAttribute="top" secondItem="r6W-U1-7kP" secondAttribute="top" id="B89-zg-ASy"/>
+                        <constraint firstItem="0Ij-Wg-MMX" firstAttribute="leading" secondItem="r6W-U1-7kP" secondAttribute="leading" id="DLS-7G-myf"/>
+                        <constraint firstAttribute="trailing" secondItem="0Ij-Wg-MMX" secondAttribute="trailing" id="GJC-WP-xjs"/>
+                        <constraint firstItem="QOT-eg-Na6" firstAttribute="leading" secondItem="0Ij-Wg-MMX" secondAttribute="leading" id="GW1-Mn-C22"/>
+                        <constraint firstItem="ZE1-zb-ba6" firstAttribute="height" secondItem="0Ij-Wg-MMX" secondAttribute="height" id="KbB-26-VxK"/>
+                        <constraint firstAttribute="bottom" secondItem="0Ij-Wg-MMX" secondAttribute="bottom" id="LAd-X6-pwI"/>
+                        <constraint firstItem="Ntg-Up-0N9" firstAttribute="bottom" secondItem="xks-pN-XUK" secondAttribute="bottom" id="LWu-iv-8oN"/>
+                        <constraint firstItem="QOT-eg-Na6" firstAttribute="trailing" secondItem="0Ij-Wg-MMX" secondAttribute="trailing" id="N2U-Xj-ujg"/>
+                        <constraint firstAttribute="trailing" secondItem="ZE1-zb-ba6" secondAttribute="trailing" id="Nc8-tr-LRe"/>
+                        <constraint firstItem="QOT-eg-Na6" firstAttribute="bottom" secondItem="0Ij-Wg-MMX" secondAttribute="bottom" id="ObN-ni-00V"/>
+                        <constraint firstItem="axL-Q4-7F8" firstAttribute="bottom" secondItem="ZE1-zb-ba6" secondAttribute="bottom" id="PLx-KC-Uii"/>
+                        <constraint firstItem="xks-pN-XUK" firstAttribute="leading" secondItem="r6W-U1-7kP" secondAttribute="leading" id="QCM-Ef-zTR"/>
+                        <constraint firstItem="axL-Q4-7F8" firstAttribute="leading" secondItem="ZE1-zb-ba6" secondAttribute="leading" id="TKI-bb-0pa"/>
+                        <constraint firstItem="xks-pN-XUK" firstAttribute="height" secondItem="ZE1-zb-ba6" secondAttribute="height" id="VVX-HP-X6b"/>
+                        <constraint firstItem="ZE1-zb-ba6" firstAttribute="top" secondItem="xks-pN-XUK" secondAttribute="bottom" constant="10" id="Wg8-1i-reh"/>
+                        <constraint firstItem="Ntg-Up-0N9" firstAttribute="top" secondItem="xks-pN-XUK" secondAttribute="top" id="a5J-3r-uM9"/>
+                        <constraint firstItem="axL-Q4-7F8" firstAttribute="trailing" secondItem="ZE1-zb-ba6" secondAttribute="trailing" id="bun-i5-IDX"/>
+                        <constraint firstItem="ZE1-zb-ba6" firstAttribute="leading" secondItem="r6W-U1-7kP" secondAttribute="leading" id="crg-dr-cXC"/>
+                        <constraint firstAttribute="trailing" secondItem="xks-pN-XUK" secondAttribute="trailing" id="ptg-qh-p6G"/>
+                        <constraint firstItem="QOT-eg-Na6" firstAttribute="top" secondItem="0Ij-Wg-MMX" secondAttribute="top" id="tEH-W1-zfA"/>
+                        <constraint firstItem="Ntg-Up-0N9" firstAttribute="leading" secondItem="xks-pN-XUK" secondAttribute="leading" id="vaQ-zw-Fif"/>
+                        <constraint firstItem="Ntg-Up-0N9" firstAttribute="trailing" secondItem="xks-pN-XUK" secondAttribute="trailing" id="wBf-zQ-ALh"/>
+                        <constraint firstItem="axL-Q4-7F8" firstAttribute="top" secondItem="ZE1-zb-ba6" secondAttribute="top" id="xoG-Sx-MyY"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SF-Ws-9Zg" userLabel="2.我要上直播-View">
+                    <rect key="frame" x="13" y="183" width="349" height="48.5"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9BB-UF-FC4" userLabel="2.1-我要上直播-Button">
+                            <rect key="frame" x="0.0" y="0.0" width="349" height="48.5"/>
+                            <state key="normal" title="我要上直播" backgroundImage="Title1.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="9BB-UF-FC4" firstAttribute="leading" secondItem="6SF-Ws-9Zg" secondAttribute="leading" id="Dhg-bp-4ch"/>
+                        <constraint firstAttribute="bottom" secondItem="9BB-UF-FC4" secondAttribute="bottom" id="Krr-Sz-X2v"/>
+                        <constraint firstAttribute="trailing" secondItem="9BB-UF-FC4" secondAttribute="trailing" id="nch-g5-ZxU"/>
+                        <constraint firstItem="9BB-UF-FC4" firstAttribute="top" secondItem="6SF-Ws-9Zg" secondAttribute="top" id="wmf-Ez-uaC"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzq-cO-zyQ" userLabel="3.提示信息-View">
+                    <rect key="frame" x="13" y="246.5" width="349" height="144"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报名须知：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="rj8-zV-pyf" userLabel="3.1-报名须知-Label">
+                            <rect key="frame" x="76" y="17" width="273" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. 需要通过身份及信用度审核" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="aTU-4F-Irm" userLabel="3.2-身份、信用审核-Label">
+                            <rect key="frame" x="76" y="41" width="273" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2. 需要通过视频（10M 以内）审核" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="80t-1t-Xqd" userLabel="3.3-视频大小-Label">
+                            <rect key="frame" x="76" y="65" width="273" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="报名费用：30元（此为报名费用）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="kp0-8V-HUr" userLabel="3.4-报名费用-Label">
+                            <rect key="frame" x="76" y="89" width="273" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注：本活动最终解释权归本平台所以。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="yr2-Ln-aor" userLabel="3.5-注-Label">
+                            <rect key="frame" x="76" y="112.5" width="273" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="kp0-8V-HUr" firstAttribute="leading" secondItem="80t-1t-Xqd" secondAttribute="leading" id="4We-es-o75"/>
+                        <constraint firstAttribute="trailing" secondItem="80t-1t-Xqd" secondAttribute="trailing" id="5Lv-ei-WqX"/>
+                        <constraint firstItem="rj8-zV-pyf" firstAttribute="leading" secondItem="mzq-cO-zyQ" secondAttribute="leading" constant="76" id="5n9-Ke-FTC"/>
+                        <constraint firstAttribute="bottom" secondItem="yr2-Ln-aor" secondAttribute="bottom" constant="17" id="Ahg-gV-YOC"/>
+                        <constraint firstItem="yr2-Ln-aor" firstAttribute="top" secondItem="kp0-8V-HUr" secondAttribute="bottom" constant="9" id="HI6-AF-MtC"/>
+                        <constraint firstItem="aTU-4F-Irm" firstAttribute="leading" secondItem="rj8-zV-pyf" secondAttribute="leading" id="Jio-4A-kqZ"/>
+                        <constraint firstItem="80t-1t-Xqd" firstAttribute="height" secondItem="kp0-8V-HUr" secondAttribute="height" id="LdS-UL-Cqw"/>
+                        <constraint firstAttribute="trailing" secondItem="rj8-zV-pyf" secondAttribute="trailing" id="M3X-dU-ZeA"/>
+                        <constraint firstItem="kp0-8V-HUr" firstAttribute="top" secondItem="80t-1t-Xqd" secondAttribute="bottom" constant="9" id="PMO-tV-wMx"/>
+                        <constraint firstItem="aTU-4F-Irm" firstAttribute="top" secondItem="rj8-zV-pyf" secondAttribute="bottom" constant="9" id="Sfu-JP-ALw"/>
+                        <constraint firstItem="rj8-zV-pyf" firstAttribute="height" secondItem="aTU-4F-Irm" secondAttribute="height" id="ZNa-5c-gLq"/>
+                        <constraint firstAttribute="trailing" secondItem="aTU-4F-Irm" secondAttribute="trailing" id="ZtK-p9-NJp"/>
+                        <constraint firstItem="aTU-4F-Irm" firstAttribute="height" secondItem="80t-1t-Xqd" secondAttribute="height" id="b9j-gK-h7p"/>
+                        <constraint firstItem="rj8-zV-pyf" firstAttribute="top" secondItem="mzq-cO-zyQ" secondAttribute="top" constant="17" id="cOo-ca-UB7"/>
+                        <constraint firstItem="80t-1t-Xqd" firstAttribute="top" secondItem="aTU-4F-Irm" secondAttribute="bottom" constant="9" id="dkJ-lm-W3P"/>
+                        <constraint firstItem="kp0-8V-HUr" firstAttribute="height" secondItem="yr2-Ln-aor" secondAttribute="height" id="fr6-AN-ry6"/>
+                        <constraint firstItem="yr2-Ln-aor" firstAttribute="leading" secondItem="kp0-8V-HUr" secondAttribute="leading" id="iPH-lI-cEd"/>
+                        <constraint firstAttribute="trailing" secondItem="kp0-8V-HUr" secondAttribute="trailing" id="mxC-b7-hUx"/>
+                        <constraint firstItem="80t-1t-Xqd" firstAttribute="leading" secondItem="aTU-4F-Irm" secondAttribute="leading" id="ooQ-6e-C8A"/>
+                        <constraint firstAttribute="trailing" secondItem="yr2-Ln-aor" secondAttribute="trailing" id="seX-nR-fhN"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="r6W-U1-7kP" firstAttribute="height" secondItem="WBY-gS-ggD" secondAttribute="height" multiplier="304:1206" id="2kT-PV-GLB"/>
+                <constraint firstItem="mzq-cO-zyQ" firstAttribute="trailing" secondItem="6SF-Ws-9Zg" secondAttribute="trailing" id="KTd-8Y-jnZ"/>
+                <constraint firstItem="6SF-Ws-9Zg" firstAttribute="top" secondItem="r6W-U1-7kP" secondAttribute="bottom" constant="10" id="MFq-Yw-kHp"/>
+                <constraint firstItem="6SF-Ws-9Zg" firstAttribute="leading" secondItem="r6W-U1-7kP" secondAttribute="leading" id="REJ-UW-WBx"/>
+                <constraint firstItem="r6W-U1-7kP" firstAttribute="top" secondItem="WBY-gS-ggD" secondAttribute="top" constant="5" id="jof-Wo-cld"/>
+                <constraint firstItem="mzq-cO-zyQ" firstAttribute="height" secondItem="WBY-gS-ggD" secondAttribute="height" multiplier="260:1206" id="lgn-mc-Lbz"/>
+                <constraint firstItem="r6W-U1-7kP" firstAttribute="leading" secondItem="WBY-gS-ggD" secondAttribute="leading" constant="13" id="ljD-Or-xoB"/>
+                <constraint firstItem="6SF-Ws-9Zg" firstAttribute="height" secondItem="WBY-gS-ggD" secondAttribute="height" multiplier="88:1206" id="nHk-ZM-h1L"/>
+                <constraint firstItem="mzq-cO-zyQ" firstAttribute="leading" secondItem="6SF-Ws-9Zg" secondAttribute="leading" id="ncu-nx-9Ni"/>
+                <constraint firstAttribute="trailing" secondItem="r6W-U1-7kP" secondAttribute="trailing" constant="13" id="p2W-Hr-thn"/>
+                <constraint firstItem="6SF-Ws-9Zg" firstAttribute="trailing" secondItem="r6W-U1-7kP" secondAttribute="trailing" id="tf0-Oj-vuI"/>
+                <constraint firstItem="mzq-cO-zyQ" firstAttribute="top" secondItem="6SF-Ws-9Zg" secondAttribute="bottom" constant="15" id="xKO-0M-CRL"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="gotoLiveBtn" destination="9BB-UF-FC4" id="tyn-4D-TFf"/>
+                <outlet property="liveTitleTF" destination="0Ij-Wg-MMX" id="cb4-sm-who"/>
+                <outlet property="nameLab" destination="xks-pN-XUK" id="n3m-Lr-wMD"/>
+                <outlet property="phoneNumTF" destination="ZE1-zb-ba6" id="ywY-gK-l2c"/>
+            </connections>
+            <point key="canvasLocation" x="22.5" y="43.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Title1.png" width="375" height="64"/>
+        <image name="直播TAB.png" width="116" height="33"/>
+    </resources>
+</document>

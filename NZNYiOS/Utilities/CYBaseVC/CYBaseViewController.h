@@ -1,0 +1,112 @@
+//
+//  CYBaseViewController.h
+//  NZNYiOS
+//
+//  Created by 男左女右 on 16/8/16.
+//  Copyright © 2016年 NZNY. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface CYBaseViewController : UIViewController<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIApplicationDelegate>
+
+// 提示框：hud
+@property (nonatomic,strong)MBProgressHUD *hud;
+
+// 当前用户
+@property (nonatomic ,strong) CYUser *onlyUser;
+
+// 密码flag
+@property (nonatomic,assign)NSInteger passwordFlag;
+
+// 倒计时时间
+@property (nonatomic,assign)NSInteger repeatSendVerifiTime;
+
+// 定时器
+@property (nonatomic,strong)NSTimer *timer;
+
+
+// 账户余额 是否够支付：BOOL
+@property (nonatomic, assign) BOOL isEnoughForPay;
+
+
+// 数据源
+@property (nonatomic,strong)NSMutableArray *dataArray;
+
+
+// 搜索：左边BarButtonItem：点击事件：
+- (void)searchLeftBarBtnItemClick;
+
+// 设置：左边BarButtonItem：点击事件
+- (void)setLeftBarBtnItemClick;
+
+// 附近的人：右边，nearBarButtonItem：点击事件
+- (void)nearRightBarBtnItemClick;
+
+// 新消息：右边，newsBarButtonItem：点击事件
+- (void)newsRightBarBtnItemClick;
+
+// 加载数据
+- (void)loadData;
+
+// 显示加载
+- (void)showLoadingView;
+// 隐藏加载
+- (void)hidenLoadingView;
+
+// 提示框显示，并在定义时间后，自动消失。
+- (void)showHubWithLabelText:(NSString *)text andHidAfterDelay:(double)afterDelay;
+
+// 密码显示隐藏：点击事件
+- (void)passwordDisplayOrHideImgViewClickWithImgView:(UIImageView *)imgView andTexeField:(UITextField *)textField;
+
+// 验证码button定时器：执行的方法
+- (void)timerCountdownWithRepeatBtn:(UIButton *)repeatBtn andCountdownTime:(NSInteger)countdownTime andBtnDisabledTitle:(NSString *)btnDisabledTitle andNormalTitle:(NSString *)btnNormalTitle;
+
+// 检查金额：是否输入、格式是否正确：纯数字
+- (BOOL)checkIfIsNum:(NSString *)number;
+
+// 检查手机号：是否输入、格式是否正确
+- (BOOL)checkTel:(NSString *)tel;
+
+// 检查密码：是否输入、格式是否正确
+- (BOOL)checkPassword:(NSString *)password;
+
+// 检查手机号、密码：是否输入、格式是否正确
+- (BOOL)checkTel:(NSString *)tel andPassword:(NSString *)password;
+
+// 检查手机号、验证码、密码：是否输入、格式是否正确
+- (BOOL)checkTel:(NSString *)tel andVerificationCode:(NSString *)verificationCode andPassword:(NSString *)password;
+
+// 头像点击事件：手势
+- (void)headImgViewChangeClick;
+
+
+// 登录：网络请求
+- (void)loginRequestWithAccount:(NSString *)userAccount andUserPSW:(NSString *)userPSW;
+
+// 登录成功，设置当前登录的用户。
+- (void)setCurrentUser:(id)responseObject;
+
+// 登录成功，创建mainTabbar，设置为根视图控制器
+- (void)loginSuccess;
+
+// 保存用户的账号、密码。
+- (void)setCurrentUserWithUserAccount:(NSString *)userAccount andUserPSW:(NSString *)userPSW;
+
+// 用户余额：网络请求
+//- (void)requestUserBalanceIfIsEnoughWithUserId:(NSString *)userId andOppUserId:(NSString *)oppUserId andLikeCount:(NSInteger)likeCount andCost:(float)cost;
+
+
+// 获取并保存用户个人信息到本地
+- (void)requestAndSaveUserInfo;
+
+
+
+// 点赞：网络请求
+- (void)requestLikeWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)likeCount;
+
+// 送礼：网络请求
+- (void)requestGiveGiftWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)giftCount;
+
+@end

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CYMyUserInfoNameVC">
+            <connections>
+                <outlet property="nameTF" destination="ety-fT-TX2" id="J3y-Uk-JfM"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5lS-XK-q07" userLabel="1-姓名-View">
+                    <rect key="frame" x="13" y="5" width="349" height="44"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ety-fT-TX2" userLabel="1.1-姓名-Round Style Text Field">
+                            <rect key="frame" x="0.0" y="0.0" width="349" height="44"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="ety-fT-TX2" secondAttribute="bottom" id="XiS-1M-odD"/>
+                        <constraint firstItem="ety-fT-TX2" firstAttribute="leading" secondItem="5lS-XK-q07" secondAttribute="leading" id="eNZ-Fe-WO5"/>
+                        <constraint firstItem="ety-fT-TX2" firstAttribute="top" secondItem="5lS-XK-q07" secondAttribute="top" id="lyh-MR-v0M"/>
+                        <constraint firstAttribute="trailing" secondItem="ety-fT-TX2" secondAttribute="trailing" id="tri-yH-7mv"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="声明：本平台本着诚信为本的原则服务于各界单身人士，请您填写真实姓名。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="wh2-Jn-aYJ" userLabel="2-声明-Label">
+                    <rect key="frame" x="13" y="59" width="349" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（修改 1 次 / 季度）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="oUh-uo-U7J" userLabel="3-修改限制-Label">
+                    <rect key="frame" x="13" y="81" width="349" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" red="0.91768163442611694" green="0.51090770959854126" blue="0.18271613121032715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.94107431173324585" green="0.94123536348342896" blue="0.94106405973434448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="wh2-Jn-aYJ" firstAttribute="top" secondItem="5lS-XK-q07" secondAttribute="bottom" constant="10" id="2MN-VI-dOo"/>
+                <constraint firstItem="wh2-Jn-aYJ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="24:1334" id="4Gq-Kn-B9Q"/>
+                <constraint firstItem="5lS-XK-q07" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="CdM-qq-oIV"/>
+                <constraint firstItem="oUh-uo-U7J" firstAttribute="trailing" secondItem="wh2-Jn-aYJ" secondAttribute="trailing" id="KoX-em-868"/>
+                <constraint firstItem="wh2-Jn-aYJ" firstAttribute="leading" secondItem="5lS-XK-q07" secondAttribute="leading" id="M8k-D1-1b5"/>
+                <constraint firstItem="wh2-Jn-aYJ" firstAttribute="trailing" secondItem="5lS-XK-q07" secondAttribute="trailing" id="SY3-1U-hyP"/>
+                <constraint firstItem="oUh-uo-U7J" firstAttribute="top" secondItem="wh2-Jn-aYJ" secondAttribute="bottom" constant="10" id="Sx8-iq-L0T"/>
+                <constraint firstItem="oUh-uo-U7J" firstAttribute="leading" secondItem="wh2-Jn-aYJ" secondAttribute="leading" id="UdI-yk-kzb"/>
+                <constraint firstAttribute="trailing" secondItem="5lS-XK-q07" secondAttribute="trailing" constant="13" id="dnh-dg-MAQ"/>
+                <constraint firstItem="oUh-uo-U7J" firstAttribute="height" secondItem="wh2-Jn-aYJ" secondAttribute="height" id="jL4-MY-XyE"/>
+                <constraint firstItem="5lS-XK-q07" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="nNW-LR-ioE"/>
+                <constraint firstItem="5lS-XK-q07" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="88:1334" id="p8u-Lg-l37"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>

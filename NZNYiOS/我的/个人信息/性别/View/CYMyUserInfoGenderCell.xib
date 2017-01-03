@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ZeW-gA-e4b" customClass="CYMyUserInfoGenderCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1p6-zu-zsU">
+                    <rect key="frame" x="180" y="14.5" width="15.5" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="视频选中.png" translatesAutoresizingMaskIntoConstraints="NO" id="QvZ-Hq-rmu">
+                    <rect key="frame" x="220.5" y="15" width="15" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="QvZ-Hq-rmu" secondAttribute="height" id="bmR-ms-GZv"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="1p6-zu-zsU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZeW-gA-e4b" secondAttribute="leading" constant="13" id="15e-gZ-BDZ"/>
+                <constraint firstItem="1p6-zu-zsU" firstAttribute="centerY" secondItem="ZeW-gA-e4b" secondAttribute="centerY" id="95o-lN-bvb"/>
+                <constraint firstItem="1p6-zu-zsU" firstAttribute="height" secondItem="ZeW-gA-e4b" secondAttribute="height" multiplier="30:88" id="F9E-RF-IiL"/>
+                <constraint firstItem="QvZ-Hq-rmu" firstAttribute="leading" secondItem="1p6-zu-zsU" secondAttribute="trailing" constant="25" id="fyZ-l0-sBi"/>
+                <constraint firstItem="1p6-zu-zsU" firstAttribute="centerX" secondItem="ZeW-gA-e4b" secondAttribute="centerX" id="i8I-WQ-Q6P"/>
+                <constraint firstItem="QvZ-Hq-rmu" firstAttribute="centerY" secondItem="1p6-zu-zsU" secondAttribute="centerY" id="kKi-eq-1tg"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QvZ-Hq-rmu" secondAttribute="trailing" constant="13" id="lb0-uk-VuD"/>
+                <constraint firstItem="QvZ-Hq-rmu" firstAttribute="height" secondItem="1p6-zu-zsU" secondAttribute="height" id="tLj-3G-TeM"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="genderLab" destination="1p6-zu-zsU" id="wmG-Fk-9vb"/>
+                <outlet property="ifCheckedImgView" destination="QvZ-Hq-rmu" id="hgs-2C-YYQ"/>
+            </connections>
+            <point key="canvasLocation" x="80.5" y="-152"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="视频选中.png" width="16" height="16"/>
+    </resources>
+</document>

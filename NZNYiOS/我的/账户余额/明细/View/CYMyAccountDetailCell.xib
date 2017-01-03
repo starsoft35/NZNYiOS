@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="41r-Fo-7lg" customClass="CYMyAccountDetailCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="周日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="zzv-Bh-BeP" userLabel="1.周几-Label">
+                    <rect key="frame" x="15" y="7" width="60" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08-21" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Bhj-9N-31n" userLabel="2.日期-Label">
+                    <rect key="frame" x="15" y="25" width="60" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.50190365309999996" green="0.50199371579999996" blue="0.50189799069999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="送【张大大大】999 支玫瑰" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="FAS-1s-sN6" userLabel="3.消费项目-Label">
+                    <rect key="frame" x="95" y="15" width="187" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbm-7k-X9n" userLabel="4.消费金额-Label">
+                    <rect key="frame" x="302" y="16.5" width="60" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.91768163442611694" green="0.51090770959854126" blue="0.18271613121032715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="zzv-Bh-BeP" firstAttribute="width" secondItem="41r-Fo-7lg" secondAttribute="width" multiplier="120:750" id="3Dl-9E-vbQ"/>
+                <constraint firstItem="Bhj-9N-31n" firstAttribute="width" secondItem="zzv-Bh-BeP" secondAttribute="width" id="5dB-lz-YeR"/>
+                <constraint firstItem="zzv-Bh-BeP" firstAttribute="leading" secondItem="41r-Fo-7lg" secondAttribute="leading" constant="15" id="BaJ-w5-2A2"/>
+                <constraint firstAttribute="bottom" secondItem="Bhj-9N-31n" secondAttribute="bottom" constant="7" id="DKX-FD-fyW"/>
+                <constraint firstItem="Kbm-7k-X9n" firstAttribute="width" secondItem="41r-Fo-7lg" secondAttribute="width" multiplier="120:750" id="LSr-Up-oww"/>
+                <constraint firstItem="Kbm-7k-X9n" firstAttribute="leading" secondItem="FAS-1s-sN6" secondAttribute="trailing" constant="20" id="Le1-GL-doG"/>
+                <constraint firstItem="FAS-1s-sN6" firstAttribute="height" secondItem="41r-Fo-7lg" secondAttribute="height" multiplier="30:88" id="VbZ-G4-Zig"/>
+                <constraint firstItem="FAS-1s-sN6" firstAttribute="leading" secondItem="Bhj-9N-31n" secondAttribute="trailing" constant="20" id="ZUD-IA-p4u"/>
+                <constraint firstItem="Bhj-9N-31n" firstAttribute="leading" secondItem="zzv-Bh-BeP" secondAttribute="leading" id="ZtX-f3-TGs"/>
+                <constraint firstItem="Bhj-9N-31n" firstAttribute="height" secondItem="zzv-Bh-BeP" secondAttribute="height" multiplier="24:30" id="dJ6-O1-Re7"/>
+                <constraint firstAttribute="trailing" secondItem="Kbm-7k-X9n" secondAttribute="trailing" constant="13" id="dgY-wd-qeP"/>
+                <constraint firstItem="Kbm-7k-X9n" firstAttribute="centerY" secondItem="41r-Fo-7lg" secondAttribute="centerY" id="drn-m0-LoA"/>
+                <constraint firstItem="FAS-1s-sN6" firstAttribute="centerY" secondItem="41r-Fo-7lg" secondAttribute="centerY" id="f7G-qd-yXI"/>
+                <constraint firstItem="zzv-Bh-BeP" firstAttribute="top" secondItem="41r-Fo-7lg" secondAttribute="top" constant="7" id="hHh-aR-HwD"/>
+                <constraint firstItem="Bhj-9N-31n" firstAttribute="top" secondItem="zzv-Bh-BeP" secondAttribute="bottom" constant="3" id="xvV-mt-j3c"/>
+                <constraint firstItem="Kbm-7k-X9n" firstAttribute="height" secondItem="41r-Fo-7lg" secondAttribute="height" multiplier="24:88" id="ybw-MR-EXb"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dateLab" destination="Bhj-9N-31n" id="6mN-VF-is7"/>
+                <outlet property="introductionLab" destination="FAS-1s-sN6" id="gfW-Y1-i8R"/>
+                <outlet property="moneyLab" destination="Kbm-7k-X9n" id="Ud4-8v-Q4C"/>
+                <outlet property="weekLab" destination="zzv-Bh-BeP" id="ral-Hw-ImI"/>
+            </connections>
+            <point key="canvasLocation" x="94.5" y="-181"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ymg-3m-92a" customClass="CYMineVideoView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="059-pf-1Xo" userLabel="1、左侧视频模块-View">
+                    <rect key="frame" x="13" y="5" width="170" height="215"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认视频.png" translatesAutoresizingMaskIntoConstraints="NO" id="rMg-iR-bTK" userLabel="1.1-左侧视频背景-Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="视频播放按钮.png" translatesAutoresizingMaskIntoConstraints="NO" id="JFP-4A-txc" userLabel="1.2-左侧视频播放-Image View">
+                            <rect key="frame" x="47.5" y="47.5" width="75" height="75"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="JFP-4A-txc" secondAttribute="height" id="ZU7-ZZ-ZKJ"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xxc-l0-UZA" userLabel="1.9-左侧审核时黑色背景-Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016/10/31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k8p-Li-XqV" userLabel="1.3-左侧视频时间-Label">
+                            <rect key="frame" x="5" y="150.5" width="110" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.6M" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Mwq-Fr-laV" userLabel="1.4-左侧视频大小-Label">
+                            <rect key="frame" x="125" y="150.5" width="40" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="od2-hI-bnd" userLabel="1.5-左侧视频使用-Button">
+                            <rect key="frame" x="0.0" y="180" width="75" height="35"/>
+                            <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="15"/>
+                            <state key="normal" title="使用" backgroundImage="注册底.png"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="snZ-Wo-wkp" userLabel="1.6-左侧视频分享-Button">
+                            <rect key="frame" x="132" y="188.5" width="18" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="snZ-Wo-wkp" secondAttribute="height" id="MI9-QM-mlU"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="我的分享-.png"/>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hL-2s-p1z" userLabel="1.7-左侧删除-Button">
+                            <rect key="frame" x="5" y="5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="9hL-2s-p1z" secondAttribute="height" id="2RE-2x-Mi6"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="视频未选中.png"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="审核结果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pd6-Du-pNs" userLabel="1.8-左侧审核结果-Label">
+                            <rect key="frame" x="5" y="131" width="110" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="k8p-Li-XqV" firstAttribute="width" secondItem="059-pf-1Xo" secondAttribute="width" multiplier="220:340" id="199-gI-7eA"/>
+                        <constraint firstItem="xxc-l0-UZA" firstAttribute="width" secondItem="rMg-iR-bTK" secondAttribute="width" id="4Ih-is-xmG"/>
+                        <constraint firstItem="xxc-l0-UZA" firstAttribute="top" secondItem="rMg-iR-bTK" secondAttribute="top" id="6wC-hJ-Zkl"/>
+                        <constraint firstItem="rMg-iR-bTK" firstAttribute="top" secondItem="059-pf-1Xo" secondAttribute="top" id="8S5-1R-znQ"/>
+                        <constraint firstItem="k8p-Li-XqV" firstAttribute="top" secondItem="pd6-Du-pNs" secondAttribute="bottom" constant="5" id="9zv-Dm-M3P"/>
+                        <constraint firstItem="k8p-Li-XqV" firstAttribute="leading" secondItem="rMg-iR-bTK" secondAttribute="leading" constant="5" id="Baf-3T-ROX"/>
+                        <constraint firstAttribute="trailing" secondItem="snZ-Wo-wkp" secondAttribute="trailing" constant="20" id="E06-2y-jns"/>
+                        <constraint firstItem="od2-hI-bnd" firstAttribute="width" secondItem="059-pf-1Xo" secondAttribute="width" multiplier="150:340" id="EOy-Dw-khF"/>
+                        <constraint firstItem="pd6-Du-pNs" firstAttribute="width" secondItem="k8p-Li-XqV" secondAttribute="width" id="Fmr-Lg-Sei"/>
+                        <constraint firstItem="Mwq-Fr-laV" firstAttribute="centerY" secondItem="k8p-Li-XqV" secondAttribute="centerY" id="FvJ-Cc-LUr"/>
+                        <constraint firstItem="xxc-l0-UZA" firstAttribute="centerX" secondItem="rMg-iR-bTK" secondAttribute="centerX" id="Fw7-bR-ape"/>
+                        <constraint firstItem="JFP-4A-txc" firstAttribute="centerY" secondItem="rMg-iR-bTK" secondAttribute="centerY" id="GhA-1x-T5a"/>
+                        <constraint firstItem="pd6-Du-pNs" firstAttribute="height" secondItem="k8p-Li-XqV" secondAttribute="height" id="HNW-GL-ipH"/>
+                        <constraint firstItem="JFP-4A-txc" firstAttribute="width" secondItem="rMg-iR-bTK" secondAttribute="width" multiplier="150:340" id="JKf-0H-z4r"/>
+                        <constraint firstItem="9hL-2s-p1z" firstAttribute="width" secondItem="rMg-iR-bTK" secondAttribute="width" multiplier="30:340" id="K4s-W8-eXa"/>
+                        <constraint firstItem="k8p-Li-XqV" firstAttribute="bottom" secondItem="rMg-iR-bTK" secondAttribute="bottom" constant="-5" id="NOi-wH-syg"/>
+                        <constraint firstAttribute="trailing" secondItem="rMg-iR-bTK" secondAttribute="trailing" id="PLe-SH-Obc"/>
+                        <constraint firstItem="9hL-2s-p1z" firstAttribute="leading" secondItem="059-pf-1Xo" secondAttribute="leading" constant="5" id="Po6-EQ-iRn"/>
+                        <constraint firstItem="9hL-2s-p1z" firstAttribute="top" secondItem="059-pf-1Xo" secondAttribute="top" constant="5" id="Q8s-nO-Kxk"/>
+                        <constraint firstItem="od2-hI-bnd" firstAttribute="leading" secondItem="059-pf-1Xo" secondAttribute="leading" id="QlO-31-T15"/>
+                        <constraint firstItem="od2-hI-bnd" firstAttribute="top" secondItem="rMg-iR-bTK" secondAttribute="bottom" constant="10" id="WtD-zJ-I52"/>
+                        <constraint firstItem="snZ-Wo-wkp" firstAttribute="centerY" secondItem="od2-hI-bnd" secondAttribute="centerY" id="YYj-OA-Mn0"/>
+                        <constraint firstItem="pd6-Du-pNs" firstAttribute="leading" secondItem="k8p-Li-XqV" secondAttribute="leading" id="cFT-vJ-RXo"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="k8p-Li-XqV" secondAttribute="trailing" constant="10" id="dMN-R6-PFX"/>
+                        <constraint firstItem="xxc-l0-UZA" firstAttribute="height" secondItem="rMg-iR-bTK" secondAttribute="height" id="e2w-AI-tXz"/>
+                        <constraint firstAttribute="width" secondItem="059-pf-1Xo" secondAttribute="height" multiplier="340:430" id="eRF-IQ-QV4"/>
+                        <constraint firstItem="rMg-iR-bTK" firstAttribute="leading" secondItem="059-pf-1Xo" secondAttribute="leading" id="eh4-zq-H0e"/>
+                        <constraint firstAttribute="bottom" secondItem="od2-hI-bnd" secondAttribute="bottom" id="gCm-pB-n8F"/>
+                        <constraint firstItem="rMg-iR-bTK" firstAttribute="height" secondItem="059-pf-1Xo" secondAttribute="height" multiplier="340:430" id="hZb-pt-HxV"/>
+                        <constraint firstItem="JFP-4A-txc" firstAttribute="centerX" secondItem="rMg-iR-bTK" secondAttribute="centerX" id="hfS-dm-gtj"/>
+                        <constraint firstItem="Mwq-Fr-laV" firstAttribute="leading" secondItem="k8p-Li-XqV" secondAttribute="trailing" constant="10" id="inG-yj-qHt"/>
+                        <constraint firstItem="Mwq-Fr-laV" firstAttribute="height" secondItem="k8p-Li-XqV" secondAttribute="height" id="oKr-TT-DSJ"/>
+                        <constraint firstAttribute="trailing" secondItem="Mwq-Fr-laV" secondAttribute="trailing" constant="5" id="qFg-OV-v9K"/>
+                        <constraint firstItem="snZ-Wo-wkp" firstAttribute="width" secondItem="059-pf-1Xo" secondAttribute="width" multiplier="36:340" id="qSe-Sq-xX3"/>
+                        <constraint firstItem="snZ-Wo-wkp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="od2-hI-bnd" secondAttribute="trailing" constant="20" id="u78-Fe-ch3"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1sY-2W-LHz" userLabel="2、右侧视频模块-View">
+                    <rect key="frame" x="192" y="5" width="170" height="215"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认视频.png" translatesAutoresizingMaskIntoConstraints="NO" id="1e6-9S-6Ah" userLabel="2.1-右侧视频背景-Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="视频播放按钮.png" translatesAutoresizingMaskIntoConstraints="NO" id="kGW-k0-p89" userLabel="2.2-右侧视频播放-Image View">
+                            <rect key="frame" x="47.5" y="47.5" width="75" height="75"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="kGW-k0-p89" secondAttribute="height" id="z75-yn-pnk"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ke-QL-Pzm" userLabel="2.9-右侧审核时黑色背景-Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016/10/31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="7fL-M7-M8e" userLabel="2.3-右侧视频时间-Label">
+                            <rect key="frame" x="5" y="150.5" width="110" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9.6M" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="8Sg-Xj-I6r" userLabel="2.4-右侧视频大小-Label">
+                            <rect key="frame" x="125" y="150.5" width="40" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NA4-GC-Tos" userLabel="2.5-右侧视频使用-Button">
+                            <rect key="frame" x="0.0" y="180" width="75" height="35"/>
+                            <state key="normal" title="使用" backgroundImage="注册底.png"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24q-2J-rz1" userLabel="2.6-右侧视频分享-Button">
+                            <rect key="frame" x="132" y="188.5" width="18" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="24q-2J-rz1" secondAttribute="height" id="bSP-XU-ycI"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="我的分享-.png"/>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vej-AK-ZJI" userLabel="2.7-右侧删除-Button">
+                            <rect key="frame" x="5" y="5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Vej-AK-ZJI" secondAttribute="height" id="HAa-bU-I4G"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="视频未选中.png"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="审核结果" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Knb-yS-xZh" userLabel="2.8-右侧审核结果-Label">
+                            <rect key="frame" x="5" y="131" width="110" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="1e6-9S-6Ah" firstAttribute="leading" secondItem="1sY-2W-LHz" secondAttribute="leading" id="05q-OV-s2c"/>
+                        <constraint firstItem="kGW-k0-p89" firstAttribute="centerY" secondItem="1e6-9S-6Ah" secondAttribute="centerY" id="2ke-Cb-16d"/>
+                        <constraint firstItem="Vej-AK-ZJI" firstAttribute="leading" secondItem="1sY-2W-LHz" secondAttribute="leading" constant="5" id="5t7-g5-eZr"/>
+                        <constraint firstItem="7fL-M7-M8e" firstAttribute="bottom" secondItem="1e6-9S-6Ah" secondAttribute="bottom" constant="-5" id="7e6-Zf-vv5"/>
+                        <constraint firstItem="kGW-k0-p89" firstAttribute="width" secondItem="1e6-9S-6Ah" secondAttribute="width" multiplier="150:340" id="Ar3-HR-Tra"/>
+                        <constraint firstAttribute="trailing" secondItem="24q-2J-rz1" secondAttribute="trailing" constant="20" id="CUX-8r-KDZ"/>
+                        <constraint firstItem="24q-2J-rz1" firstAttribute="width" secondItem="1sY-2W-LHz" secondAttribute="width" multiplier="36:340" id="DCN-gr-cWF"/>
+                        <constraint firstItem="3ke-QL-Pzm" firstAttribute="height" secondItem="1e6-9S-6Ah" secondAttribute="height" id="EF8-HV-Lsh"/>
+                        <constraint firstItem="NA4-GC-Tos" firstAttribute="top" secondItem="1e6-9S-6Ah" secondAttribute="bottom" constant="10" id="Etz-66-RsD"/>
+                        <constraint firstItem="3ke-QL-Pzm" firstAttribute="centerX" secondItem="1e6-9S-6Ah" secondAttribute="centerX" id="FZ2-yk-ejZ"/>
+                        <constraint firstItem="3ke-QL-Pzm" firstAttribute="width" secondItem="1e6-9S-6Ah" secondAttribute="width" id="G4b-hM-D1o"/>
+                        <constraint firstItem="8Sg-Xj-I6r" firstAttribute="centerY" secondItem="7fL-M7-M8e" secondAttribute="centerY" id="H59-pf-KfD"/>
+                        <constraint firstItem="7fL-M7-M8e" firstAttribute="top" secondItem="Knb-yS-xZh" secondAttribute="bottom" constant="5" id="H6p-1s-5Ax"/>
+                        <constraint firstAttribute="trailing" secondItem="8Sg-Xj-I6r" secondAttribute="trailing" constant="5" id="IRA-rd-uSk"/>
+                        <constraint firstItem="8Sg-Xj-I6r" firstAttribute="leading" secondItem="7fL-M7-M8e" secondAttribute="trailing" constant="10" id="N8l-Ef-9fR"/>
+                        <constraint firstItem="24q-2J-rz1" firstAttribute="centerY" secondItem="NA4-GC-Tos" secondAttribute="centerY" id="S7I-Pp-IaF"/>
+                        <constraint firstItem="Knb-yS-xZh" firstAttribute="width" secondItem="7fL-M7-M8e" secondAttribute="width" id="U70-4R-3FF"/>
+                        <constraint firstItem="Knb-yS-xZh" firstAttribute="height" secondItem="7fL-M7-M8e" secondAttribute="height" id="UTY-gR-eUZ"/>
+                        <constraint firstItem="24q-2J-rz1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NA4-GC-Tos" secondAttribute="trailing" constant="20" id="Ux8-kq-BEa"/>
+                        <constraint firstAttribute="bottom" secondItem="NA4-GC-Tos" secondAttribute="bottom" id="XYN-RE-kJd"/>
+                        <constraint firstItem="kGW-k0-p89" firstAttribute="centerX" secondItem="1e6-9S-6Ah" secondAttribute="centerX" id="YMB-SE-ipB"/>
+                        <constraint firstItem="8Sg-Xj-I6r" firstAttribute="height" secondItem="7fL-M7-M8e" secondAttribute="height" id="bbL-qR-bfC"/>
+                        <constraint firstItem="Knb-yS-xZh" firstAttribute="leading" secondItem="7fL-M7-M8e" secondAttribute="leading" id="clv-p9-3Lm"/>
+                        <constraint firstItem="NA4-GC-Tos" firstAttribute="leading" secondItem="1sY-2W-LHz" secondAttribute="leading" id="dp5-Ee-iFg"/>
+                        <constraint firstItem="7fL-M7-M8e" firstAttribute="leading" secondItem="1e6-9S-6Ah" secondAttribute="leading" constant="5" id="fAY-rx-Ysq"/>
+                        <constraint firstItem="1e6-9S-6Ah" firstAttribute="top" secondItem="1sY-2W-LHz" secondAttribute="top" id="gSv-vP-DFm"/>
+                        <constraint firstItem="7fL-M7-M8e" firstAttribute="width" secondItem="1sY-2W-LHz" secondAttribute="width" multiplier="220:340" id="grY-8n-Ok4"/>
+                        <constraint firstItem="3ke-QL-Pzm" firstAttribute="top" secondItem="1e6-9S-6Ah" secondAttribute="top" id="hv6-9g-X8c"/>
+                        <constraint firstAttribute="trailing" secondItem="1e6-9S-6Ah" secondAttribute="trailing" id="pBg-8t-PAs"/>
+                        <constraint firstItem="Vej-AK-ZJI" firstAttribute="top" secondItem="1sY-2W-LHz" secondAttribute="top" multiplier="30:340" constant="5" id="pC8-rf-2qy"/>
+                        <constraint firstItem="Vej-AK-ZJI" firstAttribute="width" secondItem="1e6-9S-6Ah" secondAttribute="width" multiplier="30:340" id="q0N-Bv-R2n"/>
+                        <constraint firstItem="1e6-9S-6Ah" firstAttribute="height" secondItem="1sY-2W-LHz" secondAttribute="height" multiplier="340:430" id="ttw-Yi-cG2"/>
+                        <constraint firstItem="NA4-GC-Tos" firstAttribute="width" secondItem="1sY-2W-LHz" secondAttribute="width" multiplier="150:340" id="ut5-yC-rtR"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注：视频最多上传两个，上传新视频未使用旧视频清除" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="o9c-CT-bwZ" userLabel="3、注意事项-Label">
+                    <rect key="frame" x="13" y="235" width="349" height="12"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UH-Od-dcf" userLabel="4、手机视频-Button">
+                    <rect key="frame" x="37.5" y="277" width="300" height="44"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="上传视频" backgroundImage="完成激活.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dI-3Z-RVR" userLabel="5、拍视频=Button">
+                    <rect key="frame" x="37.5" y="332" width="300" height="44"/>
+                    <state key="normal" title="拍视频">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="1sY-2W-LHz" firstAttribute="centerY" secondItem="059-pf-1Xo" secondAttribute="centerY" id="07v-Mf-nRa"/>
+                <constraint firstItem="7UH-Od-dcf" firstAttribute="centerX" secondItem="ymg-3m-92a" secondAttribute="centerX" id="1WQ-eq-eFY"/>
+                <constraint firstItem="o9c-CT-bwZ" firstAttribute="top" secondItem="059-pf-1Xo" secondAttribute="bottom" constant="15" id="2SO-1h-EVq"/>
+                <constraint firstItem="059-pf-1Xo" firstAttribute="top" secondItem="ymg-3m-92a" secondAttribute="top" constant="5" id="45K-g4-9Rj"/>
+                <constraint firstItem="1sY-2W-LHz" firstAttribute="height" secondItem="059-pf-1Xo" secondAttribute="height" id="CxG-U0-Mmy"/>
+                <constraint firstItem="1sY-2W-LHz" firstAttribute="width" secondItem="059-pf-1Xo" secondAttribute="width" id="DJM-La-vve"/>
+                <constraint firstItem="o9c-CT-bwZ" firstAttribute="trailing" secondItem="1sY-2W-LHz" secondAttribute="trailing" id="DKF-iH-jb9"/>
+                <constraint firstItem="o9c-CT-bwZ" firstAttribute="height" secondItem="ymg-3m-92a" secondAttribute="height" multiplier="24:1246" id="Dem-Gv-S7j"/>
+                <constraint firstItem="7UH-Od-dcf" firstAttribute="top" secondItem="o9c-CT-bwZ" secondAttribute="bottom" constant="30" id="GgH-MG-5iO"/>
+                <constraint firstItem="o9c-CT-bwZ" firstAttribute="leading" secondItem="059-pf-1Xo" secondAttribute="leading" id="I5u-Nj-THC"/>
+                <constraint firstItem="059-pf-1Xo" firstAttribute="leading" secondItem="ymg-3m-92a" secondAttribute="leading" constant="13" id="Ig9-1q-oVe"/>
+                <constraint firstItem="1dI-3Z-RVR" firstAttribute="height" secondItem="7UH-Od-dcf" secondAttribute="height" id="Oj4-w0-t6I"/>
+                <constraint firstAttribute="trailing" secondItem="1sY-2W-LHz" secondAttribute="trailing" constant="13" id="Ptn-b1-doM"/>
+                <constraint firstItem="1dI-3Z-RVR" firstAttribute="width" secondItem="7UH-Od-dcf" secondAttribute="width" id="U51-E4-x0f"/>
+                <constraint firstItem="7UH-Od-dcf" firstAttribute="width" secondItem="ymg-3m-92a" secondAttribute="width" multiplier="600:750" id="bYk-gR-p75"/>
+                <constraint firstItem="1dI-3Z-RVR" firstAttribute="centerX" secondItem="7UH-Od-dcf" secondAttribute="centerX" id="c0O-bC-acv"/>
+                <constraint firstItem="7UH-Od-dcf" firstAttribute="height" secondItem="ymg-3m-92a" secondAttribute="height" multiplier="88:1246" id="kEy-hC-j3A"/>
+                <constraint firstItem="1sY-2W-LHz" firstAttribute="leading" secondItem="059-pf-1Xo" secondAttribute="trailing" constant="9" id="od4-tz-Gdm"/>
+                <constraint firstItem="1dI-3Z-RVR" firstAttribute="top" secondItem="7UH-Od-dcf" secondAttribute="bottom" constant="11" id="xII-Ao-OXl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="leftVideoAuditStatusLab" destination="pd6-Du-pNs" id="hU4-W7-gwl"/>
+                <outlet property="leftVideoBackImgView" destination="rMg-iR-bTK" id="Y8F-E8-B9H"/>
+                <outlet property="leftVideoBlackImgView" destination="xxc-l0-UZA" id="WHt-uf-Fas"/>
+                <outlet property="leftVideoDeleteBtn" destination="9hL-2s-p1z" id="HM4-tK-Gmw"/>
+                <outlet property="leftVideoPlayImgView" destination="JFP-4A-txc" id="eUV-9x-B6X"/>
+                <outlet property="leftVideoShareBtn" destination="snZ-Wo-wkp" id="hh5-0F-43a"/>
+                <outlet property="leftVideoSizeLab" destination="Mwq-Fr-laV" id="17p-pU-Bbl"/>
+                <outlet property="leftVideoTimeLab" destination="k8p-Li-XqV" id="QSe-b1-bxd"/>
+                <outlet property="leftVideoUseBtn" destination="od2-hI-bnd" id="Kt7-zK-zZ0"/>
+                <outlet property="rightVideoAuditStatusLab" destination="Knb-yS-xZh" id="qbi-W8-C1d"/>
+                <outlet property="rightVideoBackImgView" destination="1e6-9S-6Ah" id="9Jj-Fl-baq"/>
+                <outlet property="rightVideoBlackImgView" destination="3ke-QL-Pzm" id="QF6-4I-L9N"/>
+                <outlet property="rightVideoDeleteBtn" destination="Vej-AK-ZJI" id="lC3-5M-bIB"/>
+                <outlet property="rightVideoPlayImgView" destination="kGW-k0-p89" id="hwC-F6-haR"/>
+                <outlet property="rightVideoShareBtn" destination="24q-2J-rz1" id="Nm7-qa-0YJ"/>
+                <outlet property="rightVideoSizeLab" destination="8Sg-Xj-I6r" id="vVz-GT-Ny7"/>
+                <outlet property="rightVideoTimeLab" destination="7fL-M7-M8e" id="4pN-7h-T1U"/>
+                <outlet property="rightVideoUseBtn" destination="NA4-GC-Tos" id="3UJ-Nx-3Mb"/>
+                <outlet property="uploadPhoneVideoBtn" destination="7UH-Od-dcf" id="443-A1-KF5"/>
+                <outlet property="uploadPlayVideoBtn" destination="1dI-3Z-RVR" id="Lt2-tn-LOP"/>
+            </connections>
+            <point key="canvasLocation" x="309.5" y="-100.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="完成激活.png" width="300" height="44"/>
+        <image name="我的分享-.png" width="18" height="18"/>
+        <image name="注册底.png" width="300" height="44"/>
+        <image name="视频播放按钮.png" width="75" height="75"/>
+        <image name="视频未选中.png" width="16" height="16"/>
+        <image name="默认视频.png" width="170" height="170"/>
+    </resources>
+</document>

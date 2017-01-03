@@ -1,0 +1,46 @@
+//
+//  PCH.pch
+//  NZNYiOS
+//
+//  Created by 男左女右 on 16/8/17.
+//  Copyright © 2016年 NZNY. All rights reserved.
+//
+
+#ifndef PCH_pch
+#define PCH_pch
+
+#import <UIKit/UIKit.h>
+
+#import "UIImage+CYImage.h"
+
+
+// 验证码SDK
+#import <SMS_SDK/SMSSDK.h>
+
+// 网络
+#import "AFNetworking.h"
+
+// 提示框
+#import "MBProgressHUD.h"
+
+// 自定义类
+#import "CYUtilities.h"
+
+// 网络接口
+#import "NetInterFace.h"
+
+// 网络请求
+#import "CYNetWorkManager.h"
+
+// 用户单例
+#include "CYUser.h"
+
+
+#define cScreen_Width [UIScreen mainScreen].bounds.size.width
+#define cScreen_Height [UIScreen mainScreen].bounds.size.height
+
+
+
+
+
+#endif

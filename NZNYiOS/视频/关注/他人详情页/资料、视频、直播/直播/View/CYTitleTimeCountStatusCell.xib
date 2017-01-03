@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="KGk-i7-Jjw" customClass="CYTitleTimeCountStatusCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOg-lv-3QH" userLabel="1.标题、时间-View">
+                        <rect key="frame" x="21" y="10" width="116.5" height="23.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# 预谋邂逅预谋邂逅 #" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="xqT-n2-2Ud" userLabel="1.1-标题-Label">
+                                <rect key="frame" x="0.0" y="0.0" width="116.5" height="11.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016/09/01 08:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Un0-9g-DlV" userLabel="1.2-时间-Label">
+                                <rect key="frame" x="0.0" y="13.5" width="116.5" height="10"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="0.79991227388381958" green="0.80005055665969849" blue="0.7999035120010376" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="hOg-lv-3QH" secondAttribute="height" multiplier="236:48" id="8On-cs-a7o"/>
+                            <constraint firstItem="xqT-n2-2Ud" firstAttribute="height" secondItem="Un0-9g-DlV" secondAttribute="height" multiplier="24:20" id="Bhl-ZQ-GLp"/>
+                            <constraint firstItem="xqT-n2-2Ud" firstAttribute="top" secondItem="hOg-lv-3QH" secondAttribute="top" id="FNC-aw-3h6"/>
+                            <constraint firstAttribute="trailing" secondItem="Un0-9g-DlV" secondAttribute="trailing" id="JB9-GD-305"/>
+                            <constraint firstItem="xqT-n2-2Ud" firstAttribute="leading" secondItem="hOg-lv-3QH" secondAttribute="leading" id="Zqb-mQ-v2E"/>
+                            <constraint firstAttribute="bottom" secondItem="Un0-9g-DlV" secondAttribute="bottom" id="cPj-I7-Mzd"/>
+                            <constraint firstItem="Un0-9g-DlV" firstAttribute="top" secondItem="xqT-n2-2Ud" secondAttribute="bottom" constant="2" id="j4x-qX-14X"/>
+                            <constraint firstAttribute="trailing" secondItem="xqT-n2-2Ud" secondAttribute="trailing" id="m4o-kl-8Fb"/>
+                            <constraint firstItem="Un0-9g-DlV" firstAttribute="leading" secondItem="hOg-lv-3QH" secondAttribute="leading" id="x4Z-wz-m8U"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在直播" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6E-KO-hIH" userLabel="3.直播状态-Label">
+                        <rect key="frame" x="287" y="16" width="50" height="12.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="e6E-KO-hIH" secondAttribute="height" multiplier="4" id="9Hf-aR-Inc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Right-.png" translatesAutoresizingMaskIntoConstraints="NO" id="h1L-al-WdI" userLabel="4.下一页背景-Image View">
+                        <rect key="frame" x="345" y="14" width="9" height="15.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="h1L-al-WdI" secondAttribute="height" multiplier="18:32" id="JJq-xF-tXh"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.2 万观看" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZ0-d8-pyL" userLabel="2.观看人数-Label">
+                        <rect key="frame" x="214" y="17" width="49" height="10"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="h1L-al-WdI" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="32:88" id="5Y8-bO-ber"/>
+                    <constraint firstItem="e6E-KO-hIH" firstAttribute="leading" secondItem="FZ0-d8-pyL" secondAttribute="trailing" constant="24" id="Hmw-1n-2OH"/>
+                    <constraint firstItem="hOg-lv-3QH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RVR-iG-vsh"/>
+                    <constraint firstItem="hOg-lv-3QH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="Rgl-LP-YFW"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="h1L-al-WdI" secondAttribute="trailing" constant="13" id="UXp-pW-6Ed"/>
+                    <constraint firstItem="e6E-KO-hIH" firstAttribute="centerY" secondItem="h1L-al-WdI" secondAttribute="centerY" id="gfq-V6-J9U"/>
+                    <constraint firstItem="e6E-KO-hIH" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:750" id="jOD-mk-5jm"/>
+                    <constraint firstItem="FZ0-d8-pyL" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="20:88" id="lcj-q1-x6M"/>
+                    <constraint firstItem="FZ0-d8-pyL" firstAttribute="centerY" secondItem="e6E-KO-hIH" secondAttribute="centerY" id="orP-sv-86f"/>
+                    <constraint firstItem="hOg-lv-3QH" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="48:88" id="rLq-rm-he4"/>
+                    <constraint firstItem="h1L-al-WdI" firstAttribute="leading" secondItem="e6E-KO-hIH" secondAttribute="trailing" constant="8" id="thS-8B-qG5"/>
+                    <constraint firstItem="h1L-al-WdI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vFK-Wq-hrJ"/>
+                    <constraint firstItem="FZ0-d8-pyL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hOg-lv-3QH" secondAttribute="trailing" constant="24" id="vpP-et-iBu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="liveStartTimeLab" destination="Un0-9g-DlV" id="O69-L7-cXY"/>
+                <outlet property="liveStatusLab" destination="e6E-KO-hIH" id="XI4-mi-NwQ"/>
+                <outlet property="liveWatchCountLab" destination="FZ0-d8-pyL" id="GGR-Pu-aOo"/>
+                <outlet property="nextPageImgView" destination="h1L-al-WdI" id="UB1-Fb-91k"/>
+                <outlet property="titleLab" destination="xqT-n2-2Ud" id="HYa-mI-KTg"/>
+            </connections>
+            <point key="canvasLocation" x="54" y="87"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Right-.png" width="9" height="16"/>
+    </resources>
+</document>
