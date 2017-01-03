@@ -441,6 +441,7 @@
             NSLog(@"获取直播地址：推流：获取成功！");
             NSLog(@"获取直播地址：推流：%@",responseObject);
             
+            [self hidenLoadingView];
             
                 // 阿里直播推流详情页
             //    NSString *newUrl = @"rtmp://video-center.alivecdn.com/AppName/StreamName?vhost=live.nznychina.com";

@@ -558,6 +558,11 @@
 		8AF502481D8CEC7600115F7C /* CYForgetPSMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF502471D8CEC7600115F7C /* CYForgetPSMainView.xib */; };
 		8AF5024E1D8D280300115F7C /* CYPerfectInfoMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5024D1D8D280300115F7C /* CYPerfectInfoMainView.m */; };
 		8AF502501D8D281400115F7C /* CYPerfectInfoMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AF5024F1D8D281400115F7C /* CYPerfectInfoMainView.xib */; };
+		8AF58DF01E1B8A8000D523D3 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8AF58DEE1E1B8A8000D523D3 /* AlipaySDK.bundle */; };
+		8AF58DF11E1B8A8000D523D3 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF58DEF1E1B8A8000D523D3 /* AlipaySDK.framework */; };
+		8AF58DF31E1B8B0B00D523D3 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF58DF21E1B8B0B00D523D3 /* CoreText.framework */; };
+		8AF58DF51E1B8B4000D523D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF58DF41E1B8B4000D523D3 /* Foundation.framework */; };
+		8AF58DF71E1B8B5100D523D3 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF58DF61E1B8B5100D523D3 /* CoreMotion.framework */; };
 		8AF60FE51E14A9CF00D29E85 /* heart2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF60FE41E14A9CF00D29E85 /* heart2@2x.png */; };
 		8AF60FF21E14AA1200D29E85 /* heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF60FE61E14AA1200D29E85 /* heart@2x.png */; };
 		8AF60FF31E14AA1200D29E85 /* heart0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AF60FE71E14AA1200D29E85 /* heart0@2x.png */; };
@@ -1485,6 +1490,11 @@
 		8AF5024C1D8D280300115F7C /* CYPerfectInfoMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPerfectInfoMainView.h; sourceTree = "<group>"; };
 		8AF5024D1D8D280300115F7C /* CYPerfectInfoMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPerfectInfoMainView.m; sourceTree = "<group>"; };
 		8AF5024F1D8D281400115F7C /* CYPerfectInfoMainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYPerfectInfoMainView.xib; sourceTree = "<group>"; };
+		8AF58DEE1E1B8A8000D523D3 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		8AF58DEF1E1B8A8000D523D3 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		8AF58DF21E1B8B0B00D523D3 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		8AF58DF41E1B8B4000D523D3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8AF58DF61E1B8B5100D523D3 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		8AF60FE41E14A9CF00D29E85 /* heart2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart2@2x.png"; sourceTree = "<group>"; };
 		8AF60FE61E14AA1200D29E85 /* heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart@2x.png"; sourceTree = "<group>"; };
 		8AF60FE71E14AA1200D29E85 /* heart0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart0@2x.png"; sourceTree = "<group>"; };
@@ -1605,6 +1615,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF58DF11E1B8A8000D523D3 /* AlipaySDK.framework in Frameworks */,
+				8AF58DF71E1B8B5100D523D3 /* CoreMotion.framework in Frameworks */,
+				8AF58DF51E1B8B4000D523D3 /* Foundation.framework in Frameworks */,
+				8AF58DF31E1B8B0B00D523D3 /* CoreText.framework in Frameworks */,
 				8ACADE9C1DD6F51F00560CF4 /* OpenGLES.framework in Frameworks */,
 				8AFA3A541DACC2D5001880C9 /* libz.tbd in Frameworks */,
 				8A7AA5361DCDCA6500285F05 /* CoreTelephony.framework in Frameworks */,
@@ -4510,6 +4524,7 @@
 		8AE1E1C51D8E648B00B30438 /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				8AF58DED1E1B8A8000D523D3 /* 支付宝_SDK */,
 				8AA222BD1DF3C8C100A6E5D2 /* 阿里云_SDK */,
 				8A0CC3201DDFF1BB00362190 /* 融云_SDK_2.8.1 */,
 				8A7AA5281DCDC98000285F05 /* 微信_SDK */,
@@ -4833,6 +4848,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8AF58DED1E1B8A8000D523D3 /* 支付宝_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				8AF58DEE1E1B8A8000D523D3 /* AlipaySDK.bundle */,
+				8AF58DEF1E1B8A8000D523D3 /* AlipaySDK.framework */,
+			);
+			path = "支付宝_SDK";
+			sourceTree = "<group>";
+		};
 		8AF7DB661DAA206F00C7DF63 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -4854,6 +4878,9 @@
 		8AFA3A521DACC2D5001880C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AF58DF61E1B8B5100D523D3 /* CoreMotion.framework */,
+				8AF58DF41E1B8B4000D523D3 /* Foundation.framework */,
+				8AF58DF21E1B8B0B00D523D3 /* CoreText.framework */,
 				8AA416401E0130F8004E5EA1 /* VideoToolbox.framework */,
 				8AA222C31DF3FF1300A6E5D2 /* AliyunPlayerSDK.framework */,
 				8ACADEA11DD6F53F00560CF4 /* Photos.framework */,
@@ -5215,6 +5242,7 @@
 				8ACE88D51E08DAB7000CC72B /* 女士未选@3x.png in Resources */,
 				8AFC658B1DE934D700EADFB6 /* 换钱.png in Resources */,
 				8A0981FB1D7EA6DB003C8302 /* Right-@2x.png in Resources */,
+				8AF58DF01E1B8A8000D523D3 /* AlipaySDK.bundle in Resources */,
 				8A0CC3501DE03E9A00362190 /* 直播预告.png in Resources */,
 				8AFC65801DE92D2300EADFB6 /* 一支底@2x.png in Resources */,
 				8ACE89001E08DBAF000CC72B /* 视频@3x.png in Resources */,
@@ -5879,7 +5907,9 @@
 					"$(PROJECT_DIR)/NZNYiOS/libs/阿里云_SDK/阿里云_视频播放器SDK",
 					"$(PROJECT_DIR)/NZNYiOS/libs/阿里云_SDK",
 					"$(PROJECT_DIR)/NZNYiOS/libs/阿里云_SDK/阿里云_视频直播SDK",
+					"$(PROJECT_DIR)/NZNYiOS/libs/支付宝_SDK",
 				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/nzny";
 				INFOPLIST_FILE = NZNYiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -5919,7 +5949,9 @@
 					"$(PROJECT_DIR)/NZNYiOS/libs/阿里云_SDK/阿里云_视频播放器SDK",
 					"$(PROJECT_DIR)/NZNYiOS/libs/阿里云_SDK",
 					"$(PROJECT_DIR)/NZNYiOS/libs/阿里云_SDK/阿里云_视频直播SDK",
+					"$(PROJECT_DIR)/NZNYiOS/libs/支付宝_SDK",
 				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/nzny";
 				INFOPLIST_FILE = NZNYiOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

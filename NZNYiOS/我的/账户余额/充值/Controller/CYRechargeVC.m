@@ -8,6 +8,11 @@
 
 #import "CYRechargeVC.h"
 
+
+// 支付宝SDK
+#import <AlipaySDK/AlipaySDK.h>
+
+
 @interface CYRechargeVC ()
 
 

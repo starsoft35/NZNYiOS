@@ -51,7 +51,7 @@
 - (void)closeBtnClick{
     NSLog(@"// 关闭：点击事件");
     
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

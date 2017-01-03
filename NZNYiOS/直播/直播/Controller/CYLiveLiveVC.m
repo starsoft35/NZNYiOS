@@ -220,7 +220,7 @@
                              @"token":self.onlyUser.userToken
                              };
     
-    //    [self showLoadingView];
+    [self showLoadingView];
     
     // 获取 请求管理类 对象
     //        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
