@@ -583,13 +583,15 @@
             NSLog(@"获取用户在融云的token：获取成功！");
             NSLog(@"获取用户在融云的token：%@",responseObject);
             
-//            NSString *rongToken = responseObject[@"res"][@"data"][@"rongToken"];
+            NSString *rongToken = responseObject[@"res"][@"data"][@"rongToken"];
             
             // 张
 //            NSString *rongToken = @"zgCNXiP/62lr5pXORE67srHIHFwdwGnJW2MDqrF5Ircl4YscTNyXhI3Vzxrp3/NyTXwSNrzIgzYzv4bk07wAT1/Zo5L7SGb1Ze4k30upkAJWWqqCQKRhihV/1StAMQGClpa8fh+ptCw=";
             
             // 陈
-            NSString *rongToken = @"6pmtKgVJTdRa3Dspk8HK65G9QNwaviwLSzaRfvRwsqHFxClCT3mDQXMeZ0r/1J+V4joLMAwDhHKnj4sOrB3PtcQLqxcLBIeBn9TFPeFy3bq8Z9Vnd8sqL6asCG/Y4rULWDSNIP5Z+Jk=";
+//            NSString *rongToken = @"6pmtKgVJTdRa3Dspk8HK65G9QNwaviwLSzaRfvRwsqHFxClCT3mDQXMeZ0r/1J+V4joLMAwDhHKnj4sOrB3PtcQLqxcLBIeBn9TFPeFy3bq8Z9Vnd8sqL6asCG/Y4rULWDSNIP5Z+Jk=";
+            
+            NSLog(@"rongToken:%@",rongToken);
             
             // 融云：SDK-初始化：整个生命周期，只初始化一次
             // Kit：初始化

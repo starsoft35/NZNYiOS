@@ -9,6 +9,10 @@
 #import "CYRechargeVC.h"
 
 
+// 微信登录SDK：API
+#import "WXApi.h"
+
+
 // 支付宝SDK
 #import <AlipaySDK/AlipaySDK.h>
 
@@ -108,6 +112,9 @@
         if (isWechat) {
             NSLog(@"当前为：微信支付");
             
+            // 微信支付
+            [self WXPay];
+            
         }
         // 否则，选择的是支付宝支付：
         else {
@@ -118,6 +125,32 @@
     }
     
 }
+
+
+// 微信支付
+- (void)WXPay{
+    
+    // 向微信注册
+//    [WXApi registerApp:cWXAppID withDescription:@"nzny:1.4"];
+    
+//    PayReq *request = [[[PayReq alloc] init] autorelease];
+    PayReq *request = [[PayReq alloc] init];
+    request.partnerId = @"10000100";
+    request.prepayId= @"1101000000140415649af9fc314aa427";
+    request.package = @"Sign=WXPay";
+    request.nonceStr= @"a462b76e7436e98e0ed6e13c64b4fd1c";
+    request.timeStamp= (1397527777);
+    request.sign= @"582282D72DD2B03AD892830965F428CB16E7A256";
+    [WXApi sendReq:request];
+    
+    
+#warning 现在提示错误：APPID未关联PaySignKey：
+    // APPID未关联PaySignKey
+    
+    
+}
+
+// 支付宝支付
 
 
 

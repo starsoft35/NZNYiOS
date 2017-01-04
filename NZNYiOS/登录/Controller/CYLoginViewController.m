@@ -237,6 +237,8 @@
 - (void)weChatLoginBtnClick{
     NSLog(@"微信登录button：点击事件");
     
+//    [WXApi registerApp:cWXAppID];
+    
     // 授权登录：构造SendAuthReq结构体
     SendAuthReq *req = [[SendAuthReq alloc] init];
     

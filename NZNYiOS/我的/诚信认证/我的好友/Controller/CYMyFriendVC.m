@@ -21,7 +21,7 @@
 // 聊天界面
 #import "CYChatVC.h"
 
-// 支付宝：SDK
+
 
 
 @interface CYMyFriendVC ()

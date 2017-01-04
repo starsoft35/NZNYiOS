@@ -130,7 +130,7 @@
             //            [self hidenLoadingView];
             
             
-            NSString * tempMoneyStr = responseObject[@"res"][@"data"][@"userinfo"][@"Money"];
+            NSString * tempMoneyStr = responseObject[@"res"][@"data"][@"money"];
             float tempMoney = [tempMoneyStr floatValue];
             
             // 如果余额够支付，则赞、支付

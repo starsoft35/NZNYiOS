@@ -883,7 +883,7 @@
             
             
             // 请求数据结束，取消加载
-            [self hidenLoadingView];
+//            [self hidenLoadingView];
             
 #warning 点赞成功，发送消息到聊天列表
             

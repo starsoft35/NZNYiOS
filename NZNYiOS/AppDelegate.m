@@ -40,6 +40,10 @@
 
 @implementation AppDelegate
 
+{
+    // 是否第一次登录
+    BOOL _isFirstLogin;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -105,8 +109,16 @@
     currentUser.userAccount = user.userAccount;
     currentUser.userPSW = user.userPSW;
     
-#warning 暂时定为每次登陆都做重新登陆，重新获取token
-    [self tempLoginRequestWithUserAccount:currentUser.userAccount andUserPSW:currentUser.userPSW];
+    // 暂时定为每次登陆都做重新登陆，重新获取token，如果是微信登录，则不让其用账号密码重新登录。
+    if (currentUser.userAccount != nil && currentUser.userPSW != nil) {
+        
+        
+        // 账号、密码：重新登录
+        [self tempLoginRequestWithUserAccount:currentUser.userAccount andUserPSW:currentUser.userPSW];
+        
+        // 微信：重新登录
+        [self weChatLoginRequestAgain];
+    }
     
     NSLog(@"userAccount:%@",user.userAccount);
     NSLog(@"userToken:%@",user.userToken);
@@ -115,6 +127,21 @@
     
 }
 
+// 微信：重新登录，重新获取token
+- (void)weChatLoginRequestAgain{
+    
+    // 授权登录：构造SendAuthReq结构体
+    SendAuthReq *req = [[SendAuthReq alloc] init];
+    
+    req.scope = cWXScope;
+    req.state = cWXState;
+    
+    //第三方向微信终端发送一个SendAuthReq消息结构
+    [WXApi sendReq:req];
+}
+
+
+// // 账号、密码：重新登录，重新获取token
 - (void)tempLoginRequestWithUserAccount:(NSString *)userAccount andUserPSW:(NSString *)userPSW{
     
     // 拼接参数
@@ -238,7 +265,8 @@
 - (void)onReq:(BaseReq *)req{
     NSLog(@"onReq:");
     NSLog(@"微信登录button：点击事件：req：%@",req);
-
+    
+    
     // onReq是微信终端向第三方程序发起请求，要求第三方程序响应。第三方程序响应完后必须调用sendRsp返回。在调用sendRsp返回时，会切回到微信终端程序界面。
 }
 - (void)onResp:(BaseResp *)resp{
@@ -246,6 +274,7 @@
     
     // 第三方程序向微信发送了sendReq的请求，那么onResp会被回调。sendReq请求调用后，会切到微信终端程序界面
     
+    // 授权第三方登录：
     if ([resp isKindOfClass:[SendAuthResp class]]) {
         
         // 授权，则发送sendAuthResp
@@ -257,6 +286,25 @@
         // 网络请求：微信登录接口（把code发送给自己服务器，服务器返回token）
         [self weChatLoginRequestWithCode:tempresp.code];
         
+    }
+    
+    
+    // 微信支付:    
+    if ([resp isKindOfClass:[PayResp class]]) {
+        
+        PayResp *response = (PayResp *)resp;
+        switch (response.errCode) {
+            case WXSuccess:
+                
+                // 服务器端查询支付通知或查询API返回的结果再提示成功
+                NSLog(@"支付成功！");
+                break;
+                
+            default:
+                
+                NSLog(@"支付失败，retcode=%d",resp.errCode);
+                break;
+        }
     }
     
 }
@@ -289,9 +337,9 @@
             
             
             // 是否第一次登录
-            BOOL isFirstLogin = responseObject[@"res"][@"isFirstLogin"];
+            _isFirstLogin = responseObject[@"res"][@"isFirstLogin"];
             
-            if (isFirstLogin) {
+            if (_isFirstLogin) {
                 NSLog(@"微信登录：是第一次登录");
                 
                 // 完善信息
