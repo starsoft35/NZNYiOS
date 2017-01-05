@@ -13,8 +13,8 @@
 // 个人信息：模型
 #import "CYUserInfoModel.h"
 
-// 定位需要导入这个头文件。并实现代理
-#import <CoreLocation/CoreLocation.h>
+//// 定位需要导入这个头文件。并实现代理
+//#import <CoreLocation/CoreLocation.h>
 
 // 融云：SDK-初始化
 #import "RCDLive.h"
@@ -25,13 +25,15 @@
 // 阿里播放器：初始化
 #import <AliyunPlayerSDK/AliyunPlayerSDK.h>
 
-@interface CYMainTabBarController : UITabBarController<CLLocationManagerDelegate,
+@interface CYMainTabBarController : UITabBarController<
+//CLLocationManagerDelegate,
 RCIMUserInfoDataSource,
 RCIMGroupInfoDataSource,
 RCIMReceiveMessageDelegate,
 RCIMClientReceiveMessageDelegate,
 RCConnectionStatusChangeDelegate,
-UINavigationControllerDelegate,AliVcAccessKeyProtocol>
+UINavigationControllerDelegate,
+AliVcAccessKeyProtocol>
 
 
 

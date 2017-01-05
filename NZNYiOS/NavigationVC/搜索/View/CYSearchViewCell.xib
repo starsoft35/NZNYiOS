@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,7 +43,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWC-7e-BK6" userLabel="2.1-姓名、性别、年龄-View">
                             <rect key="frame" x="0.0" y="0.0" width="192" height="13.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张小小小" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="I7p-dj-HEL" userLabel="2.1.1-姓名-Label">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张小小小" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="I7p-dj-HEL" userLabel="2.1.1-姓名-Label">
                                     <rect key="frame" x="0.0" y="0.0" width="54.5" height="13.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="I7p-dj-HEL" secondAttribute="height" multiplier="4:1" id="2aj-kg-GMI"/>
@@ -52,7 +52,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18岁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ly3-Vc-RzF" userLabel="2.1.3-年龄-Label">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18岁" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Ly3-Vc-RzF" userLabel="2.1.3-年龄-Label">
                                     <rect key="frame" x="95" y="0.0" width="97" height="13.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,7 +81,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lc0-bP-wsh" userLabel="2.2-诚信等级-View">
                             <rect key="frame" x="0.0" y="28.5" width="192" height="11"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="诚信等级：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="ZDT-Qm-QAL" userLabel="2.2.1-诚信等级-Label">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="诚信等级：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="ZDT-Qm-QAL" userLabel="2.2.1-诚信等级-Label">
                                     <rect key="frame" x="0.0" y="0.0" width="66" height="11"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="ZDT-Qm-QAL" secondAttribute="height" multiplier="6:1" id="URf-Wi-7Qj"/>
@@ -138,7 +138,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVb-uH-UE3" userLabel="2.3-爱情宣言-View">
                             <rect key="frame" x="0.0" y="54.5" width="192" height="10.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预谋邂逅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="29w-y3-uGb" userLabel="2.3.1-爱情宣言-Label">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预谋邂逅" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29w-y3-uGb" userLabel="2.3.1-爱情宣言-Label">
                                     <rect key="frame" x="0.0" y="0.0" width="192" height="10.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -196,6 +196,7 @@
                 <constraint firstItem="lBj-Fb-acZ" firstAttribute="height" secondItem="D0s-QN-7Da" secondAttribute="height" multiplier="130:190" id="JfF-KH-iLH"/>
                 <constraint firstItem="H6d-G3-Ioy" firstAttribute="centerY" secondItem="lBj-Fb-acZ" secondAttribute="centerY" id="Jz2-J9-Chv"/>
                 <constraint firstItem="lBj-Fb-acZ" firstAttribute="leading" secondItem="YJ6-XH-hsH" secondAttribute="trailing" constant="15" id="LIh-06-JQq"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lBj-Fb-acZ" secondAttribute="trailing" constant="13" id="Q1E-yq-hJV"/>
                 <constraint firstItem="lBj-Fb-acZ" firstAttribute="centerY" secondItem="YJ6-XH-hsH" secondAttribute="centerY" id="baP-Bh-PMt"/>
                 <constraint firstItem="YJ6-XH-hsH" firstAttribute="centerY" secondItem="D0s-QN-7Da" secondAttribute="centerY" id="jr0-Fn-Mtv"/>
                 <constraint firstItem="YJ6-XH-hsH" firstAttribute="height" secondItem="D0s-QN-7Da" secondAttribute="height" multiplier="150:190" id="smN-Xo-yqP"/>

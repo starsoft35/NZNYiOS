@@ -63,9 +63,9 @@
 
 @property (nonatomic,assign)int flag;
 
-
-// 定位
-@property (nonatomic,strong) CLLocationManager *locationManager;
+//
+//// 定位
+//@property (nonatomic,strong) CLLocationManager *locationManager;
 
 
 
@@ -89,7 +89,7 @@
     if (currentUser.userToken != nil) {
         
         // 定位：获取位置信息，地理位置编码、反编码
-        [self getLocationManager];
+//        [self getLocationManager];
     }
     
     
@@ -151,156 +151,156 @@
 
 
 // 定位：获取位置信息，地理位置编码、反编码
-- (void)getLocationManager{
-    
-    // 实例化：定位管理者
-    self.locationManager = [[CLLocationManager alloc] init];
-    
-    // 问用户要授权：定位
-    //  先判断定位服务是否可用
-    if ([CLLocationManager locationServicesEnabled]) {
-        NSLog(@"已经开启了定位！");
-        // 定位可用
-        // 问用户要授权：定位（iOS 8 之后，需要在info 里面设置：给用户弹出提示的内容）
-        [self.locationManager requestWhenInUseAuthorization];;
-        
-    }
-    else {
-        
-        // 定位不可用
-        // 给用户提示
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"定位服务不可用~" preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            NSLog(@"定位不可用，则打开设置，设置定位");
-            // 打开设置
-            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]]) {
-                
-                // 打开其他应用
-                // @"tel://12345678"
-                // @"smb://789765"
-                
-                [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-            }
-            
-        }];
-        
-        [alert addAction:action];
-        
-        [self presentViewController:alert animated:YES completion:nil];
-    }
-    
-    // 设置定位的精度（精度越高越费电）
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    
-    
-    // 设置代理：位置变更后的回调
-    self.locationManager.delegate = self;
-    
-    // 设置位置变更后的精度
-    self.locationManager.distanceFilter = 1;
-    
-    // 开始定位，开始更新位置信息
-    [self.locationManager startUpdatingLocation];
-    
-    
-}
-
-
-// 定位：位置变更后的回调
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
-    
-    // 获取其中的一个位置
-    CLLocation *location = locations.firstObject;
-    
-    NSLog(@"定位：当前的位置：%@",location);
-    
-#warning 数据请求：把经纬度 发送给后台
-    // 当前用户
-    CYUser *currentUser = [CYUser currentUser];
-    
-    NSString *latitude = [NSString stringWithFormat:@"%lf",location.coordinate.latitude];
-    NSString *longitude = [NSString stringWithFormat:@"%lf",location.coordinate.longitude];
-    // 参数拼接
-    NSDictionary *params = @{
-                             @"UserId":currentUser.userID,
-                             @"Longitude":latitude,
-                             @"Latitude":longitude
-                             };
-    // 位置信息请求，把经纬度 发送给后台
-    [CYNetWorkManager postRequestWithUrl:cCoordinatesUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"当前进度：%@",uploadProgress);
-    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"位置信息请求：请求成功！");
-        
-        // 2.3.1.1、获取code 值
-        NSString *code = responseObject[@"code"];
-        
-        
-        // 2.3.1.2、判断返回值
-        if ([code isEqualToString:@"0"]) {
-            NSLog(@"位置信息请求：位置更新成功！");
-            
-            // 2.3.1.2.1、位置信息请求成功，
-            // 关闭定位
-            [self.locationManager stopUpdatingLocation];
-            
-            
-        }
-        else{
-            NSLog(@"位置信息请求：位置更新失败！");
-            NSLog(@"位置信息请求：位置更新失败：msg：%@",responseObject[@"res"][@"msg"]);
-            
-            // 2.3.1.2.2、位置信息请求失败，弹窗
-            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
-        }
-        
-    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"位置信息请求：请求失败！");
-        NSLog(@"失败error：%@",error);
-        
-        // 2.3.2、位置信息请求：请求失败
-        [self showHubWithLabelText:@"完善信息失败，可能是网络有问题，请检查网络再试一遍!" andHidAfterDelay:3.0];
-    } withToken:currentUser.userToken];
-    
-    // 关闭定位
-    [self.locationManager stopUpdatingLocation];
-    
-    // 地理位置反编码
-    [self locationWithLatitude:location.coordinate.latitude andLongitude:location.coordinate.longitude];
-}
-
-// 经纬度 -> 地理位置（地理位置反编码）
-- (void)locationWithLatitude:(CLLocationDegrees)latitude andLongitude:(CLLocationDegrees)longitude{
-    
-    // 根据经纬度，实例化一个位置信息
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
-    
-    // 生成地理位置编码类（编码、反编码 都需要这个类）
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    
-    // 反编码
-    //     把一个位置信息：location， 转成地理位置
-    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
-        NSLog(@"反编码：把一个位置信息：location， 转成地理位置");
-        
-        
-        // 取出地标信息 （是一个数组，取出其中一个）
-        CLPlacemark *placeMark = placemarks.firstObject;
-        
-        // 取出详细的位置信息
-        NSDictionary *infoDic = placeMark.addressDictionary;
-        
-        
-        for (NSString *tmpKey in infoDic) {
-            
-            NSLog(@"key:%@，obj：%@",tmpKey,infoDic[tmpKey]);
-        }
-        
-        
-    }];
-}
-
+//- (void)getLocationManager{
+//    
+//    // 实例化：定位管理者
+//    self.locationManager = [[CLLocationManager alloc] init];
+//    
+//    // 问用户要授权：定位
+//    //  先判断定位服务是否可用
+//    if ([CLLocationManager locationServicesEnabled]) {
+//        NSLog(@"已经开启了定位！");
+//        // 定位可用
+//        // 问用户要授权：定位（iOS 8 之后，需要在info 里面设置：给用户弹出提示的内容）
+//        [self.locationManager requestWhenInUseAuthorization];;
+//        
+//    }
+//    else {
+//        
+//        // 定位不可用
+//        // 给用户提示
+//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"定位服务不可用~" preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        UIAlertAction *action = [UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            NSLog(@"定位不可用，则打开设置，设置定位");
+//            // 打开设置
+//            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]]) {
+//                
+//                // 打开其他应用
+//                // @"tel://12345678"
+//                // @"smb://789765"
+//                
+//                [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+//            }
+//            
+//        }];
+//        
+//        [alert addAction:action];
+//        
+//        [self presentViewController:alert animated:YES completion:nil];
+//    }
+//    
+//    // 设置定位的精度（精度越高越费电）
+//    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+//    
+//    
+//    // 设置代理：位置变更后的回调
+//    self.locationManager.delegate = self;
+//    
+//    // 设置位置变更后的精度
+//    self.locationManager.distanceFilter = 1;
+//    
+//    // 开始定位，开始更新位置信息
+//    [self.locationManager startUpdatingLocation];
+//    
+//    
+//}
+//
+//
+//// 定位：位置变更后的回调
+//- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations{
+//    
+//    // 获取其中的一个位置
+//    CLLocation *location = locations.firstObject;
+//    
+//    NSLog(@"定位：当前的位置：%@",location);
+//    
+//#warning 数据请求：把经纬度 发送给后台
+//    // 当前用户
+//    CYUser *currentUser = [CYUser currentUser];
+//    
+//    NSString *latitude = [NSString stringWithFormat:@"%lf",location.coordinate.latitude];
+//    NSString *longitude = [NSString stringWithFormat:@"%lf",location.coordinate.longitude];
+//    // 参数拼接
+//    NSDictionary *params = @{
+//                             @"UserId":currentUser.userID,
+//                             @"Longitude":latitude,
+//                             @"Latitude":longitude
+//                             };
+//    // 位置信息请求，把经纬度 发送给后台
+//    [CYNetWorkManager postRequestWithUrl:cCoordinatesUrl params:params progress:^(NSProgress *uploadProgress) {
+//        NSLog(@"当前进度：%@",uploadProgress);
+//    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"位置信息请求：请求成功！");
+//        
+//        // 2.3.1.1、获取code 值
+//        NSString *code = responseObject[@"code"];
+//        
+//        
+//        // 2.3.1.2、判断返回值
+//        if ([code isEqualToString:@"0"]) {
+//            NSLog(@"位置信息请求：位置更新成功！");
+//            
+//            // 2.3.1.2.1、位置信息请求成功，
+//            // 关闭定位
+//            [self.locationManager stopUpdatingLocation];
+//            
+//            
+//        }
+//        else{
+//            NSLog(@"位置信息请求：位置更新失败！");
+//            NSLog(@"位置信息请求：位置更新失败：msg：%@",responseObject[@"res"][@"msg"]);
+//            
+//            // 2.3.1.2.2、位置信息请求失败，弹窗
+//            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+//        }
+//        
+//    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"位置信息请求：请求失败！");
+//        NSLog(@"失败error：%@",error);
+//        
+//        // 2.3.2、位置信息请求：请求失败
+//        [self showHubWithLabelText:@"完善信息失败，可能是网络有问题，请检查网络再试一遍!" andHidAfterDelay:3.0];
+//    } withToken:currentUser.userToken];
+//    
+//    // 关闭定位
+//    [self.locationManager stopUpdatingLocation];
+//    
+//    // 地理位置反编码
+//    [self locationWithLatitude:location.coordinate.latitude andLongitude:location.coordinate.longitude];
+//}
+//
+//// 经纬度 -> 地理位置（地理位置反编码）
+//- (void)locationWithLatitude:(CLLocationDegrees)latitude andLongitude:(CLLocationDegrees)longitude{
+//    
+//    // 根据经纬度，实例化一个位置信息
+//    CLLocation *location = [[CLLocation alloc] initWithLatitude:latitude longitude:longitude];
+//    
+//    // 生成地理位置编码类（编码、反编码 都需要这个类）
+//    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+//    
+//    // 反编码
+//    //     把一个位置信息：location， 转成地理位置
+//    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+//        NSLog(@"反编码：把一个位置信息：location， 转成地理位置");
+//        
+//        
+//        // 取出地标信息 （是一个数组，取出其中一个）
+//        CLPlacemark *placeMark = placemarks.firstObject;
+//        
+//        // 取出详细的位置信息
+//        NSDictionary *infoDic = placeMark.addressDictionary;
+//        
+//        
+//        for (NSString *tmpKey in infoDic) {
+//            
+//            NSLog(@"key:%@，obj：%@",tmpKey,infoDic[tmpKey]);
+//        }
+//        
+//        
+//    }];
+//}
+//
 
 
 // 判断是否已登录

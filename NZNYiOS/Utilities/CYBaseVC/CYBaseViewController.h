@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CYBaseViewController : UIViewController<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIApplicationDelegate>
+// 定位需要导入这个头文件。并实现代理
+#import <CoreLocation/CoreLocation.h>
+
+@interface CYBaseViewController : UIViewController<
+CLLocationManagerDelegate,
+UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIApplicationDelegate>
 
 // 提示框：hud
 @property (nonatomic,strong)MBProgressHUD *hud;
@@ -34,6 +39,14 @@
 @property (nonatomic,strong)NSMutableArray *dataArray;
 
 
+// 定位
+@property (nonatomic,strong) CLLocationManager *locationManager;
+// 是否打开附近的人界面
+@property (nonatomic,assign) BOOL ifOpenNearbyPeopleVC;
+
+// 经纬度 -> 地理位置（地理位置反编码）
+- (void)locationWithLatitude:(CLLocationDegrees)latitude andLongitude:(CLLocationDegrees)longitude;
+
 // 搜索：左边BarButtonItem：点击事件：
 - (void)searchLeftBarBtnItemClick;
 
@@ -42,6 +55,9 @@
 
 // 附近的人：右边，nearBarButtonItem：点击事件
 - (void)nearRightBarBtnItemClick;
+
+// 定位：获取位置信息，地理位置编码、反编码
+- (void)getLocationManager;
 
 // 新消息：右边，newsBarButtonItem：点击事件
 - (void)newsRightBarBtnItemClick;

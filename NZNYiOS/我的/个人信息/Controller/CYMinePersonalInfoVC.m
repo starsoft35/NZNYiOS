@@ -27,11 +27,13 @@
 // 性别：VC
 #import "CYMyUserInfoGenderVC.h"
 // 年龄：VC
+#import "CYMyUserInfoAgeVC.h"
 // 学历：VC
 #import "CYMyUserInfoEducationVC.h"
 // 婚姻状况：VC
 #import "CYMyUserInfoMarriageVC.h"
 // 所在地区：VC
+#import "CYMyUserInfoLocationVC.h"
 // 爱情宣言：VC
 #import "CYMyUserInfoDeclarationVC.h"
 
@@ -105,11 +107,16 @@
             }
             
             // 解析数据，模型存到数组
-            NSDictionary *tempDic = responseObject[@"res"][@"data"][@"userinfo"];
+//            NSDictionary *tempDic = responseObject[@"res"][@"data"][@"userinfo"];
             
-            CYMinePersonalInfoVCModel *tempModel = [[CYMinePersonalInfoVCModel alloc] initWithDictionary:tempDic error:nil];
+            CYMinePersonalInfoVCModel *tempModel = [[CYMinePersonalInfoVCModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"userinfo"] error:nil];
             
             [self.dataArray addObject:tempModel];
+            
+            
+            // 网络请求：获取年龄
+            
+            
             
             [self loadNewData];
             
@@ -134,6 +141,12 @@
         [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
         
     } withToken:self.onlyUser.userToken];
+    
+    
+}
+
+// 网络请求：获取年龄
+- (void)requestUserAge{
     
     
 }
@@ -183,7 +196,7 @@
     // 假数据
     CYMinePersonalInfoVCModel *minePerInfoModel = self.dataArray[0];
     
-    NSString *newFID = [NSString stringWithFormat:@"%ld",minePerInfoModel.FId];
+    NSString *newFID = [NSString stringWithFormat:@"%ld",(long)minePerInfoModel.FId];
     
     
     NSArray *newArr = @[
@@ -206,7 +219,7 @@
                                 },
                             @{
                                 @"cellTitle" : @"年龄",
-                                @"cellDetailTitle" : @""
+                                @"cellDetailTitle" : @"18"
                                 },
                             @{
                                 @"cellTitle":@"学历",
@@ -382,9 +395,9 @@
     else if (indexPath.section == 0 && indexPath.row == 4) {
         
         // 第五行：年龄
-        CYMyUserInfoGenderVC *userInfoGenderVC = [[CYMyUserInfoGenderVC alloc] init];
+        CYMyUserInfoAgeVC *userInfoAgeVC = [[CYMyUserInfoAgeVC alloc] init];
         
-        [self.navigationController pushViewController:userInfoGenderVC animated:YES];
+        [self.navigationController pushViewController:userInfoAgeVC animated:YES];
     }
     else if (indexPath.section == 0 && indexPath.row == 5) {
         
@@ -403,9 +416,10 @@
     else if (indexPath.section == 0 && indexPath.row == 7) {
         
         // 第八行：所在地区
-        CYMyUserInfoGenderVC *userInfoGenderVC = [[CYMyUserInfoGenderVC alloc] init];
+        CYMyUserInfoLocationVC *userInfoLocationVC = [[CYMyUserInfoLocationVC alloc] init];
         
-        [self.navigationController pushViewController:userInfoGenderVC animated:YES];
+        
+        [self.navigationController pushViewController:userInfoLocationVC animated:YES];
     }
     else if (indexPath.section == 1 && indexPath.row == 0) {
         

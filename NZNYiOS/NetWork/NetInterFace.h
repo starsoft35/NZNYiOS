@@ -91,11 +91,14 @@
 // 4、1-3、修改性别
 #define cModifyGenderUrl (@"api/User/ModifyGender")
 // 4、1-4、修改年龄
+#define cModifyAgeUrl (@"api/User/ModifyAge")
+// 4、1-4.1、获取年龄
 // 4、1-5、修改学历
 #define cModifyEducationUrl (@"api/User/ModifyEducation")
 // 4、1-6、修改婚姻状况
 #define cModifyMarriageUrl (@"api/User/ModifyMarriage")
 // 4、1-7、修改所在地
+#define cModifyAreaUrl (@"api/User/ModifyArea")
 // 4、1-8、修改爱情宣言
 #define cModifyDeclarationUrl (@"api/User/ModifyDeclaration")
 
@@ -194,7 +197,9 @@
 // 5.1.1.4-送礼
 #define cAddFlowersUrl (@"api/Gift/AddFlowers")
 
-// 5.2-上传地理位置信息
+// 5.2-附近的人
+#define cNearbyUserListUrl (@"api/User/NearbyUserList")
+// 5.2.1-上传地理位置信息
 #define cCoordinatesUrl (@"api/User/Coordinates")
 
 // 5.3-获取用户信息
