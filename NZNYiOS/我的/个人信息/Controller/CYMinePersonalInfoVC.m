@@ -145,11 +145,6 @@
     
 }
 
-// 网络请求：获取年龄
-- (void)requestUserAge{
-    
-    
-}
 
 // 保存用户个人信息到本地
 - (void)saveUserInfoToLocalWithResPonseObject:(id)responseObject{

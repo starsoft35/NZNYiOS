@@ -237,6 +237,9 @@
 		8A7AA5381DCDCA7900285F05 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7AA5371DCDCA7900285F05 /* CFNetwork.framework */; };
 		8A8AD1111DED57AA00EF2966 /* CYMyFansVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8AD1101DED57AA00EF2966 /* CYMyFansVC.m */; };
 		8A8AD1141DED57C400EF2966 /* CYMyFollowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8AD1131DED57C400EF2966 /* CYMyFollowVC.m */; };
+		8A8B38EE1E20EA0200D8156B /* CYSetUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8B38ED1E20EA0200D8156B /* CYSetUpVC.m */; };
+		8A8B38FA1E21044200D8156B /* CYSetUpAboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8B38F81E21044200D8156B /* CYSetUpAboutUsVC.m */; };
+		8A8B38FB1E21044200D8156B /* CYSetUpAboutUsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8B38F91E21044200D8156B /* CYSetUpAboutUsVC.xib */; };
 		8A8EF8471DBB166100882579 /* CYInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EF8451DBB166100882579 /* CYInfoHeaderCell.m */; };
 		8A8EF8481DBB166100882579 /* CYInfoHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8EF8461DBB166100882579 /* CYInfoHeaderCell.xib */; };
 		8A8EF84B1DBB16B700882579 /* CYInfoHeaderCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EF84A1DBB16B700882579 /* CYInfoHeaderCellModel.m */; };
@@ -1079,6 +1082,11 @@
 		8A8AD1101DED57AA00EF2966 /* CYMyFansVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMyFansVC.m; sourceTree = "<group>"; };
 		8A8AD1121DED57C400EF2966 /* CYMyFollowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMyFollowVC.h; sourceTree = "<group>"; };
 		8A8AD1131DED57C400EF2966 /* CYMyFollowVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMyFollowVC.m; sourceTree = "<group>"; };
+		8A8B38EC1E20EA0200D8156B /* CYSetUpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYSetUpVC.h; sourceTree = "<group>"; };
+		8A8B38ED1E20EA0200D8156B /* CYSetUpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYSetUpVC.m; sourceTree = "<group>"; };
+		8A8B38F71E21044200D8156B /* CYSetUpAboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYSetUpAboutUsVC.h; sourceTree = "<group>"; };
+		8A8B38F81E21044200D8156B /* CYSetUpAboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYSetUpAboutUsVC.m; sourceTree = "<group>"; };
+		8A8B38F91E21044200D8156B /* CYSetUpAboutUsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYSetUpAboutUsVC.xib; sourceTree = "<group>"; };
 		8A8EF8441DBB166100882579 /* CYInfoHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYInfoHeaderCell.h; sourceTree = "<group>"; };
 		8A8EF8451DBB166100882579 /* CYInfoHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYInfoHeaderCell.m; sourceTree = "<group>"; };
 		8A8EF8461DBB166100882579 /* CYInfoHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYInfoHeaderCell.xib; sourceTree = "<group>"; };
@@ -3837,6 +3845,71 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8A8B38EF1E2103DE00D8156B /* 关于我们 */ = {
+			isa = PBXGroup;
+			children = (
+				8A8B38F01E2103DE00D8156B /* Controller */,
+				8A8B38F11E2103DE00D8156B /* Model */,
+				8A8B38F21E2103DE00D8156B /* View */,
+			);
+			path = "关于我们";
+			sourceTree = "<group>";
+		};
+		8A8B38F01E2103DE00D8156B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8A8B38F71E21044200D8156B /* CYSetUpAboutUsVC.h */,
+				8A8B38F81E21044200D8156B /* CYSetUpAboutUsVC.m */,
+				8A8B38F91E21044200D8156B /* CYSetUpAboutUsVC.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8A8B38F11E2103DE00D8156B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8A8B38F21E2103DE00D8156B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8A8B38F31E2103DE00D8156B /* 用户须知 */ = {
+			isa = PBXGroup;
+			children = (
+				8A8B38F41E2103DE00D8156B /* Controller */,
+				8A8B38F51E2103DE00D8156B /* Model */,
+				8A8B38F61E2103DE00D8156B /* View */,
+			);
+			path = "用户须知";
+			sourceTree = "<group>";
+		};
+		8A8B38F41E2103DE00D8156B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8A8B38F51E2103DE00D8156B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8A8B38F61E2103DE00D8156B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8A98F5591E207C780014E9B8 /* 附近 */ = {
 			isa = PBXGroup;
 			children = (
@@ -4036,6 +4109,8 @@
 				8ACB60031DDC4B940047DE7A /* Controller */,
 				8ACB60041DDC4B940047DE7A /* Model */,
 				8ACB60051DDC4B940047DE7A /* View */,
+				8A8B38F31E2103DE00D8156B /* 用户须知 */,
+				8A8B38EF1E2103DE00D8156B /* 关于我们 */,
 			);
 			path = "设置";
 			sourceTree = "<group>";
@@ -4043,6 +4118,8 @@
 		8ACB60031DDC4B940047DE7A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8A8B38EC1E20EA0200D8156B /* CYSetUpVC.h */,
+				8A8B38ED1E20EA0200D8156B /* CYSetUpVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -5879,6 +5956,7 @@
 				8A2CA87E1E17C6F700548971 /* CYPortraitVC.xib in Resources */,
 				8AFC65DB1DE9609300EADFB6 /* 其它审核中@2x.png in Resources */,
 				8A98F5671E207C780014E9B8 /* CYNearbyPeopleCell.xib in Resources */,
+				8A8B38FB1E21044200D8156B /* CYSetUpAboutUsVC.xib in Resources */,
 				8A5C04EC1DFEB2390007450F /* 直播开播时间.png in Resources */,
 				8ACE89721E08E52B000CC72B /* Setting@2x.png in Resources */,
 				8AEC35741DEAFA6E00967995 /* 关注名字背景@2x.png in Resources */,
@@ -6043,6 +6121,7 @@
 				8AE1E2991D8EB10B00B30438 /* CYForgetPSModel.m in Sources */,
 				8AEC35491DEAEEA700967995 /* CYVideoDetailsView.m in Sources */,
 				8AD2DC5F1E13D5A400577483 /* RCDLive.m in Sources */,
+				8A8B38FA1E21044200D8156B /* CYSetUpAboutUsVC.m in Sources */,
 				8AE1E2751D8E64AC00B30438 /* MJRefreshHeader.m in Sources */,
 				8A53041E1DBF438100506D4F /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				8AE1E2821D8E64AC00B30438 /* UIScrollView+MJRefresh.m in Sources */,
@@ -6149,6 +6228,7 @@
 				8ACB5FFC1DDC382D0047DE7A /* CYChatVC.m in Sources */,
 				8A53041C1DBF438100506D4F /* AFImageDownloader.m in Sources */,
 				8AE1E2771D8E64AC00B30438 /* MJRefreshAutoNormalFooter.m in Sources */,
+				8A8B38EE1E20EA0200D8156B /* CYSetUpVC.m in Sources */,
 				8A149A4D1DD32211002EECC7 /* CYMyFriendViewCell.m in Sources */,
 				8AD2DC5E1E13D5A400577483 /* RCDLiveTipLabel.m in Sources */,
 				8A8AD1111DED57AA00EF2966 /* CYMyFansVC.m in Sources */,

@@ -15,6 +15,9 @@
 // 根视图控制器代理
 #import "AppDelegate.h"
 
+// 设置：VC
+#import "CYSetUpVC.h"
+
 
 // 搜索:VC
 #import "CYSearchVC.h"
@@ -96,6 +99,15 @@
 // 设置：左边BarButtonItem：点击事件
 - (void)setLeftBarBtnItemClick{
     NSLog(@"设置：BaseViewController:setLeftBarBtnItemClick：点击事件");
+    
+    CYSetUpVC *setUpVC = [[CYSetUpVC alloc] init];
+    
+    // 隐藏tabbar
+    self.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:setUpVC animated:YES];
+    
+    self.hidesBottomBarWhenPushed = NO;
     
 }
 
