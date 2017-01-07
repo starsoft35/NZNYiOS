@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -22,13 +22,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是四个" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="46e-oc-T2B" userLabel="1-title-Label">
-                        <rect key="frame" x="15" y="13" width="62.5" height="18"/>
+                        <rect key="frame" x="15" y="13" width="75" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="UhT-JD-9Qn" userLabel="2-detail-Label">
-                        <rect key="frame" x="95.5" y="13" width="246.5" height="18"/>
+                        <rect key="frame" x="108" y="13" width="234" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ubN-gL-jHA" secondAttribute="trailing" constant="13" id="2az-Ad-fbO"/>
-                    <constraint firstItem="46e-oc-T2B" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="120:720" id="7XH-ta-7lJ"/>
+                    <constraint firstItem="46e-oc-T2B" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="150:750" id="7XH-ta-7lJ"/>
                     <constraint firstItem="UhT-JD-9Qn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="46e-oc-T2B" secondAttribute="trailing" constant="12" id="8Zf-FG-zim"/>
                     <constraint firstItem="ubN-gL-jHA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IqV-wb-qLF"/>
                     <constraint firstItem="46e-oc-T2B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Phh-Yz-GMM"/>

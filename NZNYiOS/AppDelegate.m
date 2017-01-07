@@ -51,7 +51,7 @@
     [SMSSDK registerApp:cSMSAppKey withSecret:cSMSAppSecret];
     
     // 微信登录SDK：初始化：注册
-    [self weChatLoginBtnClick];
+//    [self weChatLoginBtnClick];
     
 //    // 融云：SDK-初始化
 //    [self setRongSDK];
@@ -112,12 +112,15 @@
     // 暂时定为每次登陆都做重新登陆，重新获取token，如果是微信登录，则不让其用账号密码重新登录。
     if (currentUser.userAccount != nil && currentUser.userPSW != nil) {
         
-        
-        // 账号、密码：重新登录
+        // 有文件：如果有账号、密码，说明之前是账号密码登录，则用账号、密码重新登录
         [self tempLoginRequestWithUserAccount:currentUser.userAccount andUserPSW:currentUser.userPSW];
+    }
+    else {
         
+        // 有文件：如果没有账号密码，说明之前是微信登录，则用微信重新登录
         // 微信：重新登录
         [self weChatLoginRequestAgain];
+        
     }
     
     NSLog(@"userAccount:%@",user.userAccount);

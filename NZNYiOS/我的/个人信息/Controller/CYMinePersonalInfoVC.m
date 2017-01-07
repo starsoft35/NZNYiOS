@@ -83,7 +83,7 @@
 //    [self showLoadingView];
     
     // 请求数据：获取用户个人信息
-    [CYNetWorkManager getRequestWithUrl:cGetUserInfoUrl params:params progress:^(NSProgress *uploadProgress) {
+    [CYNetWorkManager getRequestWithUrl:cPrivateInfoUrl params:params progress:^(NSProgress *uploadProgress) {
         NSLog(@"获取用户个人信息进度：%@",uploadProgress);
         
     } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
@@ -109,7 +109,7 @@
             // 解析数据，模型存到数组
 //            NSDictionary *tempDic = responseObject[@"res"][@"data"][@"userinfo"];
             
-            CYMinePersonalInfoVCModel *tempModel = [[CYMinePersonalInfoVCModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"userinfo"] error:nil];
+            CYMinePersonalInfoVCModel *tempModel = [[CYMinePersonalInfoVCModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil];
             
             [self.dataArray addObject:tempModel];
             
@@ -156,28 +156,29 @@
     
     NSLog(@"保存用户个人信息到本地：responseObject：%@",responseObject);
     // 2、赋值
-    self.onlyUser.Birthday = responseObject[@"res"][@"data"][@"userinfo"][@"Birthday"];
-    self.onlyUser.City = responseObject[@"res"][@"data"][@"userinfo"][@"City"];
-    self.onlyUser.Declaration = responseObject[@"res"][@"data"][@"userinfo"][@"Declaration"];
-    self.onlyUser.Education = responseObject[@"res"][@"data"][@"userinfo"][@"Education"];
-    self.onlyUser.FId = [responseObject[@"res"][@"data"][@"userinfo"][@"FId"] integerValue];
-    self.onlyUser.Gender = responseObject[@"res"][@"data"][@"userinfo"][@"Gender"];
-    self.onlyUser.Id = responseObject[@"res"][@"data"][@"userinfo"][@"Id"];
-    self.onlyUser.Marriage = responseObject[@"res"][@"data"][@"userinfo"][@"Marriage"];
-    self.onlyUser.Nickname = responseObject[@"res"][@"data"][@"userinfo"][@"Nickname"];
+    self.onlyUser.Birthday = responseObject[@"res"][@"data"][@"model"][@"Birthday"];
+    self.onlyUser.City = responseObject[@"res"][@"data"][@"model"][@"City"];
+    self.onlyUser.Declaration = responseObject[@"res"][@"data"][@"model"][@"Declaration"];
+    self.onlyUser.Education = responseObject[@"res"][@"data"][@"model"][@"Education"];
+    self.onlyUser.FId = [responseObject[@"res"][@"data"][@"model"][@"FId"] integerValue];
+    self.onlyUser.Gender = responseObject[@"res"][@"data"][@"model"][@"Gender"];
+    self.onlyUser.Id = responseObject[@"res"][@"data"][@"model"][@"Id"];
+    self.onlyUser.Marriage = responseObject[@"res"][@"data"][@"model"][@"Marriage"];
+    self.onlyUser.Nickname = responseObject[@"res"][@"data"][@"model"][@"Nickname"];
     
-    self.onlyUser.Province = responseObject[@"res"][@"data"][@"userinfo"][@"Province"];
-    self.onlyUser.RealName = responseObject[@"res"][@"data"][@"userinfo"][@"RealName"];
-    self.onlyUser.RongToken = responseObject[@"res"][@"data"][@"userinfo"][@"RongToken"];
+    self.onlyUser.Province = responseObject[@"res"][@"data"][@"model"][@"Province"];
+    self.onlyUser.RealName = responseObject[@"res"][@"data"][@"model"][@"RealName"];
+    self.onlyUser.RongToken = responseObject[@"res"][@"data"][@"model"][@"RongToken"];
+    self.onlyUser.Age = [responseObject[@"res"][@"data"][@"model"][@"Age"] integerValue];
     
     // 头像
-    NSString *portaitUrl = responseObject[@"res"][@"data"][@"userinfo"][@"Portrait"];
+    NSString *portaitUrl = responseObject[@"res"][@"data"][@"model"][@"Portrait"];
     if (portaitUrl.length > 18) {
         
         NSString *tempPortaitUrl = [portaitUrl substringToIndex:18];
         if ([tempPortaitUrl isEqualToString:@"/Uploads/AppImage/"]) {
             
-            self.onlyUser.Portrait = responseObject[@"res"][@"data"][@"userinfo"][@"Portrait"];
+            self.onlyUser.Portrait = responseObject[@"res"][@"data"][@"model"][@"Portrait"];
         }
         else {
             self.onlyUser.Portrait = @"默认头像";
@@ -197,6 +198,7 @@
     CYMinePersonalInfoVCModel *minePerInfoModel = self.dataArray[0];
     
     NSString *newFID = [NSString stringWithFormat:@"%ld",(long)minePerInfoModel.FId];
+    NSString *newAge = [NSString stringWithFormat:@"%ld 岁",(long)minePerInfoModel.Age];
     
     
     NSArray *newArr = @[
@@ -219,7 +221,7 @@
                                 },
                             @{
                                 @"cellTitle" : @"年龄",
-                                @"cellDetailTitle" : @"18"
+                                @"cellDetailTitle" : newAge
                                 },
                             @{
                                 @"cellTitle":@"学历",
@@ -305,7 +307,6 @@
         headerModel.headImgName = self.userInfoDataArr[indexPath.section][indexPath.row][@"cellIcon"];
         
         
-        cell.headImgView.layer.cornerRadius = cell.headImgView.frame.size.height / 2;
         
         // cell赋值
         // 通过模型赋值

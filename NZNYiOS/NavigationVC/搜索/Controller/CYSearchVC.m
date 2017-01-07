@@ -391,7 +391,7 @@
 
 // cell：点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"点击了第 %ld 行 cell",indexPath.row);
+    NSLog(@"点击了第 %ld 行 cell",(long)indexPath.row);
     
     //当离开某行时，让某行的选中状态消失
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

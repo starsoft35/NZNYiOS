@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"年龄";
     
     // 添加选择器视图
     [self addAgeSelectView];
@@ -31,10 +32,13 @@
 // 添加选择器视图
 - (void)addAgeSelectView{
     
-//    self.ageLab.text = [NSString stringWithFormat:@"%@ 岁",self.onlyUser.RealName];
+    self.ageLab.text = [NSString stringWithFormat:@"%ld 岁",(long)self.onlyUser.Age];
     
     ASBirthSelectSheet *datesheet = [[ASBirthSelectSheet alloc] initWithFrame:self.view.bounds];
-    datesheet.selectDate = @"2015-12-08";
+    
+    // 出生年月日
+    NSString *newBirthday = [self.onlyUser.Birthday substringToIndex:10];
+    datesheet.selectDate = newBirthday;
     datesheet.GetSelectDate = ^(NSString *dateStr) {
         
         

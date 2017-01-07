@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9ZO-ZS-cdL" customClass="CYNearbyPeopleCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="95"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZT-62-RPl" userLabel="1.头像-View">
+                    <rect key="frame" x="13" y="10" width="75" height="75"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="117.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="gxL-7S-YeS" userLabel="1.1-头像-Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="37"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="gxL-7S-YeS" firstAttribute="top" secondItem="cZT-62-RPl" secondAttribute="top" id="JVi-4g-5JQ"/>
+                        <constraint firstAttribute="trailing" secondItem="gxL-7S-YeS" secondAttribute="trailing" id="Yx7-0h-u69"/>
+                        <constraint firstItem="gxL-7S-YeS" firstAttribute="leading" secondItem="cZT-62-RPl" secondAttribute="leading" id="fWI-Fe-b9w"/>
+                        <constraint firstAttribute="bottom" secondItem="gxL-7S-YeS" secondAttribute="bottom" id="gUC-mD-1Xh"/>
+                        <constraint firstAttribute="width" secondItem="cZT-62-RPl" secondAttribute="height" id="miY-Gk-uBF"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3x-j6-a20" userLabel="2.信息-View">
+                    <rect key="frame" x="103" y="11.5" width="259" height="72"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张大大大" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWF-j1-Tbc" userLabel="2.1-姓名-Label">
+                            <rect key="frame" x="0.0" y="0.0" width="76" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="RWF-j1-Tbc" secondAttribute="height" multiplier="5" id="f1x-xz-oZT"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="资料性别女.png" translatesAutoresizingMaskIntoConstraints="NO" id="55m-f8-Gs9" userLabel="2.2-性别-Image View">
+                            <rect key="frame" x="91" y="-0.5" width="15.5" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="55m-f8-Gs9" secondAttribute="height" id="e2c-zC-pmj"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26 岁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exO-EJ-Qbc" userLabel="2.3-年龄-Label">
+                            <rect key="frame" x="121.5" y="-0.5" width="76" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="exO-EJ-Qbc" secondAttribute="height" multiplier="5" id="bGh-cH-9qb"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.49811449646949768" green="0.49809488654136658" blue="0.49810823798179626" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离 100 米以内" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4f-cB-5us" userLabel="2.4-距离-Label">
+                            <rect key="frame" x="3" y="29" width="243" height="15.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.86154496669769287" green="0.52848923206329346" blue="0.26266428828239441" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预谋邂逅预谋邂逅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNN-Kb-Apu" userLabel="2.5-爱情宣言-Label">
+                            <rect key="frame" x="0.0" y="57.5" width="246" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.50203555822372437" green="0.50201582908630371" blue="0.50202929973602295" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="GNN-Kb-Apu" secondAttribute="bottom" id="4rv-pb-J4M"/>
+                        <constraint firstItem="55m-f8-Gs9" firstAttribute="height" secondItem="RWF-j1-Tbc" secondAttribute="height" id="5RB-rg-a0A"/>
+                        <constraint firstItem="55m-f8-Gs9" firstAttribute="leading" secondItem="RWF-j1-Tbc" secondAttribute="trailing" constant="15" id="5Ue-Rs-Txs"/>
+                        <constraint firstItem="GNN-Kb-Apu" firstAttribute="leading" secondItem="T3x-j6-a20" secondAttribute="leading" id="6Tp-28-z4e"/>
+                        <constraint firstItem="RWF-j1-Tbc" firstAttribute="leading" secondItem="T3x-j6-a20" secondAttribute="leading" id="99Y-KN-BJB"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="exO-EJ-Qbc" secondAttribute="trailing" constant="13" id="9eD-HZ-cfc"/>
+                        <constraint firstItem="exO-EJ-Qbc" firstAttribute="height" secondItem="55m-f8-Gs9" secondAttribute="height" id="Adc-19-5Fw"/>
+                        <constraint firstItem="RWF-j1-Tbc" firstAttribute="top" secondItem="T3x-j6-a20" secondAttribute="top" id="Adg-p1-doU"/>
+                        <constraint firstItem="55m-f8-Gs9" firstAttribute="centerY" secondItem="RWF-j1-Tbc" secondAttribute="centerY" id="BZm-cY-8it"/>
+                        <constraint firstItem="y4f-cB-5us" firstAttribute="leading" secondItem="T3x-j6-a20" secondAttribute="leading" constant="3" id="DG2-rN-hVQ"/>
+                        <constraint firstItem="y4f-cB-5us" firstAttribute="top" secondItem="RWF-j1-Tbc" secondAttribute="bottom" constant="14" id="Qc3-Gk-f0l"/>
+                        <constraint firstItem="exO-EJ-Qbc" firstAttribute="leading" secondItem="55m-f8-Gs9" secondAttribute="trailing" constant="15" id="RzV-0Z-rYK"/>
+                        <constraint firstAttribute="trailing" secondItem="y4f-cB-5us" secondAttribute="trailing" constant="13" id="TZV-tG-RbC"/>
+                        <constraint firstItem="GNN-Kb-Apu" firstAttribute="top" secondItem="y4f-cB-5us" secondAttribute="bottom" constant="13" id="WCp-RO-pkc"/>
+                        <constraint firstItem="y4f-cB-5us" firstAttribute="height" secondItem="GNN-Kb-Apu" secondAttribute="height" id="gp7-zR-ixk"/>
+                        <constraint firstItem="exO-EJ-Qbc" firstAttribute="centerY" secondItem="55m-f8-Gs9" secondAttribute="centerY" id="kac-Og-Yro"/>
+                        <constraint firstItem="RWF-j1-Tbc" firstAttribute="height" secondItem="y4f-cB-5us" secondAttribute="height" id="oUe-0m-XRr"/>
+                        <constraint firstAttribute="trailing" secondItem="GNN-Kb-Apu" secondAttribute="trailing" constant="13" id="sfF-Y9-22I"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="cZT-62-RPl" firstAttribute="centerY" secondItem="9ZO-ZS-cdL" secondAttribute="centerY" id="Acf-s0-HYT"/>
+                <constraint firstItem="T3x-j6-a20" firstAttribute="height" secondItem="9ZO-ZS-cdL" secondAttribute="height" multiplier="144:190" id="Oi7-X8-uFV"/>
+                <constraint firstItem="T3x-j6-a20" firstAttribute="centerY" secondItem="9ZO-ZS-cdL" secondAttribute="centerY" id="P2o-gI-uNa"/>
+                <constraint firstItem="T3x-j6-a20" firstAttribute="leading" secondItem="cZT-62-RPl" secondAttribute="trailing" constant="15" id="b7d-JO-XNR"/>
+                <constraint firstAttribute="trailing" secondItem="T3x-j6-a20" secondAttribute="trailing" constant="13" id="bYU-BC-uMX"/>
+                <constraint firstItem="cZT-62-RPl" firstAttribute="height" secondItem="9ZO-ZS-cdL" secondAttribute="height" multiplier="150:190" id="hI8-um-vBe"/>
+                <constraint firstItem="cZT-62-RPl" firstAttribute="leading" secondItem="9ZO-ZS-cdL" secondAttribute="leading" constant="13" id="sno-yM-pyI"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="ageLab" destination="exO-EJ-Qbc" id="CSI-nD-CCG"/>
+                <outlet property="declarationLab" destination="GNN-Kb-Apu" id="6if-oM-qCu"/>
+                <outlet property="distanceLab" destination="y4f-cB-5us" id="hxB-lN-Saf"/>
+                <outlet property="genderImgView" destination="55m-f8-Gs9" id="R0N-SX-Fjd"/>
+                <outlet property="headerImgView" destination="gxL-7S-YeS" id="3wI-FO-srp"/>
+                <outlet property="nameLab" destination="RWF-j1-Tbc" id="wIw-wY-86B"/>
+            </connections>
+            <point key="canvasLocation" x="169.5" y="-79.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="117.jpg" width="640" height="960"/>
+        <image name="资料性别女.png" width="16" height="16"/>
+    </resources>
+</document>

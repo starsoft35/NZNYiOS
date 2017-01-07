@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,31 +38,25 @@
                             <rect key="frame" x="138" y="15" width="197" height="100"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="2AX-a2-T3z" userLabel="1.2.1-名字Label">
-                                    <rect key="frame" x="0.0" y="0.0" width="31" height="20.5"/>
+                                    <rect key="frame" x="0.0" y="10" width="31" height="15"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="vHb-LL-sFq" userLabel="1.2.2-活跃天数Label">
-                                    <rect key="frame" x="0.0" y="30.5" width="197" height="16.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="YPG-VJ-mQZ" userLabel="1.2.3-ID-Label">
-                                    <rect key="frame" x="0.0" y="57" width="197" height="16.5"/>
+                                    <rect key="frame" x="0.0" y="42" width="197" height="15"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="ZAu-EY-Jgb" userLabel="1.2.4-地址Label">
-                                    <rect key="frame" x="0.0" y="83.5" width="197" height="16.5"/>
+                                    <rect key="frame" x="0.0" y="75" width="197" height="15"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="资料性别女.png" translatesAutoresizingMaskIntoConstraints="NO" id="W5I-Wi-4Yn" userLabel="1.2.5性别-Image View">
-                                    <rect key="frame" x="46" y="3" width="16" height="16"/>
+                                    <rect key="frame" x="46" y="9.5" width="16" height="16"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="W5I-Wi-4Yn" secondAttribute="height" id="Nvq-lC-vCI"/>
                                     </constraints>
@@ -70,17 +64,13 @@
                             </subviews>
                             <constraints>
                                 <constraint firstItem="ZAu-EY-Jgb" firstAttribute="leading" secondItem="uix-nO-TtM" secondAttribute="leading" id="0A8-qE-Isb"/>
-                                <constraint firstAttribute="bottom" secondItem="ZAu-EY-Jgb" secondAttribute="bottom" id="5Cc-f1-LUm"/>
-                                <constraint firstItem="2AX-a2-T3z" firstAttribute="top" secondItem="uix-nO-TtM" secondAttribute="top" id="AOe-ZE-l7q"/>
-                                <constraint firstItem="YPG-VJ-mQZ" firstAttribute="top" secondItem="vHb-LL-sFq" secondAttribute="bottom" constant="10" id="Flu-nx-VqV"/>
-                                <constraint firstItem="vHb-LL-sFq" firstAttribute="top" secondItem="2AX-a2-T3z" secondAttribute="bottom" constant="10" id="GzS-fg-Sr2"/>
-                                <constraint firstItem="vHb-LL-sFq" firstAttribute="height" secondItem="YPG-VJ-mQZ" secondAttribute="height" id="H9z-I6-8ar"/>
+                                <constraint firstAttribute="bottom" secondItem="ZAu-EY-Jgb" secondAttribute="bottom" constant="10" id="5Cc-f1-LUm"/>
+                                <constraint firstItem="2AX-a2-T3z" firstAttribute="top" secondItem="uix-nO-TtM" secondAttribute="top" constant="10" id="AOe-ZE-l7q"/>
+                                <constraint firstItem="2AX-a2-T3z" firstAttribute="height" secondItem="YPG-VJ-mQZ" secondAttribute="height" id="F21-4E-Ge3"/>
                                 <constraint firstItem="W5I-Wi-4Yn" firstAttribute="centerY" secondItem="2AX-a2-T3z" secondAttribute="centerY" id="HHw-ry-StB"/>
-                                <constraint firstItem="2AX-a2-T3z" firstAttribute="height" secondItem="vHb-LL-sFq" secondAttribute="height" multiplier="30:24" id="J1W-wX-AlI"/>
-                                <constraint firstItem="vHb-LL-sFq" firstAttribute="leading" secondItem="uix-nO-TtM" secondAttribute="leading" id="Lzd-g9-MfR"/>
+                                <constraint firstItem="YPG-VJ-mQZ" firstAttribute="top" secondItem="2AX-a2-T3z" secondAttribute="bottom" constant="17" id="Oxo-5L-2NK"/>
                                 <constraint firstItem="YPG-VJ-mQZ" firstAttribute="height" secondItem="ZAu-EY-Jgb" secondAttribute="height" id="Q91-AD-lwS"/>
-                                <constraint firstAttribute="trailing" secondItem="vHb-LL-sFq" secondAttribute="trailing" id="SgH-IW-mEp"/>
-                                <constraint firstItem="ZAu-EY-Jgb" firstAttribute="top" secondItem="YPG-VJ-mQZ" secondAttribute="bottom" constant="10" id="g2a-d2-Mmg"/>
+                                <constraint firstItem="ZAu-EY-Jgb" firstAttribute="top" secondItem="YPG-VJ-mQZ" secondAttribute="bottom" constant="18" id="g2a-d2-Mmg"/>
                                 <constraint firstAttribute="trailing" secondItem="ZAu-EY-Jgb" secondAttribute="trailing" id="geK-UU-Ulc"/>
                                 <constraint firstItem="W5I-Wi-4Yn" firstAttribute="leading" secondItem="2AX-a2-T3z" secondAttribute="trailing" constant="15" id="o4A-EC-wxb"/>
                                 <constraint firstAttribute="trailing" secondItem="YPG-VJ-mQZ" secondAttribute="trailing" id="pZG-5w-bxE"/>
@@ -298,7 +288,6 @@
                 <outlet property="liveCountLab" destination="Mno-dN-lNX" id="m1L-Pj-4NE"/>
                 <outlet property="liveView" destination="hJB-dc-rAz" id="RHi-3K-fLg"/>
                 <outlet property="mineHeadImgView" destination="dR0-x1-1pK" id="8tX-KH-frT"/>
-                <outlet property="userActiveDaysLab" destination="vHb-LL-sFq" id="wMd-9y-QJ9"/>
                 <outlet property="userAddressLab" destination="ZAu-EY-Jgb" id="maL-cn-xUb"/>
                 <outlet property="userGenderImgView" destination="W5I-Wi-4Yn" id="zaW-Yr-O3A"/>
                 <outlet property="userIDLab" destination="YPG-VJ-mQZ" id="7gs-Oh-NFU"/>

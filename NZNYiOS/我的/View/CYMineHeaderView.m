@@ -23,14 +23,12 @@
     // 头像
     _mineHeadImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:mineMainHeaderViewModel.portrait];
     
-    _mineHeadImgView.layer.cornerRadius = _mineHeadImgView.frame.size.height / 2;
+    _mineHeadImgView.layer.cornerRadius = (100.0 / 200.0) * _mineHeadImgView.frame.size.height;
     NSLog(@"headerView.mineHeadImgView.frame.size.height / 2:%lf",_mineHeadImgView.frame.size.height / 2);
     
     // 姓名：label
     _userNameLab.text = mineMainHeaderViewModel.userName;
     
-    // 活跃天数：label
-    _userActiveDaysLab.text = mineMainHeaderViewModel.userActiveDays;
     
     // ID：label
     _userIDLab.text = mineMainHeaderViewModel.fId;

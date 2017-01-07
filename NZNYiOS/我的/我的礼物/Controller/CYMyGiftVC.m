@@ -26,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    self.title = @"我的礼物";
+    
     // 添加视图
     [self addView];
     

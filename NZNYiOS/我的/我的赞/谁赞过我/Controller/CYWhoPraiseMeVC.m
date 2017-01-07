@@ -62,6 +62,17 @@
     
 }
 
+//- (void)viewWillAppear:(BOOL)animated{
+//    
+//    [super viewWillAppear:animated];
+//    
+//    
+//    // 热门视频：首次进入加载，其他时候手动加载。
+//    // cell Header重新加载：自带加载数据
+//    [self.baseTableView.header beginRefreshing];
+//    
+//}
+
 // 加载数据
 - (void)loadData{
     
@@ -253,7 +264,7 @@
         CYWhoPraiseMeCellModel *whoPraiseMeCellModel = self.dataArray[indexPath.row - 1];
         whoPraiseMeCellModel.isPraise = YES;
         
-        cell.headImgView.layer.cornerRadius = cell.headImgView.frame.size.height / 2;
+        cell.headImgView.layer.cornerRadius = (75.0 / 150.0) * cell.headImgView.frame.size.height;
         
         // 假数据
         cell.whoPraiseMeCellModel = whoPraiseMeCellModel;

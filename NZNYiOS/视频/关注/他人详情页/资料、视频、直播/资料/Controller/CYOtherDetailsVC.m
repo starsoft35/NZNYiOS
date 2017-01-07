@@ -217,7 +217,7 @@
         
         titleAndDetailCell.nextImgView.image = [UIImage imageNamed:@""];
         
-        
+        [titleAndDetailCell.detailLab setTextColor:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00]];
         // 居左
         titleAndDetailCell.detailLab.textAlignment = NSTextAlignmentLeft;
         

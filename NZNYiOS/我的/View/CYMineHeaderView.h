@@ -26,8 +26,6 @@
 // 姓名：label
 @property (weak, nonatomic) IBOutlet UILabel *userNameLab;
 
-// 活跃天数：label
-@property (weak, nonatomic) IBOutlet UILabel *userActiveDaysLab;
 
 // ID：label
 @property (weak, nonatomic) IBOutlet UILabel *userIDLab;

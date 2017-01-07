@@ -9,12 +9,19 @@
 #import "CYNearbyPeopleVC.h"
 
 
-// 关注cell
-#import "CYSearchViewCell.h"
+
+// 附近的人：cell
+#import "CYNearbyPeopleCell.h"
 
 
 // 他人详情页
 #import "CYOthersInfoVC.h"
+
+// 附近的人：模型
+#import "CYNearbyPeopleCellModel.h"
+
+
+
 
 @interface CYNearbyPeopleVC ()
 
@@ -28,117 +35,104 @@
     
     self.title = @"附近";
     
+    // 添加下拉刷新
+    self.baseTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        [self refresh];
+        
+    }];
+    
+    // 添加上拉加载
+    self.baseTableView.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        
+        [self loadMore];
+        
+    }];
+    
+    // 热门视频：首次进入加载，其他时候手动加载。
+    // cell Header重新加载：自带加载数据
+    [self.baseTableView.header beginRefreshing];
+    
+    
     // 加载数据
-    [self loadData];
+//    [self loadData];
     
     // 提前注册
     
-    [self.baseTableView registerNib:[UINib nibWithNibName:@"CYSearchViewCell" bundle:nil] forCellReuseIdentifier:@"CYSearchViewCell"];
+    [self.baseTableView registerNib:[UINib nibWithNibName:@"CYNearbyPeopleCell" bundle:nil] forCellReuseIdentifier:@"CYNearbyPeopleCell"];
     
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 
-// 加载数据：附近的人
-//- (void)loadData{
-//    
-//    // 参数
-//    NSDictionary *params = @{
-//                             @"userId":self.onlyUser.userID
-//                             };
-//    
-//    [self showLoadingView];
-//    
-//    // 网络请求：附近的人
-//    [CYNetWorkManager getRequestWithUrl:cNearbyUserListUrl params:params progress:^(NSProgress *uploadProgress) {
-//        NSLog(@"附近的人请求：进度：%@",uploadProgress);
-//        
-//    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-//        NSLog(@"附近的人请求：请求成功！");
-//        // 1、
-//        NSString *code = responseObject[@"code"];
-//        
-//        // 1.2.1.1.2、和成功的code 匹配
-//        if ([code isEqualToString:@"0"]) {
-//            NSLog(@"附近的人：结果成功！");
-//            NSLog(@"附近的人：responseObject：%@",responseObject);
-//            
-//            // 清空：每次刷新都需要
-//            [self.dataArray removeAllObjects];
-//            
-//            // 解析数据，模型存到数组
-//            [self.dataArray addObjectsFromArray:[CYSearchViewCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
-//            
-//            // 刷新数据
-//            [self.baseTableView reloadData];
-//            
-//            // 请求数据结束，取消加载
-//            [self hidenLoadingView];
-//            
-//        }
-//        else{
-//            NSLog(@"附近的人：结果失败:responseObject:%@",responseObject);
-//            NSLog(@"附近的人：结果失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
-//            // 1.2.1.1.2.2、我的粉丝失败：弹窗提示：获取失败的返回信息
-//            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
-//            
-//        }
-//        
-//    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-//        NSLog(@"附近的人请求：请求失败！");
-//        
-//        [self showHubWithLabelText:@"请检查网络" andHidAfterDelay:3.0];
-//        
-//    } withToken:self.onlyUser.userToken];
-//    
-//}
+    // 隐藏tabbar
+    self.hidesBottomBarWhenPushed = YES;
+}
 
-// 加载数据
+
+// 加载数据：附近的人列表
 - (void)loadData{
     
     // 参数
     NSDictionary *params = @{
-                             @"userId":self.onlyUser.userID
+                             @"userId":self.onlyUser.userID,
+                             @"pageNum":@(self.curPage),
+                             @"pageSize":@(10)
                              };
     
-    [self showLoadingView];
+//    [self showLoadingView];
     
-    // 网络请求：我的关注
-    [CYNetWorkManager getRequestWithUrl:cMyFollowsListUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"我的关注请求：进度：%@",uploadProgress);
+    // 网络请求：附近的人
+    [CYNetWorkManager getRequestWithUrl:cNearbyUserListUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"附近的人请求：进度：%@",uploadProgress);
         
     } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"我的关注请求：请求成功！");
+        NSLog(@"附近的人请求：请求成功！");
+        
+        
+        // 停止刷新
+        [self.baseTableView.header endRefreshing];
+        [self.baseTableView.footer endRefreshing];
+        
+        
         // 1、
         NSString *code = responseObject[@"code"];
         
         // 1.2.1.1.2、和成功的code 匹配
         if ([code isEqualToString:@"0"]) {
-            NSLog(@"我的关注：结果成功！");
-            NSLog(@"我的关注：responseObject：%@",responseObject);
+            NSLog(@"附近的人：结果成功！");
+            NSLog(@"附近的人：responseObject：%@",responseObject);
             
-            // 清空：每次刷新都需要
-            [self.dataArray removeAllObjects];
+            
+            // 清空：每次刷新都需要：但是上拉加载、下拉刷新的不需要；
+            if (self.curPage == 1) {
+                
+                [self.dataArray removeAllObjects];
+            }
             
             // 解析数据，模型存到数组
-            [self.dataArray addObjectsFromArray:[CYSearchViewCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
+            [self.dataArray addObjectsFromArray:[CYNearbyPeopleCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
             
-            // 刷新数据
+            
             [self.baseTableView reloadData];
-            
-            // 请求数据结束，取消加载
-            [self hidenLoadingView];
             
         }
         else{
-            NSLog(@"我的关注：结果失败:responseObject:%@",responseObject);
-            NSLog(@"我的关注：结果失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            NSLog(@"附近的人：结果失败:responseObject:%@",responseObject);
+            NSLog(@"附近的人：结果失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            
             // 1.2.1.1.2.2、我的粉丝失败：弹窗提示：获取失败的返回信息
             [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
             
         }
         
     } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"我的关注请求：请求失败！");
+        NSLog(@"附近的人请求：请求失败！");
+        
+        // 停止刷新
+        [self.baseTableView.header endRefreshing];
+        [self.baseTableView.footer endRefreshing];
         
         [self showHubWithLabelText:@"请检查网络" andHidAfterDelay:3.0];
         
@@ -162,169 +156,28 @@
 // cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    CYSearchViewCell *searchViewCell = [tableView dequeueReusableCellWithIdentifier:@"CYSearchViewCell" forIndexPath:indexPath];
+    CYNearbyPeopleCell *nearbyPeopleCell = [tableView dequeueReusableCellWithIdentifier:@"CYNearbyPeopleCell" forIndexPath:indexPath];
     
-    // 取消关注：点击事件
-    [searchViewCell.followBtn addTarget:self action:@selector(followBtnClickWithBtn:) forControlEvents:UIControlEventTouchUpInside];
     
-    CYSearchViewCellModel *searchViewCellModel = self.dataArray[indexPath.row];
-    searchViewCellModel.followOrNoFollowOrMutualFollow = @"关注和互相关注";
+    CYNearbyPeopleCellModel *nearbyPeopleCellModel = self.dataArray[indexPath.row];
     
-    searchViewCell.searchModel = searchViewCellModel;
+    nearbyPeopleCell.nearbyPeopleCellModel = nearbyPeopleCellModel;
     
     
     
-    return searchViewCell;
+    return nearbyPeopleCell;
     
 }
 
-// 取消关注：点击事件
-- (void)followBtnClickWithBtn:(UIButton *)followBtn{
-    NSLog(@"加关注：点击事件");
-    
-    // button的父类的父类
-    UIView *tempView = [[followBtn superview] superview];
-    
-    // tempView的父类的父类为当前的tableView
-    NSIndexPath *indexPath = [(UITableView *)[[tempView superview] superview] indexPathForCell:tempView];
-    
-    CYSearchViewCellModel *searchViewCellModel = self.dataArray[indexPath.row];
-    
-    // 如果互相关注，则取消关注
-    //    if (searchViewCellModel.Follow == YES) {
-    //        // 网络请求：取消关注
-    [self delFollowWithSearchViewCellModel:searchViewCellModel];
-    //    }
-    //    // 如果已关注，则取消关注：因为在我的
-    //    else {
-    //
-    //        // 网络请求：加关注
-    //        [self addFollowWithSearchViewCellModel:searchViewCellModel];
-    //    }
-    
-    
-}
-
-// 网络请求：取消关注
-- (void)delFollowWithSearchViewCellModel:(CYSearchViewCellModel *)searchViewCellModel{
-    
-    // 网络请求：取消关注
-    // 参数
-    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&oppUserId=%@",cDelFollowUrl,self.onlyUser.userID,searchViewCellModel.Id];
-    
-    [self showLoadingView];
-    
-    // 取消关注
-    [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
-        NSLog(@"取消关注：progress:%@",uploadProgress);
-        
-        
-    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"取消关注：请求成功！");
-        
-        
-        // 2.3.1.1、获取code 值
-        NSString *code = responseObject[@"code"];
-        
-        // 2.3.1.2、判断返回值
-        if ([code isEqualToString:@"0"]) {
-            NSLog(@"取消关注：取消成功！");
-            
-            // 隐藏菊花
-            //            [self hidenLoadingView];
-            
-            // 刷新数据
-            //            [self.baseTableView reloadData];
-            [self loadData];
-            
-        }
-        else{
-            NSLog(@"取消关注：取消失败！");
-            NSLog(@"msg:%@",responseObject[@"res"][@"msg"]);
-            
-            
-            // 2.3.1.2.2、取消关注失败，弹窗
-            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
-        }
-        
-    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"取消关注：请求失败！");
-        NSLog(@"error:%@",error);
-        
-        // 取消关注：请求：失败，加载菊花消失
-        [self hidenLoadingView];
-        
-        // 2.3.1.2.2、取消取消失败，弹窗
-        [self showHubWithLabelText:@"网络错误，请重新上传！" andHidAfterDelay:3.0];
-        
-        
-    } withToken:self.onlyUser.userToken];
-}
-
-// 网络请求：加关注
-- (void)addFollowWithSearchViewCellModel:(CYSearchViewCellModel *)searchViewCellModel{
-    
-    // 网络请求：加关注
-    // 参数
-    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&oppUserId=%@",cAddFollowUrl,self.onlyUser.userID,searchViewCellModel.Id];
-    
-    [self showLoadingView];
-    
-    // 加关注
-    [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
-        NSLog(@"加关注：progress:%@",uploadProgress);
-        
-        
-    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"加关注：请求成功！");
-        
-        
-        // 2.3.1.1、获取code 值
-        NSString *code = responseObject[@"code"];
-        
-        // 2.3.1.2、判断返回值
-        if ([code isEqualToString:@"0"]) {
-            NSLog(@"加关注：关注成功！");
-            
-            // 隐藏菊花
-            //            [self hidenLoadingView];
-            
-            // 刷新数据
-            //            [self.baseTableView reloadData];
-            [self loadData];
-            
-        }
-        else{
-            NSLog(@"加关注：关注失败！");
-            NSLog(@"msg:%@",responseObject[@"res"][@"msg"]);
-            
-            
-            // 2.3.1.2.2、加关注失败，弹窗
-            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
-        }
-        
-    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"加关注：请求失败！");
-        NSLog(@"error:%@",error);
-        
-        // 加关注：请求：失败，加载菊花消失
-        [self hidenLoadingView];
-        
-        // 2.3.1.2.2、加关注请求失败，弹窗
-        [self showHubWithLabelText:@"网络错误，请重新上传！" andHidAfterDelay:3.0];
-        
-        
-    } withToken:self.onlyUser.userToken];
-}
 
 // cell：点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"点击了第 %ld 行 cell",indexPath.row);
+    NSLog(@"点击了第 %ld 行 cell",(long)indexPath.row);
     
     //当离开某行时，让某行的选中状态消失
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    CYSearchViewCellModel *currentCellModel = self.dataArray[indexPath.row];
+    CYNearbyPeopleCellModel *nearbyPeopleCellModel = self.dataArray[indexPath.row];
     
     
     // 他人详情页
@@ -332,18 +185,20 @@
     
     //    othersInfoVC.view.frame = CGRectMake(0, 0, 400, 400);
     
-    othersInfoVC.oppUserId = currentCellModel.Id;
+    othersInfoVC.oppUserId = nearbyPeopleCellModel.UserId;
     
     othersInfoVC.hidesBottomBarWhenPushed = YES;
     
     [self.navigationController pushViewController:othersInfoVC animated:YES];
+    
+    
     
 }
 
 // cell 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return (190.0 / 1108) * self.view.frame.size.height;
+    return (190.0 / 1206.0) * self.view.frame.size.height;
 }
 
 // 为了设置第一行距顶部navigation 的距离

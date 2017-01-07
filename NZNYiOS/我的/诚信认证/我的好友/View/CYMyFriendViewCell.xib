@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,7 +23,7 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认头像.png" translatesAutoresizingMaskIntoConstraints="NO" id="0qo-Kt-dET" userLabel="1.1-头像-Image View">
                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="number" keyPath="keyPath">
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                     <integer key="value" value="25"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
@@ -41,7 +41,7 @@
                     <rect key="frame" x="78" y="10" width="220" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张大大大" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Sb-La-W3Y" userLabel="2.1-姓名-Label">
-                            <rect key="frame" x="0.0" y="5" width="66.5" height="15"/>
+                            <rect key="frame" x="0.0" y="5" width="77.5" height="17.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="4Sb-La-W3Y" secondAttribute="height" multiplier="40:9" id="N9e-ce-u83"/>
                             </constraints>
@@ -50,19 +50,19 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="资料性别女.png" translatesAutoresizingMaskIntoConstraints="NO" id="l2c-M5-GbN" userLabel="2.2-性别-Image View">
-                            <rect key="frame" x="81.5" y="5" width="15" height="15"/>
+                            <rect key="frame" x="92.5" y="5" width="17.5" height="17.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="l2c-M5-GbN" secondAttribute="height" id="f33-I6-ge9"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="守护一颗心" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="DaL-yj-9Id" userLabel="2.4-爱情宣言-Label">
-                            <rect key="frame" x="0.0" y="30" width="220" height="15"/>
+                            <rect key="frame" x="0.0" y="32.5" width="220" height="17.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18岁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="0oZ-R3-2kw" userLabel="2.3-年龄-Label">
-                            <rect key="frame" x="111.5" y="5" width="26" height="15"/>
+                            <rect key="frame" x="125" y="5" width="26" height="17.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                         <constraint firstItem="0oZ-R3-2kw" firstAttribute="leading" secondItem="l2c-M5-GbN" secondAttribute="trailing" constant="15" id="cXO-xu-lpa"/>
                         <constraint firstItem="0oZ-R3-2kw" firstAttribute="centerY" secondItem="l2c-M5-GbN" secondAttribute="centerY" id="ckf-we-B7c"/>
                         <constraint firstAttribute="trailing" secondItem="DaL-yj-9Id" secondAttribute="trailing" id="hzW-7t-4WO"/>
-                        <constraint firstAttribute="bottom" secondItem="DaL-yj-9Id" secondAttribute="bottom" constant="5" id="lRc-PG-kIO"/>
+                        <constraint firstAttribute="bottom" secondItem="DaL-yj-9Id" secondAttribute="bottom" id="lRc-PG-kIO"/>
                         <constraint firstItem="DaL-yj-9Id" firstAttribute="height" secondItem="4Sb-La-W3Y" secondAttribute="height" id="pzo-Vb-8zB"/>
                         <constraint firstItem="0oZ-R3-2kw" firstAttribute="height" secondItem="l2c-M5-GbN" secondAttribute="height" id="rqf-Ch-aEu"/>
                         <constraint firstItem="DaL-yj-9Id" firstAttribute="top" secondItem="4Sb-La-W3Y" secondAttribute="bottom" constant="10" id="syG-ol-eaa"/>

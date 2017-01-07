@@ -155,7 +155,7 @@
     CYWhoPraiseMeCellModel *whoPraiseMeCellModel = self.dataArray[indexPath.row];
     whoPraiseMeCellModel.isPraise = NO;
     
-    cell.headImgView.layer.cornerRadius = cell.headImgView.frame.size.height / 2;
+    cell.headImgView.layer.cornerRadius = (750.0 / 150.0) * cell.headImgView.frame.size.height;
     
     // 假数据
     cell.whoPraiseMeCellModel = whoPraiseMeCellModel;

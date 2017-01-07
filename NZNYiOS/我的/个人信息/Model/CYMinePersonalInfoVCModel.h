@@ -13,6 +13,9 @@
 @interface CYMinePersonalInfoVCModel : JSONModel
 
 
+// 年龄
+@property (nonatomic, assign) NSInteger Age;
+
 // 出生日期
 @property (nonatomic, copy) NSString *Birthday;
 

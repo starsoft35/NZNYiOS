@@ -20,6 +20,11 @@
 // 模型
 @property (nonatomic, strong) CYOthersInfoViewModel *othersInfoViewModel;
 
+
+// 上部视图：View
+@property (weak, nonatomic) IBOutlet UIView *topInfoView;
+
+
 // 头像：imageView
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;
 
@@ -49,6 +54,11 @@
 
 // 性别：imageView
 @property (weak, nonatomic) IBOutlet UIImageView *genderImgView;
+
+
+// 底部联系、关注、送礼、点赞视图：View
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+
 
 
 // 关注人数：label

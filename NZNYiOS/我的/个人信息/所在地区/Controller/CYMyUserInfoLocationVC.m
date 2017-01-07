@@ -35,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    self.title = @"区域";
     
     if (self.selections.count) {
         self.index1 = [self.selections[0] integerValue];

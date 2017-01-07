@@ -65,6 +65,9 @@
 // 真是姓名
 @property (nonatomic, copy) NSString *RealName;
 
+// 年龄
+@property (nonatomic, assign) NSInteger Age;
+
 
 // 因为当前登录的用户只能有一个，所以做成一个单例
 + (instancetype)currentUser;

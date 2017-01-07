@@ -54,12 +54,6 @@
 }
 
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    // 隐藏tabbar
-    self.hidesBottomBarWhenPushed = NO;
-}
 
 
 
@@ -255,6 +249,18 @@
     
     // 附近的人：VC
     CYNearbyPeopleVC *nearbyPeopleVC = [[CYNearbyPeopleVC alloc] init];
+    
+    if (cScreen_Height == 568.0) {
+        
+        nearbyPeopleVC.view.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - (150.0 / 1334.0) * cScreen_Height);
+        nearbyPeopleVC.baseTableView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - (150.0 / 1334.0) * cScreen_Height);
+    }
+    else {
+        
+        nearbyPeopleVC.view.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - (128.0 / 1334.0) * cScreen_Height);
+        nearbyPeopleVC.baseTableView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - (128.0 / 1334.0) * cScreen_Height);
+        
+    }
     
     // 隐藏tabbar
     self.hidesBottomBarWhenPushed = YES;
@@ -847,6 +853,7 @@
             currentUser.Province = responseObject[@"res"][@"data"][@"userinfo"][@"Province"];
             currentUser.RealName = responseObject[@"res"][@"data"][@"userinfo"][@"RealName"];
             currentUser.RongToken = responseObject[@"res"][@"data"][@"userinfo"][@"RongToken"];
+            currentUser.Age = responseObject[@"res"][@"data"][@"userinfo"][@"Age"];
             
             // 头像
             NSString *portaitUrl = responseObject[@"res"][@"data"][@"userinfo"][@"Portrait"];

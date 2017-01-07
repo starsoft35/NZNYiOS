@@ -166,6 +166,20 @@
 #define cMySendLikeListUrl (@"api/Like/SendLikeList")
 
 // 4、5.5、我的标签
+#define cMyAllTagsListUrl (@"api/UserTags/MyAllList")
+// 4、5.5.1、星座标签列表
+#define cXingZuoTagListUrl (@"api/Tags/api/Tags/XingZuoTagList")
+// 4、5.5.2、房车标签列表
+#define cFangCheTagListUrl (@"api/Tags/api/Tags/FangCheTagList")
+// 4、5.5.3、身高标签列表
+#define cShenGaoTagListUrl (@"api/Tags/api/Tags/ShenGaoTagList")
+// 4、5.5.4、职业标签列表
+#define cZhiYeTagListUrl (@"api/Tags/api/Tags/ZhiYeTagList")
+// 4、5.5.5、爱好标签列表
+#define cAiHaoTagListUrl (@"api/Tags/api/Tags/AiHaoTagList")
+// 4、5.6、添加、修改标签
+#define cTagAddUrl (@"api/UserTags/Add")
+
 // 4、5.6、我的好友：列表
 #define cMyFriendsListUrl (@"api/Relationship/FriendsList")
 

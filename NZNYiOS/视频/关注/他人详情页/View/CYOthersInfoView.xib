@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -457,6 +457,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="ageLab" destination="EVy-nv-cgm" id="MM6-Z3-0Ws"/>
+                <outlet property="bottomView" destination="2i5-yN-oaM" id="LCM-Pr-eGn"/>
                 <outlet property="contactBtn" destination="KYG-6n-Der" id="uPA-Dj-0n9"/>
                 <outlet property="fansCountLab" destination="kzU-XD-o6Z" id="55V-t1-Ln8"/>
                 <outlet property="followBtn" destination="GpA-0q-vK2" id="1kC-LN-sLV"/>
@@ -472,6 +473,7 @@
                 <outlet property="likeBtn" destination="GUU-sO-tMI" id="N1o-6b-VpX"/>
                 <outlet property="nameLab" destination="BJz-Yb-qzt" id="lhL-Ec-xv1"/>
                 <outlet property="starSignLab" destination="Mqg-xT-uFU" id="bg2-Va-C3l"/>
+                <outlet property="topInfoView" destination="RAm-us-7Po" id="1Ch-oT-gHr"/>
                 <outlet property="workLab" destination="vzl-oD-H6V" id="KcL-Mt-Nq1"/>
             </connections>
             <point key="canvasLocation" x="125.5" y="-107.5"/>

@@ -27,10 +27,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"我的赞";
+    
     // 添加视图
-    [self addView];
+//    [self addView];
     
 }
+
+
+- (void)viewWillAppear:(BOOL)animated{
+
+    [super viewWillAppear:animated];
+    
+    
+    // 添加视图
+    [self addView];
+
+}
+
 
 // 添加视图
 - (void)addView{

@@ -49,6 +49,8 @@
     [aCoder encodeObject:self.Portrait forKey:@"Portrait"];
     [aCoder encodeObject:self.Province forKey:@"Province"];
     [aCoder encodeObject:self.RealName forKey:@"RealName"];
+    NSString *ageStr = [NSString stringWithFormat:@"%ld",self.Age];
+    [aCoder encodeObject:ageStr forKey:@"Age"];
     
 }
 
@@ -81,6 +83,7 @@
         self.Portrait = [aDecoder decodeObjectForKey:@"Portrait"];
         self.Province = [aDecoder decodeObjectForKey:@"Province"];
         self.RealName = [aDecoder decodeObjectForKey:@"RealName"];
+        self.RealName = [aDecoder decodeObjectForKey:@"Age"];
         
     }
     

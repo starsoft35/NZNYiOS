@@ -127,7 +127,7 @@
             
             
             // 请求数据结束，取消加载
-            //            [self hidenLoadingView];
+            [self hidenLoadingView];
             
             
             NSString * tempMoneyStr = responseObject[@"res"][@"data"][@"money"];

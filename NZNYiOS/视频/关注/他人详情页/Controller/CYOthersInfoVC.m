@@ -142,18 +142,27 @@
     
     _othersInfoView = [[[NSBundle mainBundle] loadNibNamed:@"CYOthersInfoView" owner:nil options:nil] lastObject];
     
-    NSLog(@"self.dataArray.count:%ld",self.dataArray.count);
+    NSLog(@"self.dataArray.count:%ld",(unsigned long)self.dataArray.count);
     
+    CGRect tempRect = CGRectMake(0, 0, cScreen_Width, _othersInfoView.infoOrVideoOrLiveView.frame.size.height - 76);
+//        CGRect tempRec = CGRectMake(0, 0, cScreen_Width, 388 - 30);
     
+//    NSLog(@"tempRec.size.height:%lf",tempRec.size.height);
+    NSLog(@"_othersInfoView.infoOrVideoOrLiveView:%@",_othersInfoView.infoOrVideoOrLiveView);
     
     // 资料
     _otherInfoVC = [[CYOtherDetailsVC alloc] init];
 //    CYOtherDetailsVC *o = [[CYOtherDetailsVC alloc] init];
     _otherInfoVC.oppUserId = self.oppUserId;
     
+    _otherInfoVC.view.frame = tempRect;
+    _otherInfoVC.baseTableView.frame = tempRect;
+    
     // 视频
     _otherVideoVC = [[CYOtherVideoVC alloc] init];
     _otherVideoVC.oppUserId = self.oppUserId;
+    _otherVideoVC.view.frame = tempRect;
+    _otherVideoVC.baseCollectionView.frame = tempRect;
     
 //    CYOtherVideoVC *v = [[CYOtherVideoVC alloc] init];
 //    UINavigationController *videoNav = [[UINavigationController alloc] initWithRootViewController:_otherVideoVC];
@@ -162,16 +171,22 @@
     _otherLiveVC = [[CYOtherLiveVC alloc] init];
     _otherLiveVC.oppUserId = self.oppUserId;
 //    CYOtherLiveVC *l = [[CYOtherLiveVC alloc] init];
+    _otherLiveVC.view.frame = tempRect;
+    _otherLiveVC.baseTableView.frame = tempRect;
     
     // 中部视图页面
-    CYOthersInfoVideoLiveVC *videoVC = [[CYOthersInfoVideoLiveVC alloc] initWithSubVC:@[_otherInfoVC,_otherVideoVC,_otherLiveVC] andTitles:@[@"资料",@"视频",@"直播"]];
+    CYOthersInfoVideoLiveVC *middleVC = [[CYOthersInfoVideoLiveVC alloc] initWithSubVC:@[_otherInfoVC,_otherVideoVC,_otherLiveVC] andTitles:@[@"资料",@"视频",@"直播"]];
 //    CYOthersInfoVideoLiveVC *videoVC = [[CYOthersInfoVideoLiveVC alloc] initWithSubVC:@[_otherInfoVC,videoNav,l] andTitles:@[@"资料",@"视频",@"直播"]];
     
+    float middleVCHeight = _othersInfoView.infoOrVideoOrLiveView.frame.size.height;
+    CGRect middleVCRect = CGRectMake(0, 0, cScreen_Width, middleVCHeight);
     
+    middleVC.view.frame = middleVCRect;
+//    middleVC.bgScrollView.frame = CGRectMake(0, 35, cScreen_Width, middleVCHeight - 35 - 64);
     
 //    [videoVC setScrollViewFrame];
     // 中部视图：赋值
-    [_othersInfoView.infoOrVideoOrLiveView addSubview:videoVC.view];
+    [_othersInfoView.infoOrVideoOrLiveView addSubview:middleVC.view];
     
     // 联系他：button：点击事件
     [_othersInfoView.contactBtn addTarget:self action:@selector(contactBtnClick) forControlEvents:UIControlEventTouchUpInside];

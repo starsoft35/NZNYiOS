@@ -49,7 +49,7 @@
 #import "CYMyGiftVC.h"
 
 // 我的标签
-
+#import "CYMyTagVC.h"
 
 
 // 我的好友VC
@@ -500,10 +500,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"点击了cell：%ld",(long)indexPath.row);
     
+    //当离开某行时，让某行的选中状态消失
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0 && indexPath.row == 0) {
         
-        // 我的赞
+        // 我的账户余额
         CYMyAccountBalanceVC *myAccountBalanceVC = [[CYMyAccountBalanceVC alloc] init];
         
         // 隐藏tabbar
@@ -555,6 +557,17 @@
         [self.navigationController pushViewController:myGiftVC animated:YES];
         
     }
+    else if (indexPath.section == 0 && indexPath.row == 4) {
+        
+        // 我的标签
+        CYMyTagVC *myTagVC = [[CYMyTagVC alloc] init];
+        
+        // 隐藏tabbar
+        myTagVC.hidesBottomBarWhenPushed = YES;
+        
+        [self.navigationController pushViewController:myTagVC animated:YES];
+        
+    }
     else if (indexPath.section == 0 && indexPath.row == 5) {
         
         // 我的好友
@@ -567,8 +580,7 @@
         
     }
     
-    //当离开某行时，让某行的选中状态消失
-//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     
 }
 
