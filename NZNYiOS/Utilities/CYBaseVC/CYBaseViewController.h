@@ -11,9 +11,16 @@
 // 定位需要导入这个头文件。并实现代理
 #import <CoreLocation/CoreLocation.h>
 
+// 微信登录SDK：API
+//#import "WXApi.h"
+
 @interface CYBaseViewController : UIViewController<
+//WXApiDelegate,
 CLLocationManagerDelegate,
-UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIApplicationDelegate>
+UIActionSheetDelegate,
+UIImagePickerControllerDelegate,
+UINavigationControllerDelegate,
+UIApplicationDelegate>
 
 // 提示框：hud
 @property (nonatomic,strong)MBProgressHUD *hud;
@@ -124,5 +131,15 @@ UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDele
 
 // 送礼：网络请求
 - (void)requestGiveGiftWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)giftCount;
+
+
+// 分享：微信分享：文字类型分享
+- (void)sharedToWeChatWithText:(NSString *)text bText:(BOOL)bText andScene:(int)scene;
+
+// 分享：微信分享：图片类型分享
+- (void)shareToWechatWithThumbImage:(UIImage *)thumbImage andImageData:(NSData *)thumbImageData andbText:(BOOL)bText andScene:(int)scene;
+
+// 分享：微信分享：网页类型分享
+- (void)sharedToWeChatWithWebpageWithShareTitle:(NSString *)shareTitle andDescription:(NSString *)shareDescription andImage:(UIImage *)image andWebpageUrl:(NSString *)webPageUrl andbText:(BOOL)bText andScene:(int)scene;
 
 @end

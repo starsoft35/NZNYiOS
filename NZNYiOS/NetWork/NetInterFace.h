@@ -19,6 +19,10 @@
 #define cPushAndPlayHostUrl (@"http://video.nznychina.com")
 
 
+// 下载地址
+#define cDownLoadUrl (@"http://api.212bg.com/Uploads/ios.ipa")
+
+
 #pragma 0、登录、注册
 // 0.登录、注册
 // 0.1-登录地址
@@ -233,7 +237,10 @@
 #define cWXAppSecret (@"")
 
 // 6.3-融云SDK：
-#define cRongAppKey (@"0vnjpoadnp2qz")
+// 开发环境：RongAppKey
+//#define cRongAppKey (@"0vnjpoadnp2qz")
+// 生产环境：RongAppKey
+#define cRongAppKey (@"e5t4ouvptowra")
 #define cRongSecret (@"yShXVwLoYRIo")
 // 6.3.1-网络请求：获取用户在融云的token
 #define cRongTokenUrl (@"api/User/RongToken")

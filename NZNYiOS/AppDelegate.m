@@ -51,7 +51,7 @@
     [SMSSDK registerApp:cSMSAppKey withSecret:cSMSAppSecret];
     
     // 微信登录SDK：初始化：注册
-//    [self weChatLoginBtnClick];
+    [self weChatLoginBtnClick];
     
 //    // 融云：SDK-初始化
 //    [self setRongSDK];
@@ -308,6 +308,13 @@
                 NSLog(@"支付失败，retcode=%d",resp.errCode);
                 break;
         }
+    }
+    
+    
+    if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
+        
+        SendMessageToWXResp *messageResp = (SendMessageToWXResp *)resp;
+        
     }
     
 }

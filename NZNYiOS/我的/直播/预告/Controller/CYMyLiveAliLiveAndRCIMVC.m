@@ -778,7 +778,6 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 - (void)shareBtnClick{
     NSLog(@"分享btn：点击事件");
     
-    
 }
 
 

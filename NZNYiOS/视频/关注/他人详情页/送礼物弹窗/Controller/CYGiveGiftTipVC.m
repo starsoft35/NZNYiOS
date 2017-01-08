@@ -103,8 +103,12 @@
             //            [self hidenLoadingView];
             
             
-            NSString * tempMoneyStr = responseObject[@"res"][@"data"][@"userinfo"][@"Money"];
+            NSString * tempMoneyStr = responseObject[@"res"][@"data"][@"money"];
             float tempMoney = [tempMoneyStr floatValue];
+            
+            NSLog(@"tempMoneyStr:%@",tempMoneyStr);
+            NSLog(@"tempMoney:%lf",tempMoney);
+            NSLog(@"cost:%lf",cost);
             
             // 如果余额够支付，则赞、支付
             if (tempMoney >= cost) {

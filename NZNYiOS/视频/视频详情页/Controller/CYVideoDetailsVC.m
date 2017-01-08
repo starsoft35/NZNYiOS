@@ -357,6 +357,48 @@
 - (void)shareBtnClick{
     NSLog(@"分享：button：点击事件");
     
+    
+    NSString *downloadUrl = [[NSString alloc] init];
+    downloadUrl = cDownLoadUrl;
+    downloadUrl = @"https://www.baidu.com/";
+    
+    
+    
+    UIImage *thumbImage = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:self.onlyUser.Portrait];
+    NSData *thumbImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,self.onlyUser.Portrait]]];
+    
+    // 分享：文本分享
+//    [self sharedToWeChatWithText:@"分享随便些" bText:YES andScene:0];
+    
+    // 分享：图片分享
+    [self shareToWechatWithThumbImage:thumbImage andImageData:thumbImageData andbText:NO andScene:0];
+    
+    // 分享：网页分享
+//    [self sharedToWeChatWithWebpageWithShareTitle:@"APP 下载地址" andDescription:@"男左女右 遇见你的TA" andImage:[UIImage imageNamed:@"默认头像.png"] andWebpageUrl:downloadUrl andbText:NO andScene:0];
+    
+//    WXMediaMessage *message = [WXMediaMessage message];
+//    message.title = @"分享标题";
+//    message.description = @"分享描述";
+//    [message setThumbImage:[UIImage imageNamed:@"117.jpg"]];
+//    
+//    
+//    WXWebpageObject *webpageObject = [WXWebpageObject object];
+//    webpageObject.webpageUrl = @"https://www.baidu.com/";
+//    
+//    
+//    message.mediaObject = webpageObject;
+//    
+//    
+//    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+//    req.bText = NO;
+//    req.message = message;
+//    
+//    // 分享到好友会话
+//    req.scene = WXSceneSession;
+//    
+//    
+//    [WXApi sendReq:req];
+    
 }
 
 // 播放：button：点击事件（系统播放器）

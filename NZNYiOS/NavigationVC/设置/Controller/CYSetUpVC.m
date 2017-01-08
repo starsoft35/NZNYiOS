@@ -30,6 +30,8 @@
     [super viewDidLoad];
     
     
+    self.title = @"设置";
+    
     // 加载数据
     [self loadData];
     

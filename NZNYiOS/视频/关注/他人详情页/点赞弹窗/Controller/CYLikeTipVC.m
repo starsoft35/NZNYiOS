@@ -138,7 +138,7 @@
                 
                 self.isEnoughForPay = YES;
                 
-                // 网路请求：点一个赞
+                // 网路请求：点 n 个赞
                 [self requestLikeWithUserId:self.onlyUser.userID andReceiveUserId:oppUserId andGiftCount:likeCount];
                 
             }

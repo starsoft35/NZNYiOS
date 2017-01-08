@@ -191,7 +191,6 @@
     
     NSLog(@"定位：当前的位置：%@",location);
     
-#warning 数据请求：把经纬度 发送给后台
     // 当前用户
     CYUser *currentUser = [CYUser currentUser];
     
@@ -341,48 +340,6 @@
 - (void)loadData{
     NSLog(@"viewController 子类需要重写loadData 这个方法，如果没有重写，就会打印这句话");
     
-#warning 加载数据
-    // 假数据
-//    _dataArray = @[
-//                   @[
-//                       @{
-//                           @"cellTitle" : @"头像",
-//                           @"cellIcon" : @"test_user_icon"
-//                           },
-//                       @{
-//                           @"cellTitle" : @"姓名",
-//                           @"cellDetailTitle" : @"张大大"
-//                           },
-//                       @{
-//                           @"cellTitle" : @"用户ID",
-//                           @"cellDetailTitle" : @"20160815"
-//                           },
-//                       @{
-//                           @"cellTitle" : @"性别",
-//                           @"cellDetailTitle" : @"女"
-//                           },
-//                       @{
-//                           @"cellTitle" : @"年龄",
-//                           @"cellDetailTitle" : @"18"
-//                           },
-//                       @{
-//                           @"cellTitle" : @"婚姻状况",
-//                           @"cellDetailTitle" : @"未知"
-//                           },
-//                       @{
-//                           @"cellTitle" : @"所在地区",
-//                           @"cellDetailTitle" : @"上海"
-//                           },
-//                       
-//                       
-//                       ],
-//                   @[
-//                       @{
-//                           @"cellTitle" : @"爱情宣言",
-//                           @"cellDetailTitle" : @"守护一颗心"
-//                           }
-//                       ]
-//                   ];
     
 }
 
@@ -441,7 +398,7 @@
 // 验证码button定时器：执行的方法
 - (void)timerCountdownWithRepeatBtn:(UIButton *)repeatBtn andCountdownTime:(NSInteger)countdownTime andBtnDisabledTitle:(NSString *)btnDisabledTitle andNormalTitle:(NSString *)btnNormalTitle{
     
-    NSLog(@"倒计时：%ld",self.repeatSendVerifiTime);
+    NSLog(@"倒计时：%ld",(long)self.repeatSendVerifiTime);
     
     if (self.repeatSendVerifiTime - 1) {
         
@@ -865,7 +822,7 @@
             currentUser.Province = responseObject[@"res"][@"data"][@"userinfo"][@"Province"];
             currentUser.RealName = responseObject[@"res"][@"data"][@"userinfo"][@"RealName"];
             currentUser.RongToken = responseObject[@"res"][@"data"][@"userinfo"][@"RongToken"];
-            currentUser.Age = responseObject[@"res"][@"data"][@"userinfo"][@"Age"];
+            currentUser.Age = [responseObject[@"res"][@"data"][@"userinfo"][@"Age"] integerValue];
             
             // 头像
             NSString *portaitUrl = responseObject[@"res"][@"data"][@"userinfo"][@"Portrait"];
@@ -1077,21 +1034,21 @@
                              @"Count":@(likeCount)
                              };
     
-    // 网络请求：点一个赞
+    // 网络请求：点 n 个赞
     [CYNetWorkManager postRequestWithUrl:cAddUserLikeUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"点一个赞：%@",uploadProgress);
+        NSLog(@"点 %ld 个赞：%@",(long)likeCount,uploadProgress);
         
         
     } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"点一个赞：请求成功！");
+        NSLog(@"点 %ld 个赞：请求成功！",(long)likeCount);
         
         // 1、
         NSString *code = responseObject[@"code"];
         
         // 1.2.1.1.2、和成功的code 匹配
         if ([code isEqualToString:@"0"]) {
-            NSLog(@"点一个赞：点赞成功！");
-            NSLog(@"点一个赞：%@",responseObject);
+            NSLog(@"点 %ld 个赞：点赞成功！",(long)likeCount);
+            NSLog(@"点 %ld 个赞：%@",(long)likeCount,responseObject);
             
             
             
@@ -1100,12 +1057,13 @@
             
 #warning 点赞成功，发送消息到聊天列表
             
-            [self showHubWithLabelText:@"点赞成功！" andHidAfterDelay:3.0];
+            
+            [self showHubWithLabelText:[NSString stringWithFormat:@"点 %ld 个赞成功！",(long)likeCount] andHidAfterDelay:3.0];
             
         }
         else{
-            NSLog(@"点一个赞：点赞:responseObject:%@",responseObject);
-            NSLog(@"点一个赞：点赞:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            NSLog(@"点 %ld 个赞：点赞:responseObject:%@",(long)likeCount,responseObject);
+            NSLog(@"点 %ld 个赞：点赞:responseObject:res:msg:%@",(long)likeCount,responseObject[@"res"][@"msg"]);
             // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
             [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
             
@@ -1113,8 +1071,8 @@
         
         
     } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"点一个赞：请求失败！");
-        NSLog(@"点一个赞：error：%@",error);
+        NSLog(@"点 %ld 个赞：请求失败！",(long)likeCount);
+        NSLog(@"点 %ld 个赞：error：%@",(long)likeCount,error);
         
         [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
     } withToken:self.onlyUser.userToken];
@@ -1134,33 +1092,33 @@
                              @"Count":@(giftCount)
                              };
     
-    // 网络请求：送一支玫瑰花
+    // 网络请求：送 n 支玫瑰花
     [CYNetWorkManager postRequestWithUrl:cAddFlowersUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"送一支玫瑰花进度：%@",uploadProgress);
+        NSLog(@"送 %ld 支玫瑰花进度：%@",(long)giftCount,uploadProgress);
         
         
     } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"送一支玫瑰花：请求成功！");
+        NSLog(@"送 %ld 支玫瑰花：请求成功！",(long)giftCount);
         
         // 1、
         NSString *code = responseObject[@"code"];
         
         // 1.2.1.1.2、和成功的code 匹配
         if ([code isEqualToString:@"0"]) {
-            NSLog(@"送一支玫瑰花：送礼成功！");
-            NSLog(@"送一支玫瑰花：%@",responseObject);
+            NSLog(@"送 %ld 支玫瑰花：送礼成功！",(long)giftCount);
+            NSLog(@"送 %ld 支玫瑰花：%@",(long)giftCount,responseObject);
             
             
             
             // 请求数据结束，取消加载
 //            [self hidenLoadingView];
             
-            [self showHubWithLabelText:@"送礼成功！" andHidAfterDelay:3.0];
+            [self showHubWithLabelText:[NSString stringWithFormat:@"送 %ld 朵玫瑰成功！",(long)giftCount] andHidAfterDelay:3.0];
             
         }
         else{
-            NSLog(@"送一支玫瑰花：送礼:responseObject:%@",responseObject);
-            NSLog(@"送一支玫瑰花：送礼:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            NSLog(@"送 %ld 支玫瑰花：送礼:responseObject:%@",(long)giftCount,responseObject);
+            NSLog(@"送 %ld 支玫瑰花：送礼:responseObject:res:msg:%@",(long)giftCount,responseObject[@"res"][@"msg"]);
             // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
             [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
             
@@ -1168,11 +1126,156 @@
         
         
     } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"送一支玫瑰花：请求失败！");
+        NSLog(@"送 %ld 支玫瑰花：请求失败！",(long)giftCount);
         NSLog(@"失败原因：error：%@",error);
         
         [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
     } withToken:self.onlyUser.userToken];
+    
+}
+
+
+// 分享：微信分享：文字类型分享
+- (void)sharedToWeChatWithText:(NSString *)text bText:(BOOL)bText andScene:(int)scene{
+    NSLog(@"分享：微信分享：文字类型分享");
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    
+    req.text = text;
+    req.bText = bText;
+    req.scene = scene;
+    
+    [WXApi sendReq:req];
+    
+}
+
+// 分享：微信分享：图片类型分享
+- (void)shareToWechatWithThumbImage:(UIImage *)thumbImage andImageData:(NSData *)thumbImageData andbText:(BOOL)bText andScene:(int)scene{
+    NSLog(@"分享：微信分享：图片类型分享");
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    
+    // 分享时，点击确认发送的界面展示的图片：缩略图
+    [message setThumbImage:[UIImage imageNamed:@"默认头像.png"]];
+    
+    WXImageObject *imageObj = [WXImageObject object];
+    
+    // 图片的路径：转化为data，用于分享在聊天界面或朋友圈的数据
+//    imageObj.imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,self.onlyUser.Portrait]]];
+    imageObj.imageData = thumbImageData;;
+    
+    message.mediaObject = imageObj;
+    
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.bText = bText;
+    req.message = message;
+    req.scene = scene;
+    
+    
+    [WXApi sendReq:req];
+    
+}
+
+// 分享：微信分享：音乐类型分享
+- (void)shareToWechatWithMusic{
+    NSLog(@"分享：微信分享：音乐类型分享");
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    
+    message.title = @"音乐的标题";
+    message.description = @"音乐的描述";
+    
+    // 音乐的显示缩略图
+    [message setThumbImage:[UIImage imageNamed:@"默认头像.png"]];
+    
+    
+    WXMusicObject *ext = [WXMusicObject object];
+    
+    ext.musicUrl = @"音乐的Url";
+    ext.musicLowBandUrl = ext.musicUrl;
+    
+    ext.musicDataUrl = @"音乐的数据Url";
+    ext.musicLowBandDataUrl = ext.musicDataUrl;
+    
+    message.mediaObject = ext;
+    
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.message = message;
+    req.scene = 0;
+    
+    
+    [WXApi sendReq:req];
+    
+}
+
+
+// 分享：微信分享：视频类型分享
+- (void)shareToWechatWithVideo{
+    NSLog(@"分享：微信分享：视频类型分享");
+    
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    
+    message.title = @"视频的标题";
+    message.description = @"视频的描述";
+    
+    // 视频显示的缩略图
+    [message setThumbImage:[UIImage imageNamed:@"默认头像.png"]];
+    
+    
+    WXVideoObject *videoObj = [WXVideoObject object];
+    
+    videoObj.videoUrl = @"视频的播放地址Url";
+    
+    // 低分辨率的视频Url
+    videoObj.videoLowBandUrl = videoObj.videoUrl;
+    
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    
+    req.bText = NO;
+    req.message = message;
+    req.scene = 0;
+    
+    
+    [WXApi sendReq:req];
+    
+}
+
+
+// 分享：微信分享：网页类型分享
+- (void)sharedToWeChatWithWebpageWithShareTitle:(NSString *)shareTitle andDescription:(NSString *)shareDescription andImage:(UIImage *)image andWebpageUrl:(NSString *)webPageUrl andbText:(BOOL)bText andScene:(int)scene{
+    NSLog(@"分享：微信分享：网页类型分享");
+    
+    
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = shareTitle;
+    message.description = shareDescription;
+    [message setThumbImage:image];
+    
+    
+    WXWebpageObject *webpageObject = [WXWebpageObject object];
+    webpageObject.webpageUrl = webPageUrl;
+    
+    
+    message.mediaObject = webpageObject;
+    
+    
+    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
+    req.bText = bText;
+    req.message = message;
+    
+    
+    // 分享到好友会话
+    req.scene = scene;
+    
+    
+    [WXApi sendReq:req];
+    
+    
     
 }
 
