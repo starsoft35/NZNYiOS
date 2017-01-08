@@ -1156,12 +1156,11 @@
     WXMediaMessage *message = [WXMediaMessage message];
     
     // 分享时，点击确认发送的界面展示的图片：缩略图
-    [message setThumbImage:[UIImage imageNamed:@"默认头像.png"]];
+    [message setThumbImage:thumbImage];
     
     WXImageObject *imageObj = [WXImageObject object];
     
     // 图片的路径：转化为data，用于分享在聊天界面或朋友圈的数据
-//    imageObj.imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,self.onlyUser.Portrait]]];
     imageObj.imageData = thumbImageData;;
     
     message.mediaObject = imageObj;

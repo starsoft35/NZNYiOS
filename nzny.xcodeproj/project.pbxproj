@@ -40,6 +40,7 @@
 		8A0CC3611DE0407B00362190 /* 视频选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A0CC35B1DE0407B00362190 /* 视频选中@3x.png */; };
 		8A0CC3641DE041BE00362190 /* CYLiveCollectionViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0CC3631DE041BE00362190 /* CYLiveCollectionViewCellModel.m */; };
 		8A0CC3671DE0483D00362190 /* CYBaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0CC3661DE0483D00362190 /* CYBaseCollectionViewController.m */; };
+		8A0D2FBC1E2266F90025CF85 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A0D2FBB1E2266F90025CF85 /* logo.png */; };
 		8A1098061DFC2D04003C2EFC /* 直播详情底部.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1098031DFC2D04003C2EFC /* 直播详情底部.png */; };
 		8A1098071DFC2D04003C2EFC /* 直播详情底部@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1098041DFC2D04003C2EFC /* 直播详情底部@2x.png */; };
 		8A1098081DFC2D04003C2EFC /* 直播详情底部@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1098051DFC2D04003C2EFC /* 直播详情底部@3x.png */; };
@@ -783,6 +784,7 @@
 		8A0CC3631DE041BE00362190 /* CYLiveCollectionViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLiveCollectionViewCellModel.m; sourceTree = "<group>"; };
 		8A0CC3651DE0483D00362190 /* CYBaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYBaseCollectionViewController.h; sourceTree = "<group>"; };
 		8A0CC3661DE0483D00362190 /* CYBaseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYBaseCollectionViewController.m; sourceTree = "<group>"; };
+		8A0D2FBB1E2266F90025CF85 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		8A1098031DFC2D04003C2EFC /* 直播详情底部.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "直播详情底部.png"; sourceTree = "<group>"; };
 		8A1098041DFC2D04003C2EFC /* 直播详情底部@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "直播详情底部@2x.png"; sourceTree = "<group>"; };
 		8A1098051DFC2D04003C2EFC /* 直播详情底部@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "直播详情底部@3x.png"; sourceTree = "<group>"; };
@@ -2956,6 +2958,7 @@
 		8A4C58341D64437400DF2E6C /* image */ = {
 			isa = PBXGroup;
 			children = (
+				8A0D2FBB1E2266F90025CF85 /* logo.png */,
 				8A0815D21E12399400F6C4D2 /* 启动页-1.png */,
 				8A0815D31E12399400F6C4D2 /* 启动页-1@2x.png */,
 				8A0815D41E12399400F6C4D2 /* 启动页-1@3x.png */,
@@ -5805,6 +5808,7 @@
 				8AFC66141DE9609400EADFB6 /* 行驶证4@2x.png in Resources */,
 				8A12D1821E01432500A58FEF /* CYMyLiveTrailerCell.xib in Resources */,
 				8ACE88981E08D882000CC72B /* 锁@2x.png in Resources */,
+				8A0D2FBC1E2266F90025CF85 /* logo.png in Resources */,
 				8A51B6AE1DE46D04006E8665 /* 详情点赞.png in Resources */,
 				8ACE88991E08D882000CC72B /* 锁@3x.png in Resources */,
 				8AFC65EB1DE9609400EADFB6 /* 学历证3@3x.png in Resources */,

@@ -51,7 +51,7 @@
     [SMSSDK registerApp:cSMSAppKey withSecret:cSMSAppSecret];
     
     // 微信登录SDK：初始化：注册
-    [self weChatLoginBtnClick];
+    [self weChatRegister];
     
 //    // 融云：SDK-初始化
 //    [self setRongSDK];
@@ -238,9 +238,9 @@
     [self.window makeKeyAndVisible];
 }
 
-#pragma --微信登录
+#pragma --微信初始化
 // 微信登录button 点击事件
-- (void)weChatLoginBtnClick{
+- (void)weChatRegister{
     NSLog(@"微信登录SDK：初始化：注册");
     
     // 向微信注册

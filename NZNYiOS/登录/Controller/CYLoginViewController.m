@@ -67,7 +67,7 @@
     // 设置登录视图
     [self setLoginMainV];
     
-    [WXApi registerApp:cWXAppID];
+//    [WXApi registerApp:cWXAppID];
     
 }
 
@@ -227,7 +227,7 @@
     
     
     // 向微信注册
-    [WXApi registerApp:cWXAppID];
+//    [WXApi registerApp:cWXAppID];
     
     return YES;
     
