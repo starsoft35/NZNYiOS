@@ -160,6 +160,7 @@
     // 设置聊天会话界面要显示的标题
     chatVC.title = tempMyFriendModel.RealName;
     
+
     // 显示聊天会话界面
     [self.navigationController pushViewController:chatVC animated:YES];
     

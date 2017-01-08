@@ -73,7 +73,6 @@
     
     // 设置聊天会话界面要显示的标题
     chatVC.title = model.conversationTitle;
-    chatVC.title = @"你瞅啥";
     NSLog(@"chatVC.title:%@",model.conversationTitle);
     NSLog(@"chatVC.model:%@",model);
     

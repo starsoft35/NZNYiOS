@@ -583,19 +583,21 @@
             NSLog(@"获取用户在融云的token：获取成功！");
             NSLog(@"获取用户在融云的token：%@",responseObject);
             
-            NSString *rongToken = responseObject[@"res"][@"data"][@"rongToken"];
+            NSString *rongToken = [[NSString alloc] init];
+            
+            rongToken = responseObject[@"res"][@"data"][@"rongToken"];
             
             // 张
-//            NSString *rongToken = @"zgCNXiP/62lr5pXORE67srHIHFwdwGnJW2MDqrF5Ircl4YscTNyXhI3Vzxrp3/NyTXwSNrzIgzYzv4bk07wAT1/Zo5L7SGb1Ze4k30upkAJWWqqCQKRhihV/1StAMQGClpa8fh+ptCw=";
+//            rongToken = @"zgCNXiP/62lr5pXORE67srHIHFwdwGnJW2MDqrF5Ircl4YscTNyXhI3Vzxrp3/NyTXwSNrzIgzYzv4bk07wAT1/Zo5L7SGb1Ze4k30upkAJWWqqCQKRhihV/1StAMQGClpa8fh+ptCw=";
             
             // 陈
-//            NSString *rongToken = @"6pmtKgVJTdRa3Dspk8HK65G9QNwaviwLSzaRfvRwsqHFxClCT3mDQXMeZ0r/1J+V4joLMAwDhHKnj4sOrB3PtcQLqxcLBIeBn9TFPeFy3bq8Z9Vnd8sqL6asCG/Y4rULWDSNIP5Z+Jk=";
+            rongToken = @"6pmtKgVJTdRa3Dspk8HK65G9QNwaviwLSzaRfvRwsqHFxClCT3mDQXMeZ0r/1J+V4joLMAwDhHKnj4sOrB3PtcQLqxcLBIeBn9TFPeFy3bq8Z9Vnd8sqL6asCG/Y4rULWDSNIP5Z+Jk=";
             
             NSLog(@"rongToken:%@",rongToken);
             
             // 融云：SDK-初始化：整个生命周期，只初始化一次
             // Kit：初始化
-//            [self setRongCloudKitWithCurrentUser:currentUser andRongToken:rongToken];
+            [self setRongCloudKitWithCurrentUser:currentUser andRongToken:rongToken];
             
             
             
@@ -604,7 +606,7 @@
             
             
             // 融云：初始化：使用RCDLive进行初始化
-            [self setRongCloudWithRCDLiveWithCurrentUser:currentUser andRongToken:rongToken];
+//            [self setRongCloudWithRCDLiveWithCurrentUser:currentUser andRongToken:rongToken];
             
         }
         else{
@@ -685,9 +687,8 @@
         // 代理：获取聊天界面用户信息，用于更改用户头像等....
         [[RCIM sharedRCIM] setUserInfoDataSource:self];
         //        [[RCIM sharedRCIM] setGroupInfoDataSource:self];
-
-
-
+        
+        
         RCUserInfo *user = [[RCUserInfo alloc]init];
         user.userId = currentUser.userID;
         user.portraitUri = currentUser.Portrait;
@@ -772,62 +773,13 @@
 - (void)getUserInfoWithUserId:(NSString *)userId completion:(void(^)(RCUserInfo* userInfo))completion
 {
     
-    
-    // 网络请求：获取用户信息
-//    [self getOtherUserInfoWithUserId:userId];
-    //    RCUserInfo *user = [[RCUser÷Info alloc] init];
-    //    _rcUserInfo = [[RCUserInfo alloc] init];
-    
-    //    dispatch_async(dispatch_get_main_queue(), ^{
-    
-    //        [self getOtherUserInfoWithUserId:userId];
-    //    RCUserInfo *user = [self getOtherUserInfoWithUserId:userId];
-    
-    //        user.userId = _userInfoModel.Id;
-    //        user.name = _userInfoModel.RealName;
-    //        user.portraitUri = _userInfoModel.Portrait;
-    
-    //    });
-    
-    
-    
-    
-//    CYUser *currentUser = [CYUser currentUser];
-//    // 此处为了演示写了一个用户信息
-//    RCUserInfo *user = [[RCUserInfo alloc]init];
-//    user.userId = currentUser.userID;
-//    user.name = currentUser.RealName;
-//    user.portraitUri = [NSString stringWithFormat:@"%@%@",cHostUrl,currentUser.Portrait];
-    
-    
-    
-//    CYUser *currentUser = [CYUser currentUser];    
-//    RCUserInfo *user = [[RCUserInfo alloc]init];
-//    user.userId = userId;
-//    user.name = currentUser.RealName;
-//    user.portraitUri = [NSString stringWithFormat:@"%@%@",cHostUrl,currentUser.Portrait];
-//    
-//    
-//    
-//    
-//    return completion(user);
-//    return completion([self getOtherUserInfoWithUserId:userId]);
-
-    
-    
-#warning 可尝试主线程
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        _loginForTVButton.enabled = YES;
-//        _loginForLiveButton.enabled = YES;
-//    });
-    
-    
     CYUser *currentUser = [CYUser currentUser];
     // 请求数据
     // 参数
     NSDictionary *params = @{
                              @"userId":userId
                              };
+    NSLog(@"params:%@",params);
     
     // 显示加载
     //    [self showLoadingView];
@@ -851,10 +803,13 @@
             // 2、赋值
             RCUserInfo *user = [[RCUserInfo alloc]init];
             user.userId = userId;
-            user.name = responseObject[@"res"][@"data"][@"userinfo"][@"RealName"];
-            user.portraitUri = [NSString stringWithFormat:@"%@%@",cHostUrl,responseObject[@"res"][@"data"][@"userinfo"][@"Portrait"]];
+            user.name = responseObject[@"res"][@"data"][@"model"][@"RealName"];
+            user.portraitUri = [NSString stringWithFormat:@"%@%@",cHostUrl,responseObject[@"res"][@"data"][@"model"][@"Portrait"]];
+            
+//            user.name = @"为什么";
             
             return completion(user);
+//            [[RCIM sharedRCIM] refreshUserInfoCache:user withUserId:currentUser.userID];
             
         }
         else{
@@ -876,70 +831,6 @@
     
 }
 
-// 网络请求：获取别的用户信息
-- (void)getOtherUserInfoWithUserId:(NSString *)userId{
-    NSLog(@"网络请求：获取用户信息");
-    
-    CYUser *currentUser = [CYUser currentUser];
-    
-//    RCUserInfo *userInfo = [[RCUserInfo alloc] init];
-    
-    // 参数
-    NSDictionary *params = @{
-                             @"userId":userId,
-                             };
-    
-//    dispatch_async(dispatch_get_main_queue(), ^{
-    
-        // 网络请求：获取用户信息
-        [CYNetWorkManager getRequestWithUrl:cPrivateInfoUrl params:params progress:^(NSProgress *uploadProgress) {
-            NSLog(@"获取用户信息进度：%@",uploadProgress);
-            
-        } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-            NSLog(@"获取用户信息：网络请求：请求成功");
-            
-            // 1、
-            NSString *code = responseObject[@"code"];
-            
-            // 1.2.1.1.2、和成功的code 匹配
-            if ([code isEqualToString:@"0"]) {
-                NSLog(@"获取用户信息：获取成功！");
-                NSLog(@"获取用户信息：%@",responseObject);
-                
-                // 模型
-                _userInfoModel = [[CYUserInfoModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil];
-                
-                
-                
-                _rcUserInfo.userId = _userInfoModel.Id;
-                _rcUserInfo.name = _userInfoModel.RealName;
-                _rcUserInfo.portraitUri = _userInfoModel.Portrait;
-                
-                
-                
-            }
-            else{
-                NSLog(@"获取用户信息：获取失败:responseObject:%@",responseObject);
-                NSLog(@"获取用户信息：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
-                // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
-                [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
-                
-            }
-            
-        } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-            NSLog(@"获取用户信息：网络请求：请求失败");
-            
-            [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
-            
-            
-        } withToken:currentUser.userToken];
-        
-//    });
-    
-    
-    
-//    return _rcUserInfo;
-}
 
 
 //
