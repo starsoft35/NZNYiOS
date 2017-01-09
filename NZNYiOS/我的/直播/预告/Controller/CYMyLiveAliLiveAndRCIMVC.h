@@ -46,12 +46,14 @@
 @property (nonatomic, strong) AlivcLiveViewController *aliLiveVC;
 
 
-
 // 所查看的用户Id
 @property (nonatomic, copy) NSString *oppUserId;
 
 // 直播ID
 @property (nonatomic, copy) NSString *liveID;
+
+// 直播预计结束时间戳
+@property (nonatomic, copy) NSString *expectEndTimestamp;
 
 
 #pragma mark - 会话属性

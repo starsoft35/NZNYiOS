@@ -124,8 +124,12 @@
 #define cMyLiveTrailerListUrl (@"api/Live/MyTrailerList")
 // 4、2-1-1-我的直播预告：获取推流、拉流权限
 #define cPushAndPlayPermissionUrl (@"Authorize/Access")
-// 4、2-1-1-我的直播预告：获取推流地址
+// 4、2-1-2-我的直播预告：获取推流地址
 #define cMyLiveGetPushUrl (@"Live/GetPushUrl")
+// 4、2-1-3-我的直播预告：开始直播
+#define cStartLiveUrl (@"api/Live/StartLive")
+// 4、2-1-3-我的直播预告：结束直播
+#define cEndLiveUrl (@"api/Live/EndLive")
 // 4、2-2-我的直播记录
 #define cMyLiveRecirdListUrl (@"api/Live/MyLiveList")
 // 4、2-3-直播报名

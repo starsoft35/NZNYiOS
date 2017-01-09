@@ -208,7 +208,12 @@
     
     
     // 网络请求：获取直播推流、拉流授权
-    [self requestGetPushAndPlayPermissionWithLiveid:model.LiveId andPlanStartTime:model.PlanStartTime andPlanEndTime:tempLivePlanEndTime];
+//    [self requestGetPushAndPlayPermissionWithLiveid:model.LiveId andPlanStartTime:model.PlanStartTime andPlanEndTime:tempLivePlanEndTime];
+    
+    
+    
+    // 网络请求：开始直播：获取直播地址
+    [self requestStartLiveWithLiveId:model.LiveId];
     
     
     // 直播状态
@@ -308,6 +313,65 @@
 //    
 //    
 //    [self showViewController:tempVideoNav sender:self];
+    
+}
+
+// 网络请求：开始直播：获取直播地址
+- (void)requestStartLiveWithLiveId:(NSString *)liveId{
+    NSLog(@"网络请求：开始直播");
+    
+    // 网络请求：开始直播
+    NSString *newUrl = [NSString stringWithFormat:@"%@?id=%@",cStartLiveUrl,liveId];
+    
+    [self showLoadingView];
+    
+    // 网络请求：开始直播
+    [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"获取开始直播进度：%@",uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"开始直播：请求成功！");
+        
+        
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"开始直播：获取成功！");
+            NSLog(@"开始直播：%@",responseObject);
+            
+            
+            // 请求数据结束，取消加载
+            [self hidenLoadingView];
+            
+            NSString *livePushUrl = responseObject[@"res"][@"data"][@"url"];
+            NSString *expectEndTimestamp = responseObject[@"res"][@"data"][@"timestamp"];
+            
+            // 打开直播
+            // 阿里直播推流和融云IM详情页
+            //            [self addLiveALiPushAndRCIMVCWithPushUrl:newUrl andLiveId:liveid andOppUserId:self.onlyUser.userID];
+            [self addLiveALiPushAndRCIMVCWithPushUrl:livePushUrl andLiveId:liveId andOppUserId:self.onlyUser.userID andExpectEndTimestamp:expectEndTimestamp];
+            
+        }
+        else{
+            NSLog(@"开始直播：获取失败:responseObject:%@",responseObject);
+            NSLog(@"开始直播：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"开始直播：请求失败！");
+        NSLog(@"失败原因：error：%@",error);
+        
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
     
 }
 
@@ -456,9 +520,12 @@
             
             
 //            NSString *tempUrl = @"rtmp://106.14.61.197:1935/rtmplive/l7d763d4a093ac8cb65f7d1b0eb5bbb43";
+            
+            
+            
             // 阿里直播推流和融云IM详情页
 //            [self addLiveALiPushAndRCIMVCWithPushUrl:newUrl andLiveId:liveid andOppUserId:self.onlyUser.userID];
-            [self addLiveALiPushAndRCIMVCWithPushUrl:newUrl andLiveId:liveid andOppUserId:self.onlyUser.userID];
+//            [self addLiveALiPushAndRCIMVCWithPushUrl:newUrl andLiveId:liveid andOppUserId:self.onlyUser.userID];
             
             
             
@@ -484,7 +551,7 @@
 
 
 // 阿里直播推流和融云IM详情页
-- (void)addLiveALiPushAndRCIMVCWithPushUrl:(NSString *)pushUrl andLiveId:(NSString *)liveId andOppUserId:(NSString *)oppUserId{
+- (void)addLiveALiPushAndRCIMVCWithPushUrl:(NSString *)pushUrl andLiveId:(NSString *)liveId andOppUserId:(NSString *)oppUserId andExpectEndTimestamp:(NSString *)expectEndTimestamp{
     NSLog(@"阿里直播推流和融云IM详情页");
     
     CYMyLiveAliLiveAndRCIMVC *livePushVC = [[CYMyLiveAliLiveAndRCIMVC alloc] init];
@@ -497,6 +564,7 @@
     // 自定义所需的信息
     livePushVC.pushUrl = pushUrl;
     livePushVC.liveID = liveId;
+    livePushVC.expectEndTimestamp = expectEndTimestamp;
 //    liveVC.isScreenHorizontal = NO;
     //    [self presentViewController:live animated:YES completion:nil];
     

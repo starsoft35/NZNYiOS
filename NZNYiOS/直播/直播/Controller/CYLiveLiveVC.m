@@ -161,7 +161,7 @@
 
 // 选中了collectionCell：点击事件
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"选中了第 %ld 个collectionCell",indexPath.row);
+    NSLog(@"选中了第 %ld 个collectionCell",(long)indexPath.row);
     
     CYLiveCollectionViewCellModel *model = self.dataArray[indexPath.row];
     
@@ -177,13 +177,14 @@
     NSString *tempPlanStartTime = @"2016-12-12 20:00:00";
     
     // 网络请求：获取直播推流、拉流授权
-    [self requestGetPushAndPlayPermissionWithLiveid:model.LiveId andPlanStartTime:tempPlanStartTime andPlanEndTime:tempLivePlanEndTime andLiveUserId:model.LiveUserId];
+//    [self requestGetPushAndPlayPermissionWithLiveid:model.LiveId andPlanStartTime:tempPlanStartTime andPlanEndTime:tempLivePlanEndTime andLiveUserId:model.LiveUserId];
     
     
     
     
     
-    
+    // 网络请求：进入直播间
+    [self requestAudienceEnterLiveRoomWithLiveId:model.LiveId andUserId:self.onlyUser.userID];
     
     
     
@@ -367,6 +368,76 @@
 }
 
 // 网络请求：观众进入直播间
+- (void)requestAudienceEnterLiveRoomWithLiveId:(NSString *)liveId andUserId:(NSString *)userId{
+    NSLog(@"网络请求：观众进入直播间");
+    
+    // 网络请求：观众进入直播间
+    // 新地址
+    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&liveId=%@",cEnterLiveRoomUrl,self.onlyUser.userID,liveId];
+    
+    
+    [self showLoadingView];
+    
+    // 网络请求：观众进入直播间
+    [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"获取观众进入直播间进度：%@",uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"观众进入直播间：请求成功！");
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"观众进入直播间：获取成功！");
+            NSLog(@"观众进入直播间：%@",responseObject);
+            
+            // 取消加载
+            [self hidenLoadingView];
+            
+            // 直播间Id
+            NSString *liveRoomId = responseObject[@"res"][@"data"][@"liveRoomId"];
+            
+            // 直播播放地址
+            NSString *livePlayUrl = responseObject[@"res"][@"data"][@"url"];
+            
+            NSLog(@"livePlayUrl:%@",livePlayUrl);
+            
+            // 融云播放界面：
+            //            [self pushRongCloudPlayView];
+            
+            // 阿里播放界面：
+            //            [self pushALiPlayerViewControllerWithPlayUrl:responseObject[@"url"]];
+            //            [self pushALiPlayerViewControllerWithPlayUrl:tempUrl];
+            
+            
+            // 阿里播放和融云IM界面：VC
+            //            [self pushAliPlayAndRCIMVCWithUrl:responseObject[@"url"] andOppUserId:LiveUserId andLiveId:liveid];
+            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveRoomId];
+            
+            
+        }
+        else{
+            NSLog(@"观众进入直播间：获取失败:responseObject:%@",responseObject);
+            NSLog(@"观众进入直播间：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"观众进入直播间：请求失败！");
+        NSLog(@"失败原因：error：%@",error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+// 网络请求：观众进入直播间：阳后台
 - (void)requestAudienceEnterLiveRoomWithLiveId:(NSString *)liveId andnewLiveUrl:(NSString *)newLiveUrl andLiveUserId:(NSString *)liveUserId{
     NSLog(@"网络请求：观众进入直播间");
     

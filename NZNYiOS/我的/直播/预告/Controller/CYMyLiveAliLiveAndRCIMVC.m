@@ -734,11 +734,17 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     //    [self dismissViewControllerAnimated:YES completion:nil];
     //    [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
     
+    
+    
+    // 判断是否销毁直播间：
+    [self judgeIfDestroyLiveRoomWithExpectEndTimestamp:self.expectEndTimestamp andLiveId:self.liveID];
+    
     if (self.conversationType == ConversationType_CHATROOM) {
         
         
 #warning 销毁自己的播放器
         [self.aliLiveVC closeBtnForPushView];
+        
         
         // 退出聊天室
         [[RCIMClient sharedRCIMClient] quitChatRoom:self.targetId success:^{
@@ -765,6 +771,78 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     }
     
 }
+
+// 判断是否销毁直播间：
+- (void)judgeIfDestroyLiveRoomWithExpectEndTimestamp:(NSString *)expectEndTimestamp andLiveId:(NSString *)liveId{
+    NSLog(@"判断是否销毁直播间：");
+    
+    // 获取时间戳
+    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
+    NSLog(@"NSTimeInterval:%f",interval);
+    
+    
+    // 如果退出时间小于预计退出时间前5分钟，则结束直播，直播状态变为历史直播
+    if (interval - [expectEndTimestamp floatValue] <= 5 * 60) {
+        
+        // 网络请求：结束直播
+        [self requestEndLiveWithLiveId:liveId];
+    }
+    
+}
+
+// 网络请求：结束直播
+- (void)requestEndLiveWithLiveId:(NSString *)liveId{
+    NSLog(@"网络请求：结束直播");
+    
+    
+    // 网络请求：结束直播
+    NSString *newUrl = [NSString stringWithFormat:@"%@?id=%@",cEndLiveUrl,liveId];
+    
+    [self showLoadingView];
+    
+    // 网络请求：结束直播
+    [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"获取结束直播进度：%@",uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"结束直播：请求成功！");
+        
+        
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"结束直播：获取成功！");
+            NSLog(@"结束直播：%@",responseObject);
+            
+            
+            // 请求数据结束，取消加载
+            [self hidenLoadingView];
+            
+            
+        }
+        else{
+            NSLog(@"结束直播：获取失败:responseObject:%@",responseObject);
+            NSLog(@"结束直播：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"结束直播：请求失败！");
+        NSLog(@"失败原因：error：%@",error);
+        
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+}
+
 
 
 // 发消息btn：点击事件
