@@ -158,7 +158,7 @@
     
     
     // 网络请求：谁赞过我
-    [CYNetWorkManager getRequestWithUrl:cMySendLikeListUrl params:params progress:^(NSProgress *uploadProgress) {
+    [CYNetWorkManager getRequestWithUrl:cMyReceiveLikeListUrl params:params progress:^(NSProgress *uploadProgress) {
         NSLog(@"获取谁赞过我进度：%@",uploadProgress);
         
         

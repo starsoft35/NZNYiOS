@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -73,7 +73,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwT-so-R8b" userLabel="1.4-性别、姓名-View">
-                            <rect key="frame" x="4" y="147" width="87" height="15"/>
+                            <rect key="frame" x="4" y="140" width="87" height="15"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="女.png" translatesAutoresizingMaskIntoConstraints="NO" id="An8-R9-dlw" userLabel="1.4.1-性别-Image View">
                                     <rect key="frame" x="0.0" y="0.5" width="14.5" height="14.5"/>
@@ -126,7 +126,6 @@
                         <constraint firstItem="7Zl-De-lOm" firstAttribute="top" secondItem="7IY-6q-fQN" secondAttribute="top" constant="5" id="VBp-Rk-CgQ"/>
                         <constraint firstItem="FH8-7K-1IR" firstAttribute="height" secondItem="7Zl-De-lOm" secondAttribute="height" id="Wpj-rg-0L1"/>
                         <constraint firstItem="FH8-7K-1IR" firstAttribute="centerY" secondItem="7Zl-De-lOm" secondAttribute="centerY" id="Yfv-yA-scS"/>
-                        <constraint firstItem="dwT-so-R8b" firstAttribute="bottom" secondItem="ksA-yD-Klb" secondAttribute="bottom" constant="-3" id="fSQ-gq-TtR"/>
                         <constraint firstItem="Why-OT-176" firstAttribute="top" secondItem="9b0-VZ-5Jb" secondAttribute="top" id="hmy-s5-gSH"/>
                         <constraint firstItem="Why-OT-176" firstAttribute="leading" secondItem="9b0-VZ-5Jb" secondAttribute="leading" id="jZH-5U-JeN"/>
                         <constraint firstItem="7Zl-De-lOm" firstAttribute="width" secondItem="9b0-VZ-5Jb" secondAttribute="width" multiplier="106:340" id="nEl-5h-PR7"/>
@@ -134,6 +133,7 @@
                         <constraint firstAttribute="trailing" secondItem="FH8-7K-1IR" secondAttribute="trailing" constant="4" id="syt-Yv-hO0"/>
                         <constraint firstItem="Why-OT-176" firstAttribute="trailing" secondItem="9b0-VZ-5Jb" secondAttribute="trailing" id="vxb-HM-HeS"/>
                         <constraint firstAttribute="bottom" secondItem="ksA-yD-Klb" secondAttribute="bottom" constant="5" id="wZi-gQ-XC2"/>
+                        <constraint firstItem="dwT-so-R8b" firstAttribute="centerY" secondItem="ksA-yD-Klb" secondAttribute="centerY" id="z0S-wo-Bcv"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jp7-e8-aPR" userLabel="2-直播标题-View">

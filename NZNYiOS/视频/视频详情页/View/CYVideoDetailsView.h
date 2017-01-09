@@ -37,6 +37,10 @@
 // 上部头像、姓名、ID、关注：View
 @property (weak, nonatomic) IBOutlet UIView *topHeadNameIDFollowView;
 
+// 上部头像、姓名、ID、关注背景：imageView
+@property (weak, nonatomic) IBOutlet UIImageView *topHeadNameIDFollowBgImgView;
+
+
 
 // 头像：imageView
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;

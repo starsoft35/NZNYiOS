@@ -403,6 +403,11 @@
     
     [self presentViewController:likeTipVC animated:YES completion:nil];
     
+//    [self showViewController:likeTipVC sender:self];
+//    [self.navigationController pushViewController:likeTipVC animated:YES];
+    
+//    [self.view addSubview :likeTipVC.view];
+    
 }
 
 // 送礼：button：点击事件

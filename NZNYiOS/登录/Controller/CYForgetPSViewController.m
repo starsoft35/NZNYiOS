@@ -220,7 +220,7 @@
         
         // 2.2、发送验证码button：改变状态，开始倒计时。
         //  倒计时初始为60
-        self.repeatSendVerifiTime = 5;
+        self.repeatSendVerifiTime = 60;
         NSString *str = [NSString stringWithFormat:@"%ldS 后重发",self.repeatSendVerifiTime];
         _forgetPSMainView.sendVerificationBtn.enabled = NO;
         //            _forgetPSMainView.sendVerificationBtn.backgroundColor = [UIColor lightGrayColor];

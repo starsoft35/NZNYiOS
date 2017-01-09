@@ -184,6 +184,12 @@
 		8A5304221DBF438100506D4F /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5304121DBF438100506D4F /* UIRefreshControl+AFNetworking.m */; };
 		8A5304231DBF438100506D4F /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5304141DBF438100506D4F /* UIWebView+AFNetworking.m */; };
 		8A5559DD1D964AC100339E9A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5559DC1D964AC100339E9A /* MBProgressHUD.m */; };
+		8A5AF0E71E23752E009D0FB0 /* 复选框.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5AF0E11E23752E009D0FB0 /* 复选框.png */; };
+		8A5AF0E81E23752E009D0FB0 /* 复选框@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5AF0E21E23752E009D0FB0 /* 复选框@2x.png */; };
+		8A5AF0E91E23752E009D0FB0 /* 复选框@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5AF0E31E23752E009D0FB0 /* 复选框@3x.png */; };
+		8A5AF0EA1E23752E009D0FB0 /* 复选框勾选.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5AF0E41E23752E009D0FB0 /* 复选框勾选.png */; };
+		8A5AF0EB1E23752E009D0FB0 /* 复选框勾选@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5AF0E51E23752E009D0FB0 /* 复选框勾选@2x.png */; };
+		8A5AF0EC1E23752E009D0FB0 /* 复选框勾选@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5AF0E61E23752E009D0FB0 /* 复选框勾选@3x.png */; };
 		8A5C04E01DFEA1A60007450F /* CYLivePlayDetailsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5C04DF1DFEA1A60007450F /* CYLivePlayDetailsViewModel.m */; };
 		8A5C04E21DFEAC7B0007450F /* 117.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A5C04E11DFEAC7B0007450F /* 117.jpg */; };
 		8A5C04E61DFEAF740007450F /* 翻转.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A5C04E31DFEAF740007450F /* 翻转.png */; };
@@ -1007,6 +1013,12 @@
 		8A5304141DBF438100506D4F /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
 		8A5559DB1D964AC100339E9A /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		8A5559DC1D964AC100339E9A /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		8A5AF0E11E23752E009D0FB0 /* 复选框.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "复选框.png"; sourceTree = "<group>"; };
+		8A5AF0E21E23752E009D0FB0 /* 复选框@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "复选框@2x.png"; sourceTree = "<group>"; };
+		8A5AF0E31E23752E009D0FB0 /* 复选框@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "复选框@3x.png"; sourceTree = "<group>"; };
+		8A5AF0E41E23752E009D0FB0 /* 复选框勾选.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "复选框勾选.png"; sourceTree = "<group>"; };
+		8A5AF0E51E23752E009D0FB0 /* 复选框勾选@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "复选框勾选@2x.png"; sourceTree = "<group>"; };
+		8A5AF0E61E23752E009D0FB0 /* 复选框勾选@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "复选框勾选@3x.png"; sourceTree = "<group>"; };
 		8A5C04DE1DFEA1A60007450F /* CYLivePlayDetailsViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLivePlayDetailsViewModel.h; sourceTree = "<group>"; };
 		8A5C04DF1DFEA1A60007450F /* CYLivePlayDetailsViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLivePlayDetailsViewModel.m; sourceTree = "<group>"; };
 		8A5C04E11DFEAC7B0007450F /* 117.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 117.jpg; sourceTree = "<group>"; };
@@ -4275,6 +4287,12 @@
 				8ACE892B1E08DEEA000CC72B /* 我的分享-.png */,
 				8ACE892C1E08DEEA000CC72B /* 我的分享-@2x.png */,
 				8ACE892D1E08DEEA000CC72B /* 我的分享-@3x.png */,
+				8A5AF0E11E23752E009D0FB0 /* 复选框.png */,
+				8A5AF0E21E23752E009D0FB0 /* 复选框@2x.png */,
+				8A5AF0E31E23752E009D0FB0 /* 复选框@3x.png */,
+				8A5AF0E41E23752E009D0FB0 /* 复选框勾选.png */,
+				8A5AF0E51E23752E009D0FB0 /* 复选框勾选@2x.png */,
+				8A5AF0E61E23752E009D0FB0 /* 复选框勾选@3x.png */,
 			);
 			name = "视频";
 			path = "诚信认证/视频";
@@ -5661,6 +5679,7 @@
 				8AF60FFC1E14AA1200D29E85 /* heart10@2x.png in Resources */,
 				8AFC65F41DE9609400EADFB6 /* 工资条2@3x.png in Resources */,
 				8AA454A11DB8ED0200A9460B /* CYTitleAndDetailCell.xib in Resources */,
+				8A5AF0EA1E23752E009D0FB0 /* 复选框勾选.png in Resources */,
 				8ACE895A1E08E0B8000CC72B /* 编辑-@3x.png in Resources */,
 				8A0815D51E12399400F6C4D2 /* 启动页-1.png in Resources */,
 				8ABA49131E1A806800C0FA10 /* CYMyUserInfoGenderCell.xib in Resources */,
@@ -5674,6 +5693,7 @@
 				8AD5A7741E0019DE00791439 /* CYTitleTimeCountStatusCell.xib in Resources */,
 				8ACE896C1E08E4DF000CC72B /* magnifyingglass@2x.png in Resources */,
 				8AA298511E1E2D63001AD2F2 /* address.json in Resources */,
+				8A5AF0EB1E23752E009D0FB0 /* 复选框勾选@2x.png in Resources */,
 				8AFC65F51DE9609400EADFB6 /* 工资条3.png in Resources */,
 				8ACE896D1E08E4DF000CC72B /* magnifyingglass@3x.png in Resources */,
 				8A0815D71E12399400F6C4D2 /* 启动页-1@3x.png in Resources */,
@@ -5704,6 +5724,7 @@
 				8A6AFB7B1DFD371600742F0B /* 直播TAB.png in Resources */,
 				8AFC66061DE9609400EADFB6 /* 房产证4@3x.png in Resources */,
 				8A0CC35E1DE0407B00362190 /* 视频未选中@3x.png in Resources */,
+				8A5AF0E81E23752E009D0FB0 /* 复选框@2x.png in Resources */,
 				8AFC66081DE9609400EADFB6 /* 添加@2x.png in Resources */,
 				8A1DC9BF1E0A2D4700222122 /* 关注@2x.png in Resources */,
 				8ACE88FE1E08DBAF000CC72B /* 视频.png in Resources */,
@@ -5740,6 +5761,7 @@
 				8A4D43FF1DFBFE2F00875A4C /* CYLivePlayDetailsView.xib in Resources */,
 				8A1098061DFC2D04003C2EFC /* 直播详情底部.png in Resources */,
 				8ACE88F81E08DBAF000CC72B /* 社区.png in Resources */,
+				8A5AF0EC1E23752E009D0FB0 /* 复选框勾选@3x.png in Resources */,
 				8AD5A6601D891F4E002187DE /* CYLoginMainView.xib in Resources */,
 				8A1FDF091DEEF686006FD35A /* 默认头像@2x.png in Resources */,
 				8A1FDF0A1DEEF686006FD35A /* 默认头像@3x.png in Resources */,
@@ -5838,6 +5860,7 @@
 				8ACE89711E08E52B000CC72B /* Setting.png in Resources */,
 				8A3E15021E1A18C100E862EC /* CYBalanceNotEnoughView.xib in Resources */,
 				8AF60FF71E14AA1200D29E85 /* heart5@2x.png in Resources */,
+				8A5AF0E91E23752E009D0FB0 /* 复选框@3x.png in Resources */,
 				8AFC66101DE9609400EADFB6 /* 行驶证3.png in Resources */,
 				8A149A2F1DD31C34002EECC7 /* CYPhoneCertifiView.xib in Resources */,
 				8ADBD92B1E0FCCA00086F464 /* 微信支付@2x.png in Resources */,
@@ -5865,6 +5888,7 @@
 				8AFC658C1DE934D700EADFB6 /* 换钱@2x.png in Resources */,
 				8AFC65FF1DE9609400EADFB6 /* 房产证2@2x.png in Resources */,
 				8ACE88E21E08DB18000CC72B /* 我的@3x.png in Resources */,
+				8A5AF0E71E23752E009D0FB0 /* 复选框.png in Resources */,
 				8AFC65E21DE9609400EADFB6 /* 其它未通过-@3x.png in Resources */,
 				8AEC355E1DEAF99100967995 /* 视频详情关闭.png in Resources */,
 				8A149A231DD31C34002EECC7 /* CYMineHeaderView.xib in Resources */,

@@ -72,6 +72,7 @@
         [_followBtn setImage:[UIImage imageNamed:@"详情关注-"] forState:UIControlStateNormal];
         [_followBtn setTitle:@"加关注" forState:UIControlStateNormal];
         
+        [_followBtn setTitleColor:[UIColor colorWithRed:0.37 green:0.65 blue:0.99 alpha:1.00] forState:UIControlStateNormal];
         
     }
     
@@ -79,7 +80,9 @@
     else {
         
         [_followBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        
         [_followBtn setTitle:@"取消关注" forState:UIControlStateNormal];
+        [_followBtn setTitleColor:[UIColor colorWithRed:234.0 / 255.0 green:130.0 / 255.0 blue:47.0 / 255.0 alpha:1.0] forState:UIControlStateNormal];
     }
     
     

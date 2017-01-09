@@ -48,10 +48,11 @@
 //    }];
     
     // View的背景颜色
-    //    self.view.backgroundColor = [UIColor cyanColor];
+    self.view.backgroundColor = [UIColor cyanColor];
+    self.baseTableView.backgroundColor = [UIColor whiteColor];
     
     // 加载数据
-        [self loadData];
+    [self loadData];
     
     
     
@@ -129,6 +130,12 @@
             // 解析数据，模型存到数组
             [self.dataArray addObjectsFromArray:[CYOthersInfoViewModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"model"]]];
             
+            if (self.dataArray.count == 0) {
+                
+                // 如果没有直播，添加提示
+                [self addLabelToShowNoLive];
+            }
+            
             [self.baseTableView reloadData];
             
             // 请求数据结束，取消加载
@@ -153,6 +160,22 @@
     
     
     
+}
+
+
+// 如果没有直播，添加提示
+- (void)addLabelToShowNoLive{
+    NSLog(@"如果没有直播，添加提示");
+    
+    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (50.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    
+    
+    tipLab.text = @"暂时没有直播记录";
+    
+    tipLab.textAlignment = NSTextAlignmentCenter;
+    tipLab.font = [UIFont systemFontOfSize:15];
+    
+    [self.view addSubview:tipLab];
 }
 
 

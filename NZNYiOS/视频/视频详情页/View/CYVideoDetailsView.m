@@ -57,7 +57,44 @@
     // 如果已经关注，则隐藏
     if (othersInfoVM.IsFollow == YES) {
         
+        float topHeadNameIdFollowViewX = _topHeadNameIDFollowView.frame.origin.x;
+        float topHeadNameIdFollowViewY = _topHeadNameIDFollowView.frame.origin.y;
+        float topHeadNameIdFollowViewWidth = _topHeadNameIDFollowView.frame.size.width;
+        float topHeadNameIdFollowViewHeight = _topHeadNameIDFollowView.frame.size.height;
+        
+        float followBtnX = _followBtn.frame.origin.x;
+        float followBtnY = _followBtn.frame.origin.y;
+        float followBtnWidth = _followBtn.frame.size.width;
+        float followBtnHeight = _followBtn.frame.size.height;
+        
+        float newTopHeadNameIdFollowVieyX = topHeadNameIdFollowViewX;
+        float newTopHeadNameIdFollowVieyY = topHeadNameIdFollowViewY;
+//        float newTopHeadNameIdFollowVieyWidth = topHeadNameIdFollowViewWidth - (10 + followBtnWidth);
+        float newTopHeadNameIdFollowVieyWidth = _headImgView.frame.size.width + _nameLab.frame.size.width + 30;
+        float newTopHeadNameIdFollowVieyHeight = topHeadNameIdFollowViewHeight;
+        
+        CGRect newTopHeadNaemIdFollowViewRect = CGRectMake(newTopHeadNameIdFollowVieyX, newTopHeadNameIdFollowVieyY, newTopHeadNameIdFollowVieyWidth, newTopHeadNameIdFollowVieyHeight);
+        CGRect newTopHeadNaemIdFollowBgImgViewRect = CGRectMake(0, 0, newTopHeadNameIdFollowVieyWidth, newTopHeadNameIdFollowVieyHeight);
+        
+//        _topHeadNameIDFollowView.frame = CGRectMake(topHeadNameIdFollowViewX, topHeadNameIdFollowViewY, topHeadNameIdFollowViewWidth - followBtnWidth, topHeadNameIdFollowViewHeight);
+        _topHeadNameIDFollowView.frame = newTopHeadNaemIdFollowViewRect;
+        
+        
+        
+//        
+//        _topHeadNameIDFollowBgImgView.frame = CGRectMake(0, 0, 20, 20);
+//        CGSize imageSize = CGSizeMake(20, 20);
+//        _topHeadNameIDFollowBgImgView.clipsToBounds  = YES;
+//        _topHeadNameIDFollowBgImgView.contentMode = UIViewContentModeScaleToFill;
+        _topHeadNameIDFollowBgImgView.hidden = YES;
+        
+        UIImage *img = [UIImage imageNamed:@"关注名字背景"];
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:newTopHeadNaemIdFollowBgImgViewRect];
+        imgView.image = img;
+        [_topHeadNameIDFollowView addSubview:imgView];
+        
         _followBtn.hidden = YES;
+        
         
         
 //        [_followBtn removeFromSuperview];

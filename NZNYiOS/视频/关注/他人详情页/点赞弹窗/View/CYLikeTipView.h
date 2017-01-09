@@ -10,6 +10,12 @@
 
 @interface CYLikeTipView : UIView
 
+
+// likeTipMiddleView
+@property (weak, nonatomic) IBOutlet UIView *likeTipMiddleView;
+
+
+
 // 弹窗关闭：button
 @property (weak, nonatomic) IBOutlet UIButton *tipCloseBtn;
 

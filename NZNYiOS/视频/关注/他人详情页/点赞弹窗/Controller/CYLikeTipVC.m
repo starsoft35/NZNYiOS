@@ -37,6 +37,8 @@
     
     _likeTipView = [[[NSBundle mainBundle] loadNibNamed:@"CYLikeTipView" owner:nil options:nil] lastObject];
     
+//    _likeTipView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+//    _likeTipView.likeTipMiddleView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.5];
     
     // 弹窗关闭：点击事件
     [_likeTipView.tipCloseBtn addTarget:self action:@selector(tipCloseBtnClick) forControlEvents:UIControlEventTouchUpInside];

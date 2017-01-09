@@ -186,8 +186,8 @@
         _leftVideoDelBtnIsSelected = NO;
         _rightVideoDelBtnIsSelected = NO;
         // 改变两个选择按钮的背景 为没选中
-        [_mineVideoView.leftVideoDeleteBtn setBackgroundImage:[UIImage imageNamed:@"视频未选中"] forState:UIControlStateNormal];
-        [_mineVideoView.rightVideoDeleteBtn setBackgroundImage:[UIImage imageNamed:@"视频未选中"] forState:UIControlStateNormal];
+        [_mineVideoView.leftVideoDeleteBtn setBackgroundImage:[UIImage imageNamed:@"复选框"] forState:UIControlStateNormal];
+        [_mineVideoView.rightVideoDeleteBtn setBackgroundImage:[UIImage imageNamed:@"复选框"] forState:UIControlStateNormal];
         
         // 还没上传视频
         if (self.dataArray.count == 0) {
@@ -436,7 +436,7 @@
     if (_leftVideoDelBtnIsSelected) {
         
         // 改变背景 为没选中
-        [_mineVideoView.leftVideoDeleteBtn setBackgroundImage:[UIImage imageNamed:@"视频未选中"] forState:UIControlStateNormal];
+        [_mineVideoView.leftVideoDeleteBtn setBackgroundImage:[UIImage imageNamed:@"复选框"] forState:UIControlStateNormal];
         
         // 左侧删除 设置为没选中
         _leftVideoDelBtnIsSelected = NO;
@@ -447,7 +447,7 @@
     else {
         
         // 改变背景 为选中
-        [_mineVideoView.leftVideoDeleteBtn setBackgroundImage:[UIImage imageNamed:@"视频选中"] forState:UIControlStateNormal];
+        [_mineVideoView.leftVideoDeleteBtn setBackgroundImage:[UIImage imageNamed:@"复选框勾选"] forState:UIControlStateNormal];
         
         // 左侧删除 设置为选中
         _leftVideoDelBtnIsSelected = YES;
@@ -464,7 +464,7 @@
     if (_rightVideoDelBtnIsSelected) {
         
         // 改变背景 为没选中
-        [_mineVideoView.rightVideoDeleteBtn setBackgroundImage:[UIImage imageNamed:@"视频未选中"] forState:UIControlStateNormal];
+        [_mineVideoView.rightVideoDeleteBtn setBackgroundImage:[UIImage imageNamed:@"复选框"] forState:UIControlStateNormal];
         
         // 右侧删除 设置为没选中
         _rightVideoDelBtnIsSelected = NO;
@@ -473,7 +473,7 @@
     else {
         
         // 改变背景 为没选中
-        [_mineVideoView.rightVideoDeleteBtn setBackgroundImage:[UIImage imageNamed:@"视频选中"] forState:UIControlStateNormal];
+        [_mineVideoView.rightVideoDeleteBtn setBackgroundImage:[UIImage imageNamed:@"复选框勾选"] forState:UIControlStateNormal];
         
         // 右侧删除 设置为选中
         _rightVideoDelBtnIsSelected = YES;
@@ -849,6 +849,9 @@
         NSLog(@"视频文件的大小：FileSize：%@",[NSString stringWithFormat:@"%.2f",[self getFileSize:[videoUrl path]]]);
         
         
+        // 视频的大小：单位KB
+        CGFloat videoSize = [self getFileSize:[videoUrl path]];
+        
         // 获取视频总时长
         CGFloat lengthTime = [self getVideoLength:videoUrl];
         NSLog(@"获取的视频总时长：%f",lengthTime);
@@ -856,8 +859,18 @@
         // 压缩视频
 //        NSData *videoData = [NSData dataWithContentsOfURL:[self condenseVideoNewUrl:videoUrl]];
         
-        // 视频上传
-        [self uploadVideoWithVideoUrl:videoUrl];
+        
+        // 判断视频的大小
+        if (videoSize > 50.0 * 1024 || videoSize < 2.0) {
+            
+            [self showHubWithLabelText:@"请上传 2KB~50MB 的mp4/avi格式视频" andHidAfterDelay:3.0];
+        }
+        else {
+            
+            // 视频上传
+            [self uploadVideoWithVideoUrl:videoUrl];
+            
+        }
         
         
     }
@@ -930,10 +943,12 @@
             
             
             // 请求失败，加载菊花取消
-            [self hidenLoadingView];
+//            [self hidenLoadingView];
+            
             
             // 2.3.1.2.2、上传视频失败，弹窗
-            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            [self showHubWithLabelText:@"请上传不超过 50MB 的mp4/avi格式视频" andHidAfterDelay:3.0];
+            
         }
         
         
@@ -942,7 +957,7 @@
         NSLog(@"error:%@",error);
         
         // 请求失败，加载菊花取消
-        [self hidenLoadingView];
+//        [self hidenLoadingView];
         
         // 上传视频：请求：失败，弹窗
         [self showHubWithLabelText:@"网络请求出错，请检查网络重新上传！" andHidAfterDelay:3.0];
@@ -995,7 +1010,7 @@
             NSLog(@"msg:%@",responseObject[@"res"][@"msg"]);
             
             // 添加用户视频失败，加载菊花消失
-            [self hidenLoadingView];
+//            [self hidenLoadingView];
             
             // 2.3.1.2.2、添加用户视频失败，弹窗
             [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
@@ -1006,7 +1021,7 @@
         NSLog(@"error:%@",error);
         
         // 添加用户视频：请求：失败，加载菊花消失
-        [self hidenLoadingView];
+//        [self hidenLoadingView];
         
         // 2.3.1.2.2、添加用户视频失败，弹窗
         [self showHubWithLabelText:@"网络错误，请重新上传！" andHidAfterDelay:3.0];

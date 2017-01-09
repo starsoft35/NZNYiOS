@@ -85,6 +85,11 @@
             // 解析数据，模型存到数组
             [self.dataArray addObject:[[CYOthersInfoViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil]];
             
+            if (self.dataArray.count == 0) {
+                
+                // 如果没有直播，添加提示
+                [self addLabelToShowNoVideo];
+            }
             
             [self.baseCollectionView reloadData];
             
@@ -110,6 +115,21 @@
     
 }
 
+
+// 如果没有视频，添加提示
+- (void)addLabelToShowNoVideo{
+    NSLog(@"如果没有视频，添加提示");
+    
+    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (50.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    
+    
+    tipLab.text = @"暂时没有视频";
+    
+    tipLab.textAlignment = NSTextAlignmentCenter;
+    tipLab.font = [UIFont systemFontOfSize:15];
+    
+    [self.view addSubview:tipLab];
+}
 
 // 几个cell
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

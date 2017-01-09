@@ -39,6 +39,9 @@
     
     _myLiveSignUpView = [[[NSBundle mainBundle] loadNibNamed:@"CYMyLiveSignUpView" owner:nil options:nil] lastObject];
     
+    // 姓名：
+    _myLiveSignUpView.nameLab.text = self.onlyUser.RealName;
+    
     // 我要上直播：点击事件
     [_myLiveSignUpView.gotoLiveBtn addTarget:self action:@selector(gotoLiveBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
@@ -101,7 +104,7 @@
             [self hidenLoadingView];
             
             
-            NSString * tempMoneyStr = responseObject[@"res"][@"data"][@"userinfo"][@"Money"];
+            NSString * tempMoneyStr = responseObject[@"res"][@"data"][@"money"];
             float tempMoney = [tempMoneyStr floatValue];
             
             // 如果余额够支付，则赞、支付
