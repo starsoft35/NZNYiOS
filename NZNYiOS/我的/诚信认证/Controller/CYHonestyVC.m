@@ -59,7 +59,8 @@
     if (self.onlyUser.userAccount != nil) {
         
         // 手机已认证
-        phoneCertifiDetail = [NSString stringWithFormat:@"%@ **** %@ 已认证",[self.onlyUser.userAccount substringToIndex:3],[self.onlyUser.userAccount substringFromIndex:7]];
+//        phoneCertifiDetail = [NSString stringWithFormat:@"%@ **** %@ 已认证",[self.onlyUser.userAccount substringToIndex:3],[self.onlyUser.userAccount substringFromIndex:7]];
+        phoneCertifiDetail = [NSString stringWithFormat:@"已认证"];
         
     }
     else {
@@ -117,6 +118,24 @@
     if (indexPath.section == 0 && indexPath.row == 0 && self.onlyUser.userAccount != nil) {
         
         cell.nextImgView.image = nil;
+        [_numberLab removeFromSuperview];
+        
+        
+        float numbLabFrameX = cell.detailLab.frame.origin.x - 200 - 20;
+        
+        CGRect numbLabFrame = CGRectMake(numbLabFrameX, cell.detailLab.frame.origin.y, 200, cell.detailLab.frame.size.height);
+        
+        _numberLab = [[UILabel alloc] initWithFrame:numbLabFrame];
+        
+        
+        _numberLab.text = [NSString stringWithFormat:@"%@ **** %@",[self.onlyUser.userAccount substringToIndex:3],[self.onlyUser.userAccount substringFromIndex:7]];
+        
+        _numberLab.textAlignment = NSTextAlignmentRight;
+        _numberLab.font = [UIFont systemFontOfSize:15];
+        
+        cell.detailLab.textColor = [UIColor colorWithRed:0.91 green:0.51 blue:0.23 alpha:1.00];
+        
+        [cell addSubview:_numberLab];
         
     }
     

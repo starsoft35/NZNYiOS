@@ -10,4 +10,9 @@
 
 @interface CYHonestyVC : CYBaseTableViewController
 
+
+// 手机号：label
+@property (nonatomic, strong) UILabel *numberLab;
+
+
 @end

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6W-U1-7kP" userLabel="1.上部信息-View">
                     <rect key="frame" x="13" y="5" width="349" height="168"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="直播TAB.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ntg-Up-0N9" userLabel="1.1.0-姓名背景-Image View">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="-输入反馈问题.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ntg-Up-0N9" userLabel="1.1.0-姓名背景-Image View">
                             <rect key="frame" x="0.0" y="0.0" width="349" height="49.5"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张大大" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="xks-pN-XUK" userLabel="1.1-姓名-Label">
@@ -28,19 +28,19 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="直播TAB.png" translatesAutoresizingMaskIntoConstraints="NO" id="axL-Q4-7F8" userLabel="1.2.0-手机号背景-Image View">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="-输入反馈问题.png" translatesAutoresizingMaskIntoConstraints="NO" id="axL-Q4-7F8" userLabel="1.2.0-手机号背景-Image View">
                             <rect key="frame" x="0.0" y="59.5" width="349" height="49.5"/>
                         </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZE1-zb-ba6" userLabel="1.2-手机号-Round Style Text Field">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZE1-zb-ba6" userLabel="1.2-手机号-Round Style Text Field">
                             <rect key="frame" x="0.0" y="59.5" width="349" height="49.5"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="直播TAB.png" translatesAutoresizingMaskIntoConstraints="NO" id="QOT-eg-Na6" userLabel="1.3.0-直播主题背景-Image View">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="-输入反馈问题.png" translatesAutoresizingMaskIntoConstraints="NO" id="QOT-eg-Na6" userLabel="1.3.0-直播主题背景-Image View">
                             <rect key="frame" x="0.0" y="119" width="349" height="49"/>
                         </imageView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入直播主题" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ij-Wg-MMX" userLabel="1.3-直播主题-Round Style Text Field">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入直播主题" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Ij-Wg-MMX" userLabel="1.3-直播主题-Round Style Text Field">
                             <rect key="frame" x="0.0" y="119" width="349" height="49"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -179,7 +179,7 @@
         </view>
     </objects>
     <resources>
+        <image name="-输入反馈问题.png" width="350" height="100"/>
         <image name="Title1.png" width="375" height="64"/>
-        <image name="直播TAB.png" width="116" height="33"/>
     </resources>
 </document>

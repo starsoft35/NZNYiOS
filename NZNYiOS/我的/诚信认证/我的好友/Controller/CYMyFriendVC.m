@@ -82,6 +82,12 @@
             // 解析数据，模型存到数组
             [self.dataArray addObjectsFromArray:[CYMyFriendViewCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
             
+            if (self.dataArray.count == 0) {
+                
+                // 如果没有直播，添加提示
+                [self addLabelToShowNoFriend];
+            }
+            
             // 刷新数据、界面
             [self.baseTableView reloadData];
             
@@ -104,6 +110,23 @@
         
     } withToken:self.onlyUser.userToken];
     
+}
+
+// 如果没有好友，添加提示
+- (void)addLabelToShowNoFriend{
+    NSLog(@"如果没有好友，添加提示");
+    
+    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    
+    
+    tipLab.text = @"暂时没有好友";
+    
+    tipLab.textAlignment = NSTextAlignmentCenter;
+    tipLab.font = [UIFont systemFontOfSize:15];
+    
+    tipLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
+    
+    [self.baseTableView addSubview:tipLab];
 }
 
 #pragma --tableView代理

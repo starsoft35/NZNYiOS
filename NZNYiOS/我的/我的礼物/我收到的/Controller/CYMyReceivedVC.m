@@ -75,7 +75,7 @@
     
     
     // 网络请求：我收到的礼物
-    [CYNetWorkManager getRequestWithUrl:cMyReceiveLikeListUrl params:params progress:^(NSProgress *uploadProgress) {
+    [CYNetWorkManager getRequestWithUrl:cMyReceiveFlowersListUrl params:params progress:^(NSProgress *uploadProgress) {
         NSLog(@"获取我收到的礼物进度：%@",uploadProgress);
         
         
@@ -154,7 +154,7 @@
     CYWhoPraiseMeCellModel *whoPraiseMeCellModel = self.dataArray[indexPath.row];
     whoPraiseMeCellModel.isPraise = NO;
     
-    cell.headImgView.layer.cornerRadius = (750.0 / 150.0) * cell.headImgView.frame.size.height;
+    cell.headImgView.layer.cornerRadius = (75.0 / 150.0) * cell.headImgView.frame.size.height;
     
     // 假数据
     cell.whoPraiseMeCellModel = whoPraiseMeCellModel;

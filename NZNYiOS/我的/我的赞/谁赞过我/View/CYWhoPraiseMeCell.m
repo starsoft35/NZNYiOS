@@ -43,6 +43,9 @@
     _ageLab.text = [NSString stringWithFormat:@"%ld 岁",(long)whoPraiseMeCellModel.Age];
     
     // 诚信等级
+    // 星级：
+    _nowStarLever = whoPraiseMeCellModel.CertificateLevel;
+    
     // 星一：
     //        _creditRatingView
     _firstStarImgView.image = [UIImage imageNamed:[self getStarImgNameWithNowStarLevel:_nowStarLever]];
@@ -80,6 +83,8 @@
 
 // 获取星级图片的名字
 - (NSString *)getStarImgNameWithNowStarLevel:(float)nowStarLevel{
+    
+    NSLog(@"_nowStarLever:%lf",_nowStarLever);
     
     if (nowStarLevel >= 1) {
         

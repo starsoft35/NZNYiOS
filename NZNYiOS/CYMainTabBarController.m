@@ -369,6 +369,9 @@
     CYBaseSwipeViewController *videoVC = [[CYBaseSwipeViewController alloc] initWithSubVC:@[videoHotVC,videoFollowVC] andTitles:@[@"热门",@"关注"]];
     
     
+    videoVC.view.backgroundColor = [UIColor whiteColor];
+    videoVC.bgScrollView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
+    
     [self setUpOneTabBarViewController:videoVC image:[UIImage imageNamed:@"视频"] selectedImage:[UIImage imageWithOriginalName:@"视频当前"] title:@"视频"];    
     
     
@@ -389,10 +392,15 @@
     liveLiveVC.view.frame = CGRectMake(0, 0, cScreen_Width, liveViewHeight);
     liveLiveVC.baseCollectionView.frame = CGRectMake(0, 0, cScreen_Width, liveViewHeight);
     
+    
     // 第二个tabBar：直播页面
     CYBaseSwipeViewController *liveVC = [[CYBaseSwipeViewController alloc] initWithSubVC:@[liveTrailerVC,liveLiveVC] andTitles:@[@"预告",@"直播"]];
     liveVC.view.frame = CGRectMake(0, 0, cScreen_Width, liveViewHeight);
     liveVC.bgScrollView.frame = CGRectMake(0, (76.0 / 1334.0) * self.view.frame.size.height, cScreen_Width,liveViewHeight);
+    
+    
+    liveVC.view.backgroundColor = [UIColor whiteColor];
+    liveVC.bgScrollView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
     
     [self setUpOneTabBarViewController:liveVC image:[UIImage imageNamed:@"直播"] selectedImage:[UIImage imageWithOriginalName:@"直播当前"] title:@"直播"];
     

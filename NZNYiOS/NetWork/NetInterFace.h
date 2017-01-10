@@ -168,10 +168,10 @@
 
 
 // 4、5.4、我的礼物
-// 4、5.4.1-我收到的
-#define cMyReceiveLikeListUrl (@"api/Like/ReceiveLikeList")
-// 4、5.4.2-我送出的
-#define cMySendLikeListUrl (@"api/Like/SendLikeList")
+// 4、5.4.1-我收到的礼物
+#define cMyReceiveFlowersListUrl (@"api/Gift/ReceiveFlowersList")
+// 4、5.4.2-我送出的礼物
+#define cMySendFlowersListUrl (@"api/Gift/SendFlowersList")
 
 // 4、5.5、我的标签
 #define cMyAllTagsListUrl (@"api/UserTags/MyAllList")

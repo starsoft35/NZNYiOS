@@ -49,7 +49,8 @@
     [super viewDidLoad];
     
     // 背景颜色
-    self.view.backgroundColor = [UIColor redColor];
+//    self.view.backgroundColor = [UIColor redColor];
+    self.baseCollectionView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
     
     
     // 直播：首次进入加载，其他时候手动加载。
@@ -101,6 +102,13 @@
             // 解析数据，模型存到数组
             [self.dataArray addObjectsFromArray:[CYMyLiveTrailerCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
             
+            
+            if (self.dataArray.count == 0) {
+                
+                // 如果没有直播，添加提示
+                [self addLabelToShowNoLive];
+            }
+            
             [self.baseCollectionView reloadData];
             
             // 请求数据结束，取消加载
@@ -128,6 +136,24 @@
     } withToken:self.onlyUser.userToken];
     
     
+}
+
+
+// 如果没有直播，添加提示
+- (void)addLabelToShowNoLive{
+    NSLog(@"如果没有直播，添加提示");
+    
+    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    
+    
+    tipLab.text = @"暂时没有直播预告";
+    
+    tipLab.textAlignment = NSTextAlignmentCenter;
+    tipLab.font = [UIFont systemFontOfSize:15];
+    
+    tipLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
+    
+    [self.baseCollectionView addSubview:tipLab];
 }
 
 

@@ -35,6 +35,7 @@
     // title
     self.title = @"直播";
     
+//    self.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
     
     
     
@@ -76,7 +77,7 @@
 
     [_myLiveView.liveTrailerRecordView addSubview:trailerRecordVC.view];
     
-    
+    trailerRecordVC.bgScrollView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
     
     // 我要上直播：点击事件
     [_myLiveView.gotoLiveBtn addTarget:self action:@selector(gotoLiveBtnClick) forControlEvents:UIControlEventTouchUpInside];

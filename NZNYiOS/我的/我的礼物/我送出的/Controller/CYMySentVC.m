@@ -76,7 +76,7 @@
     
     
     // 网络请求：谁赞过我
-    [CYNetWorkManager getRequestWithUrl:cMySendLikeListUrl params:params progress:^(NSProgress *uploadProgress) {
+    [CYNetWorkManager getRequestWithUrl:cMySendFlowersListUrl params:params progress:^(NSProgress *uploadProgress) {
         NSLog(@"获取谁赞过我进度：%@",uploadProgress);
         
         
@@ -155,7 +155,7 @@
     CYWhoPraiseMeCellModel *whoPraiseMeCellModel = self.dataArray[indexPath.row];
     whoPraiseMeCellModel.isPraise = NO;
     
-    cell.headImgView.layer.cornerRadius = (750.0 / 150.0) * cell.headImgView.frame.size.height;
+    cell.headImgView.layer.cornerRadius = (75.0 / 150.0) * cell.headImgView.frame.size.height;
     
     // 假数据
     cell.whoPraiseMeCellModel = whoPraiseMeCellModel;

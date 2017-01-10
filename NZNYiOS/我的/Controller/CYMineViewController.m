@@ -173,10 +173,10 @@
     // 假数据
     CYMineVCModel *mineVCModel = self.allInfoArr[0];
     
-    NSString *fID = [NSString stringWithFormat:@"%ld",mineVCModel.FId];
+    NSString *fID = [NSString stringWithFormat:@"%ld",(long)mineVCModel.FId];
     NSString *money = [NSString stringWithFormat:@"¥ %.2f",mineVCModel.Money];
     NSString *certificateLevel = [NSString stringWithFormat:@"%.1f",mineVCModel.CertificateLevel];
-    NSString *like = [NSString stringWithFormat:@"%ld",mineVCModel.LikeCount];
+    NSString *like = [NSString stringWithFormat:@"%ld",(long)mineVCModel.LikeCount];
     
     
     // headerInfoModel

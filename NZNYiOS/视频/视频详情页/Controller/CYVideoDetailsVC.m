@@ -61,12 +61,12 @@
     
 }
 
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
+
+- (void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
     
     // 显示导航栏
     self.navigationController.navigationBarHidden = NO;
-    
 }
 
 // 加载数据

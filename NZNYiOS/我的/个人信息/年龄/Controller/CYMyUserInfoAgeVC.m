@@ -23,6 +23,9 @@
     
     self.title = @"年龄";
     
+    // 背景颜色
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     // 添加选择器视图
     [self addAgeSelectView];
     
@@ -32,21 +35,42 @@
 // 添加选择器视图
 - (void)addAgeSelectView{
     
+//    if (self.onlyUser.Age != nil) {
+//        
+//        
+//    }
     self.ageLab.text = [NSString stringWithFormat:@"%ld 岁",(long)self.onlyUser.Age];
     
     ASBirthSelectSheet *datesheet = [[ASBirthSelectSheet alloc] initWithFrame:self.view.bounds];
     
+    NSLog(@"self.onlyUser.Birthday:%@",self.onlyUser.Birthday);
     // 出生年月日
-    NSString *newBirthday = [self.onlyUser.Birthday substringToIndex:10];
+    NSString *newBirthday = [[NSString alloc] init];
+    
+    BOOL isBirthday = ([self.onlyUser.Birthday isEqual:[NSNull null]]);
+    NSLog(@"isBirthday:%d",isBirthday);
+    
+    // 判断出生日期
+    if ([self.onlyUser.Birthday isEqual:[NSNull null]]) {
+        
+        // 如果是空的，则默认给个值，用来让出生年月选择器进行显示
+        newBirthday = @"2016-08-15";
+    }
+    else {
+        
+        // 如果不是空，则把出生日期的年月日，传过去
+        newBirthday = [self.onlyUser.Birthday substringToIndex:10];
+    }
     datesheet.selectDate = newBirthday;
     datesheet.GetSelectDate = ^(NSString *dateStr) {
-        
         
         
         // 网络请求：修改年龄
         [self requestChangeUserInfoAgeWithBirthday:dateStr];
         
     };
+    
+    
     [self.view addSubview:datesheet];
     
 }

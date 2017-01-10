@@ -167,7 +167,7 @@
 - (void)addLabelToShowNoLive{
     NSLog(@"如果没有直播，添加提示");
     
-    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (50.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
     
     
     tipLab.text = @"暂时没有直播记录";
@@ -175,7 +175,9 @@
     tipLab.textAlignment = NSTextAlignmentCenter;
     tipLab.font = [UIFont systemFontOfSize:15];
     
-    [self.view addSubview:tipLab];
+    tipLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
+    
+    [self.baseTableView addSubview:tipLab];
 }
 
 

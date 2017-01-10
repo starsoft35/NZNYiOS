@@ -137,6 +137,9 @@
 		8A3E15021E1A18C100E862EC /* CYBalanceNotEnoughView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A3E15011E1A18C100E862EC /* CYBalanceNotEnoughView.xib */; };
 		8A3E15061E1A6DC200E862EC /* CYMyUserInfoNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A3E15041E1A6DC200E862EC /* CYMyUserInfoNameVC.m */; };
 		8A3E15071E1A6DC200E862EC /* CYMyUserInfoNameVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A3E15051E1A6DC200E862EC /* CYMyUserInfoNameVC.xib */; };
+		8A4313B91E24BF1100797D8F /* 编辑-.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4313B61E24BF1100797D8F /* 编辑-.png */; };
+		8A4313BA1E24BF1100797D8F /* 编辑-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4313B71E24BF1100797D8F /* 编辑-@2x.png */; };
+		8A4313BB1E24BF1100797D8F /* 编辑-@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A4313B81E24BF1100797D8F /* 编辑-@3x.png */; };
 		8A4C582D1D64236800DF2E6C /* CYLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C582C1D64236800DF2E6C /* CYLiveViewController.m */; };
 		8A4C58301D64238D00DF2E6C /* CYCommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C582F1D64238D00DF2E6C /* CYCommunityViewController.m */; };
 		8A4D43EF1DFBE48F00875A4C /* CYUserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D43EE1DFBE48F00875A4C /* CYUserInfoModel.m */; };
@@ -414,9 +417,6 @@
 		8ACE89521E08E01D000CC72B /* 弹窗关闭.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE894C1E08E01D000CC72B /* 弹窗关闭.png */; };
 		8ACE89531E08E01D000CC72B /* 弹窗关闭@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE894D1E08E01D000CC72B /* 弹窗关闭@2x.png */; };
 		8ACE89541E08E01D000CC72B /* 弹窗关闭@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE894E1E08E01D000CC72B /* 弹窗关闭@3x.png */; };
-		8ACE89581E08E0B8000CC72B /* 编辑-.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE89551E08E0B8000CC72B /* 编辑-.png */; };
-		8ACE89591E08E0B8000CC72B /* 编辑-@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE89561E08E0B8000CC72B /* 编辑-@2x.png */; };
-		8ACE895A1E08E0B8000CC72B /* 编辑-@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE89571E08E0B8000CC72B /* 编辑-@3x.png */; };
 		8ACE895E1E08E2A8000CC72B /* wechat.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE895B1E08E2A8000CC72B /* wechat.png */; };
 		8ACE895F1E08E2A8000CC72B /* wechat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE895C1E08E2A8000CC72B /* wechat@2x.png */; };
 		8ACE89601E08E2A8000CC72B /* wechat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE895D1E08E2A8000CC72B /* wechat@3x.png */; };
@@ -930,6 +930,9 @@
 		8A3E15031E1A6DC200E862EC /* CYMyUserInfoNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMyUserInfoNameVC.h; sourceTree = "<group>"; };
 		8A3E15041E1A6DC200E862EC /* CYMyUserInfoNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMyUserInfoNameVC.m; sourceTree = "<group>"; };
 		8A3E15051E1A6DC200E862EC /* CYMyUserInfoNameVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYMyUserInfoNameVC.xib; sourceTree = "<group>"; };
+		8A4313B61E24BF1100797D8F /* 编辑-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "编辑-.png"; sourceTree = "<group>"; };
+		8A4313B71E24BF1100797D8F /* 编辑-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "编辑-@2x.png"; sourceTree = "<group>"; };
+		8A4313B81E24BF1100797D8F /* 编辑-@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "编辑-@3x.png"; sourceTree = "<group>"; };
 		8A4C582B1D64236800DF2E6C /* CYLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLiveViewController.h; sourceTree = "<group>"; };
 		8A4C582C1D64236800DF2E6C /* CYLiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLiveViewController.m; sourceTree = "<group>"; };
 		8A4C582E1D64238D00DF2E6C /* CYCommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYCommunityViewController.h; sourceTree = "<group>"; };
@@ -1313,9 +1316,6 @@
 		8ACE894C1E08E01D000CC72B /* 弹窗关闭.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗关闭.png"; sourceTree = "<group>"; };
 		8ACE894D1E08E01D000CC72B /* 弹窗关闭@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗关闭@2x.png"; sourceTree = "<group>"; };
 		8ACE894E1E08E01D000CC72B /* 弹窗关闭@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗关闭@3x.png"; sourceTree = "<group>"; };
-		8ACE89551E08E0B8000CC72B /* 编辑-.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "编辑-.png"; sourceTree = "<group>"; };
-		8ACE89561E08E0B8000CC72B /* 编辑-@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "编辑-@2x.png"; sourceTree = "<group>"; };
-		8ACE89571E08E0B8000CC72B /* 编辑-@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "编辑-@3x.png"; sourceTree = "<group>"; };
 		8ACE895B1E08E2A8000CC72B /* wechat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wechat.png; sourceTree = "<group>"; };
 		8ACE895C1E08E2A8000CC72B /* wechat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat@2x.png"; sourceTree = "<group>"; };
 		8ACE895D1E08E2A8000CC72B /* wechat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat@3x.png"; sourceTree = "<group>"; };
@@ -2339,9 +2339,9 @@
 				8A6AFB771DFD370800742F0B /* 直播 */,
 				8ACE892A1E08DEEA000CC72B /* 视频 */,
 				8ADBD91A1E0FC6370086F464 /* 账户余额 */,
-				8ACE89551E08E0B8000CC72B /* 编辑-.png */,
-				8ACE89561E08E0B8000CC72B /* 编辑-@2x.png */,
-				8ACE89571E08E0B8000CC72B /* 编辑-@3x.png */,
+				8A4313B61E24BF1100797D8F /* 编辑-.png */,
+				8A4313B71E24BF1100797D8F /* 编辑-@2x.png */,
+				8A4313B81E24BF1100797D8F /* 编辑-@3x.png */,
 				8A1F6C0E1DC61F1600C4253B /* 默认视频.png */,
 				8A1F6C0F1DC61F1600C4253B /* 默认视频@2x.png */,
 				8A1F6C101DC61F1600C4253B /* 默认视频@3x.png */,
@@ -5680,7 +5680,6 @@
 				8AFC65F41DE9609400EADFB6 /* 工资条2@3x.png in Resources */,
 				8AA454A11DB8ED0200A9460B /* CYTitleAndDetailCell.xib in Resources */,
 				8A5AF0EA1E23752E009D0FB0 /* 复选框勾选.png in Resources */,
-				8ACE895A1E08E0B8000CC72B /* 编辑-@3x.png in Resources */,
 				8A0815D51E12399400F6C4D2 /* 启动页-1.png in Resources */,
 				8ABA49131E1A806800C0FA10 /* CYMyUserInfoGenderCell.xib in Resources */,
 				8A10980C1DFC2DFE003C2EFC /* 直播人气背景.png in Resources */,
@@ -5703,7 +5702,6 @@
 				8AEC358C1DEB05C100967995 /* 我的视频底部阴影@2x.png in Resources */,
 				8AFC66201DE9609400EADFB6 /* 身份证4@2x.png in Resources */,
 				8ACE89081E08DBAF000CC72B /* 直播当前@2x.png in Resources */,
-				8ACE89591E08E0B8000CC72B /* 编辑-@2x.png in Resources */,
 				8AFC657B1DE92C5D00EADFB6 /* 点赞@3x.png in Resources */,
 				8AEC353F1DEAE1BF00967995 /* 联系Ta@3x.png in Resources */,
 				8AFC65E01DE9609300EADFB6 /* 其它未通过-.png in Resources */,
@@ -5902,7 +5900,6 @@
 				8A0CC32A1DDFF1BB00362190 /* RongCloudKit.strings in Resources */,
 				8A1098081DFC2D04003C2EFC /* 直播详情底部@3x.png in Resources */,
 				8ACE88E51E08DB18000CC72B /* 我的当前@3x.png in Resources */,
-				8ACE89581E08E0B8000CC72B /* 编辑-.png in Resources */,
 				8A3E15071E1A6DC200E862EC /* CYMyUserInfoNameVC.xib in Resources */,
 				8A1499301DD30E77002EECC7 /* 资料性别男@2x.png in Resources */,
 				8ACE88CD1E08DAB7000CC72B /* 男士未选.png in Resources */,
@@ -5920,6 +5917,7 @@
 				8AD5A7A01E001DF100791439 /* CYGiveGiftTipView.xib in Resources */,
 				8A6AFB7C1DFD371600742F0B /* 直播TAB@2x.png in Resources */,
 				8AD6E7741E0689D400689929 /* CYWhoPraiseMeCell.xib in Resources */,
+				8A4313B91E24BF1100797D8F /* 编辑-.png in Resources */,
 				8AFC65791DE92C5D00EADFB6 /* 点赞.png in Resources */,
 				8A1DC9C31E0A2D4700222122 /* 互相关注-@3x.png in Resources */,
 				8AEC35621DEAF99100967995 /* 视频详情关注@2x.png in Resources */,
@@ -5954,6 +5952,7 @@
 				8ACE89051E08DBAF000CC72B /* 直播@2x.png in Resources */,
 				8ACE890E1E08DC4E000CC72B /* 日期时间背景@2x.png in Resources */,
 				8AFC66171DE9609400EADFB6 /* 身份证1@2x.png in Resources */,
+				8A4313BA1E24BF1100797D8F /* 编辑-@2x.png in Resources */,
 				8A51B6B31DE46D04006E8665 /* 详情送礼@3x.png in Resources */,
 				8AFC65E81DE9609400EADFB6 /* 学历证2@3x.png in Resources */,
 				8ACE88D71E08DAB7000CC72B /* 女士选择@2x.png in Resources */,
@@ -5986,6 +5985,7 @@
 				8A98F5671E207C780014E9B8 /* CYNearbyPeopleCell.xib in Resources */,
 				8A8B38FB1E21044200D8156B /* CYSetUpAboutUsVC.xib in Resources */,
 				8A5C04EC1DFEB2390007450F /* 直播开播时间.png in Resources */,
+				8A4313BB1E24BF1100797D8F /* 编辑-@3x.png in Resources */,
 				8ACE89721E08E52B000CC72B /* Setting@2x.png in Resources */,
 				8AEC35741DEAFA6E00967995 /* 关注名字背景@2x.png in Resources */,
 				8A12D18D1E014BB600A58FEF /* 进入直播间未激活@2x.png in Resources */,

@@ -457,6 +457,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <color key="backgroundColor" red="0.6391444206237793" green="0.63925665616989136" blue="0.63913732767105103" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="nwM-jx-zHA" firstAttribute="width" secondItem="iHQ-Ej-Ghe" secondAttribute="width" multiplier="650:750" id="D3u-5X-b2R"/>
                 <constraint firstItem="nwM-jx-zHA" firstAttribute="centerY" secondItem="iHQ-Ej-Ghe" secondAttribute="centerY" id="L7T-6T-xi4"/>

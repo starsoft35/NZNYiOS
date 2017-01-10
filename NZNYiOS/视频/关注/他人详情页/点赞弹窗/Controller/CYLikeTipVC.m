@@ -80,7 +80,6 @@
     
     NSInteger likeCount = 1;
     
-#warning 还需要接支付功能
     // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
     [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
     
@@ -187,7 +186,6 @@
     
     NSInteger likeCount = 10;
     
-#warning 还需要接支付功能
     // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
     [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
     
@@ -199,7 +197,6 @@
     
     NSInteger likeCount = 32;
     
-#warning 还需要接支付功能
     // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
     [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
 }
@@ -210,7 +207,6 @@
     
     NSInteger likeCount = 300;
     
-#warning 还需要接支付功能
     // 网路请求：点300个赞
     // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
     [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
@@ -224,7 +220,6 @@
     NSInteger likeCount = 520;
     
     
-#warning 还需要接支付功能
     // 网路请求：点520个赞
     // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
     [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
@@ -243,7 +238,6 @@
         
         NSInteger likeCount = [self.likeTipView.likeCountTextField.text integerValue];
         
-#warning 还需要接支付功能
         // 网络请求：点 n 个赞
         // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
         [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];

@@ -27,7 +27,15 @@
     _introductionLab.text = myAccountDetailCellModel.Introduction;
     
     // 花费金额
-    _moneyLab.text = [NSString stringWithFormat:@"%.2lf",myAccountDetailCellModel.Money];
+    if (myAccountDetailCellModel.Money > 0) {
+        
+        
+        _moneyLab.text = [NSString stringWithFormat:@"+ %.2lf",myAccountDetailCellModel.Money];
+    }
+    else {
+        
+        _moneyLab.text = [NSString stringWithFormat:@"- %.2lf",myAccountDetailCellModel.Money];
+    }
 }
 
 

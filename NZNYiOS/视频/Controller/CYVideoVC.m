@@ -47,6 +47,9 @@
     [super viewDidLoad];
     
     
+//    self.baseCollectionView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
+//    self.baseCollectionView.backgroundColor = [UIColor redColor];
+    
     // 添加下拉刷新
     self.baseCollectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         

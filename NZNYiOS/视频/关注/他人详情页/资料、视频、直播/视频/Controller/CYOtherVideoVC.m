@@ -85,10 +85,10 @@
             // 解析数据，模型存到数组
             [self.dataArray addObject:[[CYOthersInfoViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil]];
             
-            if (self.dataArray.count == 0) {
+            if (self.dataArray.count != 0) {
                 
-                // 如果没有直播，添加提示
-                [self addLabelToShowNoVideo];
+                // 有视频，创建新的视频数据源
+                [self loadNewData];
             }
             
             [self.baseCollectionView reloadData];
@@ -120,7 +120,7 @@
 - (void)addLabelToShowNoVideo{
     NSLog(@"如果没有视频，添加提示");
     
-    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (50.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
     
     
     tipLab.text = @"暂时没有视频";
@@ -128,36 +128,44 @@
     tipLab.textAlignment = NSTextAlignmentCenter;
     tipLab.font = [UIFont systemFontOfSize:15];
     
-    [self.view addSubview:tipLab];
+    tipLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
+    
+    [self.baseCollectionView addSubview:tipLab];
+}
+
+// 有视频，创建新的视频数据源
+- (void)loadNewData{
+    
+    // 他人详情页模型
+    CYOthersInfoViewModel *tempOthersInfoModel = self.dataArray[0];
+    
+    
+    for (CYOtherVideoCellModel *tempVideoCellModel in tempOthersInfoModel.UserVideoList) {
+        
+        if (tempVideoCellModel.Default) {
+            
+            // 如果是默认视频，则添加到数组
+            [self.videoListDataArr addObject:tempVideoCellModel];
+        }
+    }
+    
+    if (self.videoListDataArr == 0) {
+        
+        // 如果没有视频，添加提示
+        [self addLabelToShowNoVideo];
+    }
+    
+    
+    NSLog(@"self.videoListDataArr:%@",self.videoListDataArr);
+    
 }
 
 // 几个cell
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    // 可显示多个视频
-//    if (self.dataArray.count != 0) {
-//        
-//        CYOthersInfoViewModel *othersInfoViewModel = self.dataArray[0];
-//        NSArray *videoListArr = othersInfoViewModel.UserVideoList;
-//        
-//        return videoListArr.count;
-//    }
-//    else {
-//        
-//        return 0;
-//    }
     
     
-    
-    // 只显示一个视频
-    if (self.dataArray.count != 0) {
-        
-        return 1;
-    }
-    else {
-        
-        return 0;
-    }
+    return self.videoListDataArr.count;
 }
 
 // cell
@@ -182,45 +190,21 @@
     [cell.connectBtn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     
     
-    // 他人详情页模型：里面有视频列表：用于获取到当前选择的视频
-    CYOthersInfoViewModel *othersInfoViewModel = self.dataArray[0];
+    CYOtherVideoCellModel *videoCellModel = self.videoListDataArr[indexPath.row];
     
-    // 视频数组：从他人详情页获取
-    NSArray *videoListArr = othersInfoViewModel.UserVideoList;
     
-    for (CYOtherVideoCellModel *tempVideoCellModel in videoListArr) {
-        
-        if (tempVideoCellModel.Default) {
-            
-            // 构建模型
-            CYVideoCollectionViewCellModel *tempCollectionModel = [[CYVideoCollectionViewCellModel alloc] init];
-            
-            tempCollectionModel.videoBgImgName = othersInfoViewModel.Portrait;
-            tempCollectionModel.VideoUserName = [NSString stringWithFormat:@"%.1f M",tempVideoCellModel.Size];
-            tempCollectionModel.connectTitle = [NSString stringWithFormat:@"分享"];
-            
-            // 模型赋值
-            cell.videoCellModel = tempCollectionModel;
-        }
-        
-    }
+    // 构建模型
+    CYVideoCollectionViewCellModel *tempCollectionModel = [[CYVideoCollectionViewCellModel alloc] init];
     
-//    if (videoListArr.count != 0) {
-//        
-//        
-//        CYOtherVideoCellModel *tempVideoCellModel = videoListArr[indexPath.row];
-//        
-//        // 构建模型
-//        CYVideoCollectionViewCellModel *tempCollectionModel = [[CYVideoCollectionViewCellModel alloc] init];
-//        
-//        tempCollectionModel.videoBgImgName = othersInfoViewModel.Portrait;
-//        tempCollectionModel.VideoUserName = [NSString stringWithFormat:@"%.1f M",tempVideoCellModel.Size];
-//        tempCollectionModel.connectTitle = [NSString stringWithFormat:@"分享"];
-//        
-//        // 模型赋值
-//        cell.videoCellModel = tempCollectionModel;
-//        
-//    }
+    tempCollectionModel.videoBgImgName = @"117.jpg";
+    tempCollectionModel.VideoUserName = [NSString stringWithFormat:@"%.1f M",videoCellModel.Size];
+    tempCollectionModel.connectTitle = [NSString stringWithFormat:@"分享"];
+    
+    // 模型赋值
+    cell.videoCellModel = tempCollectionModel;
+//    cell.connectBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
+//    cell.connectBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
+    
     
     
     return cell;
@@ -232,10 +216,6 @@
     NSLog(@"视频playBtn:点击事件");
     
     
-    // 视频详情页
-//    CYVideoDetailsVC *videoDetailsVC = [[CYVideoDetailsVC alloc] init];
-//    
-//    [self presentViewController:videoDetailsVC animated:YES completion:nil];
     
 }
 
@@ -248,7 +228,7 @@
 
 // 选中了collectionCell：点击事件
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"选中了第 %ld 个collectionCell",indexPath.row);
+    NSLog(@"选中了第 %ld 个collectionCell",(long)indexPath.row);
     
     
     // 视频详情页
@@ -276,6 +256,16 @@
     
 }
 
+
+- (NSMutableArray *)videoListDataArr{
+    
+    if (_videoListDataArr == nil) {
+        
+        _videoListDataArr = [[NSMutableArray alloc] init];
+    }
+    
+    return _videoListDataArr;
+}
 
 
 @end

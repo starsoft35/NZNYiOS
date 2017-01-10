@@ -70,12 +70,14 @@
     self.hidesBottomBarWhenPushed = YES;
     
     
-    self.searchResultLab.frame = CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (50.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height);
+    self.searchResultLab.frame = CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height);
     
     self.searchResultLab.text = @"刚进入时，请输入姓名或ID号，搜索好友";
     
     self.searchResultLab.textAlignment = NSTextAlignmentCenter;
     self.searchResultLab.font = [UIFont systemFontOfSize:15];
+    
+    self.searchResultLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
     
     [self.view addSubview:self.searchResultLab];
 }

@@ -28,7 +28,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="UhT-JD-9Qn" userLabel="2-detail-Label">
-                        <rect key="frame" x="108" y="13" width="234" height="18"/>
+                        <rect key="frame" x="304" y="13" width="38" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -48,7 +48,6 @@
                     <constraint firstItem="UhT-JD-9Qn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="Jwm-5v-hqx"/>
                     <constraint firstItem="46e-oc-T2B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Phh-Yz-GMM"/>
                     <constraint firstItem="46e-oc-T2B" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="aRw-GJ-qE9"/>
-                    <constraint firstItem="UhT-JD-9Qn" firstAttribute="leading" secondItem="46e-oc-T2B" secondAttribute="trailing" constant="18" id="fku-z6-RSm"/>
                     <constraint firstItem="ubN-gL-jHA" firstAttribute="leading" secondItem="UhT-JD-9Qn" secondAttribute="trailing" constant="12" id="uLz-Nu-NTL"/>
                     <constraint firstItem="UhT-JD-9Qn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="y0R-wF-wKo"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="UhT-JD-9Qn" secondAttribute="trailing" constant="13" id="yQC-wD-eVq"/>

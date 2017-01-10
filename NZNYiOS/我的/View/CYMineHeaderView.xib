@@ -35,7 +35,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uix-nO-TtM" userLabel="1.2-info-View">
-                            <rect key="frame" x="138" y="15" width="197" height="100"/>
+                            <rect key="frame" x="138" y="15" width="187" height="100"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="2AX-a2-T3z" userLabel="1.2.1-名字Label">
                                     <rect key="frame" x="0.0" y="10" width="31" height="15"/>
@@ -44,13 +44,13 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="YPG-VJ-mQZ" userLabel="1.2.3-ID-Label">
-                                    <rect key="frame" x="0.0" y="42" width="197" height="15"/>
+                                    <rect key="frame" x="0.0" y="42" width="187" height="15"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地址" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="ZAu-EY-Jgb" userLabel="1.2.4-地址Label">
-                                    <rect key="frame" x="0.0" y="75" width="197" height="15"/>
+                                    <rect key="frame" x="0.0" y="75" width="187" height="15"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -79,9 +79,9 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9e3-mP-XMd" userLabel="1.3-编辑Button">
-                            <rect key="frame" x="335" y="55" width="22" height="21"/>
+                            <rect key="frame" x="325" y="50" width="32" height="31"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="9e3-mP-XMd" secondAttribute="height" multiplier="22:21" id="70x-ON-Xfk"/>
+                                <constraint firstAttribute="width" secondItem="9e3-mP-XMd" secondAttribute="height" multiplier="63:62" id="70x-ON-Xfk"/>
                             </constraints>
                             <state key="normal" backgroundImage="编辑-.png"/>
                         </button>
@@ -98,7 +98,7 @@
                         <constraint firstAttribute="trailing" secondItem="9e3-mP-XMd" secondAttribute="trailing" constant="18" id="TGt-Hq-RxQ"/>
                         <constraint firstItem="uix-nO-TtM" firstAttribute="leading" secondItem="dR0-x1-1pK" secondAttribute="trailing" constant="25" id="WiR-mm-u0V"/>
                         <constraint firstItem="Bxg-89-SrI" firstAttribute="leading" secondItem="pPZ-MX-I2C" secondAttribute="leading" id="XqF-bw-jew"/>
-                        <constraint firstItem="9e3-mP-XMd" firstAttribute="height" secondItem="pPZ-MX-I2C" secondAttribute="height" multiplier="42:260" id="hlo-Jv-KCr"/>
+                        <constraint firstItem="9e3-mP-XMd" firstAttribute="height" secondItem="pPZ-MX-I2C" secondAttribute="height" multiplier="62:260" id="hlo-Jv-KCr"/>
                         <constraint firstItem="Bxg-89-SrI" firstAttribute="top" secondItem="pPZ-MX-I2C" secondAttribute="top" id="oCe-gh-8Zj"/>
                         <constraint firstItem="dR0-x1-1pK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pPZ-MX-I2C" secondAttribute="top" id="p1J-fQ-aW6"/>
                         <constraint firstItem="dR0-x1-1pK" firstAttribute="leading" secondItem="pPZ-MX-I2C" secondAttribute="leading" constant="13" id="tXF-jn-rPx"/>
@@ -300,7 +300,7 @@
     </objects>
     <resources>
         <image name="Title1.png" width="375" height="64"/>
-        <image name="编辑-.png" width="21" height="21"/>
+        <image name="编辑-.png" width="31" height="31"/>
         <image name="资料性别女.png" width="16" height="16"/>
         <image name="默认头像.png" width="300" height="300"/>
     </resources>

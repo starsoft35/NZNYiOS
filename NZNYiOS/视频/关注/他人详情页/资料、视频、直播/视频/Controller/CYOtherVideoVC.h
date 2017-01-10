@@ -17,4 +17,9 @@
 // 视频的id
 @property (nonatomic, copy) NSString *videoId;
 
+
+// 视频信息数据源
+@property (nonatomic,strong) NSMutableArray *videoListDataArr;
+
+
 @end

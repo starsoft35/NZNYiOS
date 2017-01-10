@@ -20,7 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    // 背景颜色
+//    self.view.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
+    self.baseCollectionView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
     
 }
 
@@ -78,6 +80,12 @@
             // 解析数据，模型存到数组
             [self.dataArray addObjectsFromArray:[CYVideoCollectionViewCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
             
+            if (self.dataArray.count == 0) {
+                
+                // 如果没有直播，添加提示
+                [self addLabelToShowNoVideo];
+            }
+            
             
             // 刷新数据
             [self.baseCollectionView reloadData];
@@ -106,6 +114,23 @@
     } withToken:self.onlyUser.userToken];
     
     
+}
+
+// 如果没有视频，添加提示
+- (void)addLabelToShowNoVideo{
+    NSLog(@"如果没有视频，添加提示");
+    
+    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    
+    
+    tipLab.text = @"暂时没有关注的人视频";
+    
+    tipLab.textAlignment = NSTextAlignmentCenter;
+    tipLab.font = [UIFont systemFontOfSize:15];
+    
+    tipLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
+    
+    [self.baseCollectionView addSubview:tipLab];
 }
 
 

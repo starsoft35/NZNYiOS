@@ -311,12 +311,6 @@
     }
     
     
-    if ([resp isKindOfClass:[SendMessageToWXResp class]]) {
-        
-        SendMessageToWXResp *messageResp = (SendMessageToWXResp *)resp;
-        
-    }
-    
 }
 
 

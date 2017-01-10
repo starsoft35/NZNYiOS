@@ -10,6 +10,10 @@
 
 @interface CYOtherVideoCellModel : CYBaseModel
 
+// 12个属性
+
+
+
 // 审核数据
 @property (nonatomic, copy) NSString *AuditDate;
 
