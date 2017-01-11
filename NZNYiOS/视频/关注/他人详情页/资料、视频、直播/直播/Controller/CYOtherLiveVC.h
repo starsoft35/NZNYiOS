@@ -18,5 +18,10 @@
 @property (nonatomic, copy) NSString *oppUserId;
 
 
+// 视频信息数据源
+@property (nonatomic,strong) NSMutableArray *liveListDataArr;
+
+// 暂时没有内容提示：label
+@property (nonatomic, strong) UILabel *noDataLab;
 
 @end

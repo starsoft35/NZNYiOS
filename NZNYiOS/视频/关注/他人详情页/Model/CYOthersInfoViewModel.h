@@ -8,12 +8,18 @@
 
 #import "CYBaseModel.h"
 
+
+// 标签模型
+#import "CYOtherTagModel.h"
 // 视频模型
 #import "CYOtherVideoCellModel.h"
 
 // 直播模型
 //#import "CYOtherLiveCellModel.h"
 
+// 协议：标签
+@protocol CYOtherTagModel
+@end
 
 // 协议：视频
 @protocol CYOtherVideoCellModel
@@ -35,7 +41,7 @@
 @property (nonatomic, copy) NSString *Portrait;
 
 // 标签列表
-@property (nonatomic, copy) NSArray *UserTagList;
+@property (nonatomic, copy) NSArray<CYOtherTagModel> *UserTagList;
 
 // 职业：label
 @property (nonatomic, copy) NSString *work;

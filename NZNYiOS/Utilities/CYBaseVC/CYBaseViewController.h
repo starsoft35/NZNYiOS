@@ -51,6 +51,13 @@ UIApplicationDelegate>
 // 是否打开附近的人界面
 @property (nonatomic,assign) BOOL ifOpenNearbyPeopleVC;
 
+
+// 暂时没有内容提示：label
+@property (nonatomic, strong) UILabel *noDataLab;
+
+
+
+
 // 经纬度 -> 地理位置（地理位置反编码）
 - (void)locationWithLatitude:(CLLocationDegrees)latitude andLongitude:(CLLocationDegrees)longitude;
 

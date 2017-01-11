@@ -8,6 +8,14 @@
 
 #import "CYBaseModel.h"
 
+
+// 标签模型
+#import "CYOtherTagModel.h"
+
+// 协议：标签
+@protocol CYOtherTagModel
+@end
+
 @interface CYVideoDetailsViewModel : CYBaseModel
 
 // 视频Id
@@ -32,7 +40,7 @@
 @property (nonatomic, copy) NSString *VideoUserPortrait;
 
 // 视频标签列表
-@property (nonatomic, copy) NSArray *VideoUserTagList;
+@property (nonatomic, copy) NSArray<CYOtherTagModel> *VideoUserTagList;
 
 
 @end

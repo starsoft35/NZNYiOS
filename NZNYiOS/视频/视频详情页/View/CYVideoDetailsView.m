@@ -109,13 +109,40 @@
     }
     
     
-#warning 标签：先空着
-    // 标签
-    _tagLab.text = [NSString stringWithFormat:@"标签："];
+    // 标签赋值
+    [self setTagValureWithOthersInfoViewModel:othersInfoVM];
+    
     
     // 宣言
     _declarationLab.text = [NSString stringWithFormat:@"爱情宣言：%@",othersInfoVM.Declaration];
     
+    
+}
+
+
+// 标签赋值
+- (void)setTagValureWithOthersInfoViewModel:(CYOthersInfoViewModel *)othersInfoViewModel{
+    
+    int tempCount = 1;
+    NSString *tagStr = [[NSString alloc] init];
+    for (CYOtherTagModel * tempTagModel in othersInfoViewModel.UserTagList) {
+        
+        if (othersInfoViewModel.UserTagList.count >= 1) {
+            
+            if (tempCount == 1) {
+                
+                tagStr = [tagStr stringByAppendingString:[NSString stringWithFormat:@"%@ ",tempTagModel.Name]];
+            }
+            else {
+                
+                tagStr = [tagStr stringByAppendingString:[NSString stringWithFormat:@"/ %@ ",tempTagModel.Name]];
+            }
+            
+            tempCount += 1;
+        }
+    }
+    // 标签
+    _tagLab.text = [NSString stringWithFormat:@"标签：%@",tagStr];
     
 }
 

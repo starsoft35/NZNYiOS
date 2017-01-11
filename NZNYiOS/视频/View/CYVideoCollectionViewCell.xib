@@ -20,8 +20,8 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认头像.png" translatesAutoresizingMaskIntoConstraints="NO" id="oyB-fL-dOc" userLabel="1.1-视频背景-Image View">
                     <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="主页视频阴影-.png" translatesAutoresizingMaskIntoConstraints="NO" id="YyC-YC-fO4" userLabel="1.2-视频显示文本的阴影-Image View">
-                    <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="我的视频底部阴影.png" translatesAutoresizingMaskIntoConstraints="NO" id="YyC-YC-fO4" userLabel="1.2-视频显示文本的阴影-Image View">
+                    <rect key="frame" x="0.0" y="130" width="170" height="40"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0JP-HK-Nbf" userLabel="1.3-上部简介-View">
                     <rect key="frame" x="5" y="5" width="160" height="12"/>
@@ -94,7 +94,6 @@
                 <constraint firstItem="oyB-fL-dOc" firstAttribute="top" secondItem="Lnh-NI-9dQ" secondAttribute="top" id="Cqm-6h-nhp"/>
                 <constraint firstItem="pOF-FA-Ix5" firstAttribute="leading" secondItem="QdP-IO-lNU" secondAttribute="trailing" constant="5" id="Ghm-Mb-Cjv"/>
                 <constraint firstItem="0JP-HK-Nbf" firstAttribute="leading" secondItem="Lnh-NI-9dQ" secondAttribute="leading" constant="5" id="IwU-LE-NTR"/>
-                <constraint firstItem="YyC-YC-fO4" firstAttribute="top" secondItem="Lnh-NI-9dQ" secondAttribute="top" id="Kga-W8-Y4j"/>
                 <constraint firstItem="wUI-kh-1eP" firstAttribute="height" secondItem="Lnh-NI-9dQ" secondAttribute="height" multiplier="100:340" id="LQw-IW-Kvi"/>
                 <constraint firstItem="0JP-HK-Nbf" firstAttribute="top" secondItem="Lnh-NI-9dQ" secondAttribute="top" constant="5" id="Pl9-gs-uxA"/>
                 <constraint firstItem="QdP-IO-lNU" firstAttribute="centerY" secondItem="pOF-FA-Ix5" secondAttribute="centerY" id="Vf2-4r-ZyE"/>
@@ -107,6 +106,7 @@
                 <constraint firstItem="QdP-IO-lNU" firstAttribute="leading" secondItem="Lnh-NI-9dQ" secondAttribute="leading" constant="5" id="iVT-AE-iHQ"/>
                 <constraint firstItem="0JP-HK-Nbf" firstAttribute="height" secondItem="Lnh-NI-9dQ" secondAttribute="height" multiplier="24:340" id="n8R-Go-ucE"/>
                 <constraint firstAttribute="bottom" secondItem="pOF-FA-Ix5" secondAttribute="bottom" constant="5" id="nEr-Et-CzF"/>
+                <constraint firstItem="YyC-YC-fO4" firstAttribute="height" secondItem="oyB-fL-dOc" secondAttribute="height" multiplier="40:170" id="rxf-B6-8tK"/>
                 <constraint firstAttribute="trailing" secondItem="pOF-FA-Ix5" secondAttribute="trailing" constant="5" id="tau-Du-jby"/>
                 <constraint firstItem="wUI-kh-1eP" firstAttribute="centerX" secondItem="Lnh-NI-9dQ" secondAttribute="centerX" id="uyu-2l-2bK"/>
                 <constraint firstAttribute="bottom" secondItem="oyB-fL-dOc" secondAttribute="bottom" id="wmF-RU-gvp"/>
@@ -119,13 +119,14 @@
                 <outlet property="genderImgView" destination="br8-Dh-b0d" id="7mP-lA-gPD"/>
                 <outlet property="nameLab" destination="EeO-fY-wcq" id="WI5-p5-Aiw"/>
                 <outlet property="playBtn" destination="wUI-kh-1eP" id="TcG-Nf-Eeb"/>
+                <outlet property="videoBgForTextToShowImgView" destination="YyC-YC-fO4" id="6z6-6C-zCW"/>
                 <outlet property="videoBgImgView" destination="oyB-fL-dOc" id="WHh-4M-OWU"/>
             </connections>
         </view>
     </objects>
     <resources>
-        <image name="主页视频阴影-.png" width="170" height="170"/>
         <image name="女.png" width="11" height="11"/>
+        <image name="我的视频底部阴影.png" width="170" height="40"/>
         <image name="联系Ta.png" width="75" height="35"/>
         <image name="视频播放按钮.png" width="75" height="75"/>
         <image name="默认头像.png" width="300" height="300"/>

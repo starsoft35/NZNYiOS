@@ -20,14 +20,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="男左女右（上海）信息科技有限公司" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aii-3y-qeb" userLabel="1.公司名-Label">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="男左女右（上海）信息科技有限公司" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aii-3y-qeb" userLabel="1.公司名-Label">
                     <rect key="frame" x="13" y="9" width="349" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbd-8m-TZR" userLabel="2.关于我们-Label">
-                    <rect key="frame" x="13" y="34" width="349" height="150"/>
+                    <rect key="frame" x="13" y="34" width="349" height="250"/>
                     <string key="text">        公司成立于2004年12月，平台本着诚实守信的基本原则，服务于广大高学历、白领金领、海龟华侨、企事业高管、政府公务员与私营业主等高端单身人群。提供专业的情感顾问、婚姻猎头，帮助中国乃至世界单身人士寻找属于自己的幸福婚姻。致力于成为推动中国婚恋交友行业发展的领跑者。</string>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
@@ -42,10 +42,11 @@
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lbd-8m-TZR" secondAttribute="bottom" constant="13" id="O2u-nl-ONM"/>
                 <constraint firstItem="lbd-8m-TZR" firstAttribute="top" secondItem="aii-3y-qeb" secondAttribute="bottom" constant="10" id="QWH-xb-Qze"/>
                 <constraint firstItem="aii-3y-qeb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="9" id="VRu-ME-SjS"/>
-                <constraint firstItem="lbd-8m-TZR" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="300:1334" id="fcj-GX-gTR"/>
+                <constraint firstItem="lbd-8m-TZR" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="500:1334" id="fcj-GX-gTR"/>
                 <constraint firstItem="aii-3y-qeb" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="30:1334" id="imc-WI-UQt"/>
                 <constraint firstItem="aii-3y-qeb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="ngn-Xm-1OE"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="33.5" y="64.5"/>
         </view>
     </objects>

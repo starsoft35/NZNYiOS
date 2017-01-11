@@ -48,7 +48,6 @@
 //    }];
     
     // View的背景颜色
-    self.view.backgroundColor = [UIColor cyanColor];
     self.baseTableView.backgroundColor = [UIColor whiteColor];
     
     // 加载数据
@@ -58,7 +57,7 @@
     
     
     // 提前注册
-    [self.baseTableView registerNib:[UINib nibWithNibName:@"CYInfoHeaderCell" bundle:nil] forCellReuseIdentifier:@"CYInfoHeaderCell"];
+    [self.baseTableView registerNib:[UINib nibWithNibName:@"CYTitleTimeCountStatusCell" bundle:nil] forCellReuseIdentifier:@"CYTitleTimeCountStatusCell"];
     
     // 加载数据
 //    [self loadData];
@@ -68,33 +67,6 @@
 
 // 加载数据
 - (void)loadData{
-    
-//    NSArray *tempArr = @[
-//                         @{
-//                             @"Portrait":@"默认头像",
-////                             @"liveStatusBgImgName":@"直播预告",
-//////                             @"Title":@"预告",
-////                             @"PlanStartTime":@"2016/11/19 08:00",
-////                             @"LiveUserGender":@"",
-////                             @"LiveUserName":@"",
-////                             @"Title":@"# 预谋邂逅 #"
-//                             },
-//                         @{
-//                             @"Portrait":@"默认头像",
-////                             @"liveStatusBgImgName":@"直播预告",
-////                             @"Title":@"预告",
-////                             @"PlanStartTime":@"2016/11/19 08:00",
-////                             @"LiveUserGender":@"",
-////                             @"LiveUserName":@"",
-////                             @"Title":@"# 预谋邂逅 #"
-//                             }
-//                         
-//                         
-//                         ];
-//    
-//    [self.dataArray addObjectsFromArray:[CYOthersInfoViewModel arrayOfModelsFromDictionaries:tempArr]];
-    
-    
     
     // 网络请求：他人详情页
     
@@ -125,15 +97,16 @@
             
             // 清空：每次刷新都需要
             [self.dataArray removeAllObjects];
+            [self.noDataLab removeFromSuperview];
             
-#warning 还需要测试数据
             // 解析数据，模型存到数组
-            [self.dataArray addObjectsFromArray:[CYOthersInfoViewModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"model"]]];
+            [self.dataArray addObject:[[CYOthersInfoViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil]];
             
-            if (self.dataArray.count == 0) {
+            
+            if (self.dataArray.count != 0) {
                 
-                // 如果没有直播，添加提示
-                [self addLabelToShowNoLive];
+                // 有视频，创建新的视频数据源
+                [self loadNewData];
             }
             
             [self.baseTableView reloadData];
@@ -162,23 +135,54 @@
     
 }
 
+// 有视频，创建新的视频数据源
+- (void)loadNewData{
+    
+    // 他人详情页模型
+    CYOthersInfoViewModel *tempOthersInfoModel = self.dataArray[0];
+    
+    NSLog(@"tempOthersInfoModel:%@",tempOthersInfoModel);
+    // 清空：每次刷新都需要
+    [self.liveListDataArr removeAllObjects];
+    
+    
+    self.liveListDataArr = (NSMutableArray *)tempOthersInfoModel.LiveList;
+    
+    
+    if (self.liveListDataArr.count == 0) {
+        
+        // 如果没有直播，添加提示
+        [self addLabelToShowNoLive];
+    }
+    
+    
+    NSLog(@"self.liveListDataArr:%@",self.liveListDataArr);
+    
+}
 
 // 如果没有直播，添加提示
 - (void)addLabelToShowNoLive{
     NSLog(@"如果没有直播，添加提示");
     
-    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
     
     
-    tipLab.text = @"暂时没有直播记录";
+    self.noDataLab.text = @"暂时没有直播";
     
-    tipLab.textAlignment = NSTextAlignmentCenter;
-    tipLab.font = [UIFont systemFontOfSize:15];
+    self.noDataLab.textAlignment = NSTextAlignmentCenter;
+    self.noDataLab.font = [UIFont systemFontOfSize:15];
     
-    tipLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
+    self.noDataLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
     
-    [self.baseTableView addSubview:tipLab];
+    [self.baseTableView addSubview:self.noDataLab];
 }
+
+// 几个cell
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return self.liveListDataArr.count;
+}
+
 
 
 // 创建tableView（即tableView要展示的内容）
@@ -187,13 +191,8 @@
     
     CYTitleTimeCountStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CYTitleTimeCountStatusCell" forIndexPath:indexPath];
     
-    // 他人详情页模型：里面有直播列表：
-    CYOthersInfoViewModel *othersInfoViewModel = self.dataArray[0];
     
-    // 视频数组：从他人详情页获取
-    NSArray *liveListArr = othersInfoViewModel.LiveList;
-    
-    CYOtherLiveCellModel *liveCellModel = liveListArr[indexPath.row];
+    CYOtherLiveCellModel *liveCellModel = self.liveListDataArr[indexPath.row];
     
     cell.liveCellModel = liveCellModel;
     
@@ -207,27 +206,23 @@
 
 // 选择cell：单击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"点击cell:%ld,%ld",indexPath.section,indexPath.row);
+    NSLog(@"点击cell:%ld,%ld",(long)indexPath.section,(long)indexPath.row);
     
     //当离开某行时，让某行的选中状态消失
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 
-// 几个cell
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+// cell 的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (self.dataArray.count != 0) {
-        
-        CYOthersInfoViewModel *othersInfoViewModel = self.dataArray[0];
-        NSArray *liveListArr = othersInfoViewModel.LiveList;
-        
-        return liveListArr.count;
-    }
-    else {
-        
-        return 0;
-    }
+    return (88.0 / 1246.0) * self.view.frame.size.height;
+}
+
+// header 的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    
+    return 0.1;
 }
 
 

@@ -196,6 +196,8 @@
 - (void)closeBtnClick{
     NSLog(@"关闭：button：点击事件");
     
+//    [self.moviePlayerVC.view removeFromSuperview];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -376,29 +378,6 @@
     // 分享：网页分享
     [self sharedToWeChatWithWebpageWithShareTitle:@"APP 下载地址" andDescription:@"男左女右 遇见你的TA" andImage:[UIImage imageNamed:@"logo.png"] andWebpageUrl:downloadUrl andbText:NO andScene:0];
     
-//    WXMediaMessage *message = [WXMediaMessage message];
-//    message.title = @"分享标题";
-//    message.description = @"分享描述";
-//    [message setThumbImage:[UIImage imageNamed:@"117.jpg"]];
-//    
-//    
-//    WXWebpageObject *webpageObject = [WXWebpageObject object];
-//    webpageObject.webpageUrl = @"https://www.baidu.com/";
-//    
-//    
-//    message.mediaObject = webpageObject;
-//    
-//    
-//    SendMessageToWXReq *req = [[SendMessageToWXReq alloc] init];
-//    req.bText = NO;
-//    req.message = message;
-//    
-//    // 分享到好友会话
-//    req.scene = WXSceneSession;
-//    
-//    
-//    [WXApi sendReq:req];
-    
 }
 
 // 播放：button：点击事件（系统播放器）
@@ -407,7 +386,7 @@
     
 #warning 播放地址请求
     // 网络请求：请求视频播放地址
-    [self requestVideoPlayUrl];
+//    [self requestVideoPlayUrl];
     
     
     // 获取成功，播放视频

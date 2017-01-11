@@ -13,10 +13,13 @@
 // Id：标签
 @property (nonatomic, copy) NSString *Id;
 
+// 标签：值
+@property (nonatomic, copy) NSString *Name;
+
 // 用户UserId
-@property (nonatomic, copy) NSString *UserId;
-// TagId
-@property (nonatomic, copy) NSString *TagId;
+//@property (nonatomic, copy) NSString *UserId;
+//// TagId
+//@property (nonatomic, copy) NSString *TagId;
 //// Tag
 //@property (nonatomic, copy) NSString *Tag;
 

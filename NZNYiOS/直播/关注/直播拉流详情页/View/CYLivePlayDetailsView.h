@@ -57,6 +57,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *sendMessageBtn;
 
 
+// 底部：联系、发消息、送礼、点赞、分享：view
+@property (weak, nonatomic) IBOutlet UIView *bottomAllBtnView;
+
+
 // 联系他：button
 @property (weak, nonatomic) IBOutlet UIButton *connectBtn;
 
@@ -78,6 +82,16 @@
 
 // 关闭：button
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
+
+
+// 标题、爱情宣言：视图：View
+@property (nonatomic, strong) UIView *tagAndDeclarationView;
+
+// 标签：label
+@property (nonatomic, copy) UILabel *tagLab;
+
+// 爱情宣言：label
+@property (nonatomic, copy) UILabel *declarationLab;
 
 
 @end

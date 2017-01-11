@@ -577,6 +577,9 @@
 - (void)leftVideoShareBtnClick{
     NSLog(@"左侧视频分享Button：点击事件");
     
+    
+    // 分享：网页分享
+    [self sharedToWeChatWithWebpageWithShareTitle:@"APP 下载地址" andDescription:@"男左女右 遇见你的TA" andImage:[UIImage imageNamed:@"logo.png"] andWebpageUrl:cDownLoadUrl andbText:NO andScene:0];
 }
 
 // 4、右侧视频播放ImgView：手势
@@ -674,6 +677,9 @@
 - (void)rightVideoShareBtnClick{
     NSLog(@"右侧视频分享Button：点击事件");
     
+    
+    // 分享：网页分享
+    [self sharedToWeChatWithWebpageWithShareTitle:@"APP 下载地址" andDescription:@"男左女右 遇见你的TA" andImage:[UIImage imageNamed:@"logo.png"] andWebpageUrl:cDownLoadUrl andbText:NO andScene:0];
 }
 
 // 7、上传视频：手机视频button：点击事件

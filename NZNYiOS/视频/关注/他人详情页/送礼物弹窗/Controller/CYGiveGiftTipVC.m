@@ -14,7 +14,7 @@
 // 余额不足弹窗：VC
 #import "CYBalanceNotEnoughVC.h"
 
-@interface CYGiveGiftTipVC ()
+@interface CYGiveGiftTipVC ()<UITextFieldDelegate>
 
 @end
 
@@ -58,15 +58,20 @@
     // 送礼：button：点击事件
     [_giveGiftView.giveGiftBtn addTarget:self action:@selector(giveGiftBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
+    _giveGiftView.giftCountTextField.delegate = self;
     
 //    [self.view addSubview:giveGiftView];
     self.view = _giveGiftView;
     
 }
 
+
 // 弹窗关闭：点击事件
 - (void)tipCloseBtnClick{
     NSLog(@"弹窗关闭：点击事件");
+    
+    // 隐藏键盘
+    [self.view endEditing:YES];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -244,6 +249,37 @@
         [self showHubWithLabelText:@"请输入数字" andHidAfterDelay:3.0];
     }
     
+    
+}
+
+
+
+// 重写touchsBegan，点击旁边空白时，让UIView 类的子类，失去第一响应者
+#pragma mark --重写touchsBegan
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    
+    //
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+        
+    }];
+    
+    for (UIView *tempView in self.view.subviews) {
+        if ([tempView isKindOfClass:[UIView class]]) {
+            // 失去第一响应者
+            [tempView resignFirstResponder];
+        }
+    }
+    
+}
+
+#pragma mark --UITextFieldDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    //
+    [UIView animateWithDuration:0.5 animations:^{
+        self.view.bounds = CGRectMake(0, 118, self.view.frame.size.width, self.view.frame.size.height);
+    }];
     
 }
 

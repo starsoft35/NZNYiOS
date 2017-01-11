@@ -81,6 +81,7 @@
             
             // 清空：每次刷新都需要
             [self.dataArray removeAllObjects];
+            [self.noDataLab removeFromSuperview];
             
             // 解析数据，模型存到数组
             [self.dataArray addObject:[[CYOthersInfoViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil]];
@@ -116,29 +117,15 @@
 }
 
 
-// 如果没有视频，添加提示
-- (void)addLabelToShowNoVideo{
-    NSLog(@"如果没有视频，添加提示");
-    
-    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
-    
-    
-    tipLab.text = @"暂时没有视频";
-    
-    tipLab.textAlignment = NSTextAlignmentCenter;
-    tipLab.font = [UIFont systemFontOfSize:15];
-    
-    tipLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
-    
-    [self.baseCollectionView addSubview:tipLab];
-}
-
 // 有视频，创建新的视频数据源
 - (void)loadNewData{
     
     // 他人详情页模型
     CYOthersInfoViewModel *tempOthersInfoModel = self.dataArray[0];
     
+    
+    // 清空：每次刷新都需要
+    [self.videoListDataArr removeAllObjects];
     
     for (CYOtherVideoCellModel *tempVideoCellModel in tempOthersInfoModel.UserVideoList) {
         
@@ -149,7 +136,7 @@
         }
     }
     
-    if (self.videoListDataArr == 0) {
+    if (self.videoListDataArr.count == 0) {
         
         // 如果没有视频，添加提示
         [self addLabelToShowNoVideo];
@@ -158,6 +145,23 @@
     
     NSLog(@"self.videoListDataArr:%@",self.videoListDataArr);
     
+}
+
+// 如果没有视频，添加提示
+- (void)addLabelToShowNoVideo{
+    NSLog(@"如果没有视频，添加提示");
+    
+    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    
+    
+    self.noDataLab.text = @"暂时没有视频";
+    
+    self.noDataLab.textAlignment = NSTextAlignmentCenter;
+    self.noDataLab.font = [UIFont systemFontOfSize:15];
+    
+    self.noDataLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
+    
+    [self.baseCollectionView addSubview:self.noDataLab];
 }
 
 // 几个cell
@@ -177,6 +181,8 @@
     // 放到上层：必须的
     [cell bringSubviewToFront:cell.playBtn];
     [cell bringSubviewToFront:cell.connectBtn];
+    
+    cell.playBtn.hidden = NO;
     
     // 播放：点击事件
     [cell.playBtn addTarget:self action:@selector(playBtnClickWithBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -200,12 +206,16 @@
     tempCollectionModel.VideoUserName = [NSString stringWithFormat:@"%.1f M",videoCellModel.Size];
     tempCollectionModel.connectTitle = [NSString stringWithFormat:@"分享"];
     
+    
     // 模型赋值
     cell.videoCellModel = tempCollectionModel;
 //    cell.connectBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
 //    cell.connectBtn.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
+    cell.connectBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    [cell.connectBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
-    
+    cell.videoBgForTextToShowImgView.image = [UIImage imageNamed:@"我的视频底部阴影"];
+//    cell.videoBgForTextToShowImgView.frame.size.height = 20;
     
     return cell;
 }

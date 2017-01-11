@@ -114,14 +114,14 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="视频详情底部.png" translatesAutoresizingMaskIntoConstraints="NO" id="B8h-wB-U08" userLabel="1.3.0-下部背景-Image View">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标签：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="gUA-XG-7Ir" userLabel="1.3.1-标签-Label">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标签：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUA-XG-7Ir" userLabel="1.3.1-标签-Label">
                                     <rect key="frame" x="13" y="13" width="349" height="12"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.91768163442611694" green="0.51090770959854126" blue="0.18271613121032715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="爱情宣言：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="pz4-H3-N47" userLabel="1.3.2-宣言-Label">
-                                    <rect key="frame" x="13" y="35" width="349" height="12"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="爱情宣言：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pz4-H3-N47" userLabel="1.3.2-宣言-Label">
+                                    <rect key="frame" x="13" y="35" width="349" height="15"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -183,7 +183,7 @@
                                 <constraint firstItem="uwK-Re-eeR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pz4-H3-N47" secondAttribute="bottom" constant="5" id="BJ1-oq-ej5"/>
                                 <constraint firstAttribute="bottom" secondItem="B8h-wB-U08" secondAttribute="bottom" id="CnW-PT-Htu"/>
                                 <constraint firstAttribute="trailing" secondItem="gUA-XG-7Ir" secondAttribute="trailing" constant="13" id="DDs-rc-Qbv"/>
-                                <constraint firstItem="pz4-H3-N47" firstAttribute="height" secondItem="gUA-XG-7Ir" secondAttribute="height" id="Gch-pz-Gw2"/>
+                                <constraint firstItem="pz4-H3-N47" firstAttribute="height" secondItem="gUA-XG-7Ir" secondAttribute="height" multiplier="30:24" id="Gch-pz-Gw2"/>
                                 <constraint firstItem="uwK-Re-eeR" firstAttribute="leading" secondItem="pz4-H3-N47" secondAttribute="leading" id="HSo-lM-PK2"/>
                                 <constraint firstItem="pz4-H3-N47" firstAttribute="top" secondItem="gUA-XG-7Ir" secondAttribute="bottom" constant="10" id="N4f-pu-9I3"/>
                                 <constraint firstItem="lHt-fp-jNX" firstAttribute="width" secondItem="5P2-k8-tnQ" secondAttribute="width" multiplier="265:750" id="Nge-ED-LaY"/>

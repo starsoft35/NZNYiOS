@@ -76,6 +76,7 @@
                 
                 [self.dataArray removeAllObjects];
             }
+            [self.noDataLab removeFromSuperview];
             
             // 解析数据，模型存到数组
             [self.dataArray addObjectsFromArray:[CYLiveCollectionViewCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
@@ -120,17 +121,17 @@
 - (void)addLabelToShowNoLive{
     NSLog(@"如果没有直播，添加提示");
     
-    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
     
     
-    tipLab.text = @"暂时没有直播预告";
+    self.noDataLab.text = @"暂时没有直播预告";
     
-    tipLab.textAlignment = NSTextAlignmentCenter;
-    tipLab.font = [UIFont systemFontOfSize:15];
+    self.noDataLab.textAlignment = NSTextAlignmentCenter;
+    self.noDataLab.font = [UIFont systemFontOfSize:15];
     
-    tipLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
+    self.noDataLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
     
-    [self.baseCollectionView addSubview:tipLab];
+    [self.baseCollectionView addSubview:self.noDataLab];
 }
 
 
@@ -169,7 +170,7 @@
 
 // 选中了collectionCell：点击事件
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"选中了第 %ld 个collectionCell",indexPath.row);
+    NSLog(@"选中了第 %ld 个collectionCell",(long)indexPath.row);
     
     
     //    // 融云SDK

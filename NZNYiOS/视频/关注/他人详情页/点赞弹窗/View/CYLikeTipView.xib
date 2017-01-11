@@ -352,7 +352,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="149.5" height="44"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入数量" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xDe-Ot-pfT" userLabel="1.7.2-输入数量-Round Style Text Field">
-                                    <rect key="frame" x="17" y="14" width="92" height="15"/>
+                                    <rect key="frame" x="17" y="-0.5" width="92" height="44"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -372,9 +372,9 @@
                                 <constraint firstAttribute="bottom" secondItem="FjP-K7-tca" secondAttribute="bottom" id="0Ag-WW-Z2C"/>
                                 <constraint firstItem="OaW-Pp-Lpe" firstAttribute="height" secondItem="p1H-CK-sgM" secondAttribute="height" multiplier="30:88" id="4xL-IC-oHs"/>
                                 <constraint firstItem="FjP-K7-tca" firstAttribute="top" secondItem="p1H-CK-sgM" secondAttribute="top" id="BpY-jf-eFG"/>
-                                <constraint firstItem="xDe-Ot-pfT" firstAttribute="height" secondItem="OaW-Pp-Lpe" secondAttribute="height" id="HVE-Zg-PIc"/>
                                 <constraint firstAttribute="trailing" secondItem="FjP-K7-tca" secondAttribute="trailing" id="JPN-yq-XLZ"/>
                                 <constraint firstAttribute="trailing" secondItem="OaW-Pp-Lpe" secondAttribute="trailing" constant="7" id="M3A-KZ-cSk"/>
+                                <constraint firstItem="xDe-Ot-pfT" firstAttribute="height" secondItem="p1H-CK-sgM" secondAttribute="height" id="NJR-65-Cea"/>
                                 <constraint firstItem="OaW-Pp-Lpe" firstAttribute="centerY" secondItem="p1H-CK-sgM" secondAttribute="centerY" id="OwV-PZ-LCs"/>
                                 <constraint firstItem="FjP-K7-tca" firstAttribute="leading" secondItem="p1H-CK-sgM" secondAttribute="leading" id="a2E-qX-VLV"/>
                                 <constraint firstItem="xDe-Ot-pfT" firstAttribute="leading" secondItem="p1H-CK-sgM" secondAttribute="leading" constant="17" id="eNl-m8-edi"/>

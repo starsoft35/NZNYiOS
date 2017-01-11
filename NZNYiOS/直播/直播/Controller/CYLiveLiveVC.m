@@ -102,7 +102,7 @@
                 // 如果没有直播，添加提示
                 [self addLabelToShowNoLive];
             }
-            
+            [self.noDataLab removeFromSuperview];
             
             // 刷新数据
             [self.baseCollectionView reloadData];
@@ -136,17 +136,17 @@
 - (void)addLabelToShowNoLive{
     NSLog(@"如果没有直播，添加提示");
     
-    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
     
     
-    tipLab.text = @"暂时没有正在进行的直播";
+    self.noDataLab.text = @"暂时没有正在进行的直播";
     
-    tipLab.textAlignment = NSTextAlignmentCenter;
-    tipLab.font = [UIFont systemFontOfSize:15];
+    self.noDataLab.textAlignment = NSTextAlignmentCenter;
+    self.noDataLab.font = [UIFont systemFontOfSize:15];
     
-    tipLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
+    self.noDataLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
     
-    [self.baseCollectionView addSubview:tipLab];
+    [self.baseCollectionView addSubview:self.noDataLab];
 }
 
 
@@ -191,206 +191,10 @@
     
     CYLiveCollectionViewCellModel *model = self.dataArray[indexPath.row];
     
-    // 结束时间
-//    NSString *tempTopTime = [model.PlanStartTime substringToIndex:10];
-//    NSString *tempBottomTime = [model.PlanStartTime substringFromIndex:12];
-//    NSString *tempHourTime = [model.PlanStartTime substringWithRange:NSMakeRange(11, 1)];
-//    NSInteger hour = tempHourTime.integerValue + 1;
-//    NSString *tempLivePlanEndTime = [NSString stringWithFormat:@"%@%ld%@",tempTopTime,(long)hour,tempBottomTime];
-    NSString *tempLivePlanEndTime = @"2016-12-12 21:00:00";
-    
-    // 开始时间
-    NSString *tempPlanStartTime = @"2016-12-12 20:00:00";
-    
-    // 网络请求：获取直播推流、拉流授权
-//    [self requestGetPushAndPlayPermissionWithLiveid:model.LiveId andPlanStartTime:tempPlanStartTime andPlanEndTime:tempLivePlanEndTime andLiveUserId:model.LiveUserId];
-    
-    
-    
-    
     
     // 网络请求：进入直播间
     [self requestAudienceEnterLiveRoomWithLiveId:model.LiveId andUserId:self.onlyUser.userID];
     
-    
-    
-    
-    
-    // 模型
-//    CYLiveCollectionViewCellModel *liveCellModel = self.dataArray[indexPath.row];
-//
-//    // 直播详情页：观众端
-//    CYLivePlayDetailsVC *livePlayDetailsVC = [[CYLivePlayDetailsVC alloc] init];
-//
-//    livePlayDetailsVC.liveID = liveCellModel.LiveId;
-//    livePlayDetailsVC.isTrailer = NO;
-//
-//    //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
-//    UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:livePlayDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
-//    
-//    
-//    [self showViewController:tempVideoNav sender:self];
-    
-    
-}
-
-
-
-// 网络请求：获取直播推流、拉流授权
-- (void)requestGetPushAndPlayPermissionWithLiveid:(NSString *)liveid andPlanStartTime:(NSString *)PlanStartTime andPlanEndTime:(NSString *)PlanEndTime andLiveUserId:(NSString *)LiveUserId{
-    NSLog(@"网络请求：获取直播推流、拉流授权");
-    
-    
-    // 网络请求：获取直播推流、拉流授权
-    NSDictionary *params = @{
-                             @"userid":self.onlyUser.userID,
-                             @"token":self.onlyUser.userToken
-                             };
-    
-    [self showLoadingView];
-    
-    // 获取 请求管理类 对象
-    //        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    // 可以设置主机地址，然后让别的接口拼接进来。（AFNetWorking 会自动进行拼接，前提是你给了baseURL）
-//    AFHTTPSessionManager *manager = [[AFHTTPSessionManager manager] initWithBaseURL:[NSURL URLWithString:cHostUrl]];
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager manager] initWithBaseURL:[NSURL URLWithString:cPushAndPlayHostUrl]];
-    
-    //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    //    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    // 头字段
-    //    if (token != nil) {
-    //
-    //        NSString *newToken = [NSString stringWithFormat:@"bearer %@",self.onlyUser.userToken];
-    //        [manager.requestSerializer setValue:newToken forHTTPHeaderField:@"Authorization"];
-    //        NSLog(@"~~~~~~~Authorization：%@",newToken);
-    //    }
-    //    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    // 数据类型
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"application/xml", @"text/xml", nil];
-    
-    // 请求数据：POST
-    [manager POST:cPushAndPlayPermissionUrl parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"获取直播推流、拉流授权：进度：%@",uploadProgress);
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"获取直播推流、拉流授权：请求成功！");
-        
-        // 1、
-        NSString *code = responseObject[@"code"];
-        
-        // 1.2.1.1.2、和成功的code 匹配
-        if ([code isEqualToString:@"1"]) {
-            NSLog(@"获取直播推流、拉流授权：获取成功！");
-            NSLog(@"获取直播推流、拉流授权：%@",responseObject);
-            
-            
-            // 网络请求：获取直播地址
-            NSString *uid = responseObject[@"data"][@"uid"];
-            NSString *utoken = responseObject[@"data"][@"utoken"];
-            [self requestGetLiveUrlWithUid:uid andUtoken:utoken andLiveid:liveid andPlanStartTime:PlanStartTime andPlanEndTime:PlanEndTime andLiveUserId:LiveUserId];
-            
-        }
-        else{
-            NSLog(@"获取直播推流、拉流授权：获取失败:responseObject:%@",responseObject);
-            NSLog(@"获取直播推流、拉流授权：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
-            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
-            [self showHubWithLabelText:responseObject[@"msg"] andHidAfterDelay:3.0];
-            
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"获取直播推流、拉流授权：推流：请求失败！");
-        NSLog(@"失败原因：error：%@",error);
-        
-        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
-        
-    }];
-    
-    
-}
-
-// 网络请求：获取直播地址：拉流
-- (void)requestGetLiveUrlWithUid:(NSString *)uid andUtoken:(NSString *)utoken andLiveid:(NSString *)liveid andPlanStartTime:(NSString *)PlanStartTime andPlanEndTime:(NSString *)PlanEndTime andLiveUserId:(NSString *)LiveUserId{
-    NSLog(@"网络请求：获取直播地址：拉流");
-    
-    // 网络请求：获取直播地址
-    NSDictionary *params = @{
-                             @"uid":uid,
-                             @"utoken":utoken,
-                             @"userid":self.onlyUser.userID,
-                             @"owner":LiveUserId,
-                             @"liveid":liveid,
-                             @"PlanStartTime":PlanStartTime,
-                             @"PlanEndTime":PlanEndTime,
-                             };
-    
-    //    [self showLoadingView];
-    
-    
-    
-    
-    AFHTTPSessionManager *manager = [[AFHTTPSessionManager manager] initWithBaseURL:[NSURL URLWithString:cPushAndPlayHostUrl]];
-    
-    //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    //    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    
-    // 头字段
-    //    if (token != nil) {
-    //
-    //        NSString *newToken = [NSString stringWithFormat:@"bearer %@",self.onlyUser.userToken];
-    //        [manager.requestSerializer setValue:newToken forHTTPHeaderField:@"Authorization"];
-    //        NSLog(@"~~~~~~~Authorization：%@",newToken);
-    //    }
-    //    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    // 数据类型
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json",@"application/xml", @"text/xml", nil];
-    
-    // 请求数据：POST
-    [manager POST:cMyLiveGetPushUrl parameters:params progress:^(NSProgress * _Nonnull uploadProgress) {
-        NSLog(@"获取直播地址：拉流进度：%@",uploadProgress);
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"获取直播地址：拉流：请求成功！");
-        
-        // 1、
-        NSString *code = responseObject[@"code"];
-        
-        // 1.2.1.1.2、和成功的code 匹配
-        if ([code isEqualToString:@"1"]) {
-            NSLog(@"获取直播地址：拉流：获取成功！");
-            NSLog(@"获取直播地址：拉流：%@",responseObject);
-            
-            
-            
-            
-            //            NSString *tempUrl = @"rtmp://106.14.61.197:1935/rtmplive/l01de63e610d1c28c647abb285334c55a";
-            NSString *tempUrl = responseObject[@"url"];
-            NSLog(@"playUrl:responseObject[url]:%@",tempUrl);
-            
-            
-            // 网络请求：观众进入直播间
-            [self requestAudienceEnterLiveRoomWithLiveId:liveid andnewLiveUrl:tempUrl andLiveUserId:LiveUserId];
-            
-            
-            
-        }
-        else{
-            NSLog(@"获取直播地址：拉流：获取失败:responseObject:%@",responseObject);
-            NSLog(@"获取直播地址：拉流：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
-            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
-            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
-            
-        }
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"获取直播地址：拉流：请求失败！");
-        NSLog(@"失败原因：error：%@",error);
-        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
-        
-    }];
 }
 
 // 网络请求：观众进入直播间
@@ -442,71 +246,6 @@
             // 阿里播放和融云IM界面：VC
             //            [self pushAliPlayAndRCIMVCWithUrl:responseObject[@"url"] andOppUserId:LiveUserId andLiveId:liveid];
             [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveRoomId];
-            
-            
-        }
-        else{
-            NSLog(@"观众进入直播间：获取失败:responseObject:%@",responseObject);
-            NSLog(@"观众进入直播间：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
-            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
-            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
-            
-        }
-        
-        
-    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"观众进入直播间：请求失败！");
-        NSLog(@"失败原因：error：%@",error);
-        
-        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
-    } withToken:self.onlyUser.userToken];
-    
-}
-
-// 网络请求：观众进入直播间：阳后台
-- (void)requestAudienceEnterLiveRoomWithLiveId:(NSString *)liveId andnewLiveUrl:(NSString *)newLiveUrl andLiveUserId:(NSString *)liveUserId{
-    NSLog(@"网络请求：观众进入直播间");
-    
-    // 网络请求：观众进入直播间
-    // 新地址
-    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&liveId=%@",cEnterLiveRoomUrl,self.onlyUser.userID,liveId];
-    
-    
-    [self showLoadingView];
-    
-    // 网络请求：观众进入直播间
-    [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
-        NSLog(@"获取观众进入直播间进度：%@",uploadProgress);
-        
-        
-    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"观众进入直播间：请求成功！");
-        
-        // 1、
-        NSString *code = responseObject[@"code"];
-        
-        // 1.2.1.1.2、和成功的code 匹配
-        if ([code isEqualToString:@"0"]) {
-            NSLog(@"观众进入直播间：获取成功！");
-            NSLog(@"观众进入直播间：%@",responseObject);
-            
-            // 取消加载
-            [self hidenLoadingView];
-            
-            // 直播间Id
-            NSString *liveRoomId = responseObject[@"res"][@"liveRoomId"];
-            
-            // 融云播放界面：
-            //            [self pushRongCloudPlayView];
-            
-            // 阿里播放界面：
-            //            [self pushALiPlayerViewControllerWithPlayUrl:responseObject[@"url"]];
-            //            [self pushALiPlayerViewControllerWithPlayUrl:tempUrl];
-            
-            
-            // 阿里播放和融云IM界面：VC
-            //            [self pushAliPlayAndRCIMVCWithUrl:responseObject[@"url"] andOppUserId:LiveUserId andLiveId:liveid];
-            [self pushAliPlayAndRCIMVCWithUrl:newLiveUrl andOppUserId:liveUserId andLiveId:liveId andLiveRoomId:liveRoomId];
             
             
         }

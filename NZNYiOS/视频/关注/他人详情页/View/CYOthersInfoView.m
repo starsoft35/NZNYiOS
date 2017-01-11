@@ -20,26 +20,77 @@
     // 头像
     _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:othersInfoViewModel.Portrait];
     
-    // 工作
-    _workLab.text = othersInfoViewModel.work;
+    NSMutableArray *tempTagListArr = [[NSMutableArray alloc] init];
+    [tempTagListArr addObject:_workLab];
+    [tempTagListArr addObject:_houseAndCarLab];
+    [tempTagListArr addObject:_hobbyLab];
+    [tempTagListArr addObject:_heightLab];
+    [tempTagListArr addObject:_starSignLab];
     
-    // 房车
-    _houseAndCarLab.text = othersInfoViewModel.houseAndCar;
+    int tempCount = 1;
+    for (UILabel *tempLab in tempTagListArr) {
+        
+        if (tempCount <= othersInfoViewModel.UserTagList.count) {
+            
+            
+            CYOtherTagModel *tempModel = othersInfoViewModel.UserTagList[tempCount - 1];
+            
+            tempLab.text = tempModel.Name;
+            
+            tempCount += 1;
+        }
+        else {
+            
+            tempLab.text = @"";
+        }
+        
+        
+        
+    }
     
-    // 爱好
-    _hobbyLab.text = othersInfoViewModel.hobby;
+//    tempTagListArr = othersInfoViewModel.UserTagList;
+//    for (CYOtherTagModel *tempTagModel in othersInfoViewModel.UserTagList) {
+//        
+//        if ([tempTagModel.Id isEqualToString:@"1"]) {
+//            
+//            
+//            // 房车
+//            _houseAndCarLab.text = tempTagModel.Name;
+//            
+//        }
+//        else if ([tempTagModel.Id isEqualToString:@"77db687d-5d28-4429-a8bd-d981b5caa9ca"]) {
+//            
+//            // 身高
+//            _heightLab.text = tempTagModel.Name;
+//        }
+//        else if ([tempTagModel.Id isEqualToString:@"53a2c987-700c-4dec-a3b1-3659b365b2b4"]) {
+//            
+//            // 星座
+//            _starSignLab.text = tempTagModel.Name;
+//        }
+//        else if ([tempTagModel.Id isEqualToString:@"4"]) {
+//            
+//            // 工作
+//            _workLab.text = tempTagModel.Name;
+//        }
+//        else if ([tempTagModel.Id isEqualToString:@"5"]) {
+//            
+//            // 爱好
+//            _hobbyLab.text = tempTagModel.Name;
+//            
+//        }
+//    }
     
-    // 身高
-    _heightLab.text = othersInfoViewModel.height;
     
-    // 星座
-    _starSignLab.text = othersInfoViewModel.starSign;
+    
+    
+    
     
     // 姓名
     _nameLab.text = othersInfoViewModel.RealName;
     
     // 年龄
-    _ageLab.text = [NSString stringWithFormat:@"%ld 岁",othersInfoViewModel.Age];
+    _ageLab.text = [NSString stringWithFormat:@"%ld 岁",(long)othersInfoViewModel.Age];
     
     // 性别
     
@@ -53,13 +104,13 @@
     }
     
     // 关注人数
-    _followCountLab.text = [NSString stringWithFormat:@"%ld",othersInfoViewModel.FollowsCount];
+    _followCountLab.text = [NSString stringWithFormat:@"%ld",(long)othersInfoViewModel.FollowsCount];
     
     // 粉丝人数
-    _fansCountLab.text = [NSString stringWithFormat:@"%ld",othersInfoViewModel.FansCount];
+    _fansCountLab.text = [NSString stringWithFormat:@"%ld",(long)othersInfoViewModel.FansCount];
     
     // 礼物数量
-    _giftCountLab.text = [NSString stringWithFormat:@"%ld",othersInfoViewModel.GiftCount];
+    _giftCountLab.text = [NSString stringWithFormat:@"%ld",(long)othersInfoViewModel.GiftCount];
     
     // 关注
     //  没有关注，现在可以关注

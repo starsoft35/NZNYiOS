@@ -8,6 +8,13 @@
 
 #import "CYBaseModel.h"
 
+// 标签模型
+#import "CYOtherTagModel.h"
+
+// 协议：标签
+@protocol CYOtherTagModel
+@end
+
 @interface CYLivePlayDetailsViewModel : CYBaseModel
 
 
@@ -30,7 +37,7 @@
 // 直播用户头像
 @property (nonatomic, copy) NSString *LiveUserPortrait;
 // 标签列表
-@property (nonatomic, copy) NSArray *LiveUserTagList;
+@property (nonatomic, copy) NSArray<CYOtherTagModel> *LiveUserTagList;
 // 直播列表背景
 @property (nonatomic, copy) NSString *Pictrue;
 // 直播开始时间

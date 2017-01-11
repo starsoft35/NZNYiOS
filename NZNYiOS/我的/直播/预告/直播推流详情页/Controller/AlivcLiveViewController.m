@@ -216,6 +216,9 @@
 - (void)shareBtnClick{
     NSLog(@"分享btn：点击事件");
     
+    // 分享：网页分享
+    [self sharedToWeChatWithWebpageWithShareTitle:@"APP 下载地址" andDescription:@"男左女右 遇见你的TA" andImage:[UIImage imageNamed:@"logo.png"] andWebpageUrl:cDownLoadUrl andbText:NO andScene:0];
+    
 }
 
 
