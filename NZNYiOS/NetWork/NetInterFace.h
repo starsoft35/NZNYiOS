@@ -213,8 +213,12 @@
 
 // 5.1.1.3.0-账户余额
 #define cUserMoneyUrl (@"api/Pay/UserMoney")
-// 5.1.1.3-点赞
+// 5.1.1.3-点赞：给用户点赞
 #define cAddUserLikeUrl (@"api/Like/AddUserLike")
+// 5.1.1.4-点赞：给用户视频点赞
+#define cAddUserVideoLikeUrl (@"api/Like/AddUserVideoLike")
+// 5.1.1.5-点赞：给用户直播点赞
+#define cAddLiveLikeUrl (@"api/Like/AddLiveLike")
 
 // 5.1.1.4-送礼
 #define cAddFlowersUrl (@"api/Gift/AddFlowers")

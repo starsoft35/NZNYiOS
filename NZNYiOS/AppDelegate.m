@@ -40,10 +40,6 @@
 
 @implementation AppDelegate
 
-{
-    // 是否第一次登录
-    BOOL _isFirstLogin;
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     

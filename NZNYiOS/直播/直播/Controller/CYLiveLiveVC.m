@@ -46,7 +46,7 @@
     [super viewDidLoad];
     
     
-    self.baseCollectionView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
+//    self.baseCollectionView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
     
     
     // 直播：首次进入加载，其他时候手动加载。
@@ -229,6 +229,7 @@
             
             // 直播间Id
             NSString *liveRoomId = responseObject[@"res"][@"data"][@"liveRoomId"];
+//            liveRoomId = @"f643314d-0e29-4e16-915d-b36364c46416";
             
             // 直播播放地址
             NSString *livePlayUrl = responseObject[@"res"][@"data"][@"url"];
@@ -244,8 +245,8 @@
             
             
             // 阿里播放和融云IM界面：VC
-            //            [self pushAliPlayAndRCIMVCWithUrl:responseObject[@"url"] andOppUserId:LiveUserId andLiveId:liveid];
-            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveRoomId];
+//            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveRoomId];
+            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveId];
             
             
         }

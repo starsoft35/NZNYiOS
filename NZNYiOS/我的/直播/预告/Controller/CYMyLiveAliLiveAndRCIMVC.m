@@ -375,9 +375,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 // 添加视图
 - (void)addTopUserInfoView{
     
+    // 添加聊天室界面
     _livePushDetailsView = [[[NSBundle mainBundle] loadNibNamed:@"CYLivePushDetailsView" owner:nil options:nil] lastObject];
-    
-#warning 添加聊天室界面
     
     //    _livePlayDetailsView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
     
@@ -455,7 +454,9 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  *  回收的时候需要消耗播放器和退出聊天室
  */
 - (void)dealloc {
-    //    [self quitConversationViewAndClear];
+    
+//    [self quitConversationViewAndClear];
+    [self closeBtnClick];
 }
 
 /**
@@ -474,7 +475,6 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     if (self.conversationType == ConversationType_CHATROOM) {
         
         
-#warning 销毁自己的播放器
         // 销毁播放器
         //        if (self.livePlayingManager) {
         //            [self.livePlayingManager destroyPlaying];
@@ -742,7 +742,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     if (self.conversationType == ConversationType_CHATROOM) {
         
         
-#warning 销毁自己的播放器
+        // 销毁自己的播放器
         [self.aliLiveVC closeBtnForPushView];
         
         
@@ -1036,7 +1036,6 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     _clapBtn.frame = CGRectMake(self.view.frame.size.width-45, self.view.frame.size.height - 45, 35, 35);
     
     
-#warning 放入自己的播放器
     // 播放器View：放到最后面
     [self.view sendSubviewToBack:_liveView];
     

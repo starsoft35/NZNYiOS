@@ -278,7 +278,7 @@
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     //
     [UIView animateWithDuration:0.5 animations:^{
-        self.view.bounds = CGRectMake(0, 118, self.view.frame.size.width, self.view.frame.size.height);
+        self.view.bounds = CGRectMake(0, 128, self.view.frame.size.width, self.view.frame.size.height);
     }];
     
 }

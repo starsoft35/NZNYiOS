@@ -29,7 +29,7 @@
     [super viewDidLoad];
     
     
-    self.baseCollectionView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
+//    self.baseCollectionView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1.00];
     
     
     // 直播：首次进入加载，其他时候手动加载。

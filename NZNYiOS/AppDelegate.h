@@ -22,6 +22,9 @@
 // 提示框：hud
 @property (nonatomic,strong)MBProgressHUD *hud;
 
+// 是否第一次登录
+@property (nonatomic, assign) BOOL isFirstLogin;
+
 
 - (void)onResp:(BaseResp *)resp;
 

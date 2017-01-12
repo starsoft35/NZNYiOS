@@ -11,6 +11,11 @@
 // 聊天界面
 #import "CYChatVC.h"
 
+
+// 我的好友VC
+#import "CYMyFriendVC.h"
+
+
 // 融云：SDK-初始化
 #import <RongIMKit/RongIMKit.h>
 
@@ -41,6 +46,10 @@
     //设置需要将哪些类型的会话在会话列表中聚合显示
     [self setCollectionConversationType:@[@(ConversationType_DISCUSSION),
                                           @(ConversationType_GROUP)]];
+    
+    
+    // 右边BarButtonItem：好友
+    [self setFriendsRightBarButtonItem];
     
     
 }
@@ -87,5 +96,26 @@
     
 }
 
+
+// 右边BarButtonItem：好友
+- (void)setFriendsRightBarButtonItem{
+    
+    // 好友
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"好友" style:2 target:self action:@selector(friendsRightBarButtonItemClick)];
+    
+}
+
+// 右边BarButtonItem：好友：点击事件
+- (void)friendsRightBarButtonItemClick{
+    
+    // 我的好友
+    CYMyFriendVC *myFriendVC = [[CYMyFriendVC alloc] init];
+    
+    // 隐藏tabbar
+    myFriendVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:myFriendVC animated:YES];
+    
+}
 
 @end
