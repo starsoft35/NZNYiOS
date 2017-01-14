@@ -24,11 +24,11 @@ NSString *const RCDLiveKitDispatchConnectionStatusChangedNotification = @"RCDLiv
 
 //使用 IMKit 需要放开注释的地方
 @interface RCDLive () <
-#if !IsUseRongCloudIMKit
-RCIMClientReceiveMessageDelegate, RCConnectionStatusChangeDelegate
-#else
+//#if !IsUseRongCloudIMKit
+//RCIMClientReceiveMessageDelegate, RCConnectionStatusChangeDelegate
+//#else
 RCIMReceiveMessageDelegate, RCIMConnectionStatusDelegate
-#endif
+//#endif
 >
 @property(nonatomic, strong) NSString *appKey;
 
@@ -66,17 +66,17 @@ static RCDLive *__rongUIKit = nil;
     
     self.appKey = appKey;
     //使用 IMKit 需要放开注释的地方
-    if ([self isRCIMKitExist]) {
+//    if ([self isRCIMKitExist]) {
         [[RCIM sharedRCIM] initWithAppKey:appKey];
         [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
         [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
-    }else{
-        [[RCIMClient sharedRCIMClient] initWithAppKey:appKey];
-        // listen receive message
-        [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
-        [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:self];
-
-    }
+//    }else{
+//        [[RCIMClient sharedRCIMClient] initWithAppKey:appKey];
+//        // listen receive message
+//        [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
+//        [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:self];
+//
+//    }
 }
 
 - (BOOL)isRCIMKitExist {

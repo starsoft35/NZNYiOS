@@ -399,7 +399,8 @@
     //    liveVC.view.frame = self.view.frame;
     
     livePushVC.conversationType = ConversationType_CHATROOM;
-    livePushVC.targetId = oppUserId;
+    // targetId：为聊天室Id，由直播详情页给出
+//    livePushVC.targetId = oppUserId;
     
     
     // 自定义所需的信息

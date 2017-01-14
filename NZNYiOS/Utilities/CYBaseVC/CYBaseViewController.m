@@ -26,8 +26,9 @@
 #import "CYNearbyPeopleVC.h"
 
 
-// 消息列表:VC
+// 会话列表:VC
 #import "CYChatListVC.h"
+
 
 
 // 余额不足弹窗：VC
@@ -57,9 +58,7 @@
 }
 
 
-
-
-
+#pragma -------------------------navigationBar：点击事件--------------------------------------
 // 搜索：左边BarButtonItem：点击事件
 - (void)searchLeftBarBtnItemClick{
     NSLog(@"搜索：BaseViewController:searchLeftBarBtnItemClick：点击事件");
@@ -326,6 +325,9 @@
     // 初始化会话列表
     CYChatListVC *chatListVC = [[CYChatListVC alloc] init];
     
+    chatListVC.currentUserId = self.onlyUser.userID;
+    chatListVC.currentUserToken = self.onlyUser.userToken;
+    
     // 隐藏tabbar
     self.hidesBottomBarWhenPushed = YES;
     
@@ -334,6 +336,8 @@
     
     // 显示tabbar
     self.hidesBottomBarWhenPushed = NO;
+    
+    
 }
 
 // 加载数据

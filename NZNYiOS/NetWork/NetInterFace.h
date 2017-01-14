@@ -203,6 +203,9 @@
 // 5.1.1-他人详情页
 #define cOppUserInfoUrl (@"api/User/OppUserInfo")
 
+
+// 5.1.1.0-判断两个人是否为好友
+#define cIfIsFriendUrl (@"api/Relationship/IsFriend")
 // 5.1.1.1-申请好友
 #define cApplyFriendUrl (@"api/Relationship/ApplyFriend")
 
@@ -228,10 +231,17 @@
 // 5.2.1-上传地理位置信息
 #define cCoordinatesUrl (@"api/User/Coordinates")
 
-// 5.3-获取用户信息
+// -获取用户信息
 #define cGetUserInfoUrl (@"api/User/GetUserInfo")
 
 
+// 5.3-消息列表
+// 5.3.1-我的申请好友列表
+#define cApplyFriendsListUrl (@"api/Relationship/ApplyFriendsList")
+// 5.3.1.1-同意好友申请
+#define cAddApplyFriendUrl (@"api/Relationship/AddApplyFriend")
+// 5.3.1.2-拒绝好友申请
+#define cDelApplyFriendUrl (@"api/Relationship/DelApplyFriend")
 
 
 

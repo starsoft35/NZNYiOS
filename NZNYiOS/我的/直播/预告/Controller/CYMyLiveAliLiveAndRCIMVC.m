@@ -254,51 +254,6 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
     
-    __weak CYMyLiveAliLiveAndRCIMVC *weakSelf = self;
-    
-    
-    
-    
-    //聊天室类型进入时需要调用加入聊天室接口，退出时需要调用退出聊天室接口
-    // 当前会话类型为聊天室时，加入聊天室
-    if (ConversationType_CHATROOM == self.conversationType) {
-        [[RCIMClient sharedRCIMClient]
-         joinChatRoom:self.targetId
-         messageCount:-1
-         success:^{
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 
-                 
-#warning 可以用自己的视频播放器
-                 // 视频播放器：初始化，并带入视频地址
-                 //                 self.livePlayingManager = [[KSYLivePlaying alloc] initPlaying:self.contentURL];
-                 //                 self.livePlayingManager = [[LELivePlaying alloc] initPlaying:@"201604183000000z4"];
-                 //                 self.livePlayingManager = [[QINIULivePlaying alloc] initPlaying:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
-                 //                 self.livePlayingManager = [[QCLOUDLivePlaying alloc] initPlaying:@"http://2527.vod.myqcloud.com/2527_117134a2343111e5b8f5bdca6cb9f38c.f20.mp4"];
-                 
-                 // 初始化视频直播
-                 [self initializedLiveSubViews];
-                 
-                 // 开始播放
-                 //                 [self.livePlayingManager startPlaying];
-                 
-                 
-                 // 通知消息类：谁加入了聊天室
-                 RCInformationNotificationMessage *joinChatroomMessage = [[RCInformationNotificationMessage alloc]init];
-                 joinChatroomMessage.message = [NSString stringWithFormat: @"%@加入了聊天室",[RCDLive sharedRCDLive].currentUserInfo.name];
-                 [self sendMessage:joinChatroomMessage pushContent:nil];
-             });
-         }
-         error:^(RCErrorCode status) {
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 if (status == KICKED_FROM_CHATROOM) {
-                     [weakSelf loadErrorAlert:NSLocalizedStringFromTable(@"JoinChatRoomRejected", @"RongCloudKit", nil)];
-                 } else {
-                     [weakSelf loadErrorAlert:NSLocalizedStringFromTable(@"JoinChatRoomFailed", @"RongCloudKit", nil)];
-                 }
-             });
-         }];
-    }
     
 }
 
@@ -349,6 +304,14 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             
             self.oppUserId = tempLivePushDetailsViewModel.LiveUserId;
             
+            
+            self.targetId = responseObject[@"res"][@"data"][@"model"][@"DiscussionId"];
+            
+            // 当前会话类型为聊天室时，加入聊天室
+            [self joinChatRoomWithChatRoomId:self.targetId];
+            
+            
+            
             // 请求数据结束，取消加载
             [self hidenLoadingView];
             
@@ -369,6 +332,58 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
         
         [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
     } withToken:self.onlyUser.userToken];
+    
+}
+
+// 当前会话类型为聊天室时，加入聊天室
+- (void)joinChatRoomWithChatRoomId:(NSString *)chatRoomId{
+    
+    
+    __weak CYMyLiveAliLiveAndRCIMVC *weakSelf = self;
+    
+    
+    
+    
+    //聊天室类型进入时需要调用加入聊天室接口，退出时需要调用退出聊天室接口
+    // 当前会话类型为聊天室时，加入聊天室
+    if (ConversationType_CHATROOM == self.conversationType) {
+        [[RCIMClient sharedRCIMClient]
+         joinChatRoom:self.targetId
+         messageCount:-1
+         success:^{
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 
+                 
+#warning 可以用自己的视频播放器
+                 // 视频播放器：初始化，并带入视频地址
+                 //                 self.livePlayingManager = [[KSYLivePlaying alloc] initPlaying:self.contentURL];
+                 //                 self.livePlayingManager = [[LELivePlaying alloc] initPlaying:@"201604183000000z4"];
+                 //                 self.livePlayingManager = [[QINIULivePlaying alloc] initPlaying:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
+                 //                 self.livePlayingManager = [[QCLOUDLivePlaying alloc] initPlaying:@"http://2527.vod.myqcloud.com/2527_117134a2343111e5b8f5bdca6cb9f38c.f20.mp4"];
+                 
+                 // 初始化视频直播
+                 [self initializedLiveSubViews];
+                 
+                 // 开始播放
+                 //                 [self.livePlayingManager startPlaying];
+                 
+                 
+                 // 通知消息类：谁加入了聊天室
+                 RCInformationNotificationMessage *joinChatroomMessage = [[RCInformationNotificationMessage alloc]init];
+                 joinChatroomMessage.message = [NSString stringWithFormat: @"%@加入了聊天室",[RCDLive sharedRCDLive].currentUserInfo.name];
+                 [self sendMessage:joinChatroomMessage pushContent:nil];
+             });
+         }
+         error:^(RCErrorCode status) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 if (status == KICKED_FROM_CHATROOM) {
+                     [weakSelf loadErrorAlert:NSLocalizedStringFromTable(@"JoinChatRoomRejected", @"RongCloudKit", nil)];
+                 } else {
+                     [weakSelf loadErrorAlert:NSLocalizedStringFromTable(@"JoinChatRoomFailed", @"RongCloudKit", nil)];
+                 }
+             });
+         }];
+    }
     
 }
 

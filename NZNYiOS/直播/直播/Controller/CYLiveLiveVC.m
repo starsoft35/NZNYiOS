@@ -245,8 +245,8 @@
             
             
             // 阿里播放和融云IM界面：VC
-//            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveRoomId];
-            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveId];
+            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveRoomId];
+//            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveId];
             
             
         }
@@ -276,7 +276,8 @@
     CYLiveALiPlayAndRCIMVC *aliPlayAndRCIMVC = [[CYLiveALiPlayAndRCIMVC alloc] init];
     
     aliPlayAndRCIMVC.conversationType = ConversationType_CHATROOM;
-    aliPlayAndRCIMVC.targetId = oppUserId;
+    // targetId：为聊天室Id，由直播详情页给出
+//    aliPlayAndRCIMVC.targetId = oppUserId;
     
     
     // 自定义需要的

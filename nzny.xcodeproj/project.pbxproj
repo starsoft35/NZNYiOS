@@ -250,6 +250,18 @@
 		8A8B38EE1E20EA0200D8156B /* CYSetUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8B38ED1E20EA0200D8156B /* CYSetUpVC.m */; };
 		8A8B38FA1E21044200D8156B /* CYSetUpAboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8B38F81E21044200D8156B /* CYSetUpAboutUsVC.m */; };
 		8A8B38FB1E21044200D8156B /* CYSetUpAboutUsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8B38F91E21044200D8156B /* CYSetUpAboutUsVC.xib */; };
+		8A8E05541E29D4F60050F670 /* 信息条数.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E05511E29D4F60050F670 /* 信息条数.png */; };
+		8A8E05551E29D4F60050F670 /* 信息条数@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E05521E29D4F60050F670 /* 信息条数@2x.png */; };
+		8A8E05561E29D4F60050F670 /* 信息条数@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E05531E29D4F60050F670 /* 信息条数@3x.png */; };
+		8A8E055A1E29D5670050F670 /* 好友申请.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E05571E29D5670050F670 /* 好友申请.png */; };
+		8A8E055B1E29D5670050F670 /* 好友申请@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E05581E29D5670050F670 /* 好友申请@2x.png */; };
+		8A8E055C1E29D5670050F670 /* 好友申请@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E05591E29D5670050F670 /* 好友申请@3x.png */; };
+		8A8E05731E2A01420050F670 /* CYFriendApplyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8E05721E2A01420050F670 /* CYFriendApplyView.m */; };
+		8A8E05751E2A014B0050F670 /* CYFriendApplyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E05741E2A014B0050F670 /* CYFriendApplyView.xib */; };
+		8A8E05781E2A0B960050F670 /* CYMyFriendApplyListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8E05771E2A0B960050F670 /* CYMyFriendApplyListVC.m */; };
+		8A8E057B1E2A0BF30050F670 /* CYMyFriendApplyListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8E057A1E2A0BF30050F670 /* CYMyFriendApplyListCellModel.m */; };
+		8A8E057E1E2A0C100050F670 /* CYMyFriendApplyListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8E057D1E2A0C100050F670 /* CYMyFriendApplyListCell.m */; };
+		8A8E05801E2A0C190050F670 /* CYMyFriendApplyListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8E057F1E2A0C190050F670 /* CYMyFriendApplyListCell.xib */; };
 		8A8EF8471DBB166100882579 /* CYInfoHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EF8451DBB166100882579 /* CYInfoHeaderCell.m */; };
 		8A8EF8481DBB166100882579 /* CYInfoHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A8EF8461DBB166100882579 /* CYInfoHeaderCell.xib */; };
 		8A8EF84B1DBB16B700882579 /* CYInfoHeaderCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8EF84A1DBB16B700882579 /* CYInfoHeaderCellModel.m */; };
@@ -1104,6 +1116,22 @@
 		8A8B38F71E21044200D8156B /* CYSetUpAboutUsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYSetUpAboutUsVC.h; sourceTree = "<group>"; };
 		8A8B38F81E21044200D8156B /* CYSetUpAboutUsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYSetUpAboutUsVC.m; sourceTree = "<group>"; };
 		8A8B38F91E21044200D8156B /* CYSetUpAboutUsVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYSetUpAboutUsVC.xib; sourceTree = "<group>"; };
+		8A8E05511E29D4F60050F670 /* 信息条数.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "信息条数.png"; sourceTree = "<group>"; };
+		8A8E05521E29D4F60050F670 /* 信息条数@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "信息条数@2x.png"; sourceTree = "<group>"; };
+		8A8E05531E29D4F60050F670 /* 信息条数@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "信息条数@3x.png"; sourceTree = "<group>"; };
+		8A8E05571E29D5670050F670 /* 好友申请.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "好友申请.png"; sourceTree = "<group>"; };
+		8A8E05581E29D5670050F670 /* 好友申请@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "好友申请@2x.png"; sourceTree = "<group>"; };
+		8A8E05591E29D5670050F670 /* 好友申请@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "好友申请@3x.png"; sourceTree = "<group>"; };
+		8A8E05711E2A01420050F670 /* CYFriendApplyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYFriendApplyView.h; sourceTree = "<group>"; };
+		8A8E05721E2A01420050F670 /* CYFriendApplyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYFriendApplyView.m; sourceTree = "<group>"; };
+		8A8E05741E2A014B0050F670 /* CYFriendApplyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYFriendApplyView.xib; sourceTree = "<group>"; };
+		8A8E05761E2A0B960050F670 /* CYMyFriendApplyListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMyFriendApplyListVC.h; sourceTree = "<group>"; };
+		8A8E05771E2A0B960050F670 /* CYMyFriendApplyListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMyFriendApplyListVC.m; sourceTree = "<group>"; };
+		8A8E05791E2A0BF30050F670 /* CYMyFriendApplyListCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMyFriendApplyListCellModel.h; sourceTree = "<group>"; };
+		8A8E057A1E2A0BF30050F670 /* CYMyFriendApplyListCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMyFriendApplyListCellModel.m; sourceTree = "<group>"; };
+		8A8E057C1E2A0C100050F670 /* CYMyFriendApplyListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMyFriendApplyListCell.h; sourceTree = "<group>"; };
+		8A8E057D1E2A0C100050F670 /* CYMyFriendApplyListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMyFriendApplyListCell.m; sourceTree = "<group>"; };
+		8A8E057F1E2A0C190050F670 /* CYMyFriendApplyListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYMyFriendApplyListCell.xib; sourceTree = "<group>"; };
 		8A8EF8441DBB166100882579 /* CYInfoHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYInfoHeaderCell.h; sourceTree = "<group>"; };
 		8A8EF8451DBB166100882579 /* CYInfoHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYInfoHeaderCell.m; sourceTree = "<group>"; };
 		8A8EF8461DBB166100882579 /* CYInfoHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYInfoHeaderCell.xib; sourceTree = "<group>"; };
@@ -1830,6 +1858,9 @@
 				8A0980CE1D7EA6DB003C8302 /* Right-.png */,
 				8A0980CF1D7EA6DB003C8302 /* Right-@2x.png */,
 				8A0980D01D7EA6DB003C8302 /* Right-@3x.png */,
+				8A8E05511E29D4F60050F670 /* 信息条数.png */,
+				8A8E05521E29D4F60050F670 /* 信息条数@2x.png */,
+				8A8E05531E29D4F60050F670 /* 信息条数@3x.png */,
 			);
 			path = "ios切图";
 			sourceTree = "<group>";
@@ -3925,6 +3956,44 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8A8E055D1E29DCE80050F670 /* 好友申请 */ = {
+			isa = PBXGroup;
+			children = (
+				8A8E055E1E29DCE80050F670 /* Controller */,
+				8A8E055F1E29DCE80050F670 /* Model */,
+				8A8E05601E29DCE80050F670 /* View */,
+			);
+			path = "好友申请";
+			sourceTree = "<group>";
+		};
+		8A8E055E1E29DCE80050F670 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8A8E05761E2A0B960050F670 /* CYMyFriendApplyListVC.h */,
+				8A8E05771E2A0B960050F670 /* CYMyFriendApplyListVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8A8E055F1E29DCE80050F670 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8A8E05791E2A0BF30050F670 /* CYMyFriendApplyListCellModel.h */,
+				8A8E057A1E2A0BF30050F670 /* CYMyFriendApplyListCellModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8A8E05601E29DCE80050F670 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A8E057C1E2A0C100050F670 /* CYMyFriendApplyListCell.h */,
+				8A8E057D1E2A0C100050F670 /* CYMyFriendApplyListCell.m */,
+				8A8E057F1E2A0C190050F670 /* CYMyFriendApplyListCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8A98F5591E207C780014E9B8 /* 附近 */ = {
 			isa = PBXGroup;
 			children = (
@@ -4089,6 +4158,7 @@
 				8ACB5FFF1DDC4B940047DE7A /* Controller */,
 				8ACB60001DDC4B940047DE7A /* Model */,
 				8ACB60011DDC4B940047DE7A /* View */,
+				8A8E055D1E29DCE80050F670 /* 好友申请 */,
 			);
 			path = "消息列表";
 			sourceTree = "<group>";
@@ -4098,6 +4168,9 @@
 			children = (
 				8ACB600A1DDC4BBE0047DE7A /* CYChatListVC.h */,
 				8ACB600B1DDC4BBE0047DE7A /* CYChatListVC.m */,
+				8A8E05711E2A01420050F670 /* CYFriendApplyView.h */,
+				8A8E05721E2A01420050F670 /* CYFriendApplyView.m */,
+				8A8E05741E2A014B0050F670 /* CYFriendApplyView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4310,6 +4383,9 @@
 				8ACE89681E08E4DF000CC72B /* magnifyingglass.png */,
 				8ACE89691E08E4DF000CC72B /* magnifyingglass@2x.png */,
 				8ACE896A1E08E4DF000CC72B /* magnifyingglass@3x.png */,
+				8A8E05571E29D5670050F670 /* 好友申请.png */,
+				8A8E05581E29D5670050F670 /* 好友申请@2x.png */,
+				8A8E05591E29D5670050F670 /* 好友申请@3x.png */,
 			);
 			path = navigation;
 			sourceTree = "<group>";
@@ -5640,6 +5716,7 @@
 				8ADBD9251E0FC6480086F464 /* Money@2x.png in Resources */,
 				8A51B6B21DE46D04006E8665 /* 详情送礼@2x.png in Resources */,
 				8ACE88CA1E08DAB7000CC72B /* 发送验证码.png in Resources */,
+				8A8E055C1E29D5670050F670 /* 好友申请@3x.png in Resources */,
 				8AEC357F1DEB01B200967995 /* 视频点赞-.png in Resources */,
 				8AFC658D1DE934D700EADFB6 /* 换钱@3x.png in Resources */,
 				8AFC65FB1DE9609400EADFB6 /* 房产证1.png in Resources */,
@@ -5701,6 +5778,7 @@
 				8A0CC3521DE03E9A00362190 /* 直播预告@3x.png in Resources */,
 				8AEC358C1DEB05C100967995 /* 我的视频底部阴影@2x.png in Resources */,
 				8AFC66201DE9609400EADFB6 /* 身份证4@2x.png in Resources */,
+				8A8E055B1E29D5670050F670 /* 好友申请@2x.png in Resources */,
 				8ACE89081E08DBAF000CC72B /* 直播当前@2x.png in Resources */,
 				8AFC657B1DE92C5D00EADFB6 /* 点赞@3x.png in Resources */,
 				8AEC353F1DEAE1BF00967995 /* 联系Ta@3x.png in Resources */,
@@ -5718,6 +5796,7 @@
 				8A0CC35D1DE0407B00362190 /* 视频未选中@2x.png in Resources */,
 				8A5C04E71DFEAF740007450F /* 翻转@2x.png in Resources */,
 				8ACE88BA1E08DA2F000CC72B /* 上传头像@3x.png in Resources */,
+				8A8E05551E29D4F60050F670 /* 信息条数@2x.png in Resources */,
 				8AFC65F21DE9609400EADFB6 /* 工资条2.png in Resources */,
 				8A6AFB7B1DFD371600742F0B /* 直播TAB.png in Resources */,
 				8AFC66061DE9609400EADFB6 /* 房产证4@3x.png in Resources */,
@@ -5731,6 +5810,7 @@
 				8A0981FB1D7EA6DB003C8302 /* Right-@2x.png in Resources */,
 				8AF58DF01E1B8A8000D523D3 /* AlipaySDK.bundle in Resources */,
 				8A0CC3501DE03E9A00362190 /* 直播预告.png in Resources */,
+				8A8E05561E29D4F60050F670 /* 信息条数@3x.png in Resources */,
 				8AFC65801DE92D2300EADFB6 /* 一支底@2x.png in Resources */,
 				8ACE89001E08DBAF000CC72B /* 视频@3x.png in Resources */,
 				8A1DC9C21E0A2D4700222122 /* 互相关注-@2x.png in Resources */,
@@ -5747,6 +5827,7 @@
 				8AA2980F1E1E22D9001AD2F2 /* map-pin.png in Resources */,
 				8AEC358B1DEB05C100967995 /* 我的视频底部阴影.png in Resources */,
 				8AD5A79B1E001DF100791439 /* CYAddFriendView.xib in Resources */,
+				8A8E05751E2A014B0050F670 /* CYFriendApplyView.xib in Resources */,
 				8ACE89791E08E54C000CC72B /* Title1@3x.png in Resources */,
 				8ADBD9371E0FCFD00086F464 /* -输入反馈问题@2x.png in Resources */,
 				8AEC358D1DEB05C100967995 /* 我的视频底部阴影@3x.png in Resources */,
@@ -5833,6 +5914,7 @@
 				8ACE88991E08D882000CC72B /* 锁@3x.png in Resources */,
 				8AFC65EB1DE9609400EADFB6 /* 学历证3@3x.png in Resources */,
 				8ACE89461E08DFC9000CC72B /* 完成未激活.png in Resources */,
+				8A8E05541E29D4F60050F670 /* 信息条数.png in Resources */,
 				8AFC65FE1DE9609400EADFB6 /* 房产证2.png in Resources */,
 				8A149A331DD31C34002EECC7 /* CYBackCertifiView.xib in Resources */,
 				8ACE889A1E08D882000CC72B /* 隐藏.png in Resources */,
@@ -5850,6 +5932,7 @@
 				8A1DC9C51E0A2D4700222122 /* 已关注-@2x.png in Resources */,
 				8AEC35841DEB01B200967995 /* 视频分享@3x.png in Resources */,
 				8ACE89271E08DDBF000CC72B /* 验证码.png in Resources */,
+				8A8E055A1E29D5670050F670 /* 好友申请.png in Resources */,
 				8AEC35831DEB01B200967995 /* 视频分享@2x.png in Resources */,
 				8AFC660A1DE9609400EADFB6 /* 行驶证1.png in Resources */,
 				8A0CC35C1DE0407B00362190 /* 视频未选中.png in Resources */,
@@ -5965,6 +6048,7 @@
 				8ACE88821E08D7A3000CC72B /* 登录底.png in Resources */,
 				8A4D44051DFC0A9400875A4C /* 发消息@2x.png in Resources */,
 				8AFC66121DE9609400EADFB6 /* 行驶证3@3x.png in Resources */,
+				8A8E05801E2A0C190050F670 /* CYMyFriendApplyListCell.xib in Resources */,
 				8AFC66151DE9609400EADFB6 /* 行驶证4@3x.png in Resources */,
 				8ACE88FD1E08DBAF000CC72B /* 社区当前@3x.png in Resources */,
 				8AFC660B1DE9609400EADFB6 /* 行驶证1@2x.png in Resources */,
@@ -6108,6 +6192,7 @@
 				8AD2DC561E13D5A400577483 /* RCDLiveChatRoomViewController.m in Sources */,
 				8A279ADD1E061A7D00220F92 /* CYMyLiveRecordCellModel.m in Sources */,
 				8A53041A1DBF438100506D4F /* AFURLSessionManager.m in Sources */,
+				8A8E05781E2A0B960050F670 /* CYMyFriendApplyListVC.m in Sources */,
 				8A6C87491E0F9FA9000B81F2 /* CYMyAccountBalanceView.m in Sources */,
 				8AD5A7991E001DF100791439 /* CYNotFriendTipVC.m in Sources */,
 				8AD2DC541E13D5A400577483 /* RCDLiveMessageCellNotificationModel.m in Sources */,
@@ -6151,6 +6236,7 @@
 				8AD2DC5F1E13D5A400577483 /* RCDLive.m in Sources */,
 				8A8B38FA1E21044200D8156B /* CYSetUpAboutUsVC.m in Sources */,
 				8AE1E2751D8E64AC00B30438 /* MJRefreshHeader.m in Sources */,
+				8A8E057B1E2A0BF30050F670 /* CYMyFriendApplyListCellModel.m in Sources */,
 				8A53041E1DBF438100506D4F /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				8AE1E2821D8E64AC00B30438 /* UIScrollView+MJRefresh.m in Sources */,
 				8AA2980A1E1E101B001AD2F2 /* CYMyUserInfoLocationVC.m in Sources */,
@@ -6191,6 +6277,7 @@
 				8AE7EA6B1DE1C54F002A7FE0 /* CYSearchViewCellModel.m in Sources */,
 				8A149A271DD31C34002EECC7 /* CYMinePersonalInfoVCModel.m in Sources */,
 				8A98F5651E207C780014E9B8 /* CYNearbyPeopleCellModel.m in Sources */,
+				8A8E057E1E2A0C100050F670 /* CYMyFriendApplyListCell.m in Sources */,
 				8AEC35461DEAEE8A00967995 /* CYVideoDetailsVC.m in Sources */,
 				8AE1E29F1D8EB20900B30438 /* CYPerfectInfoModel.m in Sources */,
 				8A149A221DD31C34002EECC7 /* CYMineHeaderView.m in Sources */,
@@ -6285,6 +6372,7 @@
 				8A13DC181E1100BF00699BD2 /* Reachability.m in Sources */,
 				8A5304151DBF438100506D4F /* AFHTTPSessionManager.m in Sources */,
 				8AA2984E1E1E2A63001AD2F2 /* NSObject+MJProperty.m in Sources */,
+				8A8E05731E2A01420050F670 /* CYFriendApplyView.m in Sources */,
 				8AE1E28A1D8E64AC00B30438 /* SDWebImageDownloaderOperation.m in Sources */,
 				8AE1E2741D8E64AC00B30438 /* MJRefreshFooter.m in Sources */,
 				8A51B6A01DE461FF006E8665 /* CYOthersInfoViewModel.m in Sources */,

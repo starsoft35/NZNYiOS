@@ -605,7 +605,7 @@
             
             // 融云：SDK-初始化：整个生命周期，只初始化一次
             // Kit：初始化
-            [self setRongCloudKitWithCurrentUser:currentUser andRongToken:rongToken];
+//            [self setRongCloudKitWithCurrentUser:currentUser andRongToken:rongToken];
             
             
             
@@ -614,7 +614,7 @@
             
             
             // 融云：初始化：使用RCDLive进行初始化
-//            [self setRongCloudWithRCDLiveWithCurrentUser:currentUser andRongToken:rongToken];
+            [self setRongCloudWithRCDLiveWithCurrentUser:currentUser andRongToken:rongToken];
             
         }
         else{
@@ -683,7 +683,6 @@
     NSLog(@"rongToken:%@",rongToken);
     
     [[RCIM sharedRCIM] initWithAppKey:cRongAppKey];
-//    [[RCDLive sharedRCDLive] initRongCloud:cRongAppKey];
     // Kit：代理
     //    [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
     [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
@@ -729,12 +728,12 @@
     [[RCIMClient sharedRCIMClient] initWithAppKey:cRongAppKey];
     //    // Lib：代理
     [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
-    [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:self];
+//    [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:self];
     
     //     Lib：连接服务器
     [[RCIMClient sharedRCIMClient] connectWithToken:rongToken success:^(NSString *userId) {
         NSLog(@"融云：Lib：登陆成功。当前登录的用户ID：%@", userId);
-        
+        // 代理：获取聊天界面用户信息，用于更改用户头像等....
         
         RCUserInfo *user = [[RCUserInfo alloc]init];
         user.userId = currentUser.userID;
