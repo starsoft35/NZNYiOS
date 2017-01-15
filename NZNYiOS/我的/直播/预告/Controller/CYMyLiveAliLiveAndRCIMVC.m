@@ -754,6 +754,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     // 判断是否销毁直播间：
     [self judgeIfDestroyLiveRoomWithExpectEndTimestamp:self.expectEndTimestamp andLiveId:self.liveID];
     
+    
+    // 如果进入的是聊天室，则销毁播放器、退出聊天室
     if (self.conversationType == ConversationType_CHATROOM) {
         
         

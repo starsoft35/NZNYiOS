@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CYMyUserInfoDeclarationVC">
             <connections>
-                <outlet property="declarationTF" destination="JgZ-Tz-N8B" id="pEO-1L-wad"/>
+                <outlet property="declarationTextView" destination="R8y-1W-w7f" id="Qrl-UY-LLM"/>
+                <outlet property="maxCountLab" destination="Rhl-og-GB1" id="CIz-zS-ioL"/>
+                <outlet property="surplusCountLab" destination="ZSD-Q0-qVI" id="UES-wI-TQ1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,20 +23,41 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="请输入您的爱情宣言..." minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="JgZ-Tz-N8B">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="R8y-1W-w7f" userLabel="1.爱情宣言-Text View">
                     <rect key="frame" x="13" y="5" width="349" height="100"/>
-                    <nil key="textColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/ 30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhl-og-GB1" userLabel="3.限制最大输入字数-Label">
+                    <rect key="frame" x="339" y="90" width="23" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSD-Q0-qVI" userLabel="2.剩余输入字数-Label">
+                    <rect key="frame" x="320.5" y="91" width="18.5" height="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.91768163442611694" green="0.51090770959854126" blue="0.18271613121032715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.94119703769683838" green="0.94116175174713135" blue="0.94118571281433105" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="JgZ-Tz-N8B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="2wL-l8-GnX"/>
-                <constraint firstItem="JgZ-Tz-N8B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="Gqg-w0-MvZ"/>
-                <constraint firstAttribute="trailing" secondItem="JgZ-Tz-N8B" secondAttribute="trailing" constant="13" id="X0S-rG-UiJ"/>
-                <constraint firstItem="JgZ-Tz-N8B" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="200:1334" id="vsA-xP-o55"/>
+                <constraint firstItem="Rhl-og-GB1" firstAttribute="trailing" secondItem="R8y-1W-w7f" secondAttribute="trailing" id="3lR-kG-3bB"/>
+                <constraint firstItem="Rhl-og-GB1" firstAttribute="leading" secondItem="ZSD-Q0-qVI" secondAttribute="trailing" id="AF4-df-adN"/>
+                <constraint firstItem="R8y-1W-w7f" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="200:1334" id="Adj-Xe-yOz"/>
+                <constraint firstItem="Rhl-og-GB1" firstAttribute="bottom" secondItem="R8y-1W-w7f" secondAttribute="bottom" id="E7s-1c-nsZ"/>
+                <constraint firstItem="R8y-1W-w7f" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="FZS-wx-eE0"/>
+                <constraint firstItem="ZSD-Q0-qVI" firstAttribute="bottom" secondItem="R8y-1W-w7f" secondAttribute="bottom" id="uKc-hn-cOP"/>
+                <constraint firstAttribute="trailing" secondItem="R8y-1W-w7f" secondAttribute="trailing" constant="13" id="wOe-6w-0Jz"/>
+                <constraint firstItem="R8y-1W-w7f" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="yQA-DO-7hH"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33.5" y="73.5"/>
         </view>
     </objects>
 </document>

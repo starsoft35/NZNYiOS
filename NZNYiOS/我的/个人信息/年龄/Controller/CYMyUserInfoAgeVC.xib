@@ -52,12 +52,22 @@
                         <constraint firstItem="XFf-35-QLO" firstAttribute="centerY" secondItem="OaD-3r-dl0" secondAttribute="centerY" id="pvi-ZK-jpt"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注：年龄只有一次设置权限，请核实后保存（如需修改请联系客服）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="SCQ-22-EVX" userLabel="2.提示信息-Label">
+                    <rect key="frame" x="15" y="59" width="345" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.91768163442611694" green="0.51090770959854126" blue="0.18271613121032715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
+            <color key="backgroundColor" red="0.94107431173324585" green="0.94123536348342896" blue="0.94106405973434448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="OaD-3r-dl0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="C1X-Hg-48X"/>
+                <constraint firstItem="SCQ-22-EVX" firstAttribute="top" secondItem="OaD-3r-dl0" secondAttribute="bottom" constant="10" id="HMH-aV-jqa"/>
                 <constraint firstItem="OaD-3r-dl0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hqr-RA-Vyo"/>
                 <constraint firstAttribute="trailing" secondItem="OaD-3r-dl0" secondAttribute="trailing" id="bl1-ka-2nU"/>
                 <constraint firstItem="OaD-3r-dl0" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="88:1334" id="ftB-wt-A9A"/>
+                <constraint firstItem="SCQ-22-EVX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="mYI-P9-ogA"/>
+                <constraint firstAttribute="trailing" secondItem="SCQ-22-EVX" secondAttribute="trailing" constant="15" id="qGZ-uB-Fol"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

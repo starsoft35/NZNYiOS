@@ -111,8 +111,22 @@
                 [self.dataArray removeAllObjects];
             }
             
+            
+            
+            // 先把没有数据label删除
+            [self.noDataLab removeFromSuperview];
+            
+            
+            
             // 解析数据，模型存到数组
             [self.dataArray addObjectsFromArray:[CYNearbyPeopleCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
+            
+            
+            if (self.dataArray.count == 0) {
+                
+                // 如果没有附近的人，添加提示
+                [self addLabelToShowNoNearPeople];
+            }
             
             
             [self.baseTableView reloadData];
@@ -138,6 +152,23 @@
         
     } withToken:self.onlyUser.userToken];
     
+}
+
+// 如果没有附近的人，添加提示
+- (void)addLabelToShowNoNearPeople{
+    NSLog(@"如果没有视频，添加提示");
+    
+    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    
+    
+    self.noDataLab.text = @"暂时没有附近的人";
+    
+    self.noDataLab.textAlignment = NSTextAlignmentCenter;
+    self.noDataLab.font = [UIFont systemFontOfSize:15];
+    
+    self.noDataLab.textColor = [UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00];
+    
+    [self.baseTableView addSubview:self.noDataLab];
 }
 
 

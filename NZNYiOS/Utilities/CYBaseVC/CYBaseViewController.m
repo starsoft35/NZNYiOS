@@ -58,7 +58,7 @@
 }
 
 
-#pragma -------------------------navigationBar：点击事件--------------------------------------
+#pragma mark --------------------navigationBar：点击事件--------------------------------------
 // 搜索：左边BarButtonItem：点击事件
 - (void)searchLeftBarBtnItemClick{
     NSLog(@"搜索：BaseViewController:searchLeftBarBtnItemClick：点击事件");
@@ -1026,7 +1026,7 @@
 
 
 // 点赞：网络请求
-- (void)requestLikeWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)likeCount{
+- (void)requestLikeWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)likeCount andAddLikeUrl:(NSString *)addLikeUrl{
     NSLog(@"点赞：网络请求！");
     
     [self showLoadingView];
@@ -1039,7 +1039,7 @@
                              };
     
     // 网络请求：点 n 个赞
-    [CYNetWorkManager postRequestWithUrl:cAddUserLikeUrl params:params progress:^(NSProgress *uploadProgress) {
+    [CYNetWorkManager postRequestWithUrl:addLikeUrl params:params progress:^(NSProgress *uploadProgress) {
         NSLog(@"点 %ld 个赞：%@",(long)likeCount,uploadProgress);
         
         

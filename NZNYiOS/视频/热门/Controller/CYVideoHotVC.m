@@ -77,6 +77,9 @@
                 
                 [self.dataArray removeAllObjects];
             }
+            
+            
+            // 先把没有数据label删除
             [self.noDataLab removeFromSuperview];
             
             // 解析数据，模型存到数组

@@ -324,15 +324,24 @@
         
         CYTitleAndDetailModel *titleDetailModel = [[CYTitleAndDetailModel alloc] init];
         
+        CYMinePersonalInfoVCModel *minePerInfoModel = self.dataArray[0];
         
         // 假数据
         titleDetailModel.title = self.userInfoDataArr[indexPath.section][indexPath.row][@"cellTitle"];
         titleDetailModel.detail = self.userInfoDataArr[indexPath.section][indexPath.row][@"cellDetailTitle"];
-        
+        [cell.detailLab.text intValue];
         
         cell.titleAndDetailModel = titleDetailModel;
         
         if ([cell.titleLab.text isEqualToString:@"用户ID"]) {
+            
+            cell.nextImgView.hidden = YES;
+        }
+        if ([cell.titleLab.text isEqualToString:@"性别"]) {
+            
+            cell.nextImgView.hidden = YES;
+        }
+        if ([cell.titleLab.text isEqualToString:@"年龄"] && (minePerInfoModel.Age > 0)) {
             
             cell.nextImgView.hidden = YES;
         }
@@ -383,17 +392,25 @@
     }
     else if (indexPath.section == 0 && indexPath.row == 3) {
         
-        // 第四行：性别
-        CYMyUserInfoGenderVC *userInfoGenderVC = [[CYMyUserInfoGenderVC alloc] init];
-        
-        [self.navigationController pushViewController:userInfoGenderVC animated:YES];
+//        // 第四行：性别
+//        CYMyUserInfoGenderVC *userInfoGenderVC = [[CYMyUserInfoGenderVC alloc] init];
+//        
+//        [self.navigationController pushViewController:userInfoGenderVC animated:YES];
     }
     else if (indexPath.section == 0 && indexPath.row == 4) {
         
-        // 第五行：年龄
-        CYMyUserInfoAgeVC *userInfoAgeVC = [[CYMyUserInfoAgeVC alloc] init];
-        
-        [self.navigationController pushViewController:userInfoAgeVC animated:YES];
+        CYMinePersonalInfoVCModel *minePerInfoModel = self.dataArray[0];
+        if (minePerInfoModel.Age > 0) {
+            
+        }
+        else {
+            
+            // 第五行：年龄
+            CYMyUserInfoAgeVC *userInfoAgeVC = [[CYMyUserInfoAgeVC alloc] init];
+            
+            [self.navigationController pushViewController:userInfoAgeVC animated:YES];
+            
+        }
     }
     else if (indexPath.section == 0 && indexPath.row == 5) {
         

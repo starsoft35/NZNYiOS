@@ -45,8 +45,6 @@
     // 添加视图
     [self addView];
     
-    // 加载数据
-    [self loadData];
     
     
     // 阿里云播放器：代理
@@ -58,6 +56,10 @@
     
     // 隐藏导航栏
     self.navigationController.navigationBarHidden = YES;
+    
+    
+    // 加载数据
+    [self loadData];
     
 }
 
@@ -351,6 +353,7 @@
     CYLikeTipVC *likeTipVC = [[CYLikeTipVC alloc] init];
     
     likeTipVC.oppUserId = self.oppUserId;
+    likeTipVC.addLikeUrl = cAddUserVideoLikeUrl;
     
     [self presentViewController:likeTipVC animated:YES completion:nil];
     

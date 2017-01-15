@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -41,25 +41,42 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="玫瑰花.png" translatesAutoresizingMaskIntoConstraints="NO" id="Oaf-SZ-XP1" userLabel="1.4-玫瑰花-Image View">
+                            <rect key="frame" x="119" y="92" width="20.5" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Oaf-SZ-XP1" secondAttribute="height" multiplier="32:29" id="JZi-zt-hw4"/>
+                            </constraints>
+                        </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="并对他说：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpV-Nu-N4a" userLabel="1.5-对他说-Label">
                             <rect key="frame" x="151.5" y="92.5" width="76.5" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="你相信一见钟情吗？" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6p-mN-se3" userLabel="1.6-说的内容-Round Style Text Field">
-                            <rect key="frame" x="15" y="125.5" width="295" height="200"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="i6L-uB-RhZ" userLabel="1.6-对TA说的内容-Text View">
+                            <rect key="frame" x="15" y="125" width="295" height="200"/>
                             <color key="backgroundColor" red="0.94107431173324585" green="0.94123536348342896" blue="0.94106405973434448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="textColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="玫瑰花.png" translatesAutoresizingMaskIntoConstraints="NO" id="Oaf-SZ-XP1" userLabel="1.4-玫瑰花-Image View">
-                            <rect key="frame" x="119" y="92.5" width="20.5" height="18"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="Oaf-SZ-XP1" secondAttribute="height" multiplier="32:29" id="JZi-zt-hw4"/>
-                            </constraints>
-                        </imageView>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPo-0g-7ed" userLabel="1.6.1-剩余输入字数-Label">
+                            <rect key="frame" x="268.5" y="311" width="18.5" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.91768163439999995" green="0.51090770959999998" blue="0.18271613119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/ 30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOH-vp-yUY" userLabel="1.6.2-最大输入字数-Label">
+                            <rect key="frame" x="287" y="310.5" width="23" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你相信一见钟情吗？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kj-v8-kIp" userLabel="1.6.3-引导他说的话-Label">
+                            <rect key="frame" x="25" y="134" width="138" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CF-5v-Dn3" userLabel="1.7-加好友-Button">
                             <rect key="frame" x="0.0" y="331" width="325" height="44"/>
                             <state key="normal" title="添加 TA 为好友" backgroundImage="登录底.png">
@@ -74,31 +91,36 @@
                             <state key="normal" backgroundImage="弹窗关闭.png"/>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="1" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="NpV-Nu-N4a" firstAttribute="bottom" secondItem="Oaf-SZ-XP1" secondAttribute="bottom" id="0DJ-e7-rJi"/>
                         <constraint firstItem="dzw-rx-hvq" firstAttribute="top" secondItem="ixG-RD-h8X" secondAttribute="bottom" constant="15" id="50b-T1-F7F"/>
                         <constraint firstItem="LuY-96-53O" firstAttribute="top" secondItem="gLz-Xx-tdm" secondAttribute="top" id="7Rl-q4-cIJ"/>
-                        <constraint firstItem="K6p-mN-se3" firstAttribute="top" secondItem="NpV-Nu-N4a" secondAttribute="bottom" constant="15" id="9bn-dx-wF6"/>
                         <constraint firstItem="sLi-1T-Qax" firstAttribute="leading" secondItem="gLz-Xx-tdm" secondAttribute="leading" id="EHw-oO-vvC"/>
                         <constraint firstItem="NpV-Nu-N4a" firstAttribute="top" secondItem="Oaf-SZ-XP1" secondAttribute="top" id="F7R-CI-TcH"/>
                         <constraint firstItem="NpV-Nu-N4a" firstAttribute="leading" secondItem="Oaf-SZ-XP1" secondAttribute="trailing" constant="12" id="GmU-Wc-G6H"/>
                         <constraint firstItem="ixG-RD-h8X" firstAttribute="top" secondItem="gLz-Xx-tdm" secondAttribute="top" constant="15" id="IUW-PH-4df"/>
                         <constraint firstItem="sLi-1T-Qax" firstAttribute="top" secondItem="gLz-Xx-tdm" secondAttribute="top" id="Ivw-h6-Pbm"/>
+                        <constraint firstItem="i6L-uB-RhZ" firstAttribute="leading" secondItem="KF4-NR-BfZ" secondAttribute="leading" id="NY5-P1-gh4"/>
                         <constraint firstAttribute="trailing" secondItem="sLi-1T-Qax" secondAttribute="trailing" id="NiU-aZ-IUA"/>
+                        <constraint firstAttribute="trailing" secondItem="i6L-uB-RhZ" secondAttribute="trailing" constant="15" id="Vin-Yk-gyP"/>
+                        <constraint firstItem="i6L-uB-RhZ" firstAttribute="height" secondItem="gLz-Xx-tdm" secondAttribute="height" multiplier="400:750" id="WAk-yE-083"/>
                         <constraint firstItem="Oaf-SZ-XP1" firstAttribute="top" secondItem="KF4-NR-BfZ" secondAttribute="top" id="YYQ-TC-chj"/>
                         <constraint firstItem="KF4-NR-BfZ" firstAttribute="top" secondItem="dzw-rx-hvq" secondAttribute="bottom" constant="30" id="Ysd-BK-9cN"/>
+                        <constraint firstItem="4kj-v8-kIp" firstAttribute="leading" secondItem="i6L-uB-RhZ" secondAttribute="leading" constant="10" id="axc-IE-f6s"/>
                         <constraint firstAttribute="bottom" secondItem="sLi-1T-Qax" secondAttribute="bottom" id="bhQ-IY-XAQ"/>
+                        <constraint firstItem="WPo-0g-7ed" firstAttribute="bottom" secondItem="i6L-uB-RhZ" secondAttribute="bottom" id="c6V-CM-Bcu"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dzw-rx-hvq" secondAttribute="trailing" constant="15" id="dR4-c6-dj0"/>
+                        <constraint firstItem="UOH-vp-yUY" firstAttribute="leading" secondItem="WPo-0g-7ed" secondAttribute="trailing" id="dUk-tm-UNA"/>
+                        <constraint firstItem="4kj-v8-kIp" firstAttribute="top" secondItem="i6L-uB-RhZ" secondAttribute="top" constant="9" id="eQE-c2-iWN"/>
                         <constraint firstItem="Oaf-SZ-XP1" firstAttribute="leading" secondItem="KF4-NR-BfZ" secondAttribute="trailing" constant="12" id="edx-ir-FRY"/>
                         <constraint firstAttribute="trailing" secondItem="6CF-5v-Dn3" secondAttribute="trailing" id="fCM-Vc-Fio"/>
-                        <constraint firstItem="K6p-mN-se3" firstAttribute="height" secondItem="sLi-1T-Qax" secondAttribute="height" multiplier="400:750" id="fOD-E1-C37"/>
                         <constraint firstAttribute="trailing" secondItem="LuY-96-53O" secondAttribute="trailing" id="fOK-sz-Qa1"/>
+                        <constraint firstItem="UOH-vp-yUY" firstAttribute="trailing" secondItem="i6L-uB-RhZ" secondAttribute="trailing" id="fVk-DA-nRJ"/>
                         <constraint firstItem="ixG-RD-h8X" firstAttribute="leading" secondItem="gLz-Xx-tdm" secondAttribute="leading" constant="15" id="kDK-zt-MGT"/>
-                        <constraint firstAttribute="trailing" secondItem="K6p-mN-se3" secondAttribute="trailing" constant="15" id="moi-YC-nFW"/>
                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NpV-Nu-N4a" secondAttribute="trailing" constant="15" id="nrL-AV-mj4"/>
+                        <constraint firstItem="UOH-vp-yUY" firstAttribute="bottom" secondItem="i6L-uB-RhZ" secondAttribute="bottom" id="qJz-8c-sLC"/>
                         <constraint firstItem="6CF-5v-Dn3" firstAttribute="height" secondItem="sLi-1T-Qax" secondAttribute="height" multiplier="88:750" id="qMT-SO-hd8"/>
-                        <constraint firstItem="K6p-mN-se3" firstAttribute="leading" secondItem="KF4-NR-BfZ" secondAttribute="leading" id="srA-rR-HKu"/>
+                        <constraint firstItem="i6L-uB-RhZ" firstAttribute="top" secondItem="Oaf-SZ-XP1" secondAttribute="bottom" constant="15" id="u6L-xe-Fls"/>
                         <constraint firstItem="dzw-rx-hvq" firstAttribute="leading" secondItem="ixG-RD-h8X" secondAttribute="leading" id="vAL-C5-mDL"/>
                         <constraint firstItem="LuY-96-53O" firstAttribute="width" secondItem="sLi-1T-Qax" secondAttribute="width" multiplier="52:650" id="vIu-pB-Rmj"/>
                         <constraint firstAttribute="bottom" secondItem="6CF-5v-Dn3" secondAttribute="bottom" id="vRq-Xw-6eO"/>
@@ -121,7 +143,10 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="addFriendBtn" destination="6CF-5v-Dn3" id="wLH-ss-vhg"/>
-                <outlet property="sayToYouTextField" destination="K6p-mN-se3" id="Zw0-Ji-Jwf"/>
+                <outlet property="guideHerToSayLab" destination="4kj-v8-kIp" id="m5L-GM-MNE"/>
+                <outlet property="maxCountLab" destination="UOH-vp-yUY" id="yWt-wy-3En"/>
+                <outlet property="sayToYouTextView" destination="i6L-uB-RhZ" id="REW-f3-2mL"/>
+                <outlet property="surplusCountLab" destination="WPo-0g-7ed" id="zSe-c4-UAI"/>
                 <outlet property="tipCloseBtn" destination="LuY-96-53O" id="Jic-iB-vhF"/>
             </connections>
             <point key="canvasLocation" x="14.5" y="95.5"/>

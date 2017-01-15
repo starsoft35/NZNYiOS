@@ -94,6 +94,9 @@
                 [self.dataArray removeAllObjects];
             }
             
+            // 先把没有数据label删除
+            [self.noDataLab removeFromSuperview];
+            
             // 解析数据，模型存到数组
             [self.dataArray addObjectsFromArray:[CYLiveCollectionViewCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
             
@@ -102,7 +105,6 @@
                 // 如果没有直播，添加提示
                 [self addLabelToShowNoLive];
             }
-            [self.noDataLab removeFromSuperview];
             
             // 刷新数据
             [self.baseCollectionView reloadData];

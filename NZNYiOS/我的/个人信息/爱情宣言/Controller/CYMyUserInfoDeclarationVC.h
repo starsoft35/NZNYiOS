@@ -11,9 +11,16 @@
 @interface CYMyUserInfoDeclarationVC : CYBaseViewController
 
 
-// 爱情宣言：textField
-@property (weak, nonatomic) IBOutlet UITextField *declarationTF;
+// 爱情宣言：textView
+@property (weak, nonatomic) IBOutlet UITextView *declarationTextView;
 
+
+// 剩余输入字数：label
+@property (weak, nonatomic) IBOutlet UILabel *surplusCountLab;
+
+
+// 限制最大输入字数
+@property (weak, nonatomic) IBOutlet UILabel *maxCountLab;
 
 
 @end

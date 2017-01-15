@@ -65,19 +65,21 @@
     // 爱情宣言
     _declarationLab.text = whoPraiseMeCellModel.Declaration;
     
-    // 点赞数量
-    _praiseCountLab.text = [NSString stringWithFormat:@"%ld 个赞",(long)whoPraiseMeCellModel.Count];
     
     // 点赞背景
     if (whoPraiseMeCellModel.isPraise) {
         
         // 是点赞
         _praiseImgView.image = [UIImage imageNamed:@"点赞"];
+        // 点赞数量
+        _praiseCountLab.text = [NSString stringWithFormat:@"%ld 个赞",(long)whoPraiseMeCellModel.Count];
     }
     else {
         
         // 不是点赞，则为送礼
         _praiseImgView.image = [UIImage imageNamed:@"玫瑰花"];
+        // 送礼数量
+        _praiseCountLab.text = [NSString stringWithFormat:@"%ld 朵花",(long)whoPraiseMeCellModel.Count];
     }
 }
 

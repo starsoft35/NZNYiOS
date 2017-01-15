@@ -402,6 +402,7 @@
     CYLikeTipVC *likeTipVC = [[CYLikeTipVC alloc] init];
     
     likeTipVC.oppUserId = self.oppUserId;
+    likeTipVC.addLikeUrl = cAddUserLikeUrl;
     
     [self presentViewController:likeTipVC animated:YES completion:nil];
     

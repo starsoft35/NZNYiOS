@@ -132,6 +132,15 @@
     
 }
 
+// 选择cell：单击事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"点击cell:%ld,%ld",(long)indexPath.section,(long)indexPath.row);
+    
+    //当离开某行时，让某行的选中状态消失
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
 
 // tableView有多少组
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

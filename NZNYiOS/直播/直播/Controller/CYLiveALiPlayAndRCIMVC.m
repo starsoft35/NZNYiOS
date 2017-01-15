@@ -891,6 +891,10 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     [self requestAudienceLeaveLiveRoomWithLiveRoomId:self.liveRoomId];
     
     
+    // 销毁播放器、退出聊天室
+    [self destroyPlayerAndQuitChatRoom];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -903,7 +907,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     // 新地址
     NSString *newUrl = [NSString stringWithFormat:@"%@?liveRoomId=%@",cLeaveLiveRoomUrl,liveRoomId];
     
-    [self showLoadingView];
+//    [self showLoadingView];
     
     // 网络请求：观众离开直播间
     [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
@@ -923,10 +927,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             
             
             // 取消加载
-            [self hidenLoadingView];
-            
-            // 销毁播放器、退出聊天室
-            [self destroyPlayerAndQuitChatRoom];
+//            [self hidenLoadingView];
             
             
         }
@@ -973,13 +974,13 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             //            [[RCDLive sharedRCDLive] logoutRongCloud];
             dispatch_async(dispatch_get_main_queue(), ^{
                 
-                [self dismissViewControllerAnimated:YES completion:nil];
+//                [self dismissViewControllerAnimated:YES completion:nil];
             });
             
         } error:^(RCErrorCode status) {
             NSLog(@"退出聊天室：失败！");
             
-            [self dismissViewControllerAnimated:YES completion:nil];
+//            [self dismissViewControllerAnimated:YES completion:nil];
         }];
         
     }

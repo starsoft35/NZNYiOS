@@ -8,10 +8,18 @@
 
 #import "CYBaseViewController.h"
 
+
+// 加好友View
+#import "CYAddFriendView.h"
+
 @interface CYAddFriendVC : CYBaseViewController
 
 
 // 对方Id
 @property (nonatomic, copy) NSString *OppUserId;
+
+
+// 添加好友视图
+@property (nonatomic, strong) CYAddFriendView *addFriendView;
 
 @end

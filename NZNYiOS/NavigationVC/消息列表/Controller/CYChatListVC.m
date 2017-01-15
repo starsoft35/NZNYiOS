@@ -218,10 +218,9 @@
         // 2.3.1.2、判断返回值
         if ([code isEqualToString:@"0"]) {
             NSLog(@"判断是否为好友：判断成功！");
+            NSLog(@"msg:%@",responseObject);
             
-            
-            
-            if (responseObject[@"res"][@"IsFriend"] == YES) {
+            if ([responseObject[@"res"][@"IsFriend"] boolValue]) {
                 
                 // 如果是好友：则打开聊天界面；
                 // 融云SDK

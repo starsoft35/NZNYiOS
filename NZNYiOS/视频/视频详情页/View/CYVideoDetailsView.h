@@ -40,6 +40,8 @@
 // 上部头像、姓名、ID、关注背景：imageView
 @property (weak, nonatomic) IBOutlet UIImageView *topHeadNameIDFollowBgImgView;
 
+// 上部头像、姓名、ID、关注背景：imageView：已关注，关注按钮隐藏时的背景
+@property (weak, nonatomic) IBOutlet UIImageView *topAllreadyFollowBgImgView;
 
 
 // 头像：imageView

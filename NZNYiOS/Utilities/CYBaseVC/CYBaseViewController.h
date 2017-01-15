@@ -134,7 +134,7 @@ UIApplicationDelegate>
 
 
 // 点赞：网络请求
-- (void)requestLikeWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)likeCount;
+- (void)requestLikeWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)likeCount andAddLikeUrl:(NSString *)addLikeUrl;
 
 // 送礼：网络请求
 - (void)requestGiveGiftWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)giftCount;

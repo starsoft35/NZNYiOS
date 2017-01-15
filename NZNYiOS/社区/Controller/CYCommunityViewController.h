@@ -8,6 +8,17 @@
 
 #import "CYBaseViewController.h"
 
+
+// 上部固定的视图
+#import "CYCommunityHeaderView.h"
+
+
 @interface CYCommunityViewController : CYBaseViewController
+
+
+// 上部固定的视图
+@property (nonatomic, strong) CYCommunityHeaderView *topView;
+
+
 
 @end

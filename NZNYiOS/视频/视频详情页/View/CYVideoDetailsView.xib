@@ -32,6 +32,9 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="关注名字背景.png" translatesAutoresizingMaskIntoConstraints="NO" id="c48-iW-qdF" userLabel="1.1.0-上部背景-Image View">
                                     <rect key="frame" x="0.0" y="0.0" width="175" height="40"/>
                                 </imageView>
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="直播已关注底.png" translatesAutoresizingMaskIntoConstraints="NO" id="npG-gB-1fB" userLabel="1.1.00-上部已关注背景-Image View">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
+                                </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认头像.png" translatesAutoresizingMaskIntoConstraints="NO" id="0fs-Dq-e4S" userLabel="1.1.1-头像-Image View">
                                     <rect key="frame" x="5" y="5" width="30" height="30"/>
                                     <constraints>
@@ -68,8 +71,10 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="c48-iW-qdF" secondAttribute="trailing" id="1iE-Wf-Rmb"/>
+                                <constraint firstItem="npG-gB-1fB" firstAttribute="top" secondItem="Yqu-hX-tUM" secondAttribute="top" id="4TH-No-zfp"/>
                                 <constraint firstItem="FZc-WA-XeZ" firstAttribute="leading" secondItem="0fs-Dq-e4S" secondAttribute="trailing" constant="5" id="5IV-mj-yHM"/>
                                 <constraint firstItem="gQD-0q-cD3" firstAttribute="height" secondItem="0fs-Dq-e4S" secondAttribute="height" id="5r6-74-pf7"/>
+                                <constraint firstItem="npG-gB-1fB" firstAttribute="width" secondItem="Yqu-hX-tUM" secondAttribute="width" multiplier="120:175" id="7Cd-yS-zdj"/>
                                 <constraint firstItem="FZc-WA-XeZ" firstAttribute="top" secondItem="0fs-Dq-e4S" secondAttribute="top" id="9xc-yi-yuK"/>
                                 <constraint firstItem="AQl-Es-O0T" firstAttribute="bottom" secondItem="0fs-Dq-e4S" secondAttribute="bottom" id="BjQ-TI-tfF"/>
                                 <constraint firstItem="AQl-Es-O0T" firstAttribute="leading" secondItem="FZc-WA-XeZ" secondAttribute="leading" id="CId-mX-fof"/>
@@ -77,10 +82,12 @@
                                 <constraint firstAttribute="bottom" secondItem="c48-iW-qdF" secondAttribute="bottom" id="DTQ-oS-pdo"/>
                                 <constraint firstItem="AQl-Es-O0T" firstAttribute="top" relation="greaterThanOrEqual" secondItem="FZc-WA-XeZ" secondAttribute="bottom" constant="5" id="GZV-IN-MfK"/>
                                 <constraint firstItem="c48-iW-qdF" firstAttribute="top" secondItem="Yqu-hX-tUM" secondAttribute="top" id="HBb-23-P7n"/>
+                                <constraint firstAttribute="bottom" secondItem="npG-gB-1fB" secondAttribute="bottom" id="Hpg-qY-HtI"/>
                                 <constraint firstItem="0fs-Dq-e4S" firstAttribute="leading" secondItem="Yqu-hX-tUM" secondAttribute="leading" constant="5" id="Jnv-LL-9CL"/>
                                 <constraint firstItem="AQl-Es-O0T" firstAttribute="height" secondItem="Yqu-hX-tUM" secondAttribute="height" multiplier="18:80" id="Yeu-pL-X0g"/>
                                 <constraint firstItem="0fs-Dq-e4S" firstAttribute="height" secondItem="Yqu-hX-tUM" secondAttribute="height" multiplier="60:80" id="aFl-UJ-PU2"/>
                                 <constraint firstItem="0fs-Dq-e4S" firstAttribute="centerY" secondItem="Yqu-hX-tUM" secondAttribute="centerY" id="aHC-LX-1zO"/>
+                                <constraint firstItem="npG-gB-1fB" firstAttribute="leading" secondItem="Yqu-hX-tUM" secondAttribute="leading" id="cjG-aI-sBK"/>
                                 <constraint firstItem="c48-iW-qdF" firstAttribute="leading" secondItem="Yqu-hX-tUM" secondAttribute="leading" id="dAX-wY-tPN"/>
                                 <constraint firstItem="FZc-WA-XeZ" firstAttribute="height" secondItem="Yqu-hX-tUM" secondAttribute="height" multiplier="24:80" id="ofZ-xC-cXt"/>
                                 <constraint firstAttribute="trailing" secondItem="gQD-0q-cD3" secondAttribute="trailing" constant="5" id="pAU-0f-uDM"/>
@@ -263,6 +270,7 @@
                 <outlet property="playBtn" destination="pLS-dP-GIC" id="IXc-ST-QkP"/>
                 <outlet property="shareBtn" destination="J7f-8Y-2pd" id="noT-BU-Bua"/>
                 <outlet property="tagLab" destination="gUA-XG-7Ir" id="jSi-V5-BcD"/>
+                <outlet property="topAllreadyFollowBgImgView" destination="npG-gB-1fB" id="xgF-22-EYj"/>
                 <outlet property="topHeadNameIDFollowBgImgView" destination="c48-iW-qdF" id="gag-fS-Ykm"/>
                 <outlet property="topHeadNameIDFollowView" destination="Yqu-hX-tUM" id="UxD-0O-9qB"/>
             </connections>
@@ -271,6 +279,7 @@
     </objects>
     <resources>
         <image name="关注名字背景.png" width="175" height="40"/>
+        <image name="直播已关注底.png" width="120" height="40"/>
         <image name="联系Ta.png" width="75" height="35"/>
         <image name="视频分享.png" width="37" height="37"/>
         <image name="视频播放按钮.png" width="75" height="75"/>

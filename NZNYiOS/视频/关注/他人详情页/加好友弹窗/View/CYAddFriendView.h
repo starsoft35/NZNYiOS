@@ -15,8 +15,21 @@
 @property (weak, nonatomic) IBOutlet UIButton *tipCloseBtn;
 
 
-// 对他说的话：textField
-@property (weak, nonatomic) IBOutlet UITextField *sayToYouTextField;
+
+// 对她说的话：textVIew
+@property (weak, nonatomic) IBOutlet UITextView *sayToYouTextView;
+
+// 引导他说的话：label
+@property (weak, nonatomic) IBOutlet UILabel *guideHerToSayLab;
+
+
+
+// 剩余输入字数：label
+@property (weak, nonatomic) IBOutlet UILabel *surplusCountLab;
+
+
+// 最大输入字数：label
+@property (weak, nonatomic) IBOutlet UILabel *maxCountLab;
 
 
 // 添加ta 为好友：button

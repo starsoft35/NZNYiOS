@@ -21,4 +21,7 @@
 // 所查看的用户Id
 @property (nonatomic, copy) NSString *oppUserId;
 
+// 点赞的地址
+@property (nonatomic, copy) NSString *addLikeUrl;
+
 @end
