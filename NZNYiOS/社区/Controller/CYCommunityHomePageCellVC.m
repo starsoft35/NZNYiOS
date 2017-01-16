@@ -1,12 +1,12 @@
 //
-//  CYCommunityActiveCellVC.m
+//  CYCommunityHomePageCellVC.m
 //  nzny
 //
-//  Created by 男左女右 on 2017/1/15.
+//  Created by 张春咏 on 2017/1/15.
 //  Copyright © 2017年 nznychina. All rights reserved.
 //
 
-#import "CYCommunityActiveCellVC.h"
+#import "CYCommunityHomePageCellVC.h"
 
 
 // 点赞的cell
@@ -15,11 +15,19 @@
 #import "CYWhoPraiseMeCellModel.h"
 
 
-@interface CYCommunityActiveCellVC ()
+// 社区首页cell
+#import "CYCommunityHomePageCell.h"
+// 社区首页cell：模型
+#import "CYCommunityHomePageCellModel.h"
+
+
+
+
+@interface CYCommunityHomePageCellVC ()
 
 @end
 
-@implementation CYCommunityActiveCellVC
+@implementation CYCommunityHomePageCellVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,12 +46,12 @@
         
     }];
     
-    // 热门视频：首次进入加载，其他时候手动加载。
+    // 首次进入加载，其他时候手动加载。
     // cell Header重新加载：自带加载数据
     [self.baseTableView.header beginRefreshing];
     
     // 提前注册
-    [self.baseTableView registerNib:[UINib nibWithNibName:@"CYWhoPraiseMeCell" bundle:nil] forCellReuseIdentifier:@"CYWhoPraiseMeCell"];
+    [self.baseTableView registerNib:[UINib nibWithNibName:@"CYCommunityHomePageCell" bundle:nil] forCellReuseIdentifier:@"CYCommunityHomePageCell"];
     
     
     // 加载数据
@@ -58,31 +66,29 @@
     // 网络请求：用户积累的赞、可兑换的赞
     //    [self requestAllPraiseCountAndCanExchangePraiseCountWithCurrentUserId:self.onlyUser.userID];
     
-    // 网络请求：我收到的礼物
+    // 网络请求：社区首页活动列表
     [self requestGetWhoIPraiseWithCurrentUserId:self.onlyUser.userID andPageNum:self.curPage andPageSize:(10)];
     
     
 }
 
 
-// 网络请求：我收到的礼物
+// 网络请求：社区首页活动列表
 - (void)requestGetWhoIPraiseWithCurrentUserId:(NSString *)userId andPageNum:(NSInteger)pageNum andPageSize:(NSInteger)pageSize{
     
     NSDictionary *params = @{
-                             @"userId":userId,
-                             //                                                          @"userId":@"136a0cee-d2f9-4316-b34f-5f0507fe0cb8",
                              @"pageNum":@(pageNum),
                              @"pageSize":@(pageSize)
                              };
     
     
-    // 网络请求：我收到的礼物
-    [CYNetWorkManager getRequestWithUrl:cMyReceiveFlowersListUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"获取我收到的礼物进度：%@",uploadProgress);
+    // 网络请求：社区首页活动列表
+    [CYNetWorkManager getRequestWithUrl:cActivityIndexListUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"获取社区首页活动列表进度：%@",uploadProgress);
         
         
     } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"我收到的礼物：请求成功！");
+        NSLog(@"社区首页活动列表：请求成功！");
         
         
         
@@ -95,8 +101,8 @@
         
         // 1.2.1.1.2、和成功的code 匹配
         if ([code isEqualToString:@"0"]) {
-            NSLog(@"我收到的礼物：获取成功！");
-            NSLog(@"我收到的礼物：%@",responseObject);
+            NSLog(@"社区首页活动列表：获取成功！");
+            NSLog(@"社区首页活动列表：%@",responseObject);
             
             
             
@@ -107,15 +113,15 @@
             }
             
             // 解析数据，模型存到数组
-            [self.dataArray addObjectsFromArray:[CYWhoPraiseMeCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
+            [self.dataArray addObjectsFromArray:[CYCommunityHomePageCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
             
             
             [self.baseTableView reloadData];
             
         }
         else{
-            NSLog(@"我收到的礼物：获取失败:responseObject:%@",responseObject);
-            NSLog(@"我收到的礼物：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            NSLog(@"社区首页活动列表：获取失败:responseObject:%@",responseObject);
+            NSLog(@"社区首页活动列表：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
             // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
             [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
             
@@ -123,7 +129,7 @@
         
         
     } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"我收到的礼物：请求失败！");
+        NSLog(@"社区首页活动列表：请求失败！");
         NSLog(@"失败原因：error：%@",error);
         
         // 停止刷新
@@ -150,19 +156,27 @@
     
     
     // cell
-    CYWhoPraiseMeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CYWhoPraiseMeCell" forIndexPath:indexPath];
+    CYCommunityHomePageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CYCommunityHomePageCell" forIndexPath:indexPath];
     
     // cell：模型
-    CYWhoPraiseMeCellModel *whoPraiseMeCellModel = self.dataArray[indexPath.row];
-    whoPraiseMeCellModel.isPraise = NO;
+    CYCommunityHomePageCellModel *communityHomePageCellModel = self.dataArray[indexPath.row];
     
-    cell.headImgView.layer.cornerRadius = (75.0 / 150.0) * cell.headImgView.frame.size.height;
     
     // 假数据
-    cell.whoPraiseMeCellModel = whoPraiseMeCellModel;
+    cell.communityHomePageCellModel = communityHomePageCellModel;
     
     
     return cell;
+}
+
+// 选择cell：单击事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"点击cell:%ld,%ld",(long)indexPath.section,(long)indexPath.row);
+    
+    //当离开某行时，让某行的选中状态消失
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+ 
+    
 }
 
 
@@ -170,7 +184,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    return (190.0 / 1206.0) * self.view.frame.size.height;
+    return (240.0 / 814.0) * self.view.frame.size.height;
 }
 
 // header 的高度

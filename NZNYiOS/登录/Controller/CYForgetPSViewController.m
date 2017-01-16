@@ -115,6 +115,9 @@
         if ([code isEqualToString:@"0"]) {
             NSLog(@"忘记密码：修改成功！");
             
+            // 2.1、登录：请求数据
+//            [self loginRequestWithAccount:self.forgetPSMainView.cellNumTF.text andUserPSW:self.forgetPSMainView.passwordTF.text];
+            
             // 1.2.1、忘记密码：修改密码成功，直接登录：请求数据
             // 直接登录：请求
             [CYNetWorkManager postRequestWithUrl:cLoginUrl params:paramsLogin progress:^(NSProgress *uploadProgress) {

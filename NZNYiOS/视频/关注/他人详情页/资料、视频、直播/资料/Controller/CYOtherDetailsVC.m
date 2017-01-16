@@ -221,6 +221,12 @@
         // 居左
         titleAndDetailCell.detailLab.textAlignment = NSTextAlignmentLeft;
         
+        if ([titleAndDetailCell.titleLab.text isEqualToString:@"爱情宣言"]) {
+            
+            titleAndDetailCell.detailLab.font = [UIFont systemFontOfSize:15];
+            titleAndDetailCell.detailLab.adjustsFontSizeToFitWidth = NO;
+        }
+        
         return titleAndDetailCell;
     }
 }

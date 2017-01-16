@@ -345,6 +345,11 @@
             
             cell.nextImgView.hidden = YES;
         }
+        if ([cell.titleLab.text isEqualToString:@"爱情宣言"]) {
+            
+            cell.detailLab.font = [UIFont systemFontOfSize:15];
+            cell.detailLab.adjustsFontSizeToFitWidth = NO;
+        }
         
         [cell.detailLab setTextColor:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00]];
         

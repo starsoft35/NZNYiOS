@@ -246,6 +246,14 @@
             //            [self pushALiPlayerViewControllerWithPlayUrl:tempUrl];
             
             
+            
+#warning 断开融云kit连接、连接RCDLive
+            // 断开融云kit连接
+//            [self disconnectRCKit];
+//            
+//            // 连接RCDLive
+//            [self connectRCDLive];
+            
             // 阿里播放和融云IM界面：VC
             [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveRoomId];
 //            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveId];
@@ -269,6 +277,69 @@
     } withToken:self.onlyUser.userToken];
     
 }
+
+// 断开融云kit连接
+- (void)disconnectRCKit{
+    NSLog(@"断开融云kit连接");
+    
+    [[RCIM sharedRCIM] disconnect];
+    
+}
+
+
+// 连接RCDLive
+- (void)connectRCDLive{
+    NSLog(@"连接RCDLive");
+    
+    
+    // 请求数据：获取用户在融云的token
+    NSDictionary *params = @{
+                             @"userId":self.onlyUser.userID
+                             };
+    
+    // 请求数据：获取用户在融云的token
+    [CYNetWorkManager getRequestWithUrl:cRongTokenUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"获取用户在融云的token进度：%@",uploadProgress);
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"获取用户在融云的token：请求成功！");
+        
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"获取用户在融云的token：获取成功！");
+            NSLog(@"获取用户在融云的token：%@",responseObject);
+            
+            NSString *rongToken = [[NSString alloc] init];
+            
+            rongToken = responseObject[@"res"][@"data"][@"rongToken"];
+            
+            
+            // 融云：初始化：使用RCDLive进行初始化
+            [self setRongCloudWithRCDLiveWithCurrentUser:self.onlyUser andRongToken:rongToken];
+            
+        }
+        else{
+            NSLog(@"获取用户在融云的token：获取失败:responseObject:%@",responseObject);
+            NSLog(@"获取用户在融云的token：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            //            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"获取用户在融云的token：请求失败！:error:%@",error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+        
+    } withToken:self.onlyUser.userToken];
+    
+}
+
 
 
 // 阿里播放和融云IM界面：VC

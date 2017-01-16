@@ -14,13 +14,26 @@
 // 微信登录SDK：API
 //#import "WXApi.h"
 
+// 融云：SDK-初始化
+#import "RCDLive.h"
+#import <RongIMKit/RongIMKit.h>
+#import <RongIMLib/RongIMLib.h>
+#import "RCDLiveGiftMessage.h"
+
+
 @interface CYBaseViewController : UIViewController<
 //WXApiDelegate,
 CLLocationManagerDelegate,
 UIActionSheetDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
-UIApplicationDelegate>
+UIApplicationDelegate,
+RCIMUserInfoDataSource,
+RCIMGroupInfoDataSource,
+RCIMReceiveMessageDelegate,
+RCIMClientReceiveMessageDelegate,
+RCConnectionStatusChangeDelegate
+>
 
 // 提示框：hud
 @property (nonatomic,strong)MBProgressHUD *hud;
@@ -56,7 +69,11 @@ UIApplicationDelegate>
 @property (nonatomic, strong) UILabel *noDataLab;
 
 
+// 融云：Kitb：初始化
+- (void)setRongCloudKitWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken;
 
+// 融云：初始化：使用RCDLive进行初始化
+- (void)setRongCloudWithRCDLiveWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken;
 
 // 经纬度 -> 地理位置（地理位置反编码）
 - (void)locationWithLatitude:(CLLocationDegrees)latitude andLongitude:(CLLocationDegrees)longitude;

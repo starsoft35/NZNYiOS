@@ -10,9 +10,7 @@
 
 
 // 活动：VC
-#import "CYCommunityActiveCellVC.h"
-
-
+#import "CYCommunityHomePageCellVC.h"
 
 
 
@@ -108,19 +106,19 @@
     _topView.activeNotiveView.userInteractionEnabled = YES;
     [_topView.activeNotiveView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(activeNotiveViewClick)]];
     
-    [self.view addSubview:_topView];
+//    [self.view addSubview:_topView];
     
     
     
     
     
-    
-    CYCommunityActiveCellVC *communityActiveCellVC = [[CYCommunityActiveCellVC alloc] init];
+    // 社区：首页：活动：cell
+    CYCommunityHomePageCellVC *communityActiveCellVC = [[CYCommunityHomePageCellVC alloc] init];
     
     communityActiveCellVC.view.frame = CGRectMake(0, 294.0 / 1334.0 * cScreen_Height, cScreen_Width, cScreen_Height - 294.0 / 1334.0 * cScreen_Height - 49);
 //    tempChatListVC.view.frame = CGRectMake(0, 294.0 / 1334.0 * cScreen_Height, cScreen_Width, 407);
     communityActiveCellVC.baseTableView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - 294.0 / 1334.0 * cScreen_Height - 64 - 49);
-    [self.view addSubview:communityActiveCellVC.view];
+//    [self.view addSubview:communityActiveCellVC.view];
 }
 
 // 线下活动：imageView：点击事件

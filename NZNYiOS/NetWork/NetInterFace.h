@@ -83,6 +83,14 @@
 #define cLiveRoomPeopleUrl (@"api/Live/LiveRoomPeople")
 
 
+#pragma mark 3、社区
+// 3.1-社区首页
+#define cActivityIndexListUrl (@"api/Activity/ActivityIndexList")
+
+
+
+
+
 // 4、我的-一级界面
 #define cMyBaseInfoUrl (@"api/User/MyBaseInfo")
 
