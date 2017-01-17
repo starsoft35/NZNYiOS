@@ -887,10 +887,10 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     NSLog(@"关闭btn：点击事件");
     
 #warning 断开RCDLive连接、连接RCKit
-//    // 断开RCDlive连接
+    // 断开RCDlive连接
 //    [self disconnectRCDLive];
-//    
-//    // 连接RCKit
+    
+    // 连接RCKit
 //    [self connectRCIMKit];
     
     // 网络请求：观众离开直播间
@@ -908,6 +908,9 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     NSLog(@"断开RCDlive连接");
     
     [[RCIMClient sharedRCIMClient] disconnect];
+    
+    // 连接RCKit
+    [self connectRCIMKit];
     
 }
 
@@ -949,7 +952,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             
             // 融云：SDK-初始化：整个生命周期，只初始化一次
             // Kit：初始化
-            [self setRongCloudKitWithCurrentUser:self.onlyUser andRongToken:rongToken];
+//            [self setRongCloudKitWithCurrentUser:self.onlyUser andRongToken:rongToken];
             
             
             

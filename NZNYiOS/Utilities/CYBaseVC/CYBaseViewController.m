@@ -58,200 +58,200 @@
 }
 
 
-// 融云：Kitb：初始化
-- (void)setRongCloudKitWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken{
-    
-    NSLog(@"rongToken:%@",rongToken);
-    
-    [[RCIM sharedRCIM] initWithAppKey:cRongAppKey];
-    // Kit：代理
-    //    [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
-    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
-    
-    // Kit：连接服务器：将获取的token传给融云服务器，只需调用一次
-    [[RCIM sharedRCIM] connectWithToken:rongToken success:^(NSString *userId) {
-        NSLog(@"融云：Kit：连接融云服务器，登录成功，当前登录的用户，在融云的ID：%@",userId);
-        
-        // 代理：获取聊天界面用户信息，用于更改用户头像等....
-        [[RCIM sharedRCIM] setUserInfoDataSource:self];
-        //        [[RCIM sharedRCIM] setGroupInfoDataSource:self];
-        
-        
-        RCUserInfo *user = [[RCUserInfo alloc]init];
-        user.userId = currentUser.userID;
-        user.portraitUri = currentUser.Portrait;
-        user.name = currentUser.RealName;
-        
-        
-        // 当前的用户：
-        [RCIMClient sharedRCIMClient].currentUserInfo = user;
-        
-    } error:^(RCConnectErrorCode status) {
-        NSLog(@"融云：Kit：连接融云服务器，登录失败，错误码为：%ld",(long)status);
-        
-        
-    } tokenIncorrect:^{
-        NSLog(@"融云：Kit：token错误");
-        
-        //token过期或者不正确。
-        //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
-        //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
-        
-        // 在 tokenIncorrectBlock 的情况下，您需要请求您的服务器重新获取 token 并建立连接，但是注意避免无限循环，以免影响 App 用户体验。
-    }];
-    
-}
-
-
-// 融云：初始化：使用RCDLive进行初始化
-- (void)setRongCloudWithRCDLiveWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken{
-    
-    
-    [[RCDLive sharedRCDLive] initRongCloud:cRongAppKey];
-    
-    //注册自定义消息：送礼
-    [[RCDLive sharedRCDLive] registerRongCloudMessageType:[RCDLiveGiftMessage class]];
-    
-    
-    NSLog(@"rongToken:%@",rongToken);
-    
-    // 连接融云：RCDLive来连接：用token
-    [[RCDLive sharedRCDLive] connectRongCloudWithToken:rongToken success:^(NSString *loginUserId) {
-        NSLog(@"融云：RCDLive：连接融云服务器，登录成功，当前登录的用户，在融云的ID：%@",loginUserId);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            
-            
-            RCUserInfo *user = [[RCUserInfo alloc]init];
-            user.userId = currentUser.userID;
-            user.portraitUri = currentUser.Portrait;
-            user.name = currentUser.RealName;
-            
-            
-            // 当前的用户：
-            [RCIMClient sharedRCIMClient].currentUserInfo = user;
-            
-            
-        });
-    } error:^(RCConnectErrorCode status) {
-        NSLog(@"融云：RCDLive：连接融云服务器，登录失败，错误码为：%ld",(long)status);
-        
-    } tokenIncorrect:^{
-        NSLog(@"融云：RCDLive：token错误");
-        
-        
-    }];
-}
-
-
-- (void)onConnectionStatusChanged:(RCConnectionStatus)status {
-    //    if (/*ConnectionStatus_NETWORK_UNAVAILABLE != status && */ConnectionStatus_UNKNOWN != status &&
-    //        ConnectionStatus_Unconnected != status) {
-    //        [[NSNotificationCenter defaultCenter] postNotificationName:RCDLiveKitDispatchConnectionStatusChangedNotification
-    //                                                            object:[NSNumber numberWithInt:status]];
-    //    } else {
-    //        dispatch_async(dispatch_get_main_queue(), ^{
-    //            [self performSelector:@selector(delayNotifyUnConnectedStatus) withObject:nil afterDelay:3];
-    //        });
-    //    }
-}
-
-
-// 融云代理实现方法：设置聊天界面，用户信息：Id、头像、用户名。
-- (void)getUserInfoWithUserId:(NSString *)userId completion:(void(^)(RCUserInfo* userInfo))completion
-{
-    
-    CYUser *currentUser = [CYUser currentUser];
-    // 请求数据
-    // 参数
-    NSDictionary *params = @{
-                             @"userId":userId
-                             };
-    NSLog(@"params:%@",params);
-    
-    // 显示加载
-    //    [self showLoadingView];
-    
-    // 请求数据：获取用户个人信息
-    [CYNetWorkManager getRequestWithUrl:cPrivateInfoUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"获取用户个人信息进度：%@",uploadProgress);
-        
-    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"获取用户个人信息：请求成功！");
-        
-        // 1、
-        NSString *code = responseObject[@"code"];
-        
-        // 1.2.1.1.2、和成功的code 匹配
-        if ([code isEqualToString:@"0"]) {
-            NSLog(@"获取用户个人信息：获取成功！");
-            NSLog(@"获取用户个人信息：%@",responseObject);
-            
-            
-            // 2、赋值
-            RCUserInfo *user = [[RCUserInfo alloc]init];
-            user.userId = userId;
-            user.name = responseObject[@"res"][@"data"][@"model"][@"RealName"];
-            user.portraitUri = [NSString stringWithFormat:@"%@%@",cHostUrl,responseObject[@"res"][@"data"][@"model"][@"Portrait"]];
-            
-            //            user.name = @"为什么";
-            
-            return completion(user);
-            //            [[RCIM sharedRCIM] refreshUserInfoCache:user withUserId:currentUser.userID];
-            
-        }
-        else{
-            NSLog(@"获取用户个人信息：获取失败:responseObject:%@",responseObject);
-            NSLog(@"获取用户个人信息：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
-            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
-            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
-            
-        }
-        
-        
-    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"获取用户个人信息：请求失败！:error:%@",error);
-        
-        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
-        
-    } withToken:currentUser.userToken];
-    
-    
-}
-
-
-
-//
-//
-//@param userInfo     需要更新的用户信息
-//@param userId       需要更新的用户ID
-//
-//@discussion 使用此方法，可以更新SDK缓存的用户信息。
-//但是处于性能和使用场景权衡，SDK不会在当前View立即自动刷新（会在切换到其他View的时候再刷新该用户的显示信息）。
-//如果您想立即刷新，您可以在会话列表或者聊天界面reload强制刷新。
-//*/
-//- (void)refreshUserInfoCache:(RCUserInfo *)userInfo
-//                  withUserId:(NSString *)userId{
-//    NSLog(@"更新聊天界面用户的信息");
-//
-//
-//    CYUser *currentUser = [CYUser currentUser];
-//
-//
-//    userInfo.userId = currentUser.userID;
-//    userInfo.name = currentUser.RealName;
-//    userInfo.portraitUri = currentUser.Portrait;
-//
-//    [[RCIM sharedRCIM] refreshUserInfoCache:userInfo withUserId:currentUser.userID];
-//
-//
+//// 融云：Kitb：初始化
+//- (void)setRongCloudKitWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken{
+//    
+//    NSLog(@"rongToken:%@",rongToken);
+//    
+//    [[RCIM sharedRCIM] initWithAppKey:cRongAppKey];
+//    // Kit：代理
+//    //    [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
+//    [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
+//    
+//    // Kit：连接服务器：将获取的token传给融云服务器，只需调用一次
+//    [[RCIM sharedRCIM] connectWithToken:rongToken success:^(NSString *userId) {
+//        NSLog(@"融云：Kit：连接融云服务器，登录成功，当前登录的用户，在融云的ID：%@",userId);
+//        
+//        // 代理：获取聊天界面用户信息，用于更改用户头像等....
+//        [[RCIM sharedRCIM] setUserInfoDataSource:self];
+//        //        [[RCIM sharedRCIM] setGroupInfoDataSource:self];
+//        
+//        
+//        RCUserInfo *user = [[RCUserInfo alloc]init];
+//        user.userId = currentUser.userID;
+//        user.portraitUri = currentUser.Portrait;
+//        user.name = currentUser.RealName;
+//        
+//        
+//        // 当前的用户：
+//        [RCIMClient sharedRCIMClient].currentUserInfo = user;
+//        
+//    } error:^(RCConnectErrorCode status) {
+//        NSLog(@"融云：Kit：连接融云服务器，登录失败，错误码为：%ld",(long)status);
+//        
+//        
+//    } tokenIncorrect:^{
+//        NSLog(@"融云：Kit：token错误");
+//        
+//        //token过期或者不正确。
+//        //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
+//        //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
+//        
+//        // 在 tokenIncorrectBlock 的情况下，您需要请求您的服务器重新获取 token 并建立连接，但是注意避免无限循环，以免影响 App 用户体验。
+//    }];
+//    
 //}
-
-- (void)getGroupInfoWithGroupId:(NSString *)groupId completion:(void (^)(RCGroup *))completion{
-    NSLog(@"getGroupInfoWithGroupId。。。。。。。。。。。。。");
-    
-}
+//
+//
+//// 融云：初始化：使用RCDLive进行初始化
+//- (void)setRongCloudWithRCDLiveWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken{
+//    
+//    
+//    [[RCDLive sharedRCDLive] initRongCloud:cRongAppKey];
+//    
+//    //注册自定义消息：送礼
+//    [[RCDLive sharedRCDLive] registerRongCloudMessageType:[RCDLiveGiftMessage class]];
+//    
+//    
+//    NSLog(@"rongToken:%@",rongToken);
+//    
+//    // 连接融云：RCDLive来连接：用token
+//    [[RCDLive sharedRCDLive] connectRongCloudWithToken:rongToken success:^(NSString *loginUserId) {
+//        NSLog(@"融云：RCDLive：连接融云服务器，登录成功，当前登录的用户，在融云的ID：%@",loginUserId);
+//        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            
+//            
+//            
+//            RCUserInfo *user = [[RCUserInfo alloc]init];
+//            user.userId = currentUser.userID;
+//            user.portraitUri = currentUser.Portrait;
+//            user.name = currentUser.RealName;
+//            
+//            
+//            // 当前的用户：
+//            [RCIMClient sharedRCIMClient].currentUserInfo = user;
+//            
+//            
+//        });
+//    } error:^(RCConnectErrorCode status) {
+//        NSLog(@"融云：RCDLive：连接融云服务器，登录失败，错误码为：%ld",(long)status);
+//        
+//    } tokenIncorrect:^{
+//        NSLog(@"融云：RCDLive：token错误");
+//        
+//        
+//    }];
+//}
+//
+//
+//- (void)onConnectionStatusChanged:(RCConnectionStatus)status {
+//    //    if (/*ConnectionStatus_NETWORK_UNAVAILABLE != status && */ConnectionStatus_UNKNOWN != status &&
+//    //        ConnectionStatus_Unconnected != status) {
+//    //        [[NSNotificationCenter defaultCenter] postNotificationName:RCDLiveKitDispatchConnectionStatusChangedNotification
+//    //                                                            object:[NSNumber numberWithInt:status]];
+//    //    } else {
+//    //        dispatch_async(dispatch_get_main_queue(), ^{
+//    //            [self performSelector:@selector(delayNotifyUnConnectedStatus) withObject:nil afterDelay:3];
+//    //        });
+//    //    }
+//}
+//
+//
+//// 融云代理实现方法：设置聊天界面，用户信息：Id、头像、用户名。
+//- (void)getUserInfoWithUserId:(NSString *)userId completion:(void(^)(RCUserInfo* userInfo))completion
+//{
+//    
+//    CYUser *currentUser = [CYUser currentUser];
+//    // 请求数据
+//    // 参数
+//    NSDictionary *params = @{
+//                             @"userId":userId
+//                             };
+//    NSLog(@"params:%@",params);
+//    
+//    // 显示加载
+//    //    [self showLoadingView];
+//    
+//    // 请求数据：获取用户个人信息
+//    [CYNetWorkManager getRequestWithUrl:cPrivateInfoUrl params:params progress:^(NSProgress *uploadProgress) {
+//        NSLog(@"获取用户个人信息进度：%@",uploadProgress);
+//        
+//    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"获取用户个人信息：请求成功！");
+//        
+//        // 1、
+//        NSString *code = responseObject[@"code"];
+//        
+//        // 1.2.1.1.2、和成功的code 匹配
+//        if ([code isEqualToString:@"0"]) {
+//            NSLog(@"获取用户个人信息：获取成功！");
+//            NSLog(@"获取用户个人信息：%@",responseObject);
+//            
+//            
+//            // 2、赋值
+//            RCUserInfo *user = [[RCUserInfo alloc]init];
+//            user.userId = userId;
+//            user.name = responseObject[@"res"][@"data"][@"model"][@"RealName"];
+//            user.portraitUri = [NSString stringWithFormat:@"%@%@",cHostUrl,responseObject[@"res"][@"data"][@"model"][@"Portrait"]];
+//            
+//            //            user.name = @"为什么";
+//            
+//            return completion(user);
+//            //            [[RCIM sharedRCIM] refreshUserInfoCache:user withUserId:currentUser.userID];
+//            
+//        }
+//        else{
+//            NSLog(@"获取用户个人信息：获取失败:responseObject:%@",responseObject);
+//            NSLog(@"获取用户个人信息：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+//            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+//            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+//            
+//        }
+//        
+//        
+//    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"获取用户个人信息：请求失败！:error:%@",error);
+//        
+//        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+//        
+//    } withToken:currentUser.userToken];
+//    
+//    
+//}
+//
+//
+//
+////
+////
+////@param userInfo     需要更新的用户信息
+////@param userId       需要更新的用户ID
+////
+////@discussion 使用此方法，可以更新SDK缓存的用户信息。
+////但是处于性能和使用场景权衡，SDK不会在当前View立即自动刷新（会在切换到其他View的时候再刷新该用户的显示信息）。
+////如果您想立即刷新，您可以在会话列表或者聊天界面reload强制刷新。
+////*/
+////- (void)refreshUserInfoCache:(RCUserInfo *)userInfo
+////                  withUserId:(NSString *)userId{
+////    NSLog(@"更新聊天界面用户的信息");
+////
+////
+////    CYUser *currentUser = [CYUser currentUser];
+////
+////
+////    userInfo.userId = currentUser.userID;
+////    userInfo.name = currentUser.RealName;
+////    userInfo.portraitUri = currentUser.Portrait;
+////
+////    [[RCIM sharedRCIM] refreshUserInfoCache:userInfo withUserId:currentUser.userID];
+////
+////
+////}
+//
+//- (void)getGroupInfoWithGroupId:(NSString *)groupId completion:(void (^)(RCGroup *))completion{
+//    NSLog(@"getGroupInfoWithGroupId。。。。。。。。。。。。。");
+//    
+//}
 
 #pragma mark --------------------navigationBar：点击事件--------------------------------------
 // 搜索：左边BarButtonItem：点击事件

@@ -250,8 +250,8 @@
 #warning 断开融云kit连接、连接RCDLive
             // 断开融云kit连接
 //            [self disconnectRCKit];
-//            
-//            // 连接RCDLive
+            
+            // 连接RCDLive
 //            [self connectRCDLive];
             
             // 阿里播放和融云IM界面：VC
@@ -283,6 +283,10 @@
     NSLog(@"断开融云kit连接");
     
     [[RCIM sharedRCIM] disconnect];
+    
+    
+    // 连接RCDLive
+    [self connectRCDLive];
     
 }
 
@@ -319,7 +323,7 @@
             
             
             // 融云：初始化：使用RCDLive进行初始化
-            [self setRongCloudWithRCDLiveWithCurrentUser:self.onlyUser andRongToken:rongToken];
+//            [self setRongCloudWithRCDLiveWithCurrentUser:self.onlyUser andRongToken:rongToken];
             
         }
         else{

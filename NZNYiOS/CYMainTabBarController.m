@@ -605,7 +605,7 @@
             
             // 融云：SDK-初始化：整个生命周期，只初始化一次
             // Kit：初始化
-            [self setRongCloudKitWithCurrentUser:currentUser andRongToken:rongToken];
+//            [self setRongCloudKitWithCurrentUser:currentUser andRongToken:rongToken];
             
             
             
@@ -614,7 +614,7 @@
             
             
             // 融云：初始化：使用RCDLive进行初始化
-//            [self setRongCloudWithRCDLiveWithCurrentUser:currentUser andRongToken:rongToken];
+            [self setRongCloudWithRCDLiveWithCurrentUser:currentUser andRongToken:rongToken];
             
         }
         else{

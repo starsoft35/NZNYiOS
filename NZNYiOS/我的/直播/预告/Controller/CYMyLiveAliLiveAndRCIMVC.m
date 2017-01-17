@@ -751,15 +751,15 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
 #warning 断开RCDLive连接、连接RCKit
-//    // 断开RCDlive连接
+    // 断开RCDlive连接
 //    [self disconnectRCDLive];
-//    
-//    // 连接RCKit
+    
+    // 连接RCKit
 //    [self connectRCIMKit];
     
     
     // 判断是否销毁直播间：
-    [self judgeIfDestroyLiveRoomWithExpectEndTimestamp:self.expectEndTimestamp andLiveId:self.liveID];
+//    [self judgeIfDestroyLiveRoomWithExpectEndTimestamp:self.expectEndTimestamp andLiveId:self.liveID];
     
     
     // 如果进入的是聊天室，则销毁播放器、退出聊天室
@@ -802,6 +802,9 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     [[RCIMClient sharedRCIMClient] disconnect];
     
+    // 连接RCKit
+    [self connectRCIMKit];
+    
 }
 
 // 连接RCKit
@@ -842,7 +845,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             
             // 融云：SDK-初始化：整个生命周期，只初始化一次
             // Kit：初始化
-            [self setRongCloudKitWithCurrentUser:self.onlyUser andRongToken:rongToken];
+//            [self setRongCloudKitWithCurrentUser:self.onlyUser andRongToken:rongToken];
             
             
             

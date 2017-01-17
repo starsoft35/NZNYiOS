@@ -27,12 +27,12 @@ CLLocationManagerDelegate,
 UIActionSheetDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
-UIApplicationDelegate,
-RCIMUserInfoDataSource,
-RCIMGroupInfoDataSource,
-RCIMReceiveMessageDelegate,
-RCIMClientReceiveMessageDelegate,
-RCConnectionStatusChangeDelegate
+UIApplicationDelegate
+//RCIMUserInfoDataSource,
+//RCIMGroupInfoDataSource,
+//RCIMReceiveMessageDelegate,
+//RCIMClientReceiveMessageDelegate,
+//RCConnectionStatusChangeDelegate
 >
 
 // 提示框：hud
@@ -69,11 +69,11 @@ RCConnectionStatusChangeDelegate
 @property (nonatomic, strong) UILabel *noDataLab;
 
 
-// 融云：Kitb：初始化
-- (void)setRongCloudKitWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken;
-
-// 融云：初始化：使用RCDLive进行初始化
-- (void)setRongCloudWithRCDLiveWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken;
+//// 融云：Kitb：初始化
+//- (void)setRongCloudKitWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken;
+//
+//// 融云：初始化：使用RCDLive进行初始化
+//- (void)setRongCloudWithRCDLiveWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken;
 
 // 经纬度 -> 地理位置（地理位置反编码）
 - (void)locationWithLatitude:(CLLocationDegrees)latitude andLongitude:(CLLocationDegrees)longitude;
