@@ -24,11 +24,11 @@ NSString *const RCDLiveKitDispatchConnectionStatusChangedNotification = @"RCDLiv
 
 //使用 IMKit 需要放开注释的地方
 @interface RCDLive () <
-#if !IsUseRongCloudIMKit
-RCIMClientReceiveMessageDelegate, RCConnectionStatusChangeDelegate
-#else
+//#if !IsUseRongCloudIMKit
+//RCIMClientReceiveMessageDelegate, RCConnectionStatusChangeDelegate
+//#else
 RCIMReceiveMessageDelegate, RCIMConnectionStatusDelegate
-#endif
+//#endif
 >
 @property(nonatomic, strong) NSString *appKey;
 
@@ -53,30 +53,44 @@ static RCDLive *__rongUIKit = nil;
 
 - (void)setCurrentUserInfo:(RCUserInfo *)currentUserInfo {
     
-    [[RCIMClient sharedRCIMClient] setCurrentUserInfo:currentUserInfo];
+    
+#warning
+//    [[RCIMClient sharedRCIMClient] setCurrentUserInfo:currentUserInfo];
+    
+    [[RCIM sharedRCIM] setCurrentUserInfo:currentUserInfo];
+    
 }
+
 - (RCUserInfo *)currentUserInfo {
-    return [[RCIMClient sharedRCIMClient] currentUserInfo];
+    
+    
+#warning 
+    
+    
+//    return [[RCIMClient sharedRCIMClient] currentUserInfo];
+    return [[RCIM sharedRCIM] currentUserInfo];
+    
+    
 }
 - (void)initRongCloud:(NSString *)appKey{
-    if ([self.appKey isEqual:appKey]) {
-        NSLog(@"Warning:请不要重复调用Init！！！");
-        return;
-    }
-    
-    self.appKey = appKey;
-    //使用 IMKit 需要放开注释的地方
-    if ([self isRCIMKitExist]) {
-        [[RCIM sharedRCIM] initWithAppKey:appKey];
+//    if ([self.appKey isEqual:appKey]) {
+//        NSLog(@"Warning:请不要重复调用Init！！！");
+//        return;
+//    }
+//
+//    self.appKey = appKey;
+//    //使用 IMKit 需要放开注释的地方
+//    if ([self isRCIMKitExist]) {
+//        [[RCIM sharedRCIM] initWithAppKey:appKey];
         [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
         [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
-    }else{
-        [[RCIMClient sharedRCIMClient] initWithAppKey:appKey];
-        // listen receive message
-        [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
-        [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:self];
-
-    }
+//    }else{
+//        [[RCIMClient sharedRCIMClient] initWithAppKey:appKey];
+//        // listen receive message
+//        [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
+//        [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:self];
+//
+//    }
 }
 
 - (BOOL)isRCIMKitExist {
@@ -88,27 +102,74 @@ static RCDLive *__rongUIKit = nil;
 }
 
 - (void)registerRongCloudMessageType:(Class)messageClass {
-    [[RCIMClient sharedRCIMClient] registerMessageType:messageClass];
+    
+//    [[RCIMClient sharedRCIMClient] registerMessageType:messageClass];
+    
+    
+    
+    
+    [[RCIM sharedRCIM] registerMessageType:messageClass];
+    
+    
+    
+    
 }
 - (void)connectRongCloudWithToken:(NSString *)token
                  success:(void (^)(NSString *userId))successBlock
                    error:(void (^)(RCConnectErrorCode status))errorBlock
           tokenIncorrect:(void (^)())tokenIncorrectBlock {
-    [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:self];
-    [[RCIMClient sharedRCIMClient] connectWithToken:token
-        success:^(NSString *userId) {
-            if (successBlock!=nil) {
-                successBlock(userId);
-            }
-            [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
+    
+    
+    
+//    [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:self];
+    [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
+    
+    [[RCIM sharedRCIM] connectWithToken:token success:^(NSString *userId) {
+        
+        if (successBlock!=nil) {
+            successBlock(userId);
         }
-        error:^(RCConnectErrorCode status) {
-            if(errorBlock!=nil)
-                errorBlock(status);
-        }
-        tokenIncorrect:^() {
-          tokenIncorrectBlock();
-        }];
+        
+        //            [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
+        
+        
+        [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
+        
+        
+        
+    } error:^(RCConnectErrorCode status) {
+        
+        if(errorBlock!=nil)
+            errorBlock(status);
+        
+        
+    } tokenIncorrect:^{
+        
+        tokenIncorrectBlock();
+        
+    }];
+    
+    
+    
+//    [[RCIMClient sharedRCIMClient] connectWithToken:token
+//        success:^(NSString *userId) {
+//            if (successBlock!=nil) {
+//                successBlock(userId);
+//            }
+//            
+////            [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
+//            
+//            
+//            [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
+//            
+//        }
+//        error:^(RCConnectErrorCode status) {
+//            if(errorBlock!=nil)
+//                errorBlock(status);
+//        }
+//        tokenIncorrect:^() {
+//          tokenIncorrectBlock();
+//        }];
 }
 
 /**
@@ -117,30 +178,50 @@ static RCDLive *__rongUIKit = nil;
  *  @param isReceivePush 是否接收回调。
  */
 - (void)disconnectRongCloud:(BOOL)isReceivePush {
-    [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:nil object:nil];
-    [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:nil];
-    [[RCIMClient sharedRCIMClient] disconnect:isReceivePush];
+    
+    
+//    [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:nil object:nil];
+//    [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:nil];
+//    [[RCIMClient sharedRCIMClient] disconnect:isReceivePush];
+    
+    
+    [[RCIM sharedRCIM] setReceiveMessageDelegate:nil];
+    [[RCIM sharedRCIM] setConnectionStatusDelegate:nil];
+    [[RCIM sharedRCIM] disconnect:isReceivePush];
 }
+
+//- (void)disconnectRongCloud{
+//    
+//}
 
 /**
  *  Log out。不会接收到push消息。
  */
 - (void)logoutRongCloud {
-    [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:nil object:nil];
-    [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:nil];
-    [[RCIMClient sharedRCIMClient] logout];
+    
+    
+    
+//    [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:nil object:nil];
+//    [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:nil];
+//    [[RCIMClient sharedRCIMClient] logout];
+    
+    
+    
+    [[RCIM sharedRCIM] setReceiveMessageDelegate:nil];
+    [[RCIM sharedRCIM] setConnectionStatusDelegate:nil];
+    [[RCIM sharedRCIM] logout];
 }
 
-#if !IsUseRongCloudIMKit
-- (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
-    
-    NSDictionary *dic_left = @{ @"left" : @(nLeft) };
-    // dispatch message
-    [[NSNotificationCenter defaultCenter] postNotificationName:RCDLiveKitDispatchMessageNotification object:message userInfo:dic_left];
-    
-}
+//#if !IsUseRongCloudIMKit
+//- (void)onReceived:(RCMessage *)message left:(int)nLeft object:(id)object {
+//    
+//    NSDictionary *dic_left = @{ @"left" : @(nLeft) };
+//    // dispatch message
+//    [[NSNotificationCenter defaultCenter] postNotificationName:RCDLiveKitDispatchMessageNotification object:message userInfo:dic_left];
+//    
+//}
 
-#else
+//#else
 
 -(void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left{
     NSDictionary *dic_left = @{ @"left" : @(left) };
@@ -150,27 +231,27 @@ static RCDLive *__rongUIKit = nil;
                                                       userInfo:dic_left];
     
 }
-#endif
+//#endif
 
-#if !IsUseRongCloudIMKit
+//#if !IsUseRongCloudIMKit
 /**
  *  网络状态变化。
  *
  *  @param status 网络状态。
  */
-- (void)onConnectionStatusChanged:(RCConnectionStatus)status {
-    if (/*ConnectionStatus_NETWORK_UNAVAILABLE != status && */ConnectionStatus_UNKNOWN != status &&
-        ConnectionStatus_Unconnected != status) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:RCDLiveKitDispatchConnectionStatusChangedNotification
-                                                        object:[NSNumber numberWithInt:status]];
-    } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self performSelector:@selector(delayNotifyUnConnectedStatus) withObject:nil afterDelay:3];
-        });
-    }
-}
+//- (void)onConnectionStatusChanged:(RCConnectionStatus)status {
+//    if (/*ConnectionStatus_NETWORK_UNAVAILABLE != status && */ConnectionStatus_UNKNOWN != status &&
+//        ConnectionStatus_Unconnected != status) {
+//        [[NSNotificationCenter defaultCenter] postNotificationName:RCDLiveKitDispatchConnectionStatusChangedNotification
+//                                                        object:[NSNumber numberWithInt:status]];
+//    } else {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self performSelector:@selector(delayNotifyUnConnectedStatus) withObject:nil afterDelay:3];
+//        });
+//    }
+//}
 
-#else
+//#else
 
 
 -(void)onRCIMConnectionStatusChanged:(RCConnectionStatus)status{
@@ -185,7 +266,7 @@ static RCDLive *__rongUIKit = nil;
     }
 }
 
-#endif
+//#endif
 
 /*!
  获取当前SDK的连接状态
@@ -193,11 +274,20 @@ static RCDLive *__rongUIKit = nil;
  @return 当前SDK的连接状态
  */
 - (RCConnectionStatus)getRongCloudConnectionStatus {
-    return [[RCIMClient sharedRCIMClient] getConnectionStatus];
+    
+    
+//    return [[RCIMClient sharedRCIMClient] getConnectionStatus];
+    
+    return [[RCIM sharedRCIM] getConnectionStatus];
 }
 
 - (void)delayNotifyUnConnectedStatus {
-    RCConnectionStatus status = [[RCIMClient sharedRCIMClient] getConnectionStatus];
+    
+    
+//    RCConnectionStatus status = [[RCIMClient sharedRCIMClient] getConnectionStatus];
+    RCConnectionStatus status = [[RCIM sharedRCIM] getConnectionStatus];
+    
+    
     if (ConnectionStatus_NETWORK_UNAVAILABLE == status || ConnectionStatus_UNKNOWN == status ||
         ConnectionStatus_Unconnected == status) {
         [[NSNotificationCenter defaultCenter] postNotificationName:RCDLiveKitDispatchConnectionStatusChangedNotification
@@ -213,42 +303,97 @@ static RCDLive *__rongUIKit = nil;
                    success:(void (^)(long messageId))successBlock
                      error:(void (^)(RCErrorCode nErrorCode,
                                      long messageId))errorBlock {
-    RCMessage *rcMessage = [[RCIMClient sharedRCIMClient]
-                            sendMessage:conversationType
-                            targetId:targetId
-                            content:content
-                            pushContent:pushContent
-                            pushData:pushData
-                            success:^(long messageId) {
-                                NSDictionary *statusDic = @{@"targetId":targetId,
-                                                            @"conversationType":@(conversationType),
-                                                            @"messageId": @(messageId),
-                                                            @"sentStatus": @(SentStatus_SENT),
-                                                            @"content":content};
-                                [[NSNotificationCenter defaultCenter]
-                                 postNotificationName:RCDLiveKitSendingMessageNotification
-                                 object:nil
-                                 userInfo:statusDic];
-                                
-                                successBlock(messageId);
-                            } error:^(RCErrorCode nErrorCode, long messageId) {
-                                NSDictionary *statusDic = @{@"targetId":targetId,
-                                                            @"conversationType":@(conversationType),
-                                                            @"messageId": @(messageId),
-                                                            @"sentStatus": @(SentStatus_FAILED),
-                                                            @"error": @(nErrorCode),
-                                                            @"content":content};
-                                [[NSNotificationCenter defaultCenter]
-                                 postNotificationName:RCDLiveKitSendingMessageNotification
-                                 object:nil
-                                 userInfo:statusDic];
-                                
-                                errorBlock(nErrorCode,messageId);
-                            }];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:RCDLiveKitSendingMessageNotification
-                                                        object:rcMessage
-                                                      userInfo:nil];
+    
+    
+    RCMessage *rcMessage = [[RCIM sharedRCIM] sendMessage:conversationType targetId:targetId content:content pushContent:pushContent pushData:pushData success:^(long messageId) {
+        
+        NSDictionary *statusDic = @{@"targetId":targetId,
+                                    @"conversationType":@(conversationType),
+                                    @"messageId": @(messageId),
+                                    @"sentStatus": @(SentStatus_SENT),
+                                    @"content":content};
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:RCDLiveKitSendingMessageNotification
+         object:nil
+         userInfo:statusDic];
+        
+        successBlock(messageId);
+        
+        
+        
+    } error:^(RCErrorCode nErrorCode, long messageId) {
+        
+        NSDictionary *statusDic = @{@"targetId":targetId,
+                                    @"conversationType":@(conversationType),
+                                    @"messageId": @(messageId),
+                                    @"sentStatus": @(SentStatus_FAILED),
+                                    @"error": @(nErrorCode),
+                                    @"content":content};
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:RCDLiveKitSendingMessageNotification
+         object:nil
+         userInfo:statusDic];
+        
+        errorBlock(nErrorCode,messageId);
+        
+        
+        
+    }];
+    
+    
+//    RCMessage *rcMessage = [[RCIMClient sharedRCIMClient]
+//                            sendMessage:conversationType
+//                            targetId:targetId
+//                            content:content
+//                            pushContent:pushContent
+//                            pushData:pushData
+//                            success:^(long messageId) {
+//                                
+//                                NSDictionary *statusDic = @{@"targetId":targetId,
+//                                                            @"conversationType":@(conversationType),
+//                                                            @"messageId": @(messageId),
+//                                                            @"sentStatus": @(SentStatus_SENT),
+//                                                            @"content":content};
+//                                [[NSNotificationCenter defaultCenter]
+//                                 postNotificationName:RCDLiveKitSendingMessageNotification
+//                                 object:nil
+//                                 userInfo:statusDic];
+//                                
+//                                successBlock(messageId);
+//                                
+//                                
+//                                
+//                            } error:^(RCErrorCode nErrorCode, long messageId) {
+//                                
+//                                
+//                                
+//                                NSDictionary *statusDic = @{@"targetId":targetId,
+//                                                            @"conversationType":@(conversationType),
+//                                                            @"messageId": @(messageId),
+//                                                            @"sentStatus": @(SentStatus_FAILED),
+//                                                            @"error": @(nErrorCode),
+//                                                            @"content":content};
+//                                [[NSNotificationCenter defaultCenter]
+//                                 postNotificationName:RCDLiveKitSendingMessageNotification
+//                                 object:nil
+//                                 userInfo:statusDic];
+//                                
+//                                errorBlock(nErrorCode,messageId);
+//                                
+//                                
+//                                
+//                                
+//                                
+//                            }];
+    
+    
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:RCDLiveKitSendingMessageNotification object:rcMessage userInfo:nil];
+    
+    
+    
     return rcMessage;
 }
 
@@ -260,13 +405,82 @@ static RCDLive *__rongUIKit = nil;
                        progress:(void (^)(int progress, long messageId))progressBlock
                         success:(void (^)(long messageId))successBlock
                           error:(void (^)(RCErrorCode errorCode, long messageId))errorBlock {
-    RCMessage *rcMessage = [[RCIMClient sharedRCIMClient]
+    
+    
+    
+//    RCMessage *rcMessage = [[RCIM sharedRCIM] sendMediaMessage:conversationType targetId:targetId content:content pushContent:pushContent pushData:pushData progress:^(int progress, long messageId) {
+//        
+//        
+//        
+//        NSDictionary *statusDic = @{@"targetId":targetId,
+//                                    @"conversationType":@(conversationType),
+//                                    @"messageId": @(messageId),
+//                                    @"sentStatus": @(SentStatus_SENDING),
+//                                    @"progress": @(progress)};
+//        [[NSNotificationCenter defaultCenter]
+//         postNotificationName:RCDLiveKitSendingMessageNotification
+//         object:nil
+//         userInfo:statusDic];
+//        
+//        progressBlock(progress, messageId);
+//        
+//        
+//        
+//        
+//    } success:^(long messageId) {
+//        
+//        
+//        NSDictionary *statusDic = @{@"targetId":targetId,
+//                                    @"conversationType":@(conversationType),
+//                                    @"messageId": @(messageId),
+//                                    @"sentStatus": @(SentStatus_SENT),
+//                                    @"content":content};
+//        [[NSNotificationCenter defaultCenter]
+//         postNotificationName:RCDLiveKitSendingMessageNotification
+//         object:nil
+//         userInfo:statusDic];
+//        
+//        successBlock(messageId);
+//        
+//        
+//        
+//    } error:^(RCErrorCode errorCode, long messageId) {
+//        
+//        
+//        
+//        NSDictionary *statusDic = @{@"targetId":targetId,
+//                                    @"conversationType":@(conversationType),
+//                                    @"messageId": @(messageId),
+//                                    @"sentStatus": @(SentStatus_FAILED),
+//                                    @"error": @(errorCode),
+//                                    @"content":content};
+//        [[NSNotificationCenter defaultCenter]
+//         postNotificationName:RCDLiveKitSendingMessageNotification
+//         object:nil
+//         userInfo:statusDic];
+//        
+//        errorBlock(errorCode, messageId);
+//        
+//    } cancel:^(long messageId) {
+//        
+//        
+//        
+//    }];
+    
+    
+    
+    
+    
+    RCMessage *rcMessage = [[RCIM sharedRCIM]
                             sendImageMessage:conversationType
                             targetId:targetId
                             content:content
                             pushContent:pushContent
                             pushData:pushData
                             progress:^(int progress, long messageId) {
+                                
+                                
+                                
                                 NSDictionary *statusDic = @{@"targetId":targetId,
                                                             @"conversationType":@(conversationType),
                                                             @"messageId": @(messageId),
@@ -278,7 +492,13 @@ static RCDLive *__rongUIKit = nil;
                                  userInfo:statusDic];
                                 
                                 progressBlock(progress, messageId);
+                                
+                                
+                                
                             } success:^(long messageId) {
+                                
+                                
+                                
                                 NSDictionary *statusDic = @{@"targetId":targetId,
                                                             @"conversationType":@(conversationType),
                                                             @"messageId": @(messageId),
@@ -290,7 +510,13 @@ static RCDLive *__rongUIKit = nil;
                                  userInfo:statusDic];
                                 
                                 successBlock(messageId);
+                                
+                                
+                                
                             } error:^(RCErrorCode errorCode, long messageId) {
+                                
+                                
+                                
                                 NSDictionary *statusDic = @{@"targetId":targetId,
                                                             @"conversationType":@(conversationType),
                                                             @"messageId": @(messageId),
@@ -303,7 +529,79 @@ static RCDLive *__rongUIKit = nil;
                                  userInfo:statusDic];
                                 
                                 errorBlock(errorCode, messageId);
+                                
+                                
+                                
                             }];
+
+    
+    
+    
+    
+    
+    
+//    RCMessage *rcMessage = [[RCIMClient sharedRCIMClient]
+//                            sendImageMessage:conversationType
+//                            targetId:targetId
+//                            content:content
+//                            pushContent:pushContent
+//                            pushData:pushData
+//                            progress:^(int progress, long messageId) {
+//                                
+//                                
+//                                
+//                                NSDictionary *statusDic = @{@"targetId":targetId,
+//                                                            @"conversationType":@(conversationType),
+//                                                            @"messageId": @(messageId),
+//                                                            @"sentStatus": @(SentStatus_SENDING),
+//                                                            @"progress": @(progress)};
+//                                [[NSNotificationCenter defaultCenter]
+//                                 postNotificationName:RCDLiveKitSendingMessageNotification
+//                                 object:nil
+//                                 userInfo:statusDic];
+//                                
+//                                progressBlock(progress, messageId);
+//                                
+//                                
+//                                
+//                            } success:^(long messageId) {
+//                                
+//                                
+//                                
+//                                NSDictionary *statusDic = @{@"targetId":targetId,
+//                                                            @"conversationType":@(conversationType),
+//                                                            @"messageId": @(messageId),
+//                                                            @"sentStatus": @(SentStatus_SENT),
+//                                                            @"content":content};
+//                                [[NSNotificationCenter defaultCenter]
+//                                 postNotificationName:RCDLiveKitSendingMessageNotification
+//                                 object:nil
+//                                 userInfo:statusDic];
+//                                
+//                                successBlock(messageId);
+//                                
+//                                
+//                                
+//                            } error:^(RCErrorCode errorCode, long messageId) {
+//                                
+//                                
+//                                
+//                                NSDictionary *statusDic = @{@"targetId":targetId,
+//                                                            @"conversationType":@(conversationType),
+//                                                            @"messageId": @(messageId),
+//                                                            @"sentStatus": @(SentStatus_FAILED),
+//                                                            @"error": @(errorCode),
+//                                                            @"content":content};
+//                                [[NSNotificationCenter defaultCenter]
+//                                 postNotificationName:RCDLiveKitSendingMessageNotification
+//                                 object:nil
+//                                 userInfo:statusDic];
+//                                
+//                                errorBlock(errorCode, messageId);
+//                                
+//                                
+//                                
+//                            }];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:RCDLiveKitSendingMessageNotification
                                                         object:rcMessage

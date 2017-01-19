@@ -15,5 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *ageLab;
 
 
+// 点击显示年龄选择器：View
+@property (weak, nonatomic) IBOutlet UIView *showAgeSelectView;
+
+
 
 @end

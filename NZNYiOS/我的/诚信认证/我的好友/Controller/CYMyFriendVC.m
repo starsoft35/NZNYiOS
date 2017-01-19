@@ -166,8 +166,6 @@
     CYMyFriendViewCellModel *tempMyFriendModel = self.dataArray[indexPath.row];
     
     
-#warning 在这里进行融云IMKit的初始化
-    
     
     // 融云SDK
     // 新建一个聊天会话viewController 对象

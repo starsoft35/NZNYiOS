@@ -14,4 +14,7 @@
 @interface CYLoginViewController : CYBaseViewController
 
 
+// 是否第一次登录
+@property (nonatomic, assign) BOOL isFirstLogin;
+
 @end

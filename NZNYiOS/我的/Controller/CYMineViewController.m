@@ -185,7 +185,7 @@
     headerModel.userName = mineVCModel.RealName;
     headerModel.userActiveDays = @"";
     headerModel.fId = [NSString stringWithFormat:@"ID：%@",fID];
-    headerModel.userAddress = @"所在地";
+    headerModel.userAddress = mineVCModel.City;
     headerModel.userGender = mineVCModel.Gender;
     headerModel.VideoCount = mineVCModel.VideoCount;
     headerModel.LiveCount = mineVCModel.LiveCount;
@@ -426,6 +426,7 @@
     // 隐藏tabbar
     myFollowVC.hidesBottomBarWhenPushed = YES;
     
+    NSLog(@"myFollowVC.view.frame.size.height:%f",myFollowVC.view.frame.size.height);
     
     // 跳转到下个界面
     [self.navigationController pushViewController:myFollowVC animated:YES];
@@ -570,6 +571,11 @@
     }
     else if (indexPath.section == 0 && indexPath.row == 5) {
         
+        // 连接RCKit
+//        [[RCIM sharedRCIM] disconnect:NO];
+//        [[RCDLive sharedRCDLive] disconnectRongCloud:NO];
+//        [self connectRCIMKit];
+        
         // 我的好友
         CYMyFriendVC *myFriendVC = [[CYMyFriendVC alloc] init];
         
@@ -583,6 +589,67 @@
     
     
 }
+
+//// 连接RCKit
+//- (void)connectRCIMKit{
+//    
+//    // 请求数据：获取用户在融云的token
+//    NSDictionary *params = @{
+//                             @"userId":self.onlyUser.userID
+//                             };
+//    
+//    // 请求数据：获取用户在融云的token
+//    [CYNetWorkManager getRequestWithUrl:cRongTokenUrl params:params progress:^(NSProgress *uploadProgress) {
+//        NSLog(@"获取用户在融云的token进度：%@",uploadProgress);
+//        
+//    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"获取用户在融云的token：请求成功！");
+//        
+//        
+//        // 1、
+//        NSString *code = responseObject[@"code"];
+//        
+//        // 1.2.1.1.2、和成功的code 匹配
+//        if ([code isEqualToString:@"0"]) {
+//            NSLog(@"获取用户在融云的token：获取成功！");
+//            NSLog(@"获取用户在融云的token：%@",responseObject);
+//            
+//            NSString *rongToken = [[NSString alloc] init];
+//            
+//            rongToken = responseObject[@"res"][@"data"][@"rongToken"];
+//            
+//            // 张
+//            //            rongToken = @"zgCNXiP/62lr5pXORE67srHIHFwdwGnJW2MDqrF5Ircl4YscTNyXhI3Vzxrp3/NyTXwSNrzIgzYzv4bk07wAT1/Zo5L7SGb1Ze4k30upkAJWWqqCQKRhihV/1StAMQGClpa8fh+ptCw=";
+//            
+//            // 陈
+//            //            rongToken = @"6pmtKgVJTdRa3Dspk8HK65G9QNwaviwLSzaRfvRwsqHFxClCT3mDQXMeZ0r/1J+V4joLMAwDhHKnj4sOrB3PtcQLqxcLBIeBn9TFPeFy3bq8Z9Vnd8sqL6asCG/Y4rULWDSNIP5Z+Jk=";
+//            
+//            NSLog(@"rongToken:%@",rongToken);
+//            
+//            // 融云：SDK-初始化：整个生命周期，只初始化一次
+//            // Kit：初始化
+//            [self setRongCloudKitWithCurrentUser:self.onlyUser andRongToken:rongToken];
+//            
+//            
+//            
+//        }
+//        else{
+//            NSLog(@"获取用户在融云的token：获取失败:responseObject:%@",responseObject);
+//            NSLog(@"获取用户在融云的token：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+//            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+//            //            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+//            
+//        }
+//        
+//        
+//    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"获取用户在融云的token：请求失败！:error:%@",error);
+//        
+//        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+//        
+//    } withToken:self.onlyUser.userToken];
+//    
+//}
 
 // 头部信息数组
 - (NSMutableArray *)headerInfoArr{

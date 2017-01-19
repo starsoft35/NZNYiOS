@@ -41,6 +41,13 @@
 //    }
     self.ageLab.text = [NSString stringWithFormat:@"%ld 岁",(long)self.onlyUser.Age];
     
+    
+    // 点击显示年龄选择器：View
+    self.showAgeSelectView.userInteractionEnabled = YES;
+    [self.showAgeSelectView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showAgeSelectViewClick)]];
+    
+    
+    
     ASBirthSelectSheet *datesheet = [[ASBirthSelectSheet alloc] initWithFrame:self.view.bounds];
     
     NSLog(@"self.onlyUser.Birthday:%@",self.onlyUser.Birthday);
@@ -73,6 +80,45 @@
     
     [self.view addSubview:datesheet];
     
+}
+
+// 点击显示年龄选择器：View
+- (void)showAgeSelectViewClick{
+    NSLog(@"// 点击显示年龄选择器：View");
+    
+    
+    
+    ASBirthSelectSheet *datesheet = [[ASBirthSelectSheet alloc] initWithFrame:self.view.bounds];
+    
+    NSLog(@"self.onlyUser.Birthday:%@",self.onlyUser.Birthday);
+    // 出生年月日
+    NSString *newBirthday = [[NSString alloc] init];
+    
+    BOOL isBirthday = ([self.onlyUser.Birthday isEqual:[NSNull null]]);
+    NSLog(@"isBirthday:%d",isBirthday);
+    
+    // 判断出生日期
+    if ([self.onlyUser.Birthday isEqual:[NSNull null]]) {
+        
+        // 如果是空的，则默认给个值，用来让出生年月选择器进行显示
+        newBirthday = @"2016-08-15";
+    }
+    else {
+        
+        // 如果不是空，则把出生日期的年月日，传过去
+        newBirthday = [self.onlyUser.Birthday substringToIndex:10];
+    }
+    datesheet.selectDate = newBirthday;
+    datesheet.GetSelectDate = ^(NSString *dateStr) {
+        
+        
+        // 网络请求：修改年龄
+        [self requestChangeUserInfoAgeWithBirthday:dateStr];
+        
+    };
+    
+    
+    [self.view addSubview:datesheet];
 }
 
 // 网络请求：修改年龄
@@ -166,7 +212,8 @@
             // 此界面显示
             NSString *newAgeStr = responseObject[@"res"][@"data"][@"age"];
             ;
-            // 网络请求：获取年龄
+            
+            
             self.ageLab.text = [NSString stringWithFormat:@"%ld 岁",(long)[newAgeStr integerValue]];;
             
             // 返回上一个界面

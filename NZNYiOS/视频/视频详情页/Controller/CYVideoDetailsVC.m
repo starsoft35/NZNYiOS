@@ -58,6 +58,8 @@
     self.navigationController.navigationBarHidden = YES;
     
     
+//    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
     // 加载数据
     [self loadData];
     
@@ -69,6 +71,8 @@
     
     // 显示导航栏
     self.navigationController.navigationBarHidden = NO;
+    
+//    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
 // 加载数据
@@ -522,8 +526,13 @@
     // 可以是本地视频、也可以是网络视频
     self.moviePlayerVC = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:urlStr]];
     
-    
-    
+//    NSLog(@"self.moviePlayerVC.childViewControllers:%@",self.moviePlayerVC.childViewControllers);
+//    
+//    NSLog(@"self.moviePlayerVC.moviePlayer.backgroundView.subviews:%@",self.moviePlayerVC.moviePlayer.backgroundView.subviews);
+//    NSArray *arr = self.moviePlayerVC.moviePlayer.view.subviews;
+//    
+//    [self.moviePlayerVC preferredStatusBarStyle];
+//    [self.moviePlayerVC prefersStatusBarHidden];
     
     
 //    self.moviePlayerVC = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:@"http://video.nznychina.com/play/video/abc/yang/"]];

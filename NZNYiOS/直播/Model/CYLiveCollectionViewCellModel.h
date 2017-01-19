@@ -11,6 +11,9 @@
 @interface CYLiveCollectionViewCellModel : CYBaseModel
 
 
+// 聊天室Id
+@property (nonatomic, copy) NSString *DiscussionId;
+
 // 直播背景图
 @property (nonatomic, copy) NSString *Pictrue;
 

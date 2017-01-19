@@ -155,8 +155,6 @@
 // collectionCell
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-//    CYLiveCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CYLiveCollectionViewCell" forIndexPath:indexPath];
     CYLiveCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CYLiveCollectionViewCell" forIndexPath:indexPath];
     
     
@@ -195,12 +193,12 @@
     
     
     // 网络请求：进入直播间
-    [self requestAudienceEnterLiveRoomWithLiveId:model.LiveId andUserId:self.onlyUser.userID];
+    [self requestAudienceEnterLiveRoomWithLiveId:model.LiveId andOppUserId:model.LiveUserId andDiscussionId:model.DiscussionId];
     
 }
 
 // 网络请求：观众进入直播间
-- (void)requestAudienceEnterLiveRoomWithLiveId:(NSString *)liveId andUserId:(NSString *)userId{
+- (void)requestAudienceEnterLiveRoomWithLiveId:(NSString *)liveId andOppUserId:(NSString *)oppUserId andDiscussionId:(NSString *)discussionId{
     NSLog(@"网络请求：观众进入直播间");
     
     // 网络请求：观众进入直播间
@@ -238,25 +236,13 @@
             
             NSLog(@"livePlayUrl:%@",livePlayUrl);
             
-            // 融云播放界面：
-            //            [self pushRongCloudPlayView];
-            
-            // 阿里播放界面：
-            //            [self pushALiPlayerViewControllerWithPlayUrl:responseObject[@"url"]];
-            //            [self pushALiPlayerViewControllerWithPlayUrl:tempUrl];
-            
-            
-            
-#warning 断开融云kit连接、连接RCDLive
-            // 断开融云kit连接
-//            [self disconnectRCKit];
             
             // 连接RCDLive
-//            [self connectRCDLive];
+            [self connectRCDLiveWithUrl:livePlayUrl andOppUserId:oppUserId andLiveId:liveId andLiveRoomId:liveRoomId andDiscussionId:discussionId];
+            
             
             // 阿里播放和融云IM界面：VC
-            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveRoomId];
-//            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveId];
+//            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveRoomId andDiscussionId:discussionId];
             
             
         }
@@ -278,22 +264,14 @@
     
 }
 
-// 断开融云kit连接
-- (void)disconnectRCKit{
-    NSLog(@"断开融云kit连接");
-    
-    [[RCIM sharedRCIM] disconnect];
-    
-    
-    // 连接RCDLive
-    [self connectRCDLive];
-    
-}
 
 
 // 连接RCDLive
-- (void)connectRCDLive{
+- (void)connectRCDLiveWithUrl:(NSString *)livePlayUrl andOppUserId:(NSString *)oppUserId andLiveId:(NSString *)liveId andLiveRoomId:(NSString *)liveRoomId andDiscussionId:(NSString *)discussionId{
     NSLog(@"连接RCDLive");
+    
+    
+    
     
     
     // 请求数据：获取用户在融云的token
@@ -323,7 +301,7 @@
             
             
             // 融云：初始化：使用RCDLive进行初始化
-//            [self setRongCloudWithRCDLiveWithCurrentUser:self.onlyUser andRongToken:rongToken];
+            [self setRongCloudWithRCDLiveWithUrl:livePlayUrl andOppUserId:oppUserId andLiveId:liveId andLiveRoomId:liveRoomId andDiscussionId:discussionId];
             
         }
         else{
@@ -345,17 +323,33 @@
 }
 
 
+// 融云：初始化：使用RCDLive进行初始化
+- (void)setRongCloudWithRCDLiveWithUrl:(NSString *)livePlayUrl andOppUserId:(NSString *)oppUserId andLiveId:(NSString *)liveId andLiveRoomId:(NSString *)liveRoomId andDiscussionId:(NSString *)discussionId{
+    
+    
+    [[RCDLive sharedRCDLive] initRongCloud:cRongAppKey];
+    
+    //注册自定义消息：送礼
+    [[RCDLive sharedRCDLive] registerRongCloudMessageType:[RCDLiveGiftMessage class]];
+    
+    // 阿里播放和融云IM界面：VC
+    [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:oppUserId andLiveId:liveId andLiveRoomId:liveRoomId andDiscussionId:discussionId];
+    
+    
+}
+
 
 // 阿里播放和融云IM界面：VC
-- (void)pushAliPlayAndRCIMVCWithUrl:(NSString *)playUrl andOppUserId:(NSString *)oppUserId andLiveId:(NSString *)liveId andLiveRoomId:(NSString *)LiveRoomId{
+- (void)pushAliPlayAndRCIMVCWithUrl:(NSString *)playUrl andOppUserId:(NSString *)oppUserId andLiveId:(NSString *)liveId andLiveRoomId:(NSString *)LiveRoomId andDiscussionId:(NSString *)discussionId{
     NSLog(@"阿里播放和融云IM界面：VC");
     
     CYLiveALiPlayAndRCIMVC *aliPlayAndRCIMVC = [[CYLiveALiPlayAndRCIMVC alloc] init];
     
     aliPlayAndRCIMVC.conversationType = ConversationType_CHATROOM;
-    // targetId：为聊天室Id，由直播详情页给出
-//    aliPlayAndRCIMVC.targetId = oppUserId;
     
+    // targetId：为聊天室Id，由直播详情页给出
+    aliPlayAndRCIMVC.targetId = discussionId;
+    NSLog(@"chatRoom:targetId:%@",discussionId);
     
     // 自定义需要的
     aliPlayAndRCIMVC.playUrl = playUrl;

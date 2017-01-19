@@ -96,21 +96,8 @@
     
     
     
-    
-    
-    
-    
-    
 #warning 登录融云服务器
 //    [self setRongCloudKit];
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -595,26 +582,13 @@
             
             rongToken = responseObject[@"res"][@"data"][@"rongToken"];
             
-            // 张
-//            rongToken = @"zgCNXiP/62lr5pXORE67srHIHFwdwGnJW2MDqrF5Ircl4YscTNyXhI3Vzxrp3/NyTXwSNrzIgzYzv4bk07wAT1/Zo5L7SGb1Ze4k30upkAJWWqqCQKRhihV/1StAMQGClpa8fh+ptCw=";
-            
-            // 陈
-//            rongToken = @"6pmtKgVJTdRa3Dspk8HK65G9QNwaviwLSzaRfvRwsqHFxClCT3mDQXMeZ0r/1J+V4joLMAwDhHKnj4sOrB3PtcQLqxcLBIeBn9TFPeFy3bq8Z9Vnd8sqL6asCG/Y4rULWDSNIP5Z+Jk=";
             
             NSLog(@"rongToken:%@",rongToken);
             
             // 融云：SDK-初始化：整个生命周期，只初始化一次
             // Kit：初始化
-//            [self setRongCloudKitWithCurrentUser:currentUser andRongToken:rongToken];
+            [self setRongCloudKitWithCurrentUser:currentUser andRongToken:rongToken];
             
-            
-            
-            // 融云：Lib：初始化
-//            [self setRongCloudLibWithCurrentUser:currentUser andRongToken:rongToken];
-            
-            
-            // 融云：初始化：使用RCDLive进行初始化
-            [self setRongCloudWithRCDLiveWithCurrentUser:currentUser andRongToken:rongToken];
             
         }
         else{
@@ -635,46 +609,6 @@
     
 }
 
-// 融云：初始化：使用RCDLive进行初始化
-- (void)setRongCloudWithRCDLiveWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken{
-    
-    
-    [[RCDLive sharedRCDLive] initRongCloud:cRongAppKey];
-    
-    //注册自定义消息：送礼
-    [[RCDLive sharedRCDLive] registerRongCloudMessageType:[RCDLiveGiftMessage class]];
-    
-    
-    NSLog(@"rongToken:%@",rongToken);
-    
-    // 连接融云：RCDLive来连接：用token
-    [[RCDLive sharedRCDLive] connectRongCloudWithToken:rongToken success:^(NSString *loginUserId) {
-        NSLog(@"融云：RCDLive：连接融云服务器，登录成功，当前登录的用户，在融云的ID：%@",loginUserId);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            
-            
-            RCUserInfo *user = [[RCUserInfo alloc]init];
-            user.userId = currentUser.userID;
-            user.portraitUri = currentUser.Portrait;
-            user.name = currentUser.RealName;
-            
-            
-            // 当前的用户：
-            [RCIMClient sharedRCIMClient].currentUserInfo = user;
-            
-            
-        });
-    } error:^(RCConnectErrorCode status) {
-        NSLog(@"融云：RCDLive：连接融云服务器，登录失败，错误码为：%ld",(long)status);
-        
-    } tokenIncorrect:^{
-        NSLog(@"融云：RCDLive：token错误");
-        
-        
-    }];
-}
 
 
 // 融云：Kitb：初始化
@@ -684,7 +618,7 @@
     
     [[RCIM sharedRCIM] initWithAppKey:cRongAppKey];
     // Kit：代理
-    //    [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
+//    [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
     [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
 
     // Kit：连接服务器：将获取的token传给融云服务器，只需调用一次
@@ -695,15 +629,21 @@
         [[RCIM sharedRCIM] setUserInfoDataSource:self];
         //        [[RCIM sharedRCIM] setGroupInfoDataSource:self];
         
+        // 代理：
+        [[RCIM sharedRCIM] setReceiveMessageDelegate:self];
         
         RCUserInfo *user = [[RCUserInfo alloc]init];
         user.userId = currentUser.userID;
         user.portraitUri = currentUser.Portrait;
         user.name = currentUser.RealName;
-
+        
 
         // 当前的用户：
         [RCIMClient sharedRCIMClient].currentUserInfo = user;
+        
+        [[RCIM sharedRCIM] currentUserInfo];
+//        [RCIM sharedRCIM].currentUserInfo = user;
+//        [[RCIM sharedRCIM] setCurrentUserInfo:user];
 
     } error:^(RCConnectErrorCode status) {
         NSLog(@"融云：Kit：连接融云服务器，登录失败，错误码为：%ld",(long)status);
@@ -721,60 +661,20 @@
     
 }
 
-// 融云：Lib：初始化
-- (void)setRongCloudLibWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken{
-    
-    
-    [[RCIMClient sharedRCIMClient] initWithAppKey:cRongAppKey];
-    //    // Lib：代理
-    [[RCIMClient sharedRCIMClient] setReceiveMessageDelegate:self object:nil];
-//    [[RCIMClient sharedRCIMClient] setRCConnectionStatusChangeDelegate:self];
-    
-    //     Lib：连接服务器
-    [[RCIMClient sharedRCIMClient] connectWithToken:rongToken success:^(NSString *userId) {
-        NSLog(@"融云：Lib：登陆成功。当前登录的用户ID：%@", userId);
-        // 代理：获取聊天界面用户信息，用于更改用户头像等....
-        
-        RCUserInfo *user = [[RCUserInfo alloc]init];
-        user.userId = currentUser.userID;
-        user.portraitUri = currentUser.Portrait;
-        user.name = currentUser.RealName;
-        
-        // 当前的用户：
-        [RCIMClient sharedRCIMClient].currentUserInfo = user;
-        
-        
-    } error:^(RCConnectErrorCode status) {
-        NSLog(@"融云：Lib：登陆的错误码为:%ld", (long)status);
-    } tokenIncorrect:^{
-        //token过期或者不正确。
-        //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
-        //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
-        NSLog(@"融云：Lib：token错误");
-    }];
-    
+
+
+
+
+
+- (void)onRCIMConnectionStatusChanged:(RCConnectionStatus)status{
     
     
 }
 
-
-
-
-
-
-
-- (void)onConnectionStatusChanged:(RCConnectionStatus)status {
-//    if (/*ConnectionStatus_NETWORK_UNAVAILABLE != status && */ConnectionStatus_UNKNOWN != status &&
-//        ConnectionStatus_Unconnected != status) {
-//        [[NSNotificationCenter defaultCenter] postNotificationName:RCDLiveKitDispatchConnectionStatusChangedNotification
-//                                                            object:[NSNumber numberWithInt:status]];
-//    } else {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self performSelector:@selector(delayNotifyUnConnectedStatus) withObject:nil afterDelay:3];
-//        });
-//    }
+- (void)onRCIMReceiveMessage:(RCMessage *)message left:(int)left{
+    
+    
 }
-
 
 // 融云代理实现方法：设置聊天界面，用户信息：Id、头像、用户名。
 - (void)getUserInfoWithUserId:(NSString *)userId completion:(void(^)(RCUserInfo* userInfo))completion

@@ -20,20 +20,29 @@
 #import <RongIMLib/RongIMLib.h>
 #import "RCDLiveGiftMessage.h"
 
+#import "AppDelegate.h"
+
 
 @interface CYBaseViewController : UIViewController<
+//UIApplicationDelegate,
 //WXApiDelegate,
 CLLocationManagerDelegate,
 UIActionSheetDelegate,
 UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,
-UIApplicationDelegate
-//RCIMUserInfoDataSource,
-//RCIMGroupInfoDataSource,
-//RCIMReceiveMessageDelegate,
+UIApplicationDelegate,
+
+
+RCIMUserInfoDataSource,
+RCIMGroupInfoDataSource,
+RCIMReceiveMessageDelegate,
 //RCIMClientReceiveMessageDelegate,
-//RCConnectionStatusChangeDelegate
+RCConnectionStatusChangeDelegate
 >
+
+
+// 是否第一次登陆
+@property (nonatomic, assign) BOOL ifIsFirstLogin;
 
 // 提示框：hud
 @property (nonatomic,strong)MBProgressHUD *hud;
@@ -69,11 +78,11 @@ UIApplicationDelegate
 @property (nonatomic, strong) UILabel *noDataLab;
 
 
-//// 融云：Kitb：初始化
-//- (void)setRongCloudKitWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken;
-//
-//// 融云：初始化：使用RCDLive进行初始化
-//- (void)setRongCloudWithRCDLiveWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken;
+// 融云：Kitb：初始化
+- (void)setRongCloudKitWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken;
+
+// 融云：初始化：使用RCDLive进行初始化
+- (void)setRongCloudWithRCDLiveWithCurrentUser:(CYUser *)currentUser andRongToken:(NSString *)rongToken;
 
 // 经纬度 -> 地理位置（地理位置反编码）
 - (void)locationWithLatitude:(CLLocationDegrees)latitude andLongitude:(CLLocationDegrees)longitude;
@@ -165,5 +174,9 @@ UIApplicationDelegate
 
 // 分享：微信分享：网页类型分享
 - (void)sharedToWeChatWithWebpageWithShareTitle:(NSString *)shareTitle andDescription:(NSString *)shareDescription andImage:(UIImage *)image andWebpageUrl:(NSString *)webPageUrl andbText:(BOOL)bText andScene:(int)scene;
+
+
+// 自动计算label的高度、宽度
+- (CGSize)labelAutoCalculateRectWith:(NSString *)text FontSize:(CGFloat)fontSize MaxSize:(CGSize)maxSize;
 
 @end

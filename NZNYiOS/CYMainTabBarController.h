@@ -25,13 +25,16 @@
 // 阿里播放器：初始化
 #import <AliyunPlayerSDK/AliyunPlayerSDK.h>
 
+
 @interface CYMainTabBarController : UITabBarController<
 //CLLocationManagerDelegate,
 RCIMUserInfoDataSource,
 RCIMGroupInfoDataSource,
 RCIMReceiveMessageDelegate,
-RCIMClientReceiveMessageDelegate,
-RCConnectionStatusChangeDelegate,
+//RCIMClientReceiveMessageDelegate,
+RCIMReceiveMessageDelegate,
+//RCConnectionStatusChangeDelegate,
+RCIMConnectionStatusDelegate,
 UINavigationControllerDelegate,
 AliVcAccessKeyProtocol>
 

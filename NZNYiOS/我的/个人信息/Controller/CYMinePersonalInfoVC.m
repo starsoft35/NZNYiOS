@@ -262,28 +262,6 @@
 // 创建tableView（即tableView要展示的内容）
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-        //标示符
-//        static NSString *cellId = @"cellID";
-//    
-//        // 从缓冲池查找ID对象，
-//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-//    
-//        // 没有就创建
-//        if (!cell) {
-//    
-//            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellId];
-//        }
-//    
-//        //设置箭头
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//    
-//        NSDictionary *tempCellDict = _dataArray[indexPath.section][indexPath.row];
-//    
-//        cell.textLabel.text = tempCellDict[@"cellTitle"];
-//        cell.imageView.image = [UIImage imageNamed:tempCellDict[@"cellIcon"]];
-//        cell.detailTextLabel.text = tempCellDict[@"cellDetailTitle"];
-    
-//    [_tableView registerNib:[UINib nibWithNibName:@"CYInfoHeaderCell" bundle:nil] forCellReuseIdentifier:@"CYInfoHeaderCell"];
     
     // 从缓冲池查找ID对象，
     if (indexPath.section == 0 && indexPath.row == 0) {
@@ -349,6 +327,26 @@
             
             cell.detailLab.font = [UIFont systemFontOfSize:15];
             cell.detailLab.adjustsFontSizeToFitWidth = NO;
+            
+            // 自动计算label的高度、宽度
+            CGSize tempLabelSize = [self labelAutoCalculateRectWith:cell.detailLab.text FontSize:15 MaxSize:CGSizeMake(240.0 / 375.0 * cScreen_Width, 80.0 / 667.0 * cScreen_Height)];
+            
+            
+            CGRect tempDetailLabRect = CGRectMake(cell.detailLab.frame.origin.x, cell.detailLab.frame.origin.y, tempLabelSize.width, tempLabelSize.height);
+            
+            cell.detailLab.numberOfLines = 0;
+            cell.detailLab.frame = tempDetailLabRect;
+            
+            
+            // 首行缩进
+            NSMutableParagraphStyle *paraStyle01 = [[NSMutableParagraphStyle alloc] init];
+            paraStyle01.alignment = NSTextAlignmentLeft;  //对齐
+            paraStyle01.headIndent = 0.0f;//行首缩进
+            //参数：（字体大小17号字乘以2，34f即首行空出两个字符）
+            CGFloat emptylen = cell.detailLab.font.pointSize * 2;
+            paraStyle01.firstLineHeadIndent = emptylen;
+            NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:cell.detailLab.text attributes:@{NSParagraphStyleAttributeName:paraStyle01}];
+            cell.detailLab.attributedText = attrText;
         }
         
         [cell.detailLab setTextColor:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00]];
@@ -452,13 +450,21 @@
 // cell 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    
     if (indexPath.section == 0 && indexPath.row == 0 ) {
         
-        return (140.0 / 1246.0) * self.view.frame.size.height;
+        return (140.0 / 1334.0) * self.view.frame.size.height;
+    }
+    else if (indexPath.section == 1 && indexPath.row == 0) {
+        
+        // 自动计算label的高度、宽度
+        CGSize tempLabelSize = [self labelAutoCalculateRectWith:self.userInfoDataArr[indexPath.section][indexPath.row][@"cellDetailTitle"] FontSize:15 MaxSize:CGSizeMake(240.0 / 375.0 * cScreen_Width, 80.0 / 667.0 * cScreen_Height)];
+        
+        return ((88.0 / 1334.0) * self.view.frame.size.height) + (tempLabelSize.height / 2);
     }
     else {
         
-        return (88.0 / 1246.0) * self.view.frame.size.height;
+        return (88.0 / 1334.0) * self.view.frame.size.height;
     }
 }
 
@@ -471,7 +477,7 @@
     }
     else {
         
-        return 20.0 / 1246 * self.view.frame.size.height;
+        return 20.0 / 1334 * self.view.frame.size.height;
     }
 }
 

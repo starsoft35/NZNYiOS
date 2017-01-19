@@ -232,103 +232,6 @@
     [self requestStartLiveWithLiveId:model.LiveId];
     
     
-    // 直播状态
-//    if (model.IsEnter) {
-        
-        // 如果是可以进入，则进入主播详情页，拉流、聊天开始
-#warning 我的直播详情页
-//        CYLivePushDetailsVC *livePushDetailsVC = [[CYLivePushDetailsVC alloc] init];
-//        
-//        [self.navigationController pushViewController:livePushDetailsVC animated:YES];
-    
-        
-        // 直播推流详情页
-//        CYLivePushDetailsVC *livePlayDetailsVC = [[CYLivePushDetailsVC alloc] init];
-//        
-//        livePlayDetailsVC.liveID = model.LiveId;
-//        
-//        //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
-//        UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:livePlayDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
-//        
-//        
-//        [self showViewController:tempVideoNav sender:self];
-    
-    
-    
-    
-    
-    
-    
-//    // 阿里直播推流详情页
-////    NSString *newUrl = @"rtmp://video-center.alivecdn.com/AppName/StreamName?vhost=live.nznychina.com";
-//    NSString *newUrl = @"rtmp://video-center.alivecdn.com/zcy/s1?vhost=live.nznychina.com";
-//    
-//    AlivcLiveViewController *liveVC = [[AlivcLiveViewController alloc] initWithNibName:@"AlivcLiveViewController" bundle:nil url:newUrl];
-////    liveVC.view.frame = self.view.frame;
-//    
-//    liveVC.liveID = model.LiveId;
-//    liveVC.isScreenHorizontal = NO;
-////    [self presentViewController:live animated:YES completion:nil];
-//    
-//    UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:liveVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
-//    [liveVC.navigationController setNavigationBarHidden:YES animated:YES];
-//    [self showViewController:tempVideoNav sender:self];
-    
-    
-    
-    
-    
-    
-//    [self.navigationController pushViewController:tempVideoNav animated:YES];
-//    }
-//    else {
-//        
-//        // 如果不可以进入，弹窗提示
-//        [self showHubWithLabelText:@"可提前三分钟进入直播间" andHidAfterDelay:3.0];
-//    }
-    
-    //    // 融云SDK
-    //    // 新建一个聊天会话viewController 对象
-    //    CYChatVC *chatVC = [[CYChatVC alloc] init];
-    //
-    //
-    //
-    //    // 设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
-    //
-    //    // 聊天室
-    //    chatVC.conversationType = ConversationType_CHATROOM;
-    //
-    //    // 模型
-    ////    CYMyFriendViewCellModel *tempMyFriendModel = self.dataArray[indexPath.row];
-    //
-    //    // 设置会话的目标会话ID。（单聊、客服、公众服务号会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
-    //    chatVC.targetId = @"聊天室1";
-    //
-    //    // 设置聊天会话界面要显示的标题
-    //    chatVC.title = @"聊天室1~~";
-    //
-    //    chatVC.hidesBottomBarWhenPushed = YES;
-    //
-    //    // 显示聊天会话界面
-    //    [self.navigationController pushViewController:chatVC animated:YES];
-    //
-    //    self.hidesBottomBarWhenPushed = NO;
-    
-    
-    // 模型
-//    CYLiveCollectionViewCellModel *liveCellModel = self.dataArray[indexPath.row];
-//    
-//    // 主播详情页
-//    CYLivePlayDetailsVC *livePlayDetailsVC = [[CYLivePlayDetailsVC alloc] init];
-//    
-//    livePlayDetailsVC.liveID = liveCellModel.LiveId;
-//    livePlayDetailsVC.isTrailer = NO;
-//    
-//    //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
-//    UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:livePlayDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
-//    
-//    
-//    [self showViewController:tempVideoNav sender:self];
     
 }
 
@@ -368,18 +271,13 @@
             
             
             
-#warning 断开融云kit连接、连接RCDLive
-            // 断开融云kit连接
-//            [self disconnectRCKit];
             
             // 连接RCDLive
-//            [self connectRCDLive];
-            
+            [self connectRCDLiveWithPushUrl:livePushUrl andLiveId:liveId andChatRoomId:liveId andExpectEndTimestamp:expectEndTimestamp];
             
             // 打开直播
             // 阿里直播推流和融云IM详情页
-            //            [self addLiveALiPushAndRCIMVCWithPushUrl:newUrl andLiveId:liveid andOppUserId:self.onlyUser.userID];
-            [self addLiveALiPushAndRCIMVCWithPushUrl:livePushUrl andLiveId:liveId andOppUserId:self.onlyUser.userID andExpectEndTimestamp:expectEndTimestamp];
+//            [self addLiveALiPushAndRCIMVCWithPushUrl:livePushUrl andLiveId:liveId andChatRoomId:liveId andOppUserId:self.onlyUser.userID andExpectEndTimestamp:expectEndTimestamp];
             
         }
         else{
@@ -401,22 +299,10 @@
     
 }
 
-// 断开融云kit连接
-- (void)disconnectRCKit{
-    NSLog(@"断开融云kit连接");
-    
-    [[RCIM sharedRCIM] disconnect];
-    
-    // 连接RCDLive
-    [self connectRCDLive];
-    
-}
-
 
 // 连接RCDLive
-- (void)connectRCDLive{
+- (void)connectRCDLiveWithPushUrl:(NSString *)livePushUrl andLiveId:(NSString *)liveId andChatRoomId:(NSString *)chatRoomId andExpectEndTimestamp:(NSString *)expectEndTimestamp{
     NSLog(@"连接RCDLive");
-    
     
     // 请求数据：获取用户在融云的token
     NSDictionary *params = @{
@@ -445,14 +331,14 @@
             
             
             // 融云：初始化：使用RCDLive进行初始化
-//            [self setRongCloudWithRCDLiveWithCurrentUser:self.onlyUser andRongToken:rongToken];
+            [self setRongCloudWithRCDLiveWithPushUrl:livePushUrl andLiveId:liveId andChatRoomId:liveId andExpectEndTimestamp:expectEndTimestamp];
             
         }
         else{
             NSLog(@"获取用户在融云的token：获取失败:responseObject:%@",responseObject);
             NSLog(@"获取用户在融云的token：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
             // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
-            //            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
             
         }
         
@@ -466,8 +352,24 @@
     
 }
 
+// 融云：初始化：使用RCDLive进行初始化
+- (void)setRongCloudWithRCDLiveWithPushUrl:(NSString *)livePushUrl andLiveId:(NSString *)liveId andChatRoomId:(NSString *)chatRoomId andExpectEndTimestamp:(NSString *)expectEndTimestamp{
+    
+    
+    [[RCDLive sharedRCDLive] initRongCloud:cRongAppKey];
+    
+    //注册自定义消息：送礼
+    [[RCDLive sharedRCDLive] registerRongCloudMessageType:[RCDLiveGiftMessage class]];
+    
+    // 打开直播
+    // 阿里直播推流和融云IM详情页
+    [self addLiveALiPushAndRCIMVCWithPushUrl:livePushUrl andLiveId:liveId andChatRoomId:chatRoomId andExpectEndTimestamp:expectEndTimestamp];
+    
+    
+}
+
 // 阿里直播推流和融云IM详情页
-- (void)addLiveALiPushAndRCIMVCWithPushUrl:(NSString *)pushUrl andLiveId:(NSString *)liveId andOppUserId:(NSString *)oppUserId andExpectEndTimestamp:(NSString *)expectEndTimestamp{
+- (void)addLiveALiPushAndRCIMVCWithPushUrl:(NSString *)pushUrl andLiveId:(NSString *)liveId andChatRoomId:(NSString *)chatRoomId andExpectEndTimestamp:(NSString *)expectEndTimestamp{
     NSLog(@"阿里直播推流和融云IM详情页");
     
     CYMyLiveAliLiveAndRCIMVC *livePushVC = [[CYMyLiveAliLiveAndRCIMVC alloc] init];
@@ -475,8 +377,8 @@
     
     livePushVC.conversationType = ConversationType_CHATROOM;
     // targetId：为聊天室Id，由直播详情页给出
-//    livePushVC.targetId = oppUserId;
-    
+    livePushVC.targetId = chatRoomId;
+    NSLog(@"livePushVC.targetId:%@",livePushVC.targetId);
     
     // 自定义所需的信息
     livePushVC.pushUrl = pushUrl;

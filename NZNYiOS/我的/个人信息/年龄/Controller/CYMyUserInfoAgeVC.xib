@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CYMyUserInfoAgeVC">
             <connections>
                 <outlet property="ageLab" destination="pyU-MS-5bK" id="xsk-Jl-4WM"/>
+                <outlet property="showAgeSelectView" destination="2Qk-5Q-wvY" id="vzn-Je-5c9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,6 +26,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OaD-3r-dl0" userLabel="1.年龄-View">
                     <rect key="frame" x="0.0" y="5" width="375" height="44"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qk-5Q-wvY" userLabel="1.0-点击显示年龄选择器-View">
+                            <rect key="frame" x="58" y="0.0" width="302" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年龄" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XFf-35-QLO" userLabel="1.1-年龄-Label">
                             <rect key="frame" x="13" y="15" width="45" height="15"/>
                             <constraints>
@@ -43,9 +48,13 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="2Qk-5Q-wvY" secondAttribute="trailing" constant="15" id="2eL-wU-CSy"/>
+                        <constraint firstAttribute="bottom" secondItem="2Qk-5Q-wvY" secondAttribute="bottom" id="2vW-Ud-WWB"/>
                         <constraint firstItem="pyU-MS-5bK" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XFf-35-QLO" secondAttribute="trailing" constant="20" id="EEt-He-zcw"/>
+                        <constraint firstItem="2Qk-5Q-wvY" firstAttribute="top" secondItem="OaD-3r-dl0" secondAttribute="top" id="JeK-TE-YCz"/>
                         <constraint firstItem="pyU-MS-5bK" firstAttribute="height" secondItem="OaD-3r-dl0" secondAttribute="height" multiplier="30:88" id="JsT-ra-DFq"/>
                         <constraint firstItem="XFf-35-QLO" firstAttribute="leading" secondItem="OaD-3r-dl0" secondAttribute="leading" constant="13" id="M9W-U7-Qfb"/>
+                        <constraint firstItem="2Qk-5Q-wvY" firstAttribute="leading" secondItem="XFf-35-QLO" secondAttribute="trailing" id="NBO-w2-qy4"/>
                         <constraint firstAttribute="trailing" secondItem="pyU-MS-5bK" secondAttribute="trailing" constant="15" id="ORT-Pt-vsZ"/>
                         <constraint firstItem="pyU-MS-5bK" firstAttribute="centerY" secondItem="OaD-3r-dl0" secondAttribute="centerY" id="cPB-TX-S5S"/>
                         <constraint firstItem="XFf-35-QLO" firstAttribute="height" secondItem="OaD-3r-dl0" secondAttribute="height" multiplier="30:88" id="hEl-VF-nsr"/>
@@ -72,6 +81,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
 </document>

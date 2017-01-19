@@ -42,9 +42,20 @@
 
 
 @interface CYMyLiveAliLiveAndRCIMVC ()<
-UICollectionViewDelegate, UICollectionViewDataSource,
-UICollectionViewDelegateFlowLayout, RCDLiveMessageCellDelegate, UIGestureRecognizerDelegate,
-UIScrollViewDelegate, UINavigationControllerDelegate,RCTKInputBarControlDelegate,RCConnectionStatusChangeDelegate>
+UICollectionViewDelegate,
+UICollectionViewDataSource,
+UICollectionViewDelegateFlowLayout,
+UIScrollViewDelegate,
+UIGestureRecognizerDelegate,
+UINavigationControllerDelegate,
+
+
+RCDLiveMessageCellDelegate,
+RCTKInputBarControlDelegate,
+//RCConnectionStatusChangeDelegate,
+RCIMConnectionStatusDelegate
+
+>
 
 
 //
@@ -194,7 +205,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     self.defaultHistoryMessageCountOfChatRoom = 10;
     
     // 设置IMLib的连接状态监听器
-    [[RCIMClient sharedRCIMClient]setRCConnectionStatusChangeDelegate:self];
+//    [[RCIMClient sharedRCIMClient]setRCConnectionStatusChangeDelegate:self];
+    [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
 }
 
 /**
@@ -239,7 +251,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
     
-    // 加载数据
+    // 加载数据：主播的信息、聊天室消息
     [self loadData];
     
     
@@ -262,8 +274,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 - (void)loadData{
     
     // 网络请求：直播详情页
-    
-    // 新地址
+    // 参数
     NSDictionary *params = @{
                              @"userId":self.onlyUser.userID,
                              @"id":self.liveID
@@ -305,10 +316,18 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             self.oppUserId = tempLivePushDetailsViewModel.LiveUserId;
             
             
-            self.targetId = responseObject[@"res"][@"data"][@"model"][@"DiscussionId"];
+//            self.targetId = responseObject[@"res"][@"data"][@"model"][@"DiscussionId"];
+            
+            
+            
+            
+            // 初始化视频直播
+            [self initializedLiveSubViews];
             
             // 当前会话类型为聊天室时，加入聊天室
             [self joinChatRoomWithChatRoomId:self.targetId];
+            
+            
             
             
             
@@ -335,37 +354,28 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
 }
 
+
 // 当前会话类型为聊天室时，加入聊天室
 - (void)joinChatRoomWithChatRoomId:(NSString *)chatRoomId{
     
     
     __weak CYMyLiveAliLiveAndRCIMVC *weakSelf = self;
     
-    
+    NSLog(@"joinChatRoom:self.targetId:%@",self.targetId);
     
     
     //聊天室类型进入时需要调用加入聊天室接口，退出时需要调用退出聊天室接口
     // 当前会话类型为聊天室时，加入聊天室
     if (ConversationType_CHATROOM == self.conversationType) {
+        
+        
         [[RCIMClient sharedRCIMClient]
          joinChatRoom:self.targetId
          messageCount:-1
          success:^{
              dispatch_async(dispatch_get_main_queue(), ^{
+             
                  
-                 
-#warning 可以用自己的视频播放器
-                 // 视频播放器：初始化，并带入视频地址
-                 //                 self.livePlayingManager = [[KSYLivePlaying alloc] initPlaying:self.contentURL];
-                 //                 self.livePlayingManager = [[LELivePlaying alloc] initPlaying:@"201604183000000z4"];
-                 //                 self.livePlayingManager = [[QINIULivePlaying alloc] initPlaying:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
-                 //                 self.livePlayingManager = [[QCLOUDLivePlaying alloc] initPlaying:@"http://2527.vod.myqcloud.com/2527_117134a2343111e5b8f5bdca6cb9f38c.f20.mp4"];
-                 
-                 // 初始化视频直播
-                 [self initializedLiveSubViews];
-                 
-                 // 开始播放
-                 //                 [self.livePlayingManager startPlaying];
                  
                  
                  // 通知消息类：谁加入了聊天室
@@ -427,7 +437,15 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 - (void)loadErrorAlert:(NSString *)title {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+        
+        
         [self.navigationController popViewControllerAnimated:YES];
+        
+        
+        
+        
+        
     }];
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];
@@ -471,7 +489,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 - (void)dealloc {
     
 //    [self quitConversationViewAndClear];
-    [self closeBtnClick];
+//    [self closeBtnClick];
 }
 
 /**
@@ -746,16 +764,11 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     NSLog(@"关闭btn：点击事件");
     
     
-    //    [self dismissViewControllerAnimated:YES completion:nil];
-    //    [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+
     
-    
-#warning 断开RCDLive连接、连接RCKit
-    // 断开RCDlive连接
-//    [self disconnectRCDLive];
-    
-    // 连接RCKit
-//    [self connectRCIMKit];
+    // 销毁自己的播放器
+    [self.aliLiveVC closeBtnForPushView];
     
     
     // 判断是否销毁直播间：
@@ -766,8 +779,6 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     if (self.conversationType == ConversationType_CHATROOM) {
         
         
-        // 销毁自己的播放器
-        [self.aliLiveVC closeBtnForPushView];
         
         
         // 退出聊天室
@@ -777,16 +788,11 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             self.conversationMessageCollectionView.dataSource = nil;
             self.conversationMessageCollectionView.delegate = nil;
             [[NSNotificationCenter defaultCenter] removeObserver:self];
-//            [[RCDLive sharedRCDLive] logoutRongCloud];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-            });
+            
             
         } error:^(RCErrorCode status) {
             NSLog(@"退出聊天室：失败！");
             
-            [self dismissViewControllerAnimated:YES completion:nil];
         }];
         
     }
@@ -796,77 +802,6 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
 }
 
-// 断开RCDlive连接
-- (void)disconnectRCDLive{
-    NSLog(@"断开RCDlive连接");
-    
-    [[RCIMClient sharedRCIMClient] disconnect];
-    
-    // 连接RCKit
-    [self connectRCIMKit];
-    
-}
-
-// 连接RCKit
-- (void)connectRCIMKit{
-    
-    // 请求数据：获取用户在融云的token
-    NSDictionary *params = @{
-                             @"userId":self.onlyUser.userID
-                             };
-    
-    // 请求数据：获取用户在融云的token
-    [CYNetWorkManager getRequestWithUrl:cRongTokenUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"获取用户在融云的token进度：%@",uploadProgress);
-        
-    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"获取用户在融云的token：请求成功！");
-        
-        
-        // 1、
-        NSString *code = responseObject[@"code"];
-        
-        // 1.2.1.1.2、和成功的code 匹配
-        if ([code isEqualToString:@"0"]) {
-            NSLog(@"获取用户在融云的token：获取成功！");
-            NSLog(@"获取用户在融云的token：%@",responseObject);
-            
-            NSString *rongToken = [[NSString alloc] init];
-            
-            rongToken = responseObject[@"res"][@"data"][@"rongToken"];
-            
-            // 张
-            //            rongToken = @"zgCNXiP/62lr5pXORE67srHIHFwdwGnJW2MDqrF5Ircl4YscTNyXhI3Vzxrp3/NyTXwSNrzIgzYzv4bk07wAT1/Zo5L7SGb1Ze4k30upkAJWWqqCQKRhihV/1StAMQGClpa8fh+ptCw=";
-            
-            // 陈
-            //            rongToken = @"6pmtKgVJTdRa3Dspk8HK65G9QNwaviwLSzaRfvRwsqHFxClCT3mDQXMeZ0r/1J+V4joLMAwDhHKnj4sOrB3PtcQLqxcLBIeBn9TFPeFy3bq8Z9Vnd8sqL6asCG/Y4rULWDSNIP5Z+Jk=";
-            
-            NSLog(@"rongToken:%@",rongToken);
-            
-            // 融云：SDK-初始化：整个生命周期，只初始化一次
-            // Kit：初始化
-//            [self setRongCloudKitWithCurrentUser:self.onlyUser andRongToken:rongToken];
-            
-            
-            
-        }
-        else{
-            NSLog(@"获取用户在融云的token：获取失败:responseObject:%@",responseObject);
-            NSLog(@"获取用户在融云的token：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
-            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
-            //            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
-            
-        }
-        
-        
-    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"获取用户在融云的token：请求失败！:error:%@",error);
-        
-        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
-        
-    } withToken:self.onlyUser.userToken];
-    
-}
 
 // 判断是否销毁直播间：
 - (void)judgeIfDestroyLiveRoomWithExpectEndTimestamp:(NSString *)expectEndTimestamp andLiveId:(NSString *)liveId{
@@ -1106,9 +1041,6 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 - (void)changeModel:(BOOL)isFullScreen {
     
     
-#warning 需要接入自己的播放器
-    // 金山播放器：frame
-    //    self.livePlayingManager.currentLiveView.frame = self.view.frame;
     
     // 直播互动文字
     _titleView.hidden = YES;
@@ -1745,9 +1677,14 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  *
  *  @param status <#status description#>
  */
-- (void)onConnectionStatusChanged:(RCConnectionStatus)status {
+//- (void)onConnectionStatusChanged:(RCConnectionStatus)status {
+//    self.currentConnectionStatus = status;
+//}
+- (void)onRCIMConnectionStatusChanged:(RCConnectionStatus)status{
+    
     self.currentConnectionStatus = status;
 }
+
 
 
 - (void)praiseHeart{

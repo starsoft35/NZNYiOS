@@ -58,6 +58,20 @@
     self.locationLab.text = self.onlyUser.City;
     
     
+    // 点击出现地址选择器：View
+    self.showAreaSelectView.userInteractionEnabled = YES;
+    [self.showAreaSelectView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showAreaSelectViewClick)]];
+    
+    
+    
+    
+}
+
+// 点击出现地址选择器：View
+- (void)showAreaSelectViewClick{
+    NSLog(@"// 点击出现地址选择器：View");
+    
+    
     self.picker = [[ActionSheetCustomPicker alloc]initWithTitle:@"选择地区" delegate:self showCancelButton:YES origin:self.view initialSelections:@[@(self.index1),@(self.index2),@(self.index3)]];
     
     self.picker.tapDismissAction  = TapActionSuccess;
@@ -83,8 +97,6 @@
     
     
     [self.picker showActionSheetPicker];
-    
-    
 }
 
 

@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CYMyUserInfoLocationVC">
             <connections>
                 <outlet property="locationLab" destination="QbP-Xp-vEf" id="Py2-jG-HXh"/>
+                <outlet property="showAreaSelectView" destination="Okw-nn-AJe" id="zGr-gE-W2E"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,6 +26,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsh-z2-FS9" userLabel="1.当前位置-View">
                     <rect key="frame" x="0.0" y="5" width="375" height="44"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Okw-nn-AJe" userLabel="1.0.点击出现地址选择器-View">
+                            <rect key="frame" x="140" y="0.0" width="222" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-pin.png" translatesAutoresizingMaskIntoConstraints="NO" id="0wr-oY-3LK" userLabel="1.1.位置图标-Image View">
                             <rect key="frame" x="13" y="11.5" width="14.5" height="21"/>
                             <constraints>
@@ -53,10 +58,14 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="QbP-Xp-vEf" secondAttribute="trailing" constant="13" id="E0q-I3-do7"/>
+                        <constraint firstAttribute="bottom" secondItem="Okw-nn-AJe" secondAttribute="bottom" id="EgF-17-yP4"/>
                         <constraint firstItem="QbP-Xp-vEf" firstAttribute="centerY" secondItem="vsh-z2-FS9" secondAttribute="centerY" id="LH0-d4-tKt"/>
+                        <constraint firstAttribute="trailing" secondItem="Okw-nn-AJe" secondAttribute="trailing" constant="13" id="R0P-W8-glP"/>
+                        <constraint firstItem="Okw-nn-AJe" firstAttribute="leading" secondItem="rNj-R0-Nbb" secondAttribute="trailing" id="UAD-0M-moa"/>
                         <constraint firstItem="0wr-oY-3LK" firstAttribute="leading" secondItem="vsh-z2-FS9" secondAttribute="leading" constant="13" id="Uq5-bS-GMp"/>
                         <constraint firstItem="rNj-R0-Nbb" firstAttribute="height" secondItem="vsh-z2-FS9" secondAttribute="height" multiplier="30:88" id="Vj8-PK-SaN"/>
                         <constraint firstItem="rNj-R0-Nbb" firstAttribute="centerY" secondItem="vsh-z2-FS9" secondAttribute="centerY" id="VwQ-La-drN"/>
+                        <constraint firstItem="Okw-nn-AJe" firstAttribute="top" secondItem="vsh-z2-FS9" secondAttribute="top" id="cjJ-A0-SbP"/>
                         <constraint firstItem="0wr-oY-3LK" firstAttribute="height" secondItem="vsh-z2-FS9" secondAttribute="height" multiplier="42:88" id="fsn-Rg-0Zi"/>
                         <constraint firstItem="QbP-Xp-vEf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rNj-R0-Nbb" secondAttribute="trailing" constant="10" id="iRh-bG-zNR"/>
                         <constraint firstItem="rNj-R0-Nbb" firstAttribute="leading" secondItem="0wr-oY-3LK" secondAttribute="trailing" constant="8" id="lYM-X4-TAU"/>

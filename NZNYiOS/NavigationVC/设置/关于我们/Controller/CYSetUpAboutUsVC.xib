@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CYSetUpAboutUsVC">
             <connections>
+                <outlet property="aboutUsLab" destination="lbd-8m-TZR" id="hE9-sC-qN6"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

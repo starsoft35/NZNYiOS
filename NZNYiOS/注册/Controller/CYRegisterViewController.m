@@ -172,7 +172,7 @@
 - (void)registerRequest{
     
     
-    // 拼接参数
+    // 拼接参数：注册
     NSDictionary *registParams = @{
                              @"Account":self.registerMainV.cellNumTF.text,
                              @"MobileCode":self.registerMainV.verificationTF.text,
@@ -181,11 +181,7 @@
                              };
     
     
-    // 测试Url
-    NSString *testUrl = [NSString stringWithFormat:@"%@/Account/%@/MobileCode/%@/Password/%@/ConfirmPassword/%@",cRegisterUrl,self.registerMainV.cellNumTF.text,self.registerMainV.verificationTF.text,self.registerMainV.passwordTF.text,self.registerMainV.passwordTF.text];
-    NSLog(@"testUrl:%@",testUrl);
-    
-    // 拼接参数
+    // 拼接参数：登录
     NSDictionary *loginParams = @{
                              @"Account":self.registerMainV.cellNumTF.text,
                              @"Password":self.registerMainV.passwordTF.text
@@ -193,12 +189,10 @@
     
     
     // 注册请求
-    [CYNetWorkManager postRequestWithUrl:testUrl params:nil progress:^(NSProgress *uploadProgress) {
+    [CYNetWorkManager postRequestWithUrl:cRegisterUrl params:registParams progress:^(NSProgress *uploadProgress) {
         NSLog(@"注册请求进度：%@",uploadProgress);
     } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"responseObject:%@",responseObject);
-        NSString *str = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
-        NSLog(@"responseStr:%@",str);
         
         NSLog(@"注册：提交信息成功!");
         

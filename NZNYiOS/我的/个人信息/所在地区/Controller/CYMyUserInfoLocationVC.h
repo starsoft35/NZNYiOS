@@ -22,6 +22,11 @@ typedef void(^MyBlock)(NSString *address,NSArray *selections);
 - (IBAction)useCurrentLocationBtnClick:(id)sender;
 
 
+// 点击出现地址选择器：view
+@property (weak, nonatomic) IBOutlet UIView *showAreaSelectView;
+
+
+
 @property (nonatomic,strong) NSArray *selections; //!< 选择的三个下标
 @property (nonatomic,copy) MyBlock myBlock; //!< 回调地址的block
 

@@ -31,8 +31,9 @@
     // 加载数据
     [self loadData];
     
-    // 提前注册
+    self.baseTableView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - 64);
     
+    // 提前注册
     [self.baseTableView registerNib:[UINib nibWithNibName:@"CYSearchViewCell" bundle:nil] forCellReuseIdentifier:@"CYSearchViewCell"];
 }
 

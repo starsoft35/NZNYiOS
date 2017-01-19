@@ -14,7 +14,7 @@
 @property (nonatomic, assign) float CertificateLevel;
 
 // 城市
-//@property (nonatomic, copy) NSString *City;
+@property (nonatomic, copy) NSString *City;
 
 // 粉丝数量
 @property (nonatomic, assign) NSInteger FansCount;

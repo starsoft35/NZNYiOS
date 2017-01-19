@@ -10,4 +10,10 @@
 
 @interface CYSetUpAboutUsVC : CYBaseViewController
 
+
+// 关于我们：label
+@property (weak, nonatomic) IBOutlet UILabel *aboutUsLab;
+
+
+
 @end

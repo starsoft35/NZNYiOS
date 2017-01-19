@@ -225,6 +225,27 @@
             
             titleAndDetailCell.detailLab.font = [UIFont systemFontOfSize:15];
             titleAndDetailCell.detailLab.adjustsFontSizeToFitWidth = NO;
+            
+            // 自动计算label的高度、宽度
+            CGSize tempLabelSize = [self labelAutoCalculateRectWith:titleAndDetailCell.detailLab.text FontSize:15 MaxSize:CGSizeMake(240.0 / 375.0 * cScreen_Width, 80.0 / 667.0 * cScreen_Height)];
+            
+            
+            CGRect tempDetailLabRect = CGRectMake(titleAndDetailCell.detailLab.frame.origin.x, titleAndDetailCell.detailLab.frame.origin.y, tempLabelSize.width, tempLabelSize.height);
+            
+            titleAndDetailCell.detailLab.numberOfLines = 0;
+            titleAndDetailCell.detailLab.frame = tempDetailLabRect;
+            
+            
+            // 首行缩进
+            NSMutableParagraphStyle *paraStyle01 = [[NSMutableParagraphStyle alloc] init];
+            paraStyle01.alignment = NSTextAlignmentLeft;  //对齐
+            paraStyle01.headIndent = 0.0f;//行首缩进
+            //参数：（字体大小17号字乘以2，34f即首行空出两个字符）
+            CGFloat emptylen = titleAndDetailCell.detailLab.font.pointSize * 2;
+            paraStyle01.firstLineHeadIndent = emptylen;// 首行缩进
+            NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:titleAndDetailCell.detailLab.text attributes:@{NSParagraphStyleAttributeName:paraStyle01}];
+            titleAndDetailCell.detailLab.attributedText = attrText;
+            
         }
         
         return titleAndDetailCell;
@@ -240,6 +261,23 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     
+}
+
+// cell 的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        
+        // 自动计算label的高度、宽度
+        CGSize tempLabelSize = [self labelAutoCalculateRectWith:self.dataArray[indexPath.section][indexPath.row][@"detail"] FontSize:15 MaxSize:CGSizeMake(240.0 / 375.0 * cScreen_Width, 80.0 / 667.0 * cScreen_Height)];
+        
+        return ((88.0 / 1334.0) * self.view.frame.size.height) + (tempLabelSize.height / 2);
+    }
+    else {
+        
+        return (88.0 / 1334.0) * self.view.frame.size.height;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

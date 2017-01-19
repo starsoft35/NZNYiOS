@@ -23,6 +23,7 @@
     // 头像
     _mineHeadImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:mineMainHeaderViewModel.portrait];
     
+    
     _mineHeadImgView.layer.cornerRadius = (100.0 / 200.0) * _mineHeadImgView.frame.size.height;
     NSLog(@"headerView.mineHeadImgView.frame.size.height / 2:%lf",_mineHeadImgView.frame.size.height / 2);
     
@@ -34,7 +35,15 @@
     _userIDLab.text = mineMainHeaderViewModel.fId;
     
     // 地址：label
-    _userAddressLab.text = mineMainHeaderViewModel.userAddress;
+    if ([mineMainHeaderViewModel.userAddress isEqualToString:@""]) {
+        
+        _userAddressLab.text = [NSString stringWithFormat:@"暂无地址信息"];
+    }
+    else {
+        
+        _userAddressLab.text = [NSString stringWithFormat:@"%@",mineMainHeaderViewModel.userAddress];
+    }
+    
     
     // 性别：imgView
     NSString *genderImgName = [[NSString alloc] init];

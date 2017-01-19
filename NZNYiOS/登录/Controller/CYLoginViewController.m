@@ -178,7 +178,8 @@
         
         // 2、用户名、密码填写并且格式正确，提交信息到后台
         
-        // 2.1、登录：请求数据       
+        
+        // 2.1、登录：请求数据
         [self loginRequestWithAccount:self.loginView.cellNumTF.text andUserPSW:self.loginView.passwordTF.text];
         
     }
@@ -250,11 +251,6 @@
     
     
 }
-
-- (void)onResp:(BaseResp *)resp{
-    
-}
-
 
 
 

@@ -162,14 +162,14 @@
 - (void)ladyImgViewClick{
     NSLog(@"女士头像点击事件：手势");
     
-    if ([_gender isEqualToString:@"男"]) {
-        
+//    if ([_gender isEqualToString:@"男"]) {
+    
         _perfectInfoMainView.ladyImgView.image = [UIImage imageNamed:@"女士选择"];
         
         _perfectInfoMainView.manImgView.image = [UIImage imageNamed:@"男士未选"];
         
         _gender = @"女";
-    }
+//    }
     
 }
 
@@ -177,14 +177,14 @@
 - (void)manImgViewClick{
     NSLog(@"男士头像点击事件：手势");
     
-    if ([_gender isEqualToString:@"女"]) {
-        
+//    if ([_gender isEqualToString:@"女"]) {
+    
         _perfectInfoMainView.manImgView.image = [UIImage imageNamed:@"男士选择"];
         
         _perfectInfoMainView.ladyImgView.image = [UIImage imageNamed:@"女士未选"];
         
         _gender = @"男";
-    }
+//    }
     
 }
 // 头像点击事件：手势
@@ -327,8 +327,8 @@
             // 上传图片成功，修改imageView
             _perfectInfoMainView.headImgView.image = image;
             
-            _headImgPathReturn = [NSString stringWithFormat:@"%@%@",cHostUrl,responseObject[@"res"][@"data"][@"path"]];
-            // 绝对路径
+            // 相对路径
+            _headImgPathReturn = responseObject[@"res"][@"data"][@"path"];
             
         }
         else{
@@ -399,7 +399,6 @@
                 // 创建mainTabbar，设置为根视图控制器
 //                [self dismissViewControllerAnimated:YES completion:nil];
                 [self loginSuccess];
-                
                 
             }
             else{

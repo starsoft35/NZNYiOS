@@ -63,7 +63,7 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
 @property (nonatomic, strong) Reachability *conn;
 
 @property (nonatomic,assign)NSTimeInterval currentPlayPos;
-@property (nonatomic,assign)CGFloat systemBrightness;
+
 @property (nonatomic,assign)GestureType gestureType;
 @property (nonatomic,assign)CGPoint originalLocation;
 @property (nonatomic,strong)UIImageView *brightnessView;

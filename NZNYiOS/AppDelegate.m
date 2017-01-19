@@ -113,30 +113,16 @@
     }
     else {
         
-        // 有文件：如果没有账号密码，说明之前是微信登录，则用微信重新登录
-        // 微信：重新登录
-        [self weChatLoginRequestAgain];
+        // 有文件：如果没有账号密码，说明之前是微信登录，则让用户重新登录，设置登录VC 为根视图控制器。
+        [self setUpRootVCWithLoginVC];
         
     }
     
     NSLog(@"userAccount:%@",user.userAccount);
     NSLog(@"userToken:%@",user.userToken);
-    // 3、设置根视图控制器
-    self.window.rootViewController = [[CYMainTabBarController alloc] init];
+//    // 3、设置根视图控制器
+//    self.window.rootViewController = [[CYMainTabBarController alloc] init];
     
-}
-
-// 微信：重新登录，重新获取token
-- (void)weChatLoginRequestAgain{
-    
-    // 授权登录：构造SendAuthReq结构体
-    SendAuthReq *req = [[SendAuthReq alloc] init];
-    
-    req.scope = cWXScope;
-    req.state = cWXState;
-    
-    //第三方向微信终端发送一个SendAuthReq消息结构
-    [WXApi sendReq:req];
 }
 
 
@@ -171,9 +157,9 @@
             // 设置当前登录的用户。
             [self setCurrentUser:responseObject];
             
-//            
-//            // 3、设置根视图控制器
-//            self.window.rootViewController = [[CYMainTabBarController alloc] init];
+            
+            // 3、设置根视图控制器
+            self.window.rootViewController = [[CYMainTabBarController alloc] init];
             
             // 隐藏加载菊花
             [self hidenLoadingView];
@@ -229,6 +215,9 @@
     
     // 设置状态栏样式
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    // 3、设置根视图控制器
+    self.window.rootViewController = [[UIViewController alloc] init];
     
     // 让窗口显示
     [self.window makeKeyAndVisible];
@@ -337,7 +326,7 @@
             
             
             // 是否第一次登录
-            _isFirstLogin = responseObject[@"res"][@"isFirstLogin"];
+            _isFirstLogin = [responseObject[@"res"][@"isFirstLogin"] integerValue];
             
             if (_isFirstLogin) {
                 NSLog(@"微信登录：是第一次登录");
@@ -411,7 +400,7 @@
     CYMainTabBarController *mainTabBarVC = [[CYMainTabBarController alloc] init];
     
     // 2、切换界面：切换window 的根视图控制器
-    AppDelegate *appdelegate = [UIApplication sharedApplication].delegate;
+    AppDelegate *appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     
     appdelegate.window.rootViewController = mainTabBarVC;
     

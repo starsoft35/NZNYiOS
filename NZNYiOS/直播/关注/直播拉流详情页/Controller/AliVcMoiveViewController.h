@@ -47,6 +47,9 @@
  *  如果位本地地址，则需要用[NSURL fileURLWithPath:path]初始化NSURL
  *  如果为网络地址则需要用[NSURL URLWithString:path]初始化NSURL
  */
-- (void) SetMoiveSource:(NSURL*)url; 
+- (void) SetMoiveSource:(NSURL*)url;
+
+// 屏幕亮度：
+@property (nonatomic,assign)CGFloat systemBrightness;
 
 @end
