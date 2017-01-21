@@ -322,7 +322,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             
             
             // 初始化视频直播
-            [self initializedLiveSubViews];
+//            [self initializedLiveSubViews];
+            
             
             // 当前会话类型为聊天室时，加入聊天室
             [self joinChatRoomWithChatRoomId:self.targetId];
@@ -375,6 +376,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
          success:^{
              dispatch_async(dispatch_get_main_queue(), ^{
              
+                 
                  
                  
                  
@@ -724,9 +726,12 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 // 直播推流详情页
 - (void)addLiveALiPushVC{
     
+//    self.pushUrl = @"rtmp://video-center.alivecdn.com/nzny/993a5e86-7e4d-4c12-921a-215e425c12f7?vhost=live.nznychina.com&auth_key=1485009206-0-0-9e8abda1e86e293c80baafc08dd1f7f5";
     
     _aliLiveVC = [[AlivcLiveViewController alloc] initWithNibName:@"AlivcLiveViewController" bundle:nil url:self.pushUrl];
     //    liveVC.view.frame = self.view.frame;
+    
+    NSLog(@"livePushUrl:%@",self.pushUrl);
     
     _aliLiveVC.liveID = self.liveID;
     _aliLiveVC.isScreenHorizontal = NO;

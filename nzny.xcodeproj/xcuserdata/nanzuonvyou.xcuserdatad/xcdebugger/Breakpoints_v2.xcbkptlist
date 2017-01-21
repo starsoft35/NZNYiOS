@@ -15,8 +15,328 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "783"
             endingLineNumber = "783"
-            landmarkName = "-getUserInfoWithUserId:completion:"
+            landmarkName = "-getAccessKeyIDSecret"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/&#x76f4;&#x64ad;&#x63a8;&#x6d41;&#x8be6;&#x60c5;&#x9875;/Controller/CYLivePushDetailsVC.m"
+            timestampString = "506656567.536656"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "368"
+            endingLineNumber = "368"
+            landmarkName = "-alivcLiveVideoLiveSession:bitrateStatusChange:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[CYLivePushDetailsVC alivcLiveVideoLiveSession:bitrateStatusChange:]"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/CYLivePushDetailsVC.m"
+                  timestampString = "506694566.09103"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "368"
+                  endingLineNumber = "368"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__69-[CYLivePushDetailsVC alivcLiveVideoLiveSession:bitrateStatusChange:]_block_invoke"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/CYLivePushDetailsVC.m"
+                  timestampString = "506694566.092524"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "368"
+                  endingLineNumber = "368"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/Controller/CYMyLiveAliLiveAndRCIMVC.m"
+            timestampString = "506673163.824633"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "756"
+            endingLineNumber = "756"
+            landmarkName = "-topHeadNameIDFollowViewClick"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/&#x76f4;&#x64ad;&#x63a8;&#x6d41;&#x8be6;&#x60c5;&#x9875;/Controller/CYLivePushDetailsVC.m"
+            timestampString = "506656639.269779"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "-topHeadNameIDFollowViewClick"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/&#x76f4;&#x64ad;&#x63a8;&#x6d41;&#x8be6;&#x60c5;&#x9875;/Controller/AlivcLiveViewController.m"
+            timestampString = "506693681.223955"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "560"
+            endingLineNumber = "560"
+            landmarkName = "-disconnectButtonClick:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/&#x76f4;&#x64ad;&#x63a8;&#x6d41;&#x8be6;&#x60c5;&#x9875;/Controller/AlivcLiveViewController.m"
+            timestampString = "506694036.966227"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "500"
+            endingLineNumber = "500"
+            landmarkName = "-closeBtnForPushView"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/&#x76f4;&#x64ad;&#x63a8;&#x6d41;&#x8be6;&#x60c5;&#x9875;/Controller/AlivcLiveViewController.m"
+            timestampString = "506694046.675278"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "477"
+            endingLineNumber = "477"
+            landmarkName = "-alertView:clickedButtonAtIndex:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/&#x76f4;&#x64ad;&#x63a8;&#x6d41;&#x8be6;&#x60c5;&#x9875;/Controller/AlivcLiveViewController.m"
+            timestampString = "506694206.871817"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
+            landmarkName = "-alivcLiveVideoLiveSession:encodeVideoError:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AlivcLiveViewController alivcLiveVideoLiveSession:encodeVideoError:]"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
+                  timestampString = "506694566.109212"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "461"
+                  endingLineNumber = "461"
+                  offsetFromSymbolStart = "92">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__70-[AlivcLiveViewController alivcLiveVideoLiveSession:encodeVideoError:]_block_invoke"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
+                  timestampString = "506694566.110595"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "462"
+                  endingLineNumber = "462"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/&#x76f4;&#x64ad;&#x63a8;&#x6d41;&#x8be6;&#x60c5;&#x9875;/Controller/AlivcLiveViewController.m"
+            timestampString = "506694264.767135"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "416"
+            endingLineNumber = "416"
+            landmarkName = "-alivcLiveVideoLiveSessionNetworkSlow:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AlivcLiveViewController alivcLiveVideoLiveSessionNetworkSlow:]"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
+                  timestampString = "506694566.113403"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "416"
+                  endingLineNumber = "416"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__64-[AlivcLiveViewController alivcLiveVideoLiveSessionNetworkSlow:]_block_invoke"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
+                  timestampString = "506694566.114731"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "416"
+                  endingLineNumber = "416"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/&#x76f4;&#x64ad;&#x63a8;&#x6d41;&#x8be6;&#x60c5;&#x9875;/Controller/AlivcLiveViewController.m"
+            timestampString = "506694270.797418"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
+            landmarkName = "-alivcLiveVideoReconnectTimeout:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AlivcLiveViewController alivcLiveVideoReconnectTimeout:]"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
+                  timestampString = "506694566.118087"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "400"
+                  endingLineNumber = "400"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__58-[AlivcLiveViewController alivcLiveVideoReconnectTimeout:]_block_invoke"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
+                  timestampString = "506694566.119505"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "401"
+                  endingLineNumber = "401"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/&#x76f4;&#x64ad;&#x63a8;&#x6d41;&#x8be6;&#x60c5;&#x9875;/Controller/AlivcLiveViewController.m"
+            timestampString = "506694290.643397"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
+            landmarkName = "-alivcLiveVideoLiveSession:error:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AlivcLiveViewController alivcLiveVideoLiveSession:error:]"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
+                  timestampString = "506694566.122357"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "388"
+                  endingLineNumber = "388"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__59-[AlivcLiveViewController alivcLiveVideoLiveSession:error:]_block_invoke"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
+                  timestampString = "506694566.123827"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "388"
+                  endingLineNumber = "388"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

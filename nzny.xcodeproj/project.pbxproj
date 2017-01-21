@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		8A0815D11E12152100F6C4D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A0815D01E12152100F6C4D2 /* Assets.xcassets */; };
+		8A18C89C1E3309A80004DBBA /* AliyunPlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BF41E30E68500A3579C /* AliyunPlayerSDK.framework */; };
+		8A18C89D1E3309A80004DBBA /* AliyunPlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BF41E30E68500A3579C /* AliyunPlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8A18C8A01E330A8B0004DBBA /* AliyunPlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A18C89F1E330A8B0004DBBA /* AliyunPlayerSDK.framework */; };
 		8A309E7A1D63172900F41396 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A309E791D63172900F41396 /* main.m */; };
 		8A309E881D63172900F41396 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A309E861D63172900F41396 /* LaunchScreen.storyboard */; };
 		8A309E931D63172900F41396 /* NZNYiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A309E921D63172900F41396 /* NZNYiOSTests.m */; };
-		8A6168A61E30E8E200720AF6 /* AliyunPlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BF41E30E68500A3579C /* AliyunPlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A7AA52E1DCDCA0F00285F05 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7AA52D1DCDCA0F00285F05 /* SystemConfiguration.framework */; };
 		8A7AA5301DCDCA3800285F05 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7AA52F1DCDCA3800285F05 /* libsqlite3.0.tbd */; };
 		8A7AA5321DCDCA5200285F05 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7AA5311DCDCA5200285F05 /* libc++.tbd */; };
@@ -727,7 +729,6 @@
 		8AD17F111E30E68700A3579C /* RongCloud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8AD17BEE1E30E68500A3579C /* RongCloud.bundle */; };
 		8AD17F121E30E68700A3579C /* RongIMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BEF1E30E68500A3579C /* RongIMKit.framework */; };
 		8AD17F131E30E68700A3579C /* RongIMLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BF01E30E68500A3579C /* RongIMLib.framework */; };
-		8AD17F141E30E68700A3579C /* AliyunPlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BF41E30E68500A3579C /* AliyunPlayerSDK.framework */; };
 		8AD17F151E30E68700A3579C /* AlivcLiveVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BF61E30E68500A3579C /* AlivcLiveVideo.framework */; };
 		8AD17F161E30E68700A3579C /* CYSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD17BFB1E30E68500A3579C /* CYSearchVC.m */; };
 		8AD17F171E30E68700A3579C /* CYSearchViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD17BFE1E30E68500A3579C /* CYSearchViewCellModel.m */; };
@@ -788,13 +789,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8AA222C81DF4011E00A6E5D2 /* Embed Frameworks */ = {
+		8A18C89E1E3309A80004DBBA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8A6168A61E30E8E200720AF6 /* AliyunPlayerSDK.framework in Embed Frameworks */,
+				8A18C89D1E3309A80004DBBA /* AliyunPlayerSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -803,7 +804,7 @@
 
 /* Begin PBXFileReference section */
 		8A0815D01E12152100F6C4D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8A124CF91E30E9B30087E84A /* 1.17.docx */ = {isa = PBXFileReference; lastKnownFileType = file; name = 1.17.docx; path = ../1.17.docx; sourceTree = "<group>"; };
+		8A18C89F1E330A8B0004DBBA /* AliyunPlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunPlayerSDK.framework; path = "../男左女右iOS/资料/7.阿里云/阿里云视频SDK/AliyunVideoPlayerSDK_ios2.2/lib/arm/AliyunPlayerSDK.framework"; sourceTree = "<group>"; };
 		8A309E751D63172900F41396 /* nzny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nzny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A309E791D63172900F41396 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A309E871D63172900F41396 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1870,7 +1871,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AD17F141E30E68700A3579C /* AliyunPlayerSDK.framework in Frameworks */,
+				8A18C8A01E330A8B0004DBBA /* AliyunPlayerSDK.framework in Frameworks */,
+				8A18C89C1E3309A80004DBBA /* AliyunPlayerSDK.framework in Frameworks */,
 				8AF58DF71E1B8B5100D523D3 /* CoreMotion.framework in Frameworks */,
 				8AF58DF51E1B8B4000D523D3 /* Foundation.framework in Frameworks */,
 				8AD17F151E30E68700A3579C /* AlivcLiveVideo.framework in Frameworks */,
@@ -1947,22 +1949,22 @@
 			isa = PBXGroup;
 			children = (
 				8AA298501E1E2D63001AD2F2 /* address.json */,
+				8AD179881E30E68500A3579C /* image */,
+				8AD17B221E30E68500A3579C /* libs */,
+				8AD17C351E30E68500A3579C /* NetWork */,
+				8AD17C391E30E68500A3579C /* User */,
+				8AD17C3C1E30E68600A3579C /* Utilities */,
+				8AD17BF71E30E68500A3579C /* NavigationVC */,
 				8AD1771A1E30E68400A3579C /* 登录 */,
-				8AD1772C1E30E68400A3579C /* 社区 */,
-				8AD177471E30E68400A3579C /* 视频 */,
-				8AD177C91E30E68400A3579C /* 我的 */,
-				8AD179061E30E68500A3579C /* 直播 */,
 				8AD179721E30E68500A3579C /* 注册 */,
+				8AD177471E30E68400A3579C /* 视频 */,
+				8AD179061E30E68500A3579C /* 直播 */,
+				8AD1772C1E30E68400A3579C /* 社区 */,
+				8AD177C91E30E68400A3579C /* 我的 */,
 				8AD179841E30E68500A3579C /* AppDelegate.h */,
 				8AD179851E30E68500A3579C /* AppDelegate.m */,
 				8AD179861E30E68500A3579C /* CYMainTabBarController.h */,
 				8AD179871E30E68500A3579C /* CYMainTabBarController.m */,
-				8AD179881E30E68500A3579C /* image */,
-				8AD17B221E30E68500A3579C /* libs */,
-				8AD17BF71E30E68500A3579C /* NavigationVC */,
-				8AD17C351E30E68500A3579C /* NetWork */,
-				8AD17C391E30E68500A3579C /* User */,
-				8AD17C3C1E30E68600A3579C /* Utilities */,
 				8A309E861D63172900F41396 /* LaunchScreen.storyboard */,
 				8A0815D01E12152100F6C4D2 /* Assets.xcassets */,
 				8A309E891D63172900F41396 /* Info.plist */,
@@ -2121,8 +2123,8 @@
 				8AD177481E30E68400A3579C /* Controller */,
 				8AD1774B1E30E68400A3579C /* Model */,
 				8AD177501E30E68400A3579C /* View */,
-				8AD177541E30E68400A3579C /* 关注 */,
 				8AD177B81E30E68400A3579C /* 热门 */,
+				8AD177541E30E68400A3579C /* 关注 */,
 				8AD177BE1E30E68400A3579C /* 视频详情页 */,
 			);
 			path = "视频";
@@ -3464,9 +3466,9 @@
 				8AD178781E30E68500A3579C /* Controller */,
 				8AD1787B1E30E68500A3579C /* Model */,
 				8AD1787C1E30E68500A3579C /* View */,
-				8AD178801E30E68500A3579C /* 直播报名 */,
-				8AD178891E30E68500A3579C /* 记录 */,
 				8AD178941E30E68500A3579C /* 预告 */,
+				8AD178891E30E68500A3579C /* 记录 */,
+				8AD178801E30E68500A3579C /* 直播报名 */,
 			);
 			path = "直播";
 			sourceTree = "<group>";
@@ -3585,10 +3587,10 @@
 		8AD178951E30E68500A3579C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8AD178961E30E68500A3579C /* CYMyLiveAliLiveAndRCIMVC.h */,
-				8AD178971E30E68500A3579C /* CYMyLiveAliLiveAndRCIMVC.m */,
 				8AD178981E30E68500A3579C /* CYMyLiveTrailerVC.h */,
 				8AD178991E30E68500A3579C /* CYMyLiveTrailerVC.m */,
+				8AD178961E30E68500A3579C /* CYMyLiveAliLiveAndRCIMVC.h */,
+				8AD178971E30E68500A3579C /* CYMyLiveAliLiveAndRCIMVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3994,9 +3996,9 @@
 				8AD179071E30E68500A3579C /* Controller */,
 				8AD1790A1E30E68500A3579C /* Model */,
 				8AD1790D1E30E68500A3579C /* View */,
-				8AD179111E30E68500A3579C /* 关注 */,
 				8AD179311E30E68500A3579C /* 直播 */,
 				8AD1796C1E30E68500A3579C /* 预告 */,
+				8AD179111E30E68500A3579C /* 关注 */,
 			);
 			path = "直播";
 			sourceTree = "<group>";
@@ -4157,10 +4159,10 @@
 		8AD179321E30E68500A3579C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8AD179331E30E68500A3579C /* CYLiveALiPlayAndRCIMVC.h */,
-				8AD179341E30E68500A3579C /* CYLiveALiPlayAndRCIMVC.m */,
 				8AD179351E30E68500A3579C /* CYLiveLiveVC.h */,
 				8AD179361E30E68500A3579C /* CYLiveLiveVC.m */,
+				8AD179331E30E68500A3579C /* CYLiveALiPlayAndRCIMVC.h */,
+				8AD179341E30E68500A3579C /* CYLiveALiPlayAndRCIMVC.m */,
 				8AD179371E30E68500A3579C /* 融云-直播聊天室 */,
 			);
 			path = Controller;
@@ -5649,7 +5651,7 @@
 		8AFA3A521DACC2D5001880C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8A124CF91E30E9B30087E84A /* 1.17.docx */,
+				8A18C89F1E330A8B0004DBBA /* AliyunPlayerSDK.framework */,
 				8AF58DF61E1B8B5100D523D3 /* CoreMotion.framework */,
 				8AF58DF41E1B8B4000D523D3 /* Foundation.framework */,
 				8AF58DF21E1B8B0B00D523D3 /* CoreText.framework */,
@@ -5696,7 +5698,7 @@
 				8A309E711D63172900F41396 /* Sources */,
 				8A309E721D63172900F41396 /* Frameworks */,
 				8A309E731D63172900F41396 /* Resources */,
-				8AA222C81DF4011E00A6E5D2 /* Embed Frameworks */,
+				8A18C89E1E3309A80004DBBA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

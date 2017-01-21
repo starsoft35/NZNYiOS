@@ -277,7 +277,10 @@
             
             // 打开直播
             // 阿里直播推流和融云IM详情页
-//            [self addLiveALiPushAndRCIMVCWithPushUrl:livePushUrl andLiveId:liveId andChatRoomId:liveId andOppUserId:self.onlyUser.userID andExpectEndTimestamp:expectEndTimestamp];
+//            [self addLiveALiPushAndRCIMVCWithPushUrl:livePushUrl andLiveId:liveId andChatRoomId:liveId andExpectEndTimestamp:expectEndTimestamp];
+            
+            // 阿里直播推流详情页
+//            [self addLiveALiPushVCWithPushUrl:livePushUrl andLiveId:liveId];
             
         }
         else{
@@ -378,6 +381,9 @@
     livePushVC.conversationType = ConversationType_CHATROOM;
     // targetId：为聊天室Id，由直播详情页给出
     livePushVC.targetId = chatRoomId;
+    livePushVC.targetId = self.onlyUser.userID;
+    livePushVC.targetId = liveId;
+//    livePushVC.targetId = @"1";
     NSLog(@"livePushVC.targetId:%@",livePushVC.targetId);
     
     // 自定义所需的信息

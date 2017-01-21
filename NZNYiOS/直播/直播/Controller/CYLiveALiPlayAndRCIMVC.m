@@ -174,6 +174,9 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 
 @implementation CYLiveALiPlayAndRCIMVC
 
+
+
+
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -265,6 +268,18 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     // 观众：提前注册：collectionView
     [self.portraitsCollectionView registerClass:[RCDLivePortraitViewCell class] forCellWithReuseIdentifier:@"portraitcell"];
+    
+    
+    
+    
+    
+    // 初始化视频直播
+    [self initializedLiveSubViews];
+    
+    
+    
+    // 当前会话类型为聊天室时，加入聊天室
+    [self joinChatRoomWithChatRoomId:self.targetId];
     
     
     
@@ -364,8 +379,15 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 //            
 //            self.targetId = responseObject[@"res"][@"data"][@"model"][@"DiscussionId"];
             
-            // 当前会话类型为聊天室时，加入聊天室
-            [self joinChatRoomWithChatRoomId:self.targetId];
+//            
+//            
+//            // 初始化视频直播
+//            [self initializedLiveSubViews];
+//            
+//            
+//            
+//            // 当前会话类型为聊天室时，加入聊天室
+//            [self joinChatRoomWithChatRoomId:self.targetId];
             
             
             // 网络请求：直播间观众
@@ -411,10 +433,6 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
          success:^{
              dispatch_async(dispatch_get_main_queue(), ^{
                  
-                 
-                 
-                 // 初始化视频直播
-                 [self initializedLiveSubViews];
                  
                  
                  
@@ -1176,14 +1194,12 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 - (void)pushALiPlayerViewControllerWithPlayUrl:(NSString *)playUrl{
     
     
+//    playUrl = @"rtmp://live.nznychina.com/nzny/993a5e86-7e4d-4c12-921a-215e425c12f7?auth_key=1485009206-0-0-9e8abda1e86e293c80baafc08dd1f7f5";
     
-    //            NSString *newUrl = @"http://live.nznychina.com/n99fbb0d7954afc2e5aeb2c36bd192309/lfff48c7b49a5e3e4eb321065029fb605.m3u8";
     
-    
-    NSLog(@"newPushUrl：%@",playUrl);
+    NSLog(@"newPlayUrl：%@",playUrl);
     
     _aliPlayVC = [[TBMoiveViewController alloc] init];
-    //        NSString* strUrl = urlField.text;
     
     // 屏幕亮度：因为原本里面的屏幕亮度设置是在viewWillAppear 里面设置的，现在直接把播放器VC的view添加到当前VC的view，不会调用播发器的viewWillAppear方法，所以在这里设置屏幕亮度；
     _aliPlayVC.systemBrightness = [UIScreen mainScreen].brightness;
@@ -1197,6 +1213,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
         [alter show];
         return;
     }
+    
+    
     [_aliPlayVC SetMoiveSource:url];
     
     //    //    [self presentViewController:currentView animated:YES completion:nil ];
@@ -1208,7 +1226,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
     //    [self.view addSubview:aLiPlayerVC.view];
-    [self.view insertSubview:_aliPlayVC.view atIndex:0];
+//    [self.view insertSubview:_aliPlayVC.view atIndex:0];
     
     
 }
@@ -1364,12 +1382,20 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  *  初始化视频直播
  */
 - (void)initializedLiveSubViews {
-    //    _liveView = self.livePlayingManager.currentLiveView;
+//        _liveView = self.livePlayingManager.currentLiveView;
+    
+    
+    
+    _liveView = _aliPlayVC.view;
+    
+    
+    
     _liveView.frame = self.view.frame;
     [self.view addSubview:_liveView];
     [self.view sendSubviewToBack:_liveView];
     
 }
+
 
 /**
  *  全屏和半屏模式切换
@@ -2031,7 +2057,9 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 //    self.currentConnectionStatus = status;
 //}
 - (void)onRCIMConnectionStatusChanged:(RCConnectionStatus)status{
+    
     self.currentConnectionStatus = status;
+    
 }
 
 

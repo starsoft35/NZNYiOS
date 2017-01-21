@@ -106,71 +106,71 @@
     
 }
 
-// 加载数据
-- (void)loadData{
-    
-    // 网络请求：直播详情页
-    // 新地址
-    NSDictionary *params = @{
-                             @"userId":self.onlyUser.userID,
-                             @"id":self.liveID
-                             };
-    
-    //    [self showLoadingView];
-    
-    // 网络请求：直播详情页
-    [CYNetWorkManager getRequestWithUrl:cLiveDetaillUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"获取直播详情页进度：%@",uploadProgress);
-        
-        
-    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"直播详情页：请求成功！");
-        
-        // 1、
-        NSString *code = responseObject[@"code"];
-        
-        // 1.2.1.1.2、和成功的code 匹配
-        if ([code isEqualToString:@"0"]) {
-            NSLog(@"直播详情页：获取成功！");
-            NSLog(@"直播详情页：%@",responseObject);
-            
-            // 清空：每次刷新都需要
-            [self.dataArray removeAllObjects];
-            
-            // 解析数据，模型存到数组
-            //            [self.dataArray addObject:[[CYLivePlayDetailsViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil]];
-            
-            // 模型
-            CYLivePushDetailsViewModel *tempLivePlayDetailsViewModel = [[CYLivePushDetailsViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil];
-            
-            
-            // 模型赋值
-            _livePushDetailsView.livePushDetailsViewModel = tempLivePlayDetailsViewModel;
-            
-            self.oppUserId = tempLivePlayDetailsViewModel.LiveUserId;
-            
-            // 请求数据结束，取消加载
-            //            [self hidenLoadingView];
-            
-            
-        }
-        else{
-            NSLog(@"直播详情页：获取失败:responseObject:%@",responseObject);
-            NSLog(@"直播详情页：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
-            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
-            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
-            
-        }
-        
-        
-    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"直播详情页：请求失败！");
-        NSLog(@"失败原因：error：%@",error);
-        
-        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
-    } withToken:self.onlyUser.userToken];
-    
-}
+//// 加载数据
+//- (void)loadData{
+//    
+//    // 网络请求：直播详情页
+//    // 新地址
+//    NSDictionary *params = @{
+//                             @"userId":self.onlyUser.userID,
+//                             @"id":self.liveID
+//                             };
+//    
+//    //    [self showLoadingView];
+//    
+//    // 网络请求：直播详情页
+//    [CYNetWorkManager getRequestWithUrl:cLiveDetaillUrl params:params progress:^(NSProgress *uploadProgress) {
+//        NSLog(@"获取直播详情页进度：%@",uploadProgress);
+//        
+//        
+//    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"直播详情页：请求成功！");
+//        
+//        // 1、
+//        NSString *code = responseObject[@"code"];
+//        
+//        // 1.2.1.1.2、和成功的code 匹配
+//        if ([code isEqualToString:@"0"]) {
+//            NSLog(@"直播详情页：获取成功！");
+//            NSLog(@"直播详情页：%@",responseObject);
+//            
+//            // 清空：每次刷新都需要
+//            [self.dataArray removeAllObjects];
+//            
+//            // 解析数据，模型存到数组
+//            //            [self.dataArray addObject:[[CYLivePlayDetailsViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil]];
+//            
+//            // 模型
+//            CYLivePushDetailsViewModel *tempLivePlayDetailsViewModel = [[CYLivePushDetailsViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil];
+//            
+//            
+//            // 模型赋值
+//            _livePushDetailsView.livePushDetailsViewModel = tempLivePlayDetailsViewModel;
+//            
+//            self.oppUserId = tempLivePlayDetailsViewModel.LiveUserId;
+//            
+//            // 请求数据结束，取消加载
+//            //            [self hidenLoadingView];
+//            
+//            
+//        }
+//        else{
+//            NSLog(@"直播详情页：获取失败:responseObject:%@",responseObject);
+//            NSLog(@"直播详情页：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+//            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+//            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+//            
+//        }
+//        
+//        
+//    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"直播详情页：请求失败！");
+//        NSLog(@"失败原因：error：%@",error);
+//        
+//        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+//    } withToken:self.onlyUser.userToken];
+//    
+//}
 
 
 
@@ -321,6 +321,7 @@
         
     AlivcLConfiguration *configuration = [[AlivcLConfiguration alloc] init];
     configuration.url = _url;
+    NSLog(@"aliPushUrl:%@",_url);
     
 //    configuration.url = @"rtmp://192.168.1.112:1935/hls/123?uid=10-vtoken=123456";
     

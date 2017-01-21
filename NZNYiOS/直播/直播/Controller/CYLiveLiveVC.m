@@ -349,12 +349,16 @@
     
     // targetId：为聊天室Id，由直播详情页给出
     aliPlayAndRCIMVC.targetId = discussionId;
-    NSLog(@"chatRoom:targetId:%@",discussionId);
+    aliPlayAndRCIMVC.targetId = oppUserId;
+//    aliPlayAndRCIMVC.targetId = self.onlyUser.userID;
+    aliPlayAndRCIMVC.targetId = liveId;
+    NSLog(@"play:targetId:%@",aliPlayAndRCIMVC.targetId);
     
     // 自定义需要的
     aliPlayAndRCIMVC.playUrl = playUrl;
     aliPlayAndRCIMVC.oppUserId = oppUserId;
     aliPlayAndRCIMVC.liveID = liveId;
+    // 观众在直播间的拥有的id，用于观众离开直播间时调用；
     aliPlayAndRCIMVC.liveRoomId = LiveRoomId;
     
     UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:aliPlayAndRCIMVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
