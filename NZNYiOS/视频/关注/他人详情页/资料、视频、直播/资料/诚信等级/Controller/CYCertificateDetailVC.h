@@ -10,4 +10,11 @@
 
 @interface CYCertificateDetailVC : CYBaseTableViewController
 
+
+
+// 认证列表数组
+@property (nonatomic, strong) NSMutableArray *newCertificateArr;
+
+
+
 @end

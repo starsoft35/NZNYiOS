@@ -38,6 +38,13 @@
 // 余额不足弹窗：VC
 #import "CYBalanceNotEnoughVC.h"
 
+
+#import <ifaddrs.h>
+#import <arpa/inet.h>
+
+
+
+
 @interface CYBaseViewController ()
 
 //// 密码flag
@@ -1536,6 +1543,56 @@
     labelSize.width = ceil(labelSize.width);
     return labelSize;
 }
+
+//获取当前视图的控制器
+- (UIViewController*)viewControllerWithView:(UIView *)tempView{
+    for (UIView* next = [tempView superview]; next; next = next.superview) {
+        UIResponder* nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UINavigationController class]]) {
+            return (UIViewController*)nextResponder;
+        }
+    }
+    return nil;
+}
+
+//获取当前视图的导航控制器
+- (UINavigationController*)navigationControllerWithView:(UIView *)tempView{
+    for (UIView* next = [tempView superview]; next; next = next.superview) {
+        UIResponder* nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UINavigationController class]]) {
+            return (UINavigationController*)nextResponder;
+        }
+    }
+    return nil;
+}
+
+// 获取本机ip地址
+- (NSString *)getIPAddress{
+    NSString *address = @"error";
+    struct ifaddrs *interfaces = NULL;
+    struct ifaddrs *temp_addr = NULL;
+    int success = 0;
+    // retrieve the current interfaces - returns 0 on success
+    success = getifaddrs(&interfaces);
+    if (success == 0) {
+        // Loop through linked list of interfaces
+        temp_addr = interfaces;
+        while(temp_addr != NULL) {
+            if(temp_addr->ifa_addr->sa_family == AF_INET) {
+                // Check if interface is en0 which is the wifi connection on the iPhone
+                if([[NSString stringWithUTF8String:temp_addr->ifa_name] isEqualToString:@"en0"]) {
+                    // Get NSString from C String
+                    address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
+                }
+            }
+            temp_addr = temp_addr->ifa_next;
+        }
+    }
+    // Free memory
+    freeifaddrs(interfaces);
+    return address;
+}
+
 
 
 // 提示框

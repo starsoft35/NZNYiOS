@@ -179,4 +179,15 @@ RCConnectionStatusChangeDelegate
 // 自动计算label的高度、宽度
 - (CGSize)labelAutoCalculateRectWith:(NSString *)text FontSize:(CGFloat)fontSize MaxSize:(CGSize)maxSize;
 
+//获取当前视图的控制器
+- (UIViewController*)viewControllerWithView:(UIView *)tempView;
+
+
+//获取当前视图的导航控制器
+- (UINavigationController*)navigationControllerWithView:(UIView *)tempView;
+
+
+// 获取本机ip地址
+- (NSString *)getIPAddress;
+
 @end

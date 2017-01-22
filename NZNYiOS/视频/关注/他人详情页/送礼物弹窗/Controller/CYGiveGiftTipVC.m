@@ -134,12 +134,14 @@
                 // 余额不足弹窗：VC
                 CYBalanceNotEnoughVC *balanceNotEnoughVC = [[CYBalanceNotEnoughVC alloc] init];
                 
-                UINavigationController *tempBalanceNotEnoughNav = [CYUtilities createDefaultNavCWithRootVC:balanceNotEnoughVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
                 
-                [balanceNotEnoughVC.navigationController setNavigationBarHidden:YES animated:YES];
+//                UINavigationController *tempBalanceNotEnoughNav = [CYUtilities createDefaultNavCWithRootVC:balanceNotEnoughVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+//                
+//                [balanceNotEnoughVC.navigationController setNavigationBarHidden:YES animated:YES];
                 
                 //                [self showViewController:tempVideoNav sender:self];
-                [self presentViewController:tempBalanceNotEnoughNav animated:YES completion:nil];
+//                [self presentViewController:tempBalanceNotEnoughNav animated:YES completion:nil];
+                [self presentViewController:balanceNotEnoughVC animated:YES completion:nil];
                 
             }
         }

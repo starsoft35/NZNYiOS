@@ -777,7 +777,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
     // 判断是否销毁直播间：
-//    [self judgeIfDestroyLiveRoomWithExpectEndTimestamp:self.expectEndTimestamp andLiveId:self.liveID];
+    [self judgeIfDestroyLiveRoomWithExpectEndTimestamp:self.expectEndTimestamp andLiveId:self.liveID];
     
     
     // 如果进入的是聊天室，则销毁播放器、退出聊天室
@@ -815,10 +815,10 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     // 获取时间戳
     NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
     NSLog(@"NSTimeInterval:%f",interval);
-    
+    NSLog(@"expectEndTimestamp:%@",expectEndTimestamp);
     
     // 如果退出时间小于预计退出时间前5分钟，则结束直播，直播状态变为历史直播
-    if (interval - [expectEndTimestamp floatValue] <= 5 * 60) {
+    if ([expectEndTimestamp floatValue] - interval <= 5 * 60) {
         
         // 网络请求：结束直播
         [self requestEndLiveWithLiveId:liveId];

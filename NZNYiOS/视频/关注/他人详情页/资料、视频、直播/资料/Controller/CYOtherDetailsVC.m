@@ -18,6 +18,9 @@
 #import "CYTitleAndDetailCell.h"
 #import "CYTitleAndDetailModel.h"
 
+// 诚信认证：VC
+#import "CYCertificateDetailVC.h"
+
 
 
 @interface CYOtherDetailsVC ()
@@ -260,8 +263,22 @@
     //当离开某行时，让某行的选中状态消失
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        
+        // 诚信认证详情
+        CYCertificateDetailVC *certificateDetailVC = [[CYCertificateDetailVC alloc] init];
+        
+        // 导航VC
+        UINavigationController *nav = [CYUtilities createDefaultNavCWithRootVC:certificateDetailVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"登录" bgImg:[UIImage imageNamed:@"Title1"]];
+        
+//        [self presentViewController:nav animated:nil completion:nil];
+//        [self.navigationController pushViewController:certificateDetailVC animated:YES];
+        [[self navigationControllerWithView:self.view] pushViewController:certificateDetailVC animated:YES];
+    }
     
 }
+
+
 
 // cell 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

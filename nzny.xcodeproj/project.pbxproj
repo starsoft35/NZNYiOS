@@ -11,6 +11,7 @@
 		8A18C89C1E3309A80004DBBA /* AliyunPlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BF41E30E68500A3579C /* AliyunPlayerSDK.framework */; };
 		8A18C89D1E3309A80004DBBA /* AliyunPlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BF41E30E68500A3579C /* AliyunPlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A18C8A01E330A8B0004DBBA /* AliyunPlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A18C89F1E330A8B0004DBBA /* AliyunPlayerSDK.framework */; };
+		8A27EEE51E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27EEE41E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.m */; };
 		8A309E7A1D63172900F41396 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A309E791D63172900F41396 /* main.m */; };
 		8A309E881D63172900F41396 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A309E861D63172900F41396 /* LaunchScreen.storyboard */; };
 		8A309E931D63172900F41396 /* NZNYiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A309E921D63172900F41396 /* NZNYiOSTests.m */; };
@@ -805,6 +806,8 @@
 /* Begin PBXFileReference section */
 		8A0815D01E12152100F6C4D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A18C89F1E330A8B0004DBBA /* AliyunPlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunPlayerSDK.framework; path = "../男左女右iOS/资料/7.阿里云/阿里云视频SDK/AliyunVideoPlayerSDK_ios2.2/lib/arm/AliyunPlayerSDK.framework"; sourceTree = "<group>"; };
+		8A27EEE31E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYWechatPaymentUnifiedOrderModel.h; sourceTree = "<group>"; };
+		8A27EEE41E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYWechatPaymentUnifiedOrderModel.m; sourceTree = "<group>"; };
 		8A309E751D63172900F41396 /* nzny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nzny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A309E791D63172900F41396 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A309E871D63172900F41396 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -2123,9 +2126,9 @@
 				8AD177481E30E68400A3579C /* Controller */,
 				8AD1774B1E30E68400A3579C /* Model */,
 				8AD177501E30E68400A3579C /* View */,
+				8AD177BE1E30E68400A3579C /* 视频详情页 */,
 				8AD177B81E30E68400A3579C /* 热门 */,
 				8AD177541E30E68400A3579C /* 关注 */,
-				8AD177BE1E30E68400A3579C /* 视频详情页 */,
 			);
 			path = "视频";
 			sourceTree = "<group>";
@@ -2200,11 +2203,11 @@
 				8AD1775B1E30E68400A3579C /* Controller */,
 				8AD1775E1E30E68400A3579C /* Model */,
 				8AD177631E30E68400A3579C /* View */,
-				8AD177671E30E68400A3579C /* 余额不足弹窗 */,
+				8AD177861E30E68400A3579C /* 资料、视频、直播 */,
 				8AD1776F1E30E68400A3579C /* 加好友弹窗 */,
 				8AD1777D1E30E68400A3579C /* 点赞弹窗 */,
-				8AD177861E30E68400A3579C /* 资料、视频、直播 */,
 				8AD177AF1E30E68400A3579C /* 送礼物弹窗 */,
+				8AD177671E30E68400A3579C /* 余额不足弹窗 */,
 			);
 			path = "他人详情页";
 			sourceTree = "<group>";
@@ -2350,9 +2353,9 @@
 				8AD177871E30E68400A3579C /* Controller */,
 				8AD1778A1E30E68400A3579C /* Model */,
 				8AD1778B1E30E68400A3579C /* View */,
-				8AD1778C1E30E68400A3579C /* 直播 */,
-				8AD177971E30E68400A3579C /* 视频 */,
 				8AD177A11E30E68400A3579C /* 资料 */,
+				8AD177971E30E68400A3579C /* 视频 */,
+				8AD1778C1E30E68400A3579C /* 直播 */,
 			);
 			path = "资料、视频、直播";
 			sourceTree = "<group>";
@@ -3732,9 +3735,9 @@
 				8AD178C11E30E68500A3579C /* Controller */,
 				8AD178C41E30E68500A3579C /* Model */,
 				8AD178C51E30E68500A3579C /* View */,
-				8AD178C61E30E68500A3579C /* 我的好友 */,
 				8AD178D31E30E68500A3579C /* 手机认证 */,
 				8AD178DC1E30E68500A3579C /* 背景认证 */,
+				8AD178C61E30E68500A3579C /* 我的好友 */,
 			);
 			path = "诚信认证";
 			sourceTree = "<group>";
@@ -3938,6 +3941,8 @@
 		8AD178F61E30E68500A3579C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8A27EEE31E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.h */,
+				8A27EEE41E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -5560,9 +5565,9 @@
 		8AD17C351E30E68500A3579C /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				8AD17C381E30E68500A3579C /* NetInterFace.h */,
 				8AD17C361E30E68500A3579C /* CYNetWorkManager.h */,
 				8AD17C371E30E68500A3579C /* CYNetWorkManager.m */,
-				8AD17C381E30E68500A3579C /* NetInterFace.h */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -5579,9 +5584,9 @@
 		8AD17C3C1E30E68600A3579C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				8AD17C3D1E30E68600A3579C /* CYBaseModel */,
 				8AD17C461E30E68600A3579C /* CYBaseVC */,
 				8AD17C511E30E68600A3579C /* CYBaseView */,
+				8AD17C3D1E30E68600A3579C /* CYBaseModel */,
 				8AD17C581E30E68600A3579C /* CYUtilities.h */,
 				8AD17C591E30E68600A3579C /* CYUtilities.m */,
 				8AD17C5A1E30E68600A3579C /* PCH.pch */,
@@ -5610,14 +5615,14 @@
 		8AD17C461E30E68600A3579C /* CYBaseVC */ = {
 			isa = PBXGroup;
 			children = (
+				8AD17C4D1E30E68600A3579C /* CYBaseViewController.h */,
+				8AD17C4E1E30E68600A3579C /* CYBaseViewController.m */,
+				8AD17C4B1E30E68600A3579C /* CYBaseTableViewController.h */,
+				8AD17C4C1E30E68600A3579C /* CYBaseTableViewController.m */,
 				8AD17C471E30E68600A3579C /* CYBaseCollectionViewController.h */,
 				8AD17C481E30E68600A3579C /* CYBaseCollectionViewController.m */,
 				8AD17C491E30E68600A3579C /* CYBaseSwipeViewController.h */,
 				8AD17C4A1E30E68600A3579C /* CYBaseSwipeViewController.m */,
-				8AD17C4B1E30E68600A3579C /* CYBaseTableViewController.h */,
-				8AD17C4C1E30E68600A3579C /* CYBaseTableViewController.m */,
-				8AD17C4D1E30E68600A3579C /* CYBaseViewController.h */,
-				8AD17C4E1E30E68600A3579C /* CYBaseViewController.m */,
 				8AD17C4F1E30E68600A3579C /* CYTitleAndImageCellCheckVC.h */,
 				8AD17C501E30E68600A3579C /* CYTitleAndImageCellCheckVC.m */,
 			);
@@ -5739,7 +5744,7 @@
 				TargetAttributes = {
 					8A309E741D63172900F41396 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = WQKV283JX3;
+						DevelopmentTeam = L2X9TQTZVB;
 						ProvisioningStyle = Automatic;
 					};
 					8A309E8D1D63172900F41396 = {
@@ -6392,6 +6397,7 @@
 				8AD17D051E30E68600A3579C /* CYLivePlayDetailsVC.m in Sources */,
 				8AD17F3B1E30E68700A3579C /* ZCYSwipeViewController.m in Sources */,
 				8AD17D101E30E68600A3579C /* RCDLiveGiftMessageCell.m in Sources */,
+				8A27EEE51E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.m in Sources */,
 				8AD17EF71E30E68700A3579C /* DistancePickerView.m in Sources */,
 				8AD17D111E30E68600A3579C /* RCDLiveMessageBaseCell.m in Sources */,
 				8AD17F081E30E68700A3579C /* UIView+WebCacheOperation.m in Sources */,
@@ -6652,7 +6658,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WQKV283JX3;
+				DEVELOPMENT_TEAM = L2X9TQTZVB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6680,7 +6686,7 @@
 					"-Objc",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nzny;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -6694,7 +6700,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = WQKV283JX3;
+				DEVELOPMENT_TEAM = L2X9TQTZVB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6722,7 +6728,7 @@
 					"-Objc",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nzny;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

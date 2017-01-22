@@ -165,6 +165,8 @@
 #define cLikeExChangeMoneyUrl (@"api/Like/LikeExChangeMoney")
 // 4、5.3、诚信认证-背景认证-获取登录用户的证件列表以及上传证件数量
 #define cCertificateListUrl (@"api/Certificates/List")
+// 4、5.3.0-获取证件详情
+#define cCertificateDetailUrl (@"api/Certificates/Detail")
 // 4、5.3.1-诚信认证-手机号认证
 #define cVerifyPhoneUrl (@"api/User/VerifyMobile")
 // 4、5.3.2.1-上传图片
@@ -224,6 +226,8 @@
 
 // 5.1.1.3.0-账户余额
 #define cUserMoneyUrl (@"api/Pay/UserMoney")
+// 5.1.1.3.1-微信支付-统一下单地址
+#define cWechatPaymentUnifiedOrderUrl (@"api/Payment/WechatUnifiedOrder")
 // 5.1.1.3-点赞：给用户点赞
 #define cAddUserLikeUrl (@"api/Like/AddUserLike")
 // 5.1.1.4-点赞：给用户视频点赞

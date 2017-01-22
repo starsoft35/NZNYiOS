@@ -153,9 +153,11 @@
     NSLog(@"_othersInfoView.infoOrVideoOrLiveView:%@",_othersInfoView.infoOrVideoOrLiveView);
     
     // 资料
+    // 导航VC
     _otherInfoVC = [[CYOtherDetailsVC alloc] init];
 //    CYOtherDetailsVC *o = [[CYOtherDetailsVC alloc] init];
     _otherInfoVC.oppUserId = self.oppUserId;
+//    UINavigationController *otherInfoNav = [CYUtilities createDefaultNavCWithRootVC:_otherInfoVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"登录" bgImg:[UIImage imageNamed:@"Title1"]];
     
     _otherInfoVC.view.frame = tempRect;
     _otherInfoVC.baseTableView.frame = tempRect;

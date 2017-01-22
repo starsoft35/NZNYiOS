@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,9 +24,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0Z-oI-7Xp" userLabel="1-余额不足-View">
                     <rect key="frame" x="24.5" y="146" width="325" height="375"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="弹窗2.png" translatesAutoresizingMaskIntoConstraints="NO" id="A5U-eV-Krh" userLabel="1.0-余额不足背景-Image View">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="弹窗2.png" translatesAutoresizingMaskIntoConstraints="NO" id="A5U-eV-Krh" userLabel="1.0-余额不足背景-Image View">
                             <rect key="frame" x="0.0" y="0.0" width="325" height="375"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ydm-Aa-0bw" userLabel="1.1-提示-Label">
                             <rect key="frame" x="15" y="15" width="45" height="15"/>
@@ -78,6 +77,8 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Krg-0Y-spM" firstAttribute="top" secondItem="n0Z-oI-7Xp" secondAttribute="top" id="1ty-oM-Lkw"/>
+                        <constraint firstAttribute="trailing" secondItem="A5U-eV-Krh" secondAttribute="trailing" id="520-Kg-UAD"/>
+                        <constraint firstItem="A5U-eV-Krh" firstAttribute="leading" secondItem="n0Z-oI-7Xp" secondAttribute="leading" id="6Vz-bm-uLE"/>
                         <constraint firstItem="tF6-Y0-vdZ" firstAttribute="height" secondItem="n0Z-oI-7Xp" secondAttribute="height" multiplier="88:750" id="6uH-T3-xg6"/>
                         <constraint firstItem="tF6-Y0-vdZ" firstAttribute="leading" secondItem="n0Z-oI-7Xp" secondAttribute="leading" id="9HU-9G-ST1"/>
                         <constraint firstItem="m0K-7h-2fR" firstAttribute="leading" secondItem="n0Z-oI-7Xp" secondAttribute="leading" constant="13" id="A5h-9N-rhI"/>
@@ -86,6 +87,7 @@
                         <constraint firstAttribute="trailing" secondItem="Krg-0Y-spM" secondAttribute="trailing" id="Fca-Py-BZE"/>
                         <constraint firstItem="m0K-7h-2fR" firstAttribute="height" secondItem="n0Z-oI-7Xp" secondAttribute="height" multiplier="50:750" id="JWL-Az-2Z0"/>
                         <constraint firstAttribute="trailing" secondItem="m0K-7h-2fR" secondAttribute="trailing" constant="13" id="Rdw-IZ-tZJ"/>
+                        <constraint firstAttribute="bottom" secondItem="A5U-eV-Krh" secondAttribute="bottom" id="Rf5-Jv-LRP"/>
                         <constraint firstItem="kud-Vw-qaV" firstAttribute="leading" secondItem="n0Z-oI-7Xp" secondAttribute="leading" constant="13" id="SNs-vg-v4J"/>
                         <constraint firstItem="m0K-7h-2fR" firstAttribute="top" secondItem="kud-Vw-qaV" secondAttribute="bottom" constant="35" id="Sls-00-twm"/>
                         <constraint firstAttribute="trailing" secondItem="tF6-Y0-vdZ" secondAttribute="trailing" id="aWY-Fk-Lad"/>
@@ -96,6 +98,7 @@
                         <constraint firstItem="Ydm-Aa-0bw" firstAttribute="height" secondItem="n0Z-oI-7Xp" secondAttribute="height" multiplier="30:750" id="ojx-Nk-mLU"/>
                         <constraint firstItem="kud-Vw-qaV" firstAttribute="height" secondItem="n0Z-oI-7Xp" secondAttribute="height" multiplier="30:750" id="pFc-eU-lmE"/>
                         <constraint firstItem="tF6-Y0-vdZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="m0K-7h-2fR" secondAttribute="bottom" constant="20" id="u3P-BO-XBv"/>
+                        <constraint firstItem="A5U-eV-Krh" firstAttribute="top" secondItem="n0Z-oI-7Xp" secondAttribute="top" id="vpu-k8-wSd"/>
                     </constraints>
                 </view>
             </subviews>

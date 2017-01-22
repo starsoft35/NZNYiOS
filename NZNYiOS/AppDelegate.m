@@ -229,7 +229,7 @@
     NSLog(@"微信登录SDK：初始化：注册");
     
     // 向微信注册
-    [WXApi registerApp:cWXAppID];
+    [WXApi registerApp:cWXAppID withDescription:@"NZNYchina"];
     
 }
 
