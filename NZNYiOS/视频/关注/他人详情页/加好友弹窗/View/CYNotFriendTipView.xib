@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +20,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yY3-am-CMC" userLabel="1.-还不是好友弹窗-View">
                     <rect key="frame" x="25" y="146" width="325" height="375"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="弹窗2.png" translatesAutoresizingMaskIntoConstraints="NO" id="nZn-H0-Jyb" userLabel="1.0-背景-Image View">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="弹窗没底部.png" translatesAutoresizingMaskIntoConstraints="NO" id="nZn-H0-Jyb" userLabel="1.0-背景-Image View">
                             <rect key="frame" x="0.0" y="0.0" width="325" height="375"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="rcw-DN-DOT" userLabel="1.1-提示-Label">
@@ -53,7 +53,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="tlC-8V-Qv7" secondAttribute="height" id="Jv1-KG-VyA"/>
                             </constraints>
-                            <state key="normal" backgroundImage="弹窗关闭.png"/>
+                            <state key="normal" backgroundImage="弹窗关闭图X变小.png"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.91768163439999995" green="0.51090770959999998" blue="0.18271613119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,8 +97,8 @@
         </view>
     </objects>
     <resources>
-        <image name="弹窗2.png" width="325" height="375"/>
-        <image name="弹窗关闭.png" width="16" height="16"/>
+        <image name="弹窗关闭图X变小.png" width="25" height="25"/>
+        <image name="弹窗没底部.png" width="325" height="375"/>
         <image name="登录底.png" width="300" height="44"/>
     </resources>
 </document>

@@ -34,8 +34,8 @@
 // 视频详情页
 #import "CYVideoDetailsVC.h"
 
-#define cVideoCollectionCellWidth ((340.0 / 750.0) * self.view.frame.size.width)
-#define cVideoCollectionCellHeight ((340.0 / 1334.0) * self.view.frame.size.height)
+#define cVideoCollectionCellWidth ((340.0 / 750.0) * cScreen_Width)
+#define cVideoCollectionCellHeight ((340.0 / 1334.0) * cScreen_Height)
 
 @interface CYVideoVC ()
 
@@ -77,7 +77,7 @@
     // 提前注册
     [self.baseCollectionView registerNib:[UINib nibWithNibName:@"CYVideoCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"CYVideoCollectionViewCell"];
     
-    self.baseCollectionView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - 64 - 49 - (76.0 / 1334) * self.view.frame.size.height);
+    self.baseCollectionView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - 64 - 49 - (76.0 / 1334) * cScreen_Height);
     
 }
 

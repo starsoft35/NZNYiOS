@@ -87,7 +87,14 @@
 // 3.1-社区首页
 #define cActivityIndexListUrl (@"api/Activity/ActivityIndexList")
 
-
+// 3.2-线下活动
+#define cOfflineActivityListUrl (@"api/Activity/OfflineActivityList")
+// 3.3-往期回顾
+#define cPastActivityListUrl (@"api/Activity/PastActivityList")
+// 3.4-客服问答
+#define cServiceActivityListUrl (@"api/Activity/ServiceActivityList")
+// 3.5-活动详情页
+#define cActivityDetailsUrl (@"api/Activity/ActivityDetail")
 
 
 
@@ -255,6 +262,12 @@
 // 5.3.1.2-拒绝好友申请
 #define cDelApplyFriendUrl (@"api/Relationship/DelApplyFriend")
 
+
+// 5.4-设置
+// 5.4.1-用户须知
+#define cUserInstructionsUrl (@"api/Article/Instructions")
+// 5.4.2-关于我们
+#define cAboutUsUrl (@"api/Article/About")
 
 
 #pragma 6、SDK

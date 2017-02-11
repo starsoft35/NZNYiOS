@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,7 +24,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0Z-oI-7Xp" userLabel="1-余额不足-View">
                     <rect key="frame" x="24.5" y="146" width="325" height="375"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="弹窗2.png" translatesAutoresizingMaskIntoConstraints="NO" id="A5U-eV-Krh" userLabel="1.0-余额不足背景-Image View">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="弹窗没底部.png" translatesAutoresizingMaskIntoConstraints="NO" id="A5U-eV-Krh" userLabel="1.0-余额不足背景-Image View">
                             <rect key="frame" x="0.0" y="0.0" width="325" height="375"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ydm-Aa-0bw" userLabel="1.1-提示-Label">
@@ -71,7 +71,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Krg-0Y-spM" secondAttribute="height" id="zMR-1m-F4l"/>
                             </constraints>
-                            <state key="normal" backgroundImage="弹窗关闭.png"/>
+                            <state key="normal" backgroundImage="弹窗关闭图X变小.png"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -118,6 +118,7 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="balanceNotEnoughBgImgView" destination="8Sk-1A-g3x" id="Rfp-BJ-Dzo"/>
                 <outlet property="closeBtn" destination="Krg-0Y-spM" id="hHH-ax-6al"/>
                 <outlet property="instantRechargeBtn" destination="tF6-Y0-vdZ" id="Cav-8H-Uhj"/>
             </connections>
@@ -125,8 +126,8 @@
         </view>
     </objects>
     <resources>
-        <image name="弹窗2.png" width="325" height="375"/>
-        <image name="弹窗关闭.png" width="16" height="16"/>
+        <image name="弹窗关闭图X变小.png" width="25" height="25"/>
+        <image name="弹窗没底部.png" width="325" height="375"/>
         <image name="登录底.png" width="300" height="44"/>
     </resources>
 </document>

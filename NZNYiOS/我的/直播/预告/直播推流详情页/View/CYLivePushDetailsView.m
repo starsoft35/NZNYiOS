@@ -17,6 +17,7 @@
     
     // 头像
     _headerImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:livePushDetailsViewModel.LiveUserPortrait];
+    _headerImgView.layer.cornerRadius = (30.0 / 1334.0) * cScreen_Height;
     
     // 姓名
     _nameLab.text = livePushDetailsViewModel.LiveUserName;
@@ -28,6 +29,9 @@
     //    _popularityLab.text = [NSString stringWithFormat:@"人气：%@",livePlayDetailsModel];
     
     // 关注
+    // 如果已经关注，则隐藏
+//    _topHeadNameFIDBgImgView.hidden = YES;
+    
     
     // 观看列表
     

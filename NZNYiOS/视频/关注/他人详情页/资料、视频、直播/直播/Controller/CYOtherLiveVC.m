@@ -168,7 +168,7 @@
 - (void)addLabelToShowNoLive{
     NSLog(@"如果没有直播，添加提示");
     
-    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * cScreen_Width, (80.0 / 1334.0) * cScreen_Height, (726.0 / 750.0) * cScreen_Width, (30.0 / 1334.0) * cScreen_Height)];
     
     
     self.noDataLab.text = @"暂时没有直播";
@@ -220,7 +220,7 @@
 // cell 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return (88.0 / 1246.0) * self.view.frame.size.height;
+    return (88.0 / 1334.0) * cScreen_Height;
 }
 
 // header 的高度

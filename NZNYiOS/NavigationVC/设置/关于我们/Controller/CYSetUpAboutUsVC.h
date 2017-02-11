@@ -8,7 +8,19 @@
 
 #import "CYBaseViewController.h"
 
+// 模型
+#import "CYSetUpAboutUsVCModel.h"
+
+
 @interface CYSetUpAboutUsVC : CYBaseViewController
+
+
+// 模型
+@property (nonatomic, strong) CYSetUpAboutUsVCModel *setUpAboutUsVCModel;
+
+
+// 子标题
+@property (weak, nonatomic) IBOutlet UILabel *subTitleLab;
 
 
 // 关于我们：label

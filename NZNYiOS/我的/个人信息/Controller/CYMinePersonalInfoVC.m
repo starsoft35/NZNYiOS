@@ -14,8 +14,10 @@
 #import "CYMinePersonalInfoVCModel.h"
 
 
-
+// 头像：cell
 #import "CYInfoHeaderCell.h"
+
+// 其他信息：cell
 #import "CYTitleAndDetailCell.h"
 
 
@@ -347,6 +349,10 @@
             paraStyle01.firstLineHeadIndent = emptylen;
             NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:cell.detailLab.text attributes:@{NSParagraphStyleAttributeName:paraStyle01}];
             cell.detailLab.attributedText = attrText;
+            
+            CGRect loveDeclarationRect = cell.titleLab.frame;
+            float loveDeclarationWidth = loveDeclarationRect.size.height * 5.0;
+            cell.titleLab.frame = CGRectMake(loveDeclarationRect.origin.x, loveDeclarationRect.origin.y, 300, loveDeclarationRect.size.height);
         }
         
         [cell.detailLab setTextColor:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00]];
@@ -453,18 +459,18 @@
     
     if (indexPath.section == 0 && indexPath.row == 0 ) {
         
-        return (140.0 / 1334.0) * self.view.frame.size.height;
+        return (140.0 / 1334.0) * cScreen_Height;
     }
     else if (indexPath.section == 1 && indexPath.row == 0) {
         
         // 自动计算label的高度、宽度
         CGSize tempLabelSize = [self labelAutoCalculateRectWith:self.userInfoDataArr[indexPath.section][indexPath.row][@"cellDetailTitle"] FontSize:15 MaxSize:CGSizeMake(240.0 / 375.0 * cScreen_Width, 80.0 / 667.0 * cScreen_Height)];
         
-        return ((88.0 / 1334.0) * self.view.frame.size.height) + (tempLabelSize.height / 2);
+        return ((88.0 / 1334.0) * cScreen_Height) + (tempLabelSize.height / 2);
     }
     else {
         
-        return (88.0 / 1334.0) * self.view.frame.size.height;
+        return (88.0 / 1334.0) * cScreen_Height;
     }
 }
 
@@ -477,7 +483,7 @@
     }
     else {
         
-        return 20.0 / 1334 * self.view.frame.size.height;
+        return 20.0 / 1334 * cScreen_Height;
     }
 }
 

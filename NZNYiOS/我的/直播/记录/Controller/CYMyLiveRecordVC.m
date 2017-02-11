@@ -59,13 +59,9 @@
 // 加载数据
 - (void)loadData{
     
-    
-#warning 我的直播预告：注意参数：用户的ID
     // 网络请求：我的直播预告
     NSDictionary *params = @{
-                             
                              @"userId":self.onlyUser.userID
-                             
                              };
     
     
@@ -139,7 +135,7 @@
 - (void)addLabelToShowNoLive{
     NSLog(@"如果没有直播，添加提示");
     
-    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * cScreen_Width, (80.0 / 1334.0) * cScreen_Height, (726.0 / 750.0) * cScreen_Width, (30.0 / 1334.0) * cScreen_Height)];
     
     
     tipLab.text = @"暂时没有直播预告";

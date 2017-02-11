@@ -158,7 +158,7 @@
 - (void)addLabelToShowNoNearPeople{
     NSLog(@"如果没有视频，添加提示");
     
-    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * cScreen_Width, (80.0 / 1334.0) * cScreen_Height, (726.0 / 750.0) * cScreen_Width, (30.0 / 1334.0) * cScreen_Height)];
     
     
     self.noDataLab.text = @"暂时没有附近的人";
@@ -229,7 +229,7 @@
 // cell 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return (190.0 / 1206.0) * self.view.frame.size.height;
+    return (190.0 / 1334.0) * cScreen_Height;
 }
 
 // 为了设置第一行距顶部navigation 的距离

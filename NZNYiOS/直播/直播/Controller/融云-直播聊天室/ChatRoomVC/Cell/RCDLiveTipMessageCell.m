@@ -21,7 +21,7 @@
     if (self) {
         self.tipMessageLabel = [RCDLiveTipLabel greyTipLabel];
         self.tipMessageLabel.textAlignment = NSTextAlignmentLeft;
-//        self.tipMessageLabel.delegate = self;
+        //        self.tipMessageLabel.delegate = self;
         self.tipMessageLabel.userInteractionEnabled = YES;
         [self.baseContentView addSubview:self.tipMessageLabel];
         self.tipMessageLabel.font = [UIFont systemFontOfSize:16.f];;
@@ -30,59 +30,128 @@
     return self;
 }
 
+
+
+
+
+// cell显示：模型赋值
 - (void)setDataModel:(RCDLiveMessageModel *)model {
     [super setDataModel:model];
-
+    
+    
     RCMessageContent *content = model.content;
+    
+    
     if ([content isMemberOfClass:[RCInformationNotificationMessage class]]) {
+        
         RCInformationNotificationMessage *notification = (RCInformationNotificationMessage *)content;
+        
+        
         NSString *localizedMessage = [RCDLiveKitUtility formatMessage:notification];
+        
+        
         self.tipMessageLabel.text = localizedMessage;
+        
         self.tipMessageLabel.textColor = RCDLive_HEXCOLOR(0xffb83c);
+        
+        
+        
     }else if ([content isMemberOfClass:[RCTextMessage class]]){
+        
+        
         RCTextMessage *notification = (RCTextMessage *)content;
+        
         NSString *localizedMessage = [RCDLiveKitUtility formatMessage:notification];
+        
         NSString *name=@"";
+        
         if (content.senderUserInfo) {
             name = [NSString stringWithFormat:@"%@:",content.senderUserInfo.name];
         }
+        
         NSString *str =[NSString stringWithFormat:@"%@ %@",name,localizedMessage];
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str];
         
         [attributedString addAttribute:NSForegroundColorAttributeName value:(RCDLive_HEXCOLOR(0x3ceff)) range:[str rangeOfString:name]];
+        
+        
         [attributedString addAttribute:NSForegroundColorAttributeName value:([UIColor whiteColor]) range:[str rangeOfString:localizedMessage]];
+        
+        
         self.tipMessageLabel.attributedText = attributedString.copy;
+        
+        
     }else if ([content isMemberOfClass:[RCDLiveGiftMessage class]]){
+        
+        
         RCDLiveGiftMessage *notification = (RCDLiveGiftMessage *)content;
+        
         NSString *name=@"";
+        
         if (content.senderUserInfo) {
             name = content.senderUserInfo.name;
         }
-        NSString *localizedMessage = @"送了一个钻戒";
-        if(notification && [notification.type isEqualToString:@"1"]){
-          localizedMessage = @"为主播点了赞";
-        }
         
-        NSString *str =[NSString stringWithFormat:@"%@ %@",name,localizedMessage];
+        NSString *localizedMessage = notification.tempMessageContentStr;
+        if (notification.tempMessageContentStr == nil) {
+            localizedMessage = notification.content;
+        }
+//        
+//        if(notification && [notification.type isEqualToString:@"0"]){
+//            localizedMessage = notification.tempMessageContentStr;
+//        }
+//        
+//        if(notification && [notification.type isEqualToString:@"1"]){
+//            localizedMessage = @"为主播点了赞";
+//        }
+//        
+//        if (notification && [notification.tempMessageType isEqualToString:@"文本消息专用"]) {
+//            
+//            localizedMessage = notification.tempMessageContentStr;
+//        }
+//        if (notification && [notification.type isEqualToString:@"2"]) {
+//            
+//            localizedMessage = notification.tempMessageContentStr;
+//        }
+        
+        NSString *str = [NSString stringWithFormat:@"%@ %@",name,localizedMessage];
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str];
         
+        
         [attributedString addAttribute:NSForegroundColorAttributeName value:(RCDLive_HEXCOLOR(0x3ceff)) range:[str rangeOfString:name]];
-        [attributedString addAttribute:NSForegroundColorAttributeName value:(RCDLive_HEXCOLOR(0xf719ff)) range:[str rangeOfString:localizedMessage]];
+        
+        if (localizedMessage) {
+            
+            [attributedString addAttribute:NSForegroundColorAttributeName value:(RCDLive_HEXCOLOR(0xf719ff)) range:[str rangeOfString:localizedMessage]];
+        }
+        if (notification && [notification.type isEqualToString:@"2"]) {
+            
+            [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:[str rangeOfString:localizedMessage]];
+        }
+        if (notification && [notification.tempMessageContentStr isEqualToString:@"加入了聊天室"]) {
+            
+            
+            
+            [attributedString addAttribute:NSForegroundColorAttributeName value:(RCDLive_HEXCOLOR(0xffb83c)) range:[str rangeOfString:name]];
+            [attributedString addAttribute:NSForegroundColorAttributeName value:(RCDLive_HEXCOLOR(0xffb83c)) range:[str rangeOfString:localizedMessage]];
+        }
+        
         self.tipMessageLabel.attributedText = attributedString.copy;
     }
-
+    
     NSString *__text = self.tipMessageLabel.text;
+    
     CGSize __labelSize = [RCDLiveTipMessageCell getTipMessageCellSize:__text];
-
+    
     if (_isFullScreenMode) {
         self.tipMessageLabel.frame = CGRectMake(6,0, __labelSize.width, __labelSize.height);
-//        self.tipMessageLabel.backgroundColor = RCDLive_HEXCOLOR(0x000000);
-//        self.tipMessageLabel.alpha = 0.5;
-
+        //        self.tipMessageLabel.backgroundColor = RCDLive_HEXCOLOR(0x000000);
+        //        self.tipMessageLabel.alpha = 0.5;
+        
     }else{
         self.tipMessageLabel.frame = CGRectMake((self.baseContentView.bounds.size.width - __labelSize.width) / 2.0f,0, __labelSize.width, __labelSize.height);
-//        self.tipMessageLabel.backgroundColor = RCDLive_HEXCOLOR(0xBBBBBB);
-//        self.tipMessageLabel.alpha = 1;
+        //        self.tipMessageLabel.backgroundColor = RCDLive_HEXCOLOR(0xBBBBBB);
+        //        self.tipMessageLabel.alpha = 1;
     }
 }
 

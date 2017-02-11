@@ -24,6 +24,9 @@
 // 头像、姓名、FID、关注：View
 @property (weak, nonatomic) IBOutlet UIView *topHeadNameFIDFollowView;
 
+// 头像、姓名、FID、关注：背景：imageView
+@property (weak, nonatomic) IBOutlet UIImageView *topHeadNameFIDBgImgView;
+
 
 // 头像
 @property (weak, nonatomic) IBOutlet UIImageView *headerImgView;
@@ -56,6 +59,8 @@
 // 分享：button
 @property (weak, nonatomic) IBOutlet UIButton *shareBtn;
 
+// 底部所有button所在的view
+@property (weak, nonatomic) IBOutlet UIView *bottomAllBtnView;
 
 
 @end

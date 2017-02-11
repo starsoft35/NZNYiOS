@@ -90,8 +90,8 @@
 // 导航图片
 @property (nonatomic, copy) NSString *PictureUrl;
 
-// 所属类别
-@property (nonatomic, copy) NSString *ActivityCategoryName;
+// 活动状态
+@property (nonatomic, copy) NSString *Status;
 
 // 标题
 @property (nonatomic, copy) NSString *Title;
@@ -100,8 +100,9 @@
 @property (nonatomic, copy) NSString *Summary;
 
 // 发布时间
-@property (nonatomic, copy) NSDate *CreateDate;
+@property (nonatomic, copy) NSString *CreateDate;
 
-
+// 举办时间
+@property (nonatomic, copy) NSString *HoldingTime;
 
 @end

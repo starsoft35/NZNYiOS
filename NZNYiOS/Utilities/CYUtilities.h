@@ -43,6 +43,12 @@
 // 设置时间：精确到分
 + (NSString *)setYearMouthDayHourMinuteWithYearMouthDayHourMinuteSecond:(NSString *)time;
 
+// 设置时间：精确到分：用xxxx年xx月xx日 xx时xx分表示
++ (NSString *)setYearMouthDayHourMinuteWithChineseYearMouthDayHourMinuteSecond:(NSString *)time;
+
+// 设置时间：xx月xx日
++ (NSString *)setYearMouthDayHourMinuteWithChineseMouthDay:(NSString *)time;
+
 // 提示框
 //+ (void)showHubWithLabelText:(NSString *)text andHidAfterDelay:(double)afterDelay;
 

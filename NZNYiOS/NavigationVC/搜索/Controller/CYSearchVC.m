@@ -70,7 +70,7 @@
     self.hidesBottomBarWhenPushed = YES;
     
     
-    self.searchResultLab.frame = CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height);
+    self.searchResultLab.frame = CGRectMake((12.0 / 750.0) * cScreen_Width, (80.0 / 1334.0) * cScreen_Height, (726.0 / 750.0) * cScreen_Width, (30.0 / 1334.0) * cScreen_Height);
     
     self.searchResultLab.text = @"刚进入时，请输入姓名或ID号，搜索好友";
     
@@ -96,7 +96,7 @@
 // 设置navigation 上面的搜索框
 - (void)searchTextFieldViewNavigationBarItem{
     
-    UIView *searView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (580.0 / 750.0) * self.view.frame.size.width, (68.0 / 1334.0) * self.view.frame.size.height)];
+    UIView *searView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, (580.0 / 750.0) * cScreen_Width, (68.0 / 1334.0) * cScreen_Height)];
     searView.backgroundColor = [UIColor whiteColor];
     
     
@@ -417,7 +417,7 @@
 // cell 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return (190.0 / 1108) * self.view.frame.size.height;
+    return (190.0 / 1334) * cScreen_Height;
 }
 
 // 为了设置第一行距顶部navigation 的距离

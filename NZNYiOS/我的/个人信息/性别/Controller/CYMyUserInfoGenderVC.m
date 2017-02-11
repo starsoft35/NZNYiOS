@@ -168,7 +168,7 @@
 // cell 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return (88.0 / 1246.0) * self.view.frame.size.height;
+    return (88.0 / 1334.0) * cScreen_Height;
 }
 
 // header 的高度

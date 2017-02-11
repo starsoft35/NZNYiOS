@@ -22,8 +22,8 @@
 #import "CYOtherVideoCellModel.h"
 
 
-#define cVideoCollectionCellWidth ((340.0 / 750.0) * self.view.frame.size.width)
-#define cVideoCollectionCellHeight ((340.0 / 1334.0) * self.view.frame.size.height)
+#define cVideoCollectionCellWidth ((340.0 / 750.0) * cScreen_Width)
+#define cVideoCollectionCellHeight ((340.0 / 1334.0) * cScreen_Height)
 
 @interface CYOtherVideoVC ()
 
@@ -154,7 +154,7 @@
 - (void)addLabelToShowNoVideo{
     NSLog(@"如果没有视频，添加提示");
     
-    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * cScreen_Width, (80.0 / 1334.0) * cScreen_Height, (726.0 / 750.0) * cScreen_Width, (30.0 / 1334.0) * cScreen_Height)];
     
     
     self.noDataLab.text = @"暂时没有视频";

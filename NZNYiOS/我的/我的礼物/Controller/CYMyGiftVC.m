@@ -38,7 +38,7 @@
 - (void)addView{
     
     
-    CGFloat tableStartY = (76.0 / 1334.0) * self.view.frame.size.height;
+    CGFloat tableStartY = (76.0 / 1334.0) * cScreen_Height;
     CGFloat tableViewHeight = cScreen_Height - 50 - tableStartY;
     
     // 谁赞过我：VC

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,7 +24,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4J-g8-Dgn" userLabel="1.送礼-View">
                     <rect key="frame" x="25" y="146" width="325" height="375"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="弹窗2.png" translatesAutoresizingMaskIntoConstraints="NO" id="kqa-Qm-iDf" userLabel="1.0-送礼背景-Image View">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="弹窗没底部.png" translatesAutoresizingMaskIntoConstraints="NO" id="kqa-Qm-iDf" userLabel="1.0-送礼背景-Image View">
                             <rect key="frame" x="0.0" y="0.0" width="325" height="375"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="送礼物" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="8eo-0x-NxR" userLabel="1.1-送礼-Label">
@@ -104,7 +104,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="No6-n2-DBc" userLabel="1.3.1-心-View">
-                                    <rect key="frame" x="7" y="13.5" width="21" height="18"/>
+                                    <rect key="frame" x="7" y="13" width="21" height="18"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="点赞.png" translatesAutoresizingMaskIntoConstraints="NO" id="pQ4-An-hf4" userLabel="1.3.1.1-心-Image View">
                                             <rect key="frame" x="0.0" y="0.0" width="21" height="18"/>
@@ -120,7 +120,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O7F-cu-HwH" userLabel="1.3.2-3支玫瑰-View">
-                                    <rect key="frame" x="28" y="16" width="222" height="14"/>
+                                    <rect key="frame" x="28" y="15" width="222" height="14"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 支玫瑰花" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="BIR-bq-fti" userLabel="1.3.2.1-3支玫瑰-Label">
                                             <rect key="frame" x="0.0" y="0.0" width="222" height="14"/>
@@ -230,7 +230,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7n-Vl-6VT" userLabel="1.5.1-心-View">
-                                    <rect key="frame" x="7" y="12.5" width="21" height="18"/>
+                                    <rect key="frame" x="7" y="13" width="21" height="18"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="点赞.png" translatesAutoresizingMaskIntoConstraints="NO" id="FoH-2f-ucB" userLabel="1.5.1.1-心-Image View">
                                             <rect key="frame" x="0.0" y="0.0" width="21" height="18"/>
@@ -293,7 +293,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grh-mU-KjN" userLabel="1.6.1-心-View">
-                                    <rect key="frame" x="7" y="12.5" width="21" height="18"/>
+                                    <rect key="frame" x="7" y="13" width="21" height="18"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="点赞.png" translatesAutoresizingMaskIntoConstraints="NO" id="p5f-s9-7YW" userLabel="1.6.1.1-心-Image View">
                                             <rect key="frame" x="0.0" y="0.0" width="21" height="18"/>
@@ -356,7 +356,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入数量" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EiO-hu-U3K" userLabel="1.7.2-输入玫瑰-Round Style Text Field">
-                                    <rect key="frame" x="17" y="-0.5" width="76" height="44"/>
+                                    <rect key="frame" x="17" y="0.0" width="76" height="44"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -418,7 +418,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="qGW-Hb-p5g" secondAttribute="height" id="fxy-JP-z5y"/>
                             </constraints>
-                            <state key="normal" backgroundImage="弹窗关闭.png"/>
+                            <state key="normal" backgroundImage="弹窗关闭图X变小.png"/>
                         </button>
                     </subviews>
                     <constraints>
@@ -477,7 +477,9 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="allTextMainView" destination="t4J-g8-Dgn" id="ae6-8u-CH4"/>
                 <outlet property="giftCountTextField" destination="EiO-hu-U3K" id="HT0-st-Ogo"/>
+                <outlet property="giveGiftBgImgView" destination="44z-sF-ES4" id="cJU-4v-3hD"/>
                 <outlet property="giveGiftBtn" destination="gy1-dW-HCn" id="Pxl-DY-0LX"/>
                 <outlet property="nineRoseBtn" destination="jAn-8h-GKv" id="45Z-tk-sFb"/>
                 <outlet property="ninehundredNitetyNineRoseBtn" destination="yA8-sh-mU8" id="bsS-r6-yOW"/>
@@ -491,8 +493,8 @@
     </objects>
     <resources>
         <image name="一支底.png" width="250" height="44"/>
-        <image name="弹窗2.png" width="325" height="375"/>
-        <image name="弹窗关闭.png" width="16" height="16"/>
+        <image name="弹窗关闭图X变小.png" width="25" height="25"/>
+        <image name="弹窗没底部.png" width="325" height="375"/>
         <image name="换钱.png" width="60" height="30"/>
         <image name="数量输入框.png" width="150" height="44"/>
         <image name="点赞.png" width="21" height="18"/>

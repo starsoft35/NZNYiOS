@@ -157,6 +157,25 @@
     NSString *minute = [time substringWithRange:NSMakeRange(14, 2)];
     return [NSString stringWithFormat:@"%@/%@/%@ %@:%@",year,month,day,hour,minute];
 }
+// 设置时间：精确到分：用xxxx年xx月xx日 xx时xx分表示
++ (NSString *)setYearMouthDayHourMinuteWithChineseYearMouthDayHourMinuteSecond:(NSString *)time{
+    
+    NSString *year = [time substringToIndex:4];
+    NSString *month = [time substringWithRange:NSMakeRange(5, 2)];
+    NSString *day = [time substringWithRange:NSMakeRange(8, 2)];
+    NSString *hour = [time substringWithRange:NSMakeRange(11, 2)];
+    NSString *minute = [time substringWithRange:NSMakeRange(14, 2)];
+    return [NSString stringWithFormat:@"%@年%@月%@日 %@:%@",year,month,day,hour,minute];
+}
+// 设置时间：xx月xx日
++ (NSString *)setYearMouthDayHourMinuteWithChineseMouthDay:(NSString *)time{
+    
+    
+    NSString *month = [time substringWithRange:NSMakeRange(5, 2)];
+    NSString *day = [time substringWithRange:NSMakeRange(8, 2)];
+    
+    return [NSString stringWithFormat:@"%@月%@日",month,day];
+}
 
 // 提示框
 //+ (void)showHubWithLabelText:(NSString *)text andHidAfterDelay:(double)afterDelay{

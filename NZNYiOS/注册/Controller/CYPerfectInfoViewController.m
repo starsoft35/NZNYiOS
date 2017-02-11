@@ -120,16 +120,16 @@
         _perfectInfoMainView.finishBtn.enabled = NO;
         
         // 完成button，不可用下的背景图片
-        [_perfectInfoMainView.finishBtn setBackgroundImage:[UIImage imageNamed:@"完成未激活"] forState:UIControlStateDisabled];
+        [_perfectInfoMainView.finishBtn setBackgroundImage:[UIImage imageNamed:@"登录完成未激活"] forState:UIControlStateDisabled];
     }
     else {
-        NSLog(@"完成激活");
+        NSLog(@"登录完成激活");
         
         // nameTextField 是有值，则完成button，可用
         _perfectInfoMainView.finishBtn.enabled = YES;
         
         // 完成button，可用下的背景图片
-        [_perfectInfoMainView.finishBtn setBackgroundImage:[UIImage imageNamed:@"完成激活"] forState:UIControlStateNormal];
+        [_perfectInfoMainView.finishBtn setBackgroundImage:[UIImage imageNamed:@"登录完成激活"] forState:UIControlStateNormal];
     }
     
 //    

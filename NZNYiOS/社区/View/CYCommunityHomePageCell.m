@@ -18,8 +18,23 @@
     
     
     // 导航图片
-//    _navigationPictureImgView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:communityHomePageCellModel.PictureUrl]]];
-    _navigationPictureImgView.image = [UIImage imageNamed:@"117.jpg"];
+    UIImage *navigationPictureImg = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:communityHomePageCellModel.PictureUrl]]];
+    NSLog(@"navigationPictureImg.size.width:%f",navigationPictureImg.size.width);
+    NSLog(@"navigationPictureImg.size.height:%f",navigationPictureImg.size.height);
+    
+    
+    [_navigationPictureImgView setImage:navigationPictureImg];
+    
+    [_navigationPictureImgView setContentScaleFactor:[[UIScreen mainScreen] scale]];
+    
+    _navigationPictureImgView.contentMode =  UIViewContentModeScaleAspectFill;
+    
+    _navigationPictureImgView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    
+    _navigationPictureImgView.clipsToBounds  = YES;
+    
+//    _navigationPictureImgView.image = navigationPictureImg;
+//    _navigationPictureImgView.image = [UIImage imageNamed:@"117.jpg"];
     
     // 所属类别
     _categoryLab.text = [NSString stringWithFormat:@"【%@】",communityHomePageCellModel.ActivityCategoryName];
@@ -28,7 +43,7 @@
     _titleLab.text = communityHomePageCellModel.Title;
     
     // 简介
-    _summaryLab.text = [NSString stringWithFormat:@"        %@",communityHomePageCellModel.Summary];
+    _summaryLab.text = [NSString stringWithFormat:@"%@",communityHomePageCellModel.Summary];
     
     // 发布时间
     _releaseTimeLab.text = [NSString stringWithFormat:@"%@",communityHomePageCellModel.CreateDate];

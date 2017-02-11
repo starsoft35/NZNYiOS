@@ -42,5 +42,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *giveGiftBtn;
 
 
+// 送礼背景
+@property (weak, nonatomic) IBOutlet UIImageView *giveGiftBgImgView;
+
+
+// 送礼文本的主视图
+@property (weak, nonatomic) IBOutlet UIView *allTextMainView;
+
+
 
 @end

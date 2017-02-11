@@ -22,7 +22,7 @@
     // headerImgView
     _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:infoHeaderCellModel.headImgName];
     
-    _headImgView.layer.cornerRadius = (60.0 / 120.0) * _headImgView.frame.size.height;
+    _headImgView.layer.cornerRadius = (60.0 / 1334.0) * cScreen_Height;
     
     // nextImgView
     _nextImgView.image = [UIImage imageNamed:@"Right-"];

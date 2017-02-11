@@ -138,7 +138,7 @@
 - (void)addLabelToShowNoLive{
     NSLog(@"如果没有直播，添加提示");
     
-    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    self.noDataLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * cScreen_Width, (80.0 / 1334.0) * cScreen_Height, (726.0 / 750.0) * cScreen_Width, (30.0 / 1334.0) * cScreen_Height)];
     
     
     self.noDataLab.text = @"暂时没有正在进行的直播";
@@ -352,6 +352,8 @@
     aliPlayAndRCIMVC.targetId = oppUserId;
 //    aliPlayAndRCIMVC.targetId = self.onlyUser.userID;
     aliPlayAndRCIMVC.targetId = liveId;
+    
+//    aliPlayAndRCIMVC.targetId = @"ChatRoom01";
     NSLog(@"play:targetId:%@",aliPlayAndRCIMVC.targetId);
     
     // 自定义需要的
@@ -360,6 +362,7 @@
     aliPlayAndRCIMVC.liveID = liveId;
     // 观众在直播间的拥有的id，用于观众离开直播间时调用；
     aliPlayAndRCIMVC.liveRoomId = LiveRoomId;
+//    aliPlayAndRCIMVC.liveRoomId = @"ChatRoom01";
     
     UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:aliPlayAndRCIMVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
     

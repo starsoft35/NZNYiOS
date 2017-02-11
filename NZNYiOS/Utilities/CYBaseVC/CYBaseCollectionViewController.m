@@ -14,14 +14,14 @@
 // 模型
 #import "CYLiveCollectionViewCellModel.h"
 
-#define cCollectionCellWidth ((340.0 / 750.0) * self.view.frame.size.width)
-#define cCollectionCellHeight ((390.0 / 1334.0) * self.view.frame.size.height)
-#define cCellMinLine ((20.0 / 750.0) * self.view.frame.size.width)
-#define cCellMinInteritem ((20.0 / 1334.0) * self.view.frame.size.height)
-#define cCellEdgeTop ((10.0 / 1334.0) * self.view.frame.size.height)
-#define cCellEdgeLeft ((25.0 / 750.0) * self.view.frame.size.width)
-#define cCellEdgeDown ((10.0 / 1334.0) * self.view.frame.size.height)
-#define cCellEdgeRight ((25.0 / 750.0) * self.view.frame.size.width)
+#define cCollectionCellWidth ((340.0 / 750.0) * cScreen_Width)
+#define cCollectionCellHeight ((390.0 / 1334.0) * cScreen_Height)
+#define cCellMinLine ((20.0 / 750.0) * cScreen_Width)
+#define cCellMinInteritem ((20.0 / 1334.0) * cScreen_Height)
+#define cCellEdgeTop ((10.0 / 1334.0) * cScreen_Height)
+#define cCellEdgeLeft ((25.0 / 750.0) * cScreen_Width)
+#define cCellEdgeDown ((10.0 / 1334.0) * cScreen_Height)
+#define cCellEdgeRight ((25.0 / 750.0) * cScreen_Width)
 
 @interface CYBaseCollectionViewController ()
 

@@ -169,7 +169,6 @@
     
     // 送礼：玫瑰花数量
     NSInteger roseCount = 1;
-#warning 还需要接支付功能
     
     // 网络请求：送一支玫瑰花
     [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:roseCount andCost:(2.0 * roseCount)];
@@ -185,7 +184,6 @@
     // 送礼：玫瑰花数量
     NSInteger roseCount = 3;
     
-#warning 还需要接支付功能
     // 网络请求：送三支玫瑰花
     [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:roseCount andCost:(2.0 * roseCount)];
     
@@ -198,7 +196,6 @@
     // 送礼：玫瑰花数量
     NSInteger roseCount = 9;
     
-#warning 还需要接支付功能
     // 网络请求：送九支玫瑰花
     [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:roseCount andCost:(2.0 * roseCount)];
     
@@ -211,7 +208,6 @@
     // 送礼：玫瑰花数量
     NSInteger roseCount = 99;
     
-#warning 还需要接支付功能
     // 网络请求：送九十九支玫瑰花
     [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:roseCount andCost:(2.0 * roseCount)];
 }
@@ -223,7 +219,6 @@
     // 送礼：玫瑰花数量
     NSInteger roseCount = 999;
     
-#warning 还需要接支付功能
     // 网络请求：送九百九十九支玫瑰花
     [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:roseCount andCost:(2.0 * roseCount)];
 }
@@ -241,7 +236,6 @@
         // 送礼：玫瑰花数量
         NSInteger roseCount = [self.giveGiftView.giftCountTextField.text integerValue];
         
-#warning 还需要接支付功能
         // 网络请求：送 n 支玫瑰花
         [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:roseCount andCost:(2.0 * roseCount)];
         

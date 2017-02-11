@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -32,13 +32,13 @@
                     <rect key="frame" x="123" y="15" width="239" height="90"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="【线下活动】" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6B-xi-zvr" userLabel="2.1-线下活动-Label">
-                            <rect key="frame" x="0.0" y="0.0" width="110" height="15"/>
+                            <rect key="frame" x="0.0" y="0.0" width="92" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.86154496669769287" green="0.52848923206329346" blue="0.26266428828239441" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预谋邂逅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgP-bg-sx5" userLabel="2.2-标题-Label">
-                            <rect key="frame" x="118" y="0.0" width="61.5" height="15"/>
+                            <rect key="frame" x="92" y="0.0" width="61.5" height="15"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -60,17 +60,17 @@
                         <constraint firstItem="3ME-xP-oxn" firstAttribute="height" secondItem="oHa-QF-fwU" secondAttribute="height" multiplier="30:180" id="13R-uC-jbY"/>
                         <constraint firstItem="Y6B-xi-zvr" firstAttribute="leading" secondItem="oHa-QF-fwU" secondAttribute="leading" id="1QE-Zj-WAA"/>
                         <constraint firstItem="Y6B-xi-zvr" firstAttribute="top" secondItem="oHa-QF-fwU" secondAttribute="top" id="BVU-me-UZP"/>
-                        <constraint firstItem="EgP-bg-sx5" firstAttribute="height" secondItem="Y6B-xi-zvr" secondAttribute="height" id="G7h-RT-N0v"/>
+                        <constraint firstItem="EgP-bg-sx5" firstAttribute="top" secondItem="Y6B-xi-zvr" secondAttribute="bottom" constant="-15" id="FVa-4S-L93"/>
                         <constraint firstItem="Y6B-xi-zvr" firstAttribute="height" secondItem="oHa-QF-fwU" secondAttribute="height" multiplier="30:180" id="RAF-kM-UYj"/>
                         <constraint firstItem="TCZ-Wd-l6k" firstAttribute="leading" secondItem="oHa-QF-fwU" secondAttribute="leading" id="aLU-YB-EtT"/>
-                        <constraint firstItem="EgP-bg-sx5" firstAttribute="top" secondItem="oHa-QF-fwU" secondAttribute="top" id="b3q-3J-Oya"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EgP-bg-sx5" secondAttribute="trailing" id="abO-Pt-2uM"/>
                         <constraint firstAttribute="trailing" secondItem="3ME-xP-oxn" secondAttribute="trailing" id="bkR-aU-28y"/>
                         <constraint firstItem="TCZ-Wd-l6k" firstAttribute="top" secondItem="Y6B-xi-zvr" secondAttribute="bottom" constant="10" id="cC8-Fn-jiu"/>
                         <constraint firstAttribute="trailing" secondItem="TCZ-Wd-l6k" secondAttribute="trailing" id="jW8-iN-Fnh"/>
                         <constraint firstItem="3ME-xP-oxn" firstAttribute="top" secondItem="TCZ-Wd-l6k" secondAttribute="bottom" constant="10" id="lMY-vq-xke"/>
-                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EgP-bg-sx5" secondAttribute="trailing" constant="10" id="nON-iE-Bc0"/>
+                        <constraint firstItem="EgP-bg-sx5" firstAttribute="height" secondItem="Y6B-xi-zvr" secondAttribute="height" id="nKj-HI-0vb"/>
+                        <constraint firstItem="EgP-bg-sx5" firstAttribute="leading" secondItem="Y6B-xi-zvr" secondAttribute="trailing" id="oNN-Mr-c4R"/>
                         <constraint firstAttribute="bottom" secondItem="3ME-xP-oxn" secondAttribute="bottom" id="smK-M7-AY5"/>
-                        <constraint firstItem="EgP-bg-sx5" firstAttribute="leading" secondItem="Y6B-xi-zvr" secondAttribute="trailing" constant="8" id="yJY-pK-V6d"/>
                     </constraints>
                 </view>
             </subviews>
@@ -81,7 +81,6 @@
                 <constraint firstItem="odB-UM-br7" firstAttribute="height" secondItem="xsq-57-VfC" secondAttribute="height" multiplier="200:240" id="M9M-Xp-IfZ"/>
                 <constraint firstAttribute="trailing" secondItem="oHa-QF-fwU" secondAttribute="trailing" constant="13" id="Qwq-dH-iho"/>
                 <constraint firstItem="oHa-QF-fwU" firstAttribute="leading" secondItem="odB-UM-br7" secondAttribute="trailing" constant="10" id="SPw-pF-eAe"/>
-                <constraint firstItem="Y6B-xi-zvr" firstAttribute="width" secondItem="xsq-57-VfC" secondAttribute="width" multiplier="220:750" id="cdg-Jr-dD8"/>
                 <constraint firstItem="oHa-QF-fwU" firstAttribute="height" secondItem="xsq-57-VfC" secondAttribute="height" multiplier="180:240" id="hWj-dn-VIQ"/>
                 <constraint firstItem="odB-UM-br7" firstAttribute="centerY" secondItem="xsq-57-VfC" secondAttribute="centerY" id="nO3-uh-DWV"/>
             </constraints>

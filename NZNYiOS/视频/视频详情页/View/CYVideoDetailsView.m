@@ -22,6 +22,7 @@
     
     // 头像
     _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:othersInfoVM.Portrait];
+    _headImgView.layer.cornerRadius = (30.0 / 1334.0) * cScreen_Height;
     
     // 姓名
     _nameLab.text = othersInfoVM.RealName;

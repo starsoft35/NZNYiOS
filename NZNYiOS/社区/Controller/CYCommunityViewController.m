@@ -9,9 +9,17 @@
 #import "CYCommunityViewController.h"
 
 
-// 活动：VC
+// 社区首页：活动：VC
 #import "CYCommunityHomePageCellVC.h"
 
+// 线下活动
+#import "CYOfflineActivityVC.h"
+
+// 往期回顾
+#import "CYPastReviewVC.h"
+
+// 客服问答
+#import "CYCustomerServerAskVC.h"
 
 
 
@@ -106,7 +114,7 @@
     _topView.activeNotiveView.userInteractionEnabled = YES;
     [_topView.activeNotiveView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(activeNotiveViewClick)]];
     
-//    [self.view addSubview:_topView];
+    [self.view addSubview:_topView];
     
     
     
@@ -118,27 +126,40 @@
     communityActiveCellVC.view.frame = CGRectMake(0, 294.0 / 1334.0 * cScreen_Height, cScreen_Width, cScreen_Height - 294.0 / 1334.0 * cScreen_Height - 49);
 //    tempChatListVC.view.frame = CGRectMake(0, 294.0 / 1334.0 * cScreen_Height, cScreen_Width, 407);
     communityActiveCellVC.baseTableView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - 294.0 / 1334.0 * cScreen_Height - 64 - 49);
-//    [self.view addSubview:communityActiveCellVC.view];
+    [self.view addSubview:communityActiveCellVC.view];
 }
 
 // 线下活动：imageView：点击事件
 - (void)offlineActiveImgViewClick{
     NSLog(@"线下活动：imageView：点击事件");
     
+    CYOfflineActivityVC *offlineActivityVC = [[CYOfflineActivityVC alloc] init];
+    
+    offlineActivityVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:offlineActivityVC animated:YES];
     
 }
 // 往期回顾：imageView：点击事件
 - (void)pastReViewImgViewClick{
     NSLog(@"往期回顾：imageView：点击事件");
     
+    CYPastReviewVC *pastReviewVC = [[CYPastReviewVC alloc] init];
     
+    pastReviewVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:pastReviewVC animated:YES];
 }
 
 // 客服问答：imageView：点击事件
 - (void)customQuestionImgViewClick{
     NSLog(@"客服问答：imageView：点击事件");
     
+    CYCustomerServerAskVC *customerServerAskVC = [[CYCustomerServerAskVC alloc] init];
     
+    customerServerAskVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:customerServerAskVC animated:YES];
 }
 
 // 活动公告：View：点击事件

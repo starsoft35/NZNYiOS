@@ -71,7 +71,7 @@
     // 中部滑动视图
     CYBaseSwipeViewController *trailerRecordVC = [[CYBaseSwipeViewController alloc] initWithSubVC:@[myLiveTrailerVC,myLiveRecordVC] andTitles:@[@"预告",@"记录"]];
     trailerRecordVC.view.frame = CGRectMake(0, 0, cScreen_Width, trailerRecordHeight);
-    trailerRecordVC.bgScrollView.frame = CGRectMake(0, (76.0 / 1334.0) * self.view.frame.size.height, cScreen_Width, trailerRecordHeight);
+    trailerRecordVC.bgScrollView.frame = CGRectMake(0, (76.0 / 1334.0) * cScreen_Height, cScreen_Width, trailerRecordHeight);
     
     _myLiveView.liveTrailerRecordView.frame = CGRectMake(0, 0, cScreen_Width, trailerRecordHeight);
 

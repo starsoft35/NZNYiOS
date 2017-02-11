@@ -24,8 +24,9 @@
     _mineHeadImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:mineMainHeaderViewModel.portrait];
     
     
-    _mineHeadImgView.layer.cornerRadius = (100.0 / 200.0) * _mineHeadImgView.frame.size.height;
+    _mineHeadImgView.layer.cornerRadius = (100.0 / 1334.0) * cScreen_Height;
     NSLog(@"headerView.mineHeadImgView.frame.size.height / 2:%lf",_mineHeadImgView.frame.size.height / 2);
+    NSLog(@"cScreen_Height:%f",cScreen_Height);
     
     // 姓名：label
     _userNameLab.text = mineMainHeaderViewModel.userName;

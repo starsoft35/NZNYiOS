@@ -24,6 +24,7 @@
     // 头像
     
     _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:searchModel.Portrait];
+    _headImgView.layer.cornerRadius = (75.0 / 1334.0) * cScreen_Height;
     
     // 姓名
     _nameLab.text = searchModel.RealName;

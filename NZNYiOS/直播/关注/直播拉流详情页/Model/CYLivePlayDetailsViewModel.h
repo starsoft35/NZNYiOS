@@ -24,6 +24,14 @@
 // 是否是预告，不是则为直播
 @property (nonatomic, assign) BOOL isTrailer;
 
+
+
+// 聊天室ID
+@property (nonatomic, copy) NSString *DiscussionId;
+
+// 是否已关注
+@property (nonatomic, assign) BOOL Follow;
+
 // 直播ID
 @property (nonatomic, copy) NSString *LiveId;
 // 爱情宣言
@@ -42,6 +50,8 @@
 @property (nonatomic, copy) NSString *Pictrue;
 // 直播开始时间
 @property (nonatomic, copy) NSString *PlanStartTime;
+// 直播结束时间
+@property (nonatomic, copy) NSString *PlanEndTime;
 // 直播标题
 @property (nonatomic, copy) NSString *Title;
 

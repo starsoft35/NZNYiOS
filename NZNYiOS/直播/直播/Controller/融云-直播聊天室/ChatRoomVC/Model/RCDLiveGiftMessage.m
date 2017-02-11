@@ -25,9 +25,29 @@
     NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&__error];
     NSDictionary *dict = [[NSDictionary alloc] initWithDictionary:dictionary];
     if (!__error && dict) {
+        
+        
+        
         self.type = [dict objectForKey:@"type"];
         NSDictionary *userinfoDic = [dict objectForKey:@"user"];
+        //        NSMutableDictionary *userinfoDic = [dict objectForKey:@"user"];
         [self decodeUserInfo:userinfoDic];
+        NSLog(@"dict:%@",dict);
+        NSLog(@"userinfoDic:%@",userinfoDic);
+        
+        
+        self.tempMessageType = [dict objectForKey:@"tempMessageType"];
+        self.tempMessageContentStr = [dict objectForKey:@"tempMessageContentStr"];
+        self.content = [dict objectForKey:@"content"];
+        //        self.type = [dict objectForKey:@"tempMessageType"];
+        //        userinfoDic = [dict objectForKey:@"messageType"];
+        //        [self decodeUserInfo:userinfoDic];
+        //
+        //        self.type = [dict objectForKey:@"tempMessageContentStr"];
+        //        userinfoDic = [dict objectForKey:@"messageContentStr"];
+        //        [self decodeUserInfo:userinfoDic];
+        
+        
     } else {
         self.rawJSONData = data;
     }
@@ -37,6 +57,10 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     if (self.type) {
         [dict setObject:self.type forKey:@"type"];
+        [dict setObject:self.tempMessageType forKey:@"tempMessageType"];
+        [dict setObject:self.tempMessageContentStr forKey:@"tempMessageContentStr"];
+        [dict setObject:self.content forKey:@"content"];
+        
     }
     if (self.senderUserInfo) {
         NSMutableDictionary *__dic = [[NSMutableDictionary alloc] init];

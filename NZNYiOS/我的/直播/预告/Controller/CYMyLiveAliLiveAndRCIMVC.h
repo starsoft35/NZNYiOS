@@ -33,7 +33,14 @@
 /*!
  聊天界面类
  */
-@interface CYMyLiveAliLiveAndRCIMVC : CYBaseViewController<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UIScrollViewDelegate>
+@interface CYMyLiveAliLiveAndRCIMVC : CYBaseViewController
+<
+UICollectionViewDelegate,
+UICollectionViewDataSource,
+UICollectionViewDelegateFlowLayout,
+UIGestureRecognizerDelegate,
+UIScrollViewDelegate
+>
 
 
 // 直播推流详情页

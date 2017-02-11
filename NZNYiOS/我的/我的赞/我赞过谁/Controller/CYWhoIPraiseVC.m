@@ -261,7 +261,7 @@
         CYWhoPraiseMeCellModel *whoPraiseMeCellModel = self.dataArray[indexPath.row - 1];
         whoPraiseMeCellModel.isPraise = YES;
         
-        cell.headImgView.layer.cornerRadius = (75.0 / 150.0) * cell.headImgView.frame.size.height;
+        cell.headImgView.layer.cornerRadius = (75.0 / 1334.0) * cScreen_Height;
         
         // 假数据
         cell.whoPraiseMeCellModel = whoPraiseMeCellModel;
@@ -298,11 +298,11 @@
     
     if (indexPath.section == 0 && indexPath.row == 0 ) {
         
-        return (150.0 / 1206.0) * self.view.frame.size.height;
+        return (150.0 / 1334.0) * cScreen_Height;
     }
     else {
         
-        return (190.0 / 1206.0) * self.view.frame.size.height;
+        return (190.0 / 1334.0) * cScreen_Height;
     }
 }
 

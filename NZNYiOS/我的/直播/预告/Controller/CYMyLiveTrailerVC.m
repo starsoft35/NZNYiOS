@@ -29,15 +29,15 @@
 
 
 
-#define cCollectionCellWidth ((340.0 / 750.0) * self.view.frame.size.width)
+#define cCollectionCellWidth ((340.0 / 750.0) * cScreen_Width)
 #define cCollectionCellHeight (195)
-//#define cCollectionCellHeight ((390.0 / 1334.0) * self.view.frame.size.height)
-#define cCellMinLine ((20.0 / 750.0) * self.view.frame.size.width)
-#define cCellMinInteritem ((20.0 / 1334.0) * self.view.frame.size.height)
-#define cCellEdgeTop ((10.0 / 1334.0) * self.view.frame.size.height)
-#define cCellEdgeLeft ((25.0 / 750.0) * self.view.frame.size.width)
-#define cCellEdgeDown ((50.0 / 1334.0) * self.view.frame.size.height)
-#define cCellEdgeRight ((25.0 / 750.0) * self.view.frame.size.width)
+//#define cCollectionCellHeight ((390.0 / 1334.0) * cScreen_Height)
+#define cCellMinLine ((20.0 / 750.0) * cScreen_Width)
+#define cCellMinInteritem ((20.0 / 1334.0) * cScreen_Height)
+#define cCellEdgeTop ((10.0 / 1334.0) * cScreen_Height)
+#define cCellEdgeLeft ((25.0 / 750.0) * cScreen_Width)
+#define cCellEdgeDown ((50.0 / 1334.0) * cScreen_Height)
+#define cCellEdgeRight ((25.0 / 750.0) * cScreen_Width)
 
 @interface CYMyLiveTrailerVC ()
 
@@ -143,7 +143,7 @@
 - (void)addLabelToShowNoLive{
     NSLog(@"如果没有直播，添加提示");
     
-    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * cScreen_Width, (80.0 / 1334.0) * cScreen_Height, (726.0 / 750.0) * cScreen_Width, (30.0 / 1334.0) * cScreen_Height)];
     
     
     tipLab.text = @"暂时没有直播预告";
@@ -368,7 +368,8 @@
     // 阿里直播推流和融云IM详情页
     [self addLiveALiPushAndRCIMVCWithPushUrl:livePushUrl andLiveId:liveId andChatRoomId:chatRoomId andExpectEndTimestamp:expectEndTimestamp];
     
-    
+    // 阿里直播推流详情页
+//    [self addLiveALiPushVCWithPushUrl:livePushUrl andLiveId:liveId];
 }
 
 // 阿里直播推流和融云IM详情页

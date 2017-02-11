@@ -155,7 +155,7 @@
     CYWhoPraiseMeCellModel *whoPraiseMeCellModel = self.dataArray[indexPath.row];
     whoPraiseMeCellModel.isPraise = NO;
     
-    cell.headImgView.layer.cornerRadius = (75.0 / 150.0) * cell.headImgView.frame.size.height;
+    cell.headImgView.layer.cornerRadius = (75.0 / 1334.0) * cScreen_Height;
     
     // 假数据
     cell.whoPraiseMeCellModel = whoPraiseMeCellModel;
@@ -169,7 +169,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    return (190.0 / 1206.0) * self.view.frame.size.height;
+    return (190.0 / 1334.0) * cScreen_Height;
 }
 
 // header 的高度

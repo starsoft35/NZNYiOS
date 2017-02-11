@@ -160,7 +160,7 @@ RCConnectionStatusChangeDelegate
 
 
 // 点赞：网络请求
-- (void)requestLikeWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)likeCount andAddLikeUrl:(NSString *)addLikeUrl;
+- (void)requestLikeWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andLikeCount:(NSInteger)likeCount andAddLikeUrl:(NSString *)addLikeUrl;
 
 // 送礼：网络请求
 - (void)requestGiveGiftWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)giftCount;

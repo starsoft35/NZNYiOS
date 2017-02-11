@@ -463,7 +463,8 @@
     [audioSession setActive:YES error:nil];
     self.audioPlayer.delegate = self;
     
-#warning 视频地址的赋值
+
+    // 视频地址的赋值
     // 模型：当前用户的信息模型
     CYOthersInfoViewModel *tempOthersInfoViewModel = self.dataArray[0];
     

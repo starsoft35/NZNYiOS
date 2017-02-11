@@ -116,7 +116,7 @@
 - (void)addLabelToShowNoFriend{
     NSLog(@"如果没有好友，添加提示");
     
-    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * self.view.frame.size.width, (80.0 / 1334.0) * self.view.frame.size.height, (726.0 / 750.0) * self.view.frame.size.width, (30.0 / 1334.0) * self.view.frame.size.height)];
+    UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * cScreen_Width, (80.0 / 1334.0) * cScreen_Height, (726.0 / 750.0) * cScreen_Width, (30.0 / 1334.0) * cScreen_Height)];
     
     
     tipLab.text = @"暂时没有好友";
@@ -368,14 +368,14 @@
 // cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return (140.0 / 1206.0) * self.view.frame.size.height;
+    return (140.0 / 1334.0) * cScreen_Height;
 }
 
 
 // header的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    return (5.0 / 1206.0) * self.view.frame.size.height;
+    return (5.0 / 1334.0) * cScreen_Height;
 }
 
 

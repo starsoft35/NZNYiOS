@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,8 +18,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iqA-YP-yKd" userLabel="1-头像View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="194.5"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认头像.png" translatesAutoresizingMaskIntoConstraints="NO" id="KFz-GE-Rbd" userLabel="1.1-上传头像Image View">
+                            <rect key="frame" x="132.5" y="60" width="110" height="110"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="110" id="p2c-EF-a1c"/>
                                 <constraint firstAttribute="width" secondItem="KFz-GE-Rbd" secondAttribute="height" multiplier="1:1" id="zEY-L2-Yhi"/>
@@ -28,6 +33,7 @@
                             </userDefinedRuntimeAttributes>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像会提升对方对您的好感度哦！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="wbs-Am-dQU" userLabel="1.2-提示头像上传Label">
+                            <rect key="frame" x="95.5" y="180" width="184" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
@@ -41,12 +47,14 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yw0-Am-4N1" userLabel="4-完成View">
+                    <rect key="frame" x="0.0" y="440.5" width="375" height="226.5"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDw-UK-F6r" userLabel="完成-Button">
+                            <rect key="frame" x="40" y="55" width="295" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="JTw-jg-ihb"/>
                             </constraints>
-                            <state key="normal" title="完成" backgroundImage="完成未激活.png">
+                            <state key="normal" title="完成" backgroundImage="登录完成未激活.png">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
@@ -58,23 +66,28 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TR8-MM-F6w" userLabel="2-姓名View">
+                    <rect key="frame" x="0.0" y="194.5" width="375" height="101"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="（4个汉字以内）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="1Xf-ul-fiz" userLabel="2.2提示姓名字数Label">
+                            <rect key="frame" x="221" y="46.5" width="117" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ysu-h9-v5v" userLabel="2.3姓名Progress View">
+                            <rect key="frame" x="37" y="75.5" width="301" height="1"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="cHk-g6-fr8"/>
                             </constraints>
                         </progressView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="让对方快速方便的记住您哦！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="FUN-wR-xzr" userLabel="2.4提示姓名填写Label">
+                            <rect key="frame" x="37" y="86.5" width="301" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入您的姓名" textAlignment="natural" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="pgE-gK-Vf0" userLabel="2.1-姓名-Text Field">
+                            <rect key="frame" x="55" y="46.5" width="165" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="cT0-u5-gan"/>
                             </constraints>
@@ -99,13 +112,16 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cvA-pK-flp" userLabel="3-性别View">
+                    <rect key="frame" x="0.0" y="295.5" width="375" height="145"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="男士未选.png" translatesAutoresizingMaskIntoConstraints="NO" id="T0m-B8-YBx" userLabel="3.1男士Image View">
+                            <rect key="frame" x="82.5" y="45" width="75" height="75"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="T0m-B8-YBx" secondAttribute="height" multiplier="1:1" id="PTT-hE-WYL"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是男士" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="tDw-zT-Tk7" userLabel="3.2我是男士Label">
+                            <rect key="frame" x="89" y="129" width="61.5" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="16" id="0It-ne-VKw"/>
                             </constraints>
@@ -114,11 +130,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="女士未选.png" translatesAutoresizingMaskIntoConstraints="NO" id="nuz-7k-AUh" userLabel="3.3女士Image View">
+                            <rect key="frame" x="218" y="45" width="75" height="75"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="nuz-7k-AUh" secondAttribute="height" multiplier="1:1" id="bMa-iW-6jx"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我是女士" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="eun-1h-3TT" userLabel="3.4我是女士Label">
+                            <rect key="frame" x="224.5" y="129" width="61.5" height="16"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -177,8 +195,8 @@
     </objects>
     <resources>
         <image name="女士未选.png" width="75" height="75"/>
-        <image name="完成未激活.png" width="300" height="44"/>
         <image name="男士未选.png" width="75" height="75"/>
+        <image name="登录完成未激活.png" width="300" height="44"/>
         <image name="默认头像.png" width="300" height="300"/>
     </resources>
 </document>

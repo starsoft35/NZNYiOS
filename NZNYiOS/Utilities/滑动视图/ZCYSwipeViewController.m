@@ -56,7 +56,7 @@
 - (void)setupSegment{
     
 //    __block NSInteger page = 0;
-    _seg = [[ZCYSegment alloc] initWithFrame:CGRectMake((25.0 / 750.0) * self.view.frame.size.width, (10.0 / 1334.0) * self.view.frame.size.height, (700.0 / 750.0) * self.view.frame.size.width, (66.0 / 1334.0) * self.view.frame.size.height) withTitles:_titlesArr action:^(NSInteger index){
+    _seg = [[ZCYSegment alloc] initWithFrame:CGRectMake((25.0 / 750.0) * cScreen_Width, (10.0 / 1334.0) * cScreen_Height, (700.0 / 750.0) * cScreen_Width, (66.0 / 1334.0) * cScreen_Height) withTitles:_titlesArr action:^(NSInteger index){
         
         // 修改contentOfSet
         //   1.
@@ -94,7 +94,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     // 初始化scrollView
-    _bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, (76.0 / 1334) * self.view.frame.size.height, cScreen_Width, cScreen_Height)];
+    _bgScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, (76.0 / 1334.0) * cScreen_Height, cScreen_Width, cScreen_Height)];
     
     // 设置scrollView 的 frame
     [self setScrollViewFrame];
@@ -126,7 +126,7 @@
 // 设置scrollView 的 frame
 - (void)setScrollViewFrame{
     
-    _bgScrollView.frame = CGRectMake(0, (76.0 / 1334) * self.view.frame.size.height, cScreen_Width, cScreen_Height);
+    _bgScrollView.frame = CGRectMake(0, (76.0 / 1334.0) * cScreen_Height, cScreen_Width, cScreen_Height);
 }
 
 

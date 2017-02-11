@@ -268,11 +268,7 @@
         // 诚信认证详情
         CYCertificateDetailVC *certificateDetailVC = [[CYCertificateDetailVC alloc] init];
         
-        // 导航VC
-        UINavigationController *nav = [CYUtilities createDefaultNavCWithRootVC:certificateDetailVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"登录" bgImg:[UIImage imageNamed:@"Title1"]];
-        
-//        [self presentViewController:nav animated:nil completion:nil];
-//        [self.navigationController pushViewController:certificateDetailVC animated:YES];
+        // 导航VC：获取当前视图所在位置的导航控制器
         [[self navigationControllerWithView:self.view] pushViewController:certificateDetailVC animated:YES];
     }
     
@@ -289,11 +285,11 @@
         // 自动计算label的高度、宽度
         CGSize tempLabelSize = [self labelAutoCalculateRectWith:self.dataArray[indexPath.section][indexPath.row][@"detail"] FontSize:15 MaxSize:CGSizeMake(240.0 / 375.0 * cScreen_Width, 80.0 / 667.0 * cScreen_Height)];
         
-        return ((88.0 / 1334.0) * self.view.frame.size.height) + (tempLabelSize.height / 2);
+        return ((88.0 / 1334.0) * cScreen_Height) + (tempLabelSize.height / 2);
     }
     else {
         
-        return (88.0 / 1334.0) * self.view.frame.size.height;
+        return (88.0 / 1334.0) * cScreen_Height;
     }
 }
 

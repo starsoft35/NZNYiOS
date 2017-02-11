@@ -287,7 +287,7 @@
 // cell 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return (190.0 / 1108) * self.view.frame.size.height;
+    return (190.0 / 1334) * cScreen_Height;
 }
 
 // 为了设置第一行距顶部navigation 的距离

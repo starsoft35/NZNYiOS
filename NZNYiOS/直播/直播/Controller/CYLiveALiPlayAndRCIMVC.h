@@ -34,7 +34,13 @@
  聊天界面类
  */
 @interface CYLiveALiPlayAndRCIMVC: CYBaseViewController
-<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate, UIScrollViewDelegate>
+<
+UICollectionViewDelegate,
+UICollectionViewDataSource,
+UICollectionViewDelegateFlowLayout,
+UIGestureRecognizerDelegate,
+UIScrollViewDelegate
+>
 
 
 // 阿里播放SDK：视图

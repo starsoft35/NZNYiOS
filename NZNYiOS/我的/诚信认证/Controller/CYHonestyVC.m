@@ -148,7 +148,7 @@
 // headerHeight
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    return 20.0 / 1334 * self.view.frame.size.height;
+    return 20.0 / 1334.0 * cScreen_Height;
 }
 
 // footHeight

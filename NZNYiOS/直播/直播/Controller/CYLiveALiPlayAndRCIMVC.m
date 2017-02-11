@@ -25,6 +25,16 @@
 #import "RCDLivePortraitViewCell.h"
 //#import "KSYLivePlaying.h"
 
+
+
+
+// 测试融云聊天室和阿里直播推流用
+//#import "RCDLiveChatRoomViewController.h"
+
+
+
+
+
 // 阿里播放器：界面：VC
 #import "AliVcMoiveViewController.h"
 
@@ -43,27 +53,51 @@
 #import "CYAddFriendVC.h"
 // 送礼弹窗：VC
 #import "CYGiveGiftTipVC.h"
+// 送礼弹窗：View
+#import "CYGiveGiftTipWithMoneyView.h"
+
+
 // 点赞弹窗：VC
 #import "CYLikeTipVC.h"
+// 点赞弹窗：View
+#import "CYLikeTipWithMoneyView.h"
+
+// 余额不足弹窗：VC
+#import "CYBalanceNotEnoughVC.h"
+// 余额不足弹窗：View
+#import "CYBalanceNotEnoughView.h"
+// 充值界面：VC
+#import "CYRechargeVC.h"
+
 
 //输入框的高度
 #define MinHeight_InputView 50.0f
 #define kBounds [UIScreen mainScreen].bounds.size
 @interface CYLiveALiPlayAndRCIMVC () <
-UICollectionViewDelegate,
-UICollectionViewDataSource,
-UICollectionViewDelegateFlowLayout,
+//UICollectionViewDelegate,
+//UICollectionViewDataSource,
+//UICollectionViewDelegateFlowLayout,
+//UIGestureRecognizerDelegate,
+//UIScrollViewDelegate,
 UINavigationControllerDelegate,
-UIGestureRecognizerDelegate,
-UIScrollViewDelegate,
 
 RCDLiveMessageCellDelegate,
 RCTKInputBarControlDelegate,
 //RCConnectionStatusChangeDelegate,
 
-RCIMConnectionStatusDelegate
+RCIMConnectionStatusDelegate,
 
+
+UITextFieldDelegate
 >
+
+
+// 送礼弹窗：View
+@property(nonatomic, strong) CYGiveGiftTipWithMoneyView *giveGiftTipView;
+// 点赞弹窗：View
+@property(nonatomic, strong) CYLikeTipWithMoneyView *likeTipWithMoneyView;
+// 余额不足弹窗：View
+@property(nonatomic, strong) CYBalanceNotEnoughView *balanceNotEnoughView;
 
 
 //
@@ -215,7 +249,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     self.defaultHistoryMessageCountOfChatRoom = 10;
     
     // 设置IMLib的连接状态监听器
-//    [[RCIMClient sharedRCIMClient]setRCConnectionStatusChangeDelegate:self];
+    //    [[RCIMClient sharedRCIMClient]setRCConnectionStatusChangeDelegate:self];
     [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
 }
 
@@ -252,7 +286,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     [super viewDidLoad];
     
     // AppDelegate里面添加的假用户
-//    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    //    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     //    self.userList = delegate.userList;
     
     
@@ -263,8 +297,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     // 上部：头像、姓名、观看人数、观众：view
     [self initChatroomMemberInfo];
-    // 加载数据：上部头像数据
-    [self loadData];
+    
     
     // 观众：提前注册：collectionView
     [self.portraitsCollectionView registerClass:[RCDLivePortraitViewCell class] forCellWithReuseIdentifier:@"portraitcell"];
@@ -280,53 +313,53 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     // 当前会话类型为聊天室时，加入聊天室
     [self joinChatRoomWithChatRoomId:self.targetId];
+    NSLog(@"CYLiveALiPlayAndRCIMVC:%@",self.targetId);
     
     
-    
-//    __weak CYLiveALiPlayAndRCIMVC *weakSelf = self;
-//    
-//    
-//    
-//    //聊天室类型进入时需要调用加入聊天室接口，退出时需要调用退出聊天室接口
-//    // 当前会话类型为聊天室时，加入聊天室
-//    if (ConversationType_CHATROOM == self.conversationType) {
-//        [[RCIMClient sharedRCIMClient]
-//         joinChatRoom:self.targetId
-//         messageCount:-1
-//         success:^{
-//             dispatch_async(dispatch_get_main_queue(), ^{
-//                 
-//                 
-//#warning 可以用自己的视频播放器
-//                 // 视频播放器：初始化，并带入视频地址
-//                 //                 self.livePlayingManager = [[KSYLivePlaying alloc] initPlaying:self.contentURL];
-//                 //                 self.livePlayingManager = [[LELivePlaying alloc] initPlaying:@"201604183000000z4"];
-//                 //                 self.livePlayingManager = [[QINIULivePlaying alloc] initPlaying:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
-//                 //                 self.livePlayingManager = [[QCLOUDLivePlaying alloc] initPlaying:@"http://2527.vod.myqcloud.com/2527_117134a2343111e5b8f5bdca6cb9f38c.f20.mp4"];
-//                 
-//                 // 初始化视频直播
-//                 [self initializedLiveSubViews];
-//                 
-//                 // 开始播放
-//                 //                 [self.livePlayingManager startPlaying];
-//                 
-//                 
-//                 // 通知消息类：谁加入了聊天室
-//                 RCInformationNotificationMessage *joinChatroomMessage = [[RCInformationNotificationMessage alloc]init];
-//                 joinChatroomMessage.message = [NSString stringWithFormat: @"%@加入了聊天室",[RCDLive sharedRCDLive].currentUserInfo.name];
-//                 [self sendMessage:joinChatroomMessage pushContent:nil];
-//             });
-//         }
-//         error:^(RCErrorCode status) {
-//             dispatch_async(dispatch_get_main_queue(), ^{
-//                 if (status == KICKED_FROM_CHATROOM) {
-//                     [weakSelf loadErrorAlert:NSLocalizedStringFromTable(@"JoinChatRoomRejected", @"RongCloudKit", nil)];
-//                 } else {
-//                     [weakSelf loadErrorAlert:NSLocalizedStringFromTable(@"JoinChatRoomFailed", @"RongCloudKit", nil)];
-//                 }
-//             });
-//         }];
-//    }
+    //    __weak CYLiveALiPlayAndRCIMVC *weakSelf = self;
+    //
+    //
+    //
+    //    //聊天室类型进入时需要调用加入聊天室接口，退出时需要调用退出聊天室接口
+    //    // 当前会话类型为聊天室时，加入聊天室
+    //    if (ConversationType_CHATROOM == self.conversationType) {
+    //        [[RCIMClient sharedRCIMClient]
+    //         joinChatRoom:self.targetId
+    //         messageCount:-1
+    //         success:^{
+    //             dispatch_async(dispatch_get_main_queue(), ^{
+    //
+    //
+    //#warning 可以用自己的视频播放器
+    //                 // 视频播放器：初始化，并带入视频地址
+    //                 //                 self.livePlayingManager = [[KSYLivePlaying alloc] initPlaying:self.contentURL];
+    //                 //                 self.livePlayingManager = [[LELivePlaying alloc] initPlaying:@"201604183000000z4"];
+    //                 //                 self.livePlayingManager = [[QINIULivePlaying alloc] initPlaying:@"rtmp://live.hkstv.hk.lxdns.com/live/hks"];
+    //                 //                 self.livePlayingManager = [[QCLOUDLivePlaying alloc] initPlaying:@"http://2527.vod.myqcloud.com/2527_117134a2343111e5b8f5bdca6cb9f38c.f20.mp4"];
+    //
+    //                 // 初始化视频直播
+    //                 [self initializedLiveSubViews];
+    //
+    //                 // 开始播放
+    //                 //                 [self.livePlayingManager startPlaying];
+    //
+    //
+    //                 // 通知消息类：谁加入了聊天室
+//                     RCInformationNotificationMessage *joinChatroomMessage = [[RCInformationNotificationMessage alloc]init];
+    //                 joinChatroomMessage.message = [NSString stringWithFormat: @"%@加入了聊天室",[RCDLive sharedRCDLive].currentUserInfo.name];
+    //                 [self sendMessage:joinChatroomMessage pushContent:nil];
+    //             });
+    //         }
+    //         error:^(RCErrorCode status) {
+    //             dispatch_async(dispatch_get_main_queue(), ^{
+    //                 if (status == KICKED_FROM_CHATROOM) {
+    //                     [weakSelf loadErrorAlert:NSLocalizedStringFromTable(@"JoinChatRoomRejected", @"RongCloudKit", nil)];
+    //                 } else {
+    //                     [weakSelf loadErrorAlert:NSLocalizedStringFromTable(@"JoinChatRoomFailed", @"RongCloudKit", nil)];
+    //                 }
+    //             });
+    //         }];
+    //    }
     
 }
 
@@ -369,25 +402,25 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             CYLivePlayDetailsViewModel *tempLivePlayDetailsViewModel = [[CYLivePlayDetailsViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil];
             
             tempLivePlayDetailsViewModel.isPlayView = YES;
-//            tempLivePlayDetailsViewModel.isTrailer = self.isTrailer;
+            //            tempLivePlayDetailsViewModel.isTrailer = self.isTrailer;
             
             // 模型赋值
             _livePlayDetailsView.livePlayDetailsModel = tempLivePlayDetailsViewModel;
             
             self.oppUserId = tempLivePlayDetailsViewModel.LiveUserId;
-//            
-//            
-//            self.targetId = responseObject[@"res"][@"data"][@"model"][@"DiscussionId"];
+            //
+            //
+            //            self.targetId = responseObject[@"res"][@"data"][@"model"][@"DiscussionId"];
             
-//            
-//            
-//            // 初始化视频直播
-//            [self initializedLiveSubViews];
-//            
-//            
-//            
-//            // 当前会话类型为聊天室时，加入聊天室
-//            [self joinChatRoomWithChatRoomId:self.targetId];
+            //
+            //
+            //            // 初始化视频直播
+            //            [self initializedLiveSubViews];
+            //
+            //
+            //
+            //            // 当前会话类型为聊天室时，加入聊天室
+            //            [self joinChatRoomWithChatRoomId:self.targetId];
             
             
             // 网络请求：直播间观众
@@ -434,15 +467,13 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
              dispatch_async(dispatch_get_main_queue(), ^{
                  
                  
-                 
-                 
-                 // 通知消息类：谁加入了聊天室
-                 RCInformationNotificationMessage *joinChatroomMessage = [[RCInformationNotificationMessage alloc]init];
-                 
-                 joinChatroomMessage.message = [NSString stringWithFormat: @"%@加入了聊天室",[RCDLive sharedRCDLive].currentUserInfo.name];
-                 
-                 [self sendMessage:joinChatroomMessage pushContent:nil];
-                 
+                 // 只有聊天室
+                 RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
+                 giftMessage.type = @"2";
+                 giftMessage.tempMessageType = @"2";
+                 giftMessage.tempMessageContentStr = @"加入了聊天室";
+                 giftMessage.content = @"加入了安卓聊天室室室室室室室室室室室室室室";
+                 [self sendMessage:giftMessage pushContent:@""];
                  
                  
                  
@@ -541,16 +572,26 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    
     [self.view addGestureRecognizer:_resetBottomTapGesture];
     [self.conversationMessageCollectionView reloadData];
     
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    
+    // 加载数据：上部头像数据
+    [self loadData];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
     self.navigationTitle = self.navigationItem.title;
+    
 }
+
 
 /**
  *  移除监听
@@ -597,7 +638,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
         //            [self.livePlayingManager destroyPlaying];
         //        }
         
-//        [[RCIM sharedRCIM] quitDiscussion:<#(NSString *)#> success:<#^(RCDiscussion *discussion)successBlock#> error:<#^(RCErrorCode status)errorBlock#>];
+        //        [[RCIM sharedRCIM] quitDiscussion:<#(NSString *)#> success:<#^(RCDiscussion *discussion)successBlock#> error:<#^(RCErrorCode status)errorBlock#>];
         // 退出聊天室
         [[RCIMClient sharedRCIMClient] quitChatRoom:self.targetId
                                             success:^{
@@ -616,6 +657,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 }
 
 
+
+#pragma mark--------------------------- 上部视图：开始 ---------------------------------------
 // 上部：头像、姓名、观看人数、观众：view
 - (void)initChatroomMemberInfo{
     
@@ -624,7 +667,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     view.backgroundColor = [UIColor whiteColor];
     view.layer.cornerRadius = 35/2;
     view.alpha = 0.5;
-//    [self.view addSubview:view];
+    //    [self.view addSubview:view];
     
     
     // 头像
@@ -632,7 +675,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     imageView.image = [UIImage imageNamed:@"head"];
     imageView.layer.cornerRadius = 34/2;
     imageView.layer.masksToBounds = YES;
-//    [view addSubview:imageView];
+    //    [view addSubview:imageView];
     
     
     // 姓名、观看人数：label
@@ -640,7 +683,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     chatroomlabel.numberOfLines = 2;
     chatroomlabel.font = [UIFont systemFontOfSize:12.f];
     chatroomlabel.text = [NSString stringWithFormat:@"小海豚\n2890人"];
-//    [view addSubview:chatroomlabel];
+    //    [view addSubview:chatroomlabel];
     
     
     
@@ -654,7 +697,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     self.portraitsCollectionView.delegate = self;
     self.portraitsCollectionView.dataSource = self;
     self.portraitsCollectionView.backgroundColor = [UIColor clearColor];
-//    [self.view addSubview:self.portraitsCollectionView];
+    //    [self.view addSubview:self.portraitsCollectionView];
     
     
     [self.livePlayDetailsView.liveRoomPeopleListView addSubview:self.portraitsCollectionView];
@@ -687,8 +730,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
         
         UIImageView *chatViewBg = [[UIImageView alloc] initWithFrame:contentViewFrame];
         chatViewBg.image = [UIImage imageNamed:@"直播详情底部"];
-//        [self.contentView insertSubview:chatViewBg atIndex:0];
-
+        //        [self.contentView insertSubview:chatViewBg atIndex:0];
+        
     }
     
     
@@ -705,7 +748,10 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
         _conversationViewFrame.origin.y = 0;
         
         // 设置frame小于聊天区50
-        _conversationViewFrame.size.height = self.contentView.bounds.size.height - 50;
+        _conversationViewFrame.size.height = self.contentView.bounds.size.height - (_livePlayDetailsView.bottomAllBtnView.frame.size.height / 667.0 * cScreen_Height);
+        
+        NSLog(@"_livePlayDetailsView.bottomAllBtnView.frame.size.height:%f",_livePlayDetailsView.bottomAllBtnView.frame.size.height);
+        
         _conversationViewFrame.size.width = 240;
         self.conversationMessageCollectionView =
         [[UICollectionView alloc] initWithFrame:_conversationViewFrame
@@ -714,6 +760,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
          setBackgroundColor:[UIColor clearColor]];
         self.conversationMessageCollectionView.showsHorizontalScrollIndicator = NO;
         self.conversationMessageCollectionView.alwaysBounceVertical = YES;
+        
+        
         self.conversationMessageCollectionView.dataSource = self;
         self.conversationMessageCollectionView.delegate = self;
         
@@ -785,7 +833,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     [_backBtn addTarget:self
                  action:@selector(leftBarButtonItemPressed:)
        forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:_backBtn];
+    //    [self.view addSubview:_backBtn];
     
     
     
@@ -811,6 +859,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
                              initWithImage:[UIImage imageNamed:@"giftIcon"]];
     clapImg2.frame = CGRectMake(0,0, 35, 35);
     [_flowerBtn addSubview:clapImg2];
+    
+    
     [_flowerBtn addTarget:self
                    action:@selector(flowerButtonPressed:)
          forControlEvents:UIControlEventTouchUpInside];
@@ -835,7 +885,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
     // 阿里播放界面：
-//    NSString *newUrl = @"http://live.nznychina.com/n99fbb0d7954afc2e5aeb2c36bd192309/lfff48c7b49a5e3e4eb321065029fb605.m3u8";
+    //    NSString *newUrl = @"http://live.nznychina.com/n99fbb0d7954afc2e5aeb2c36bd192309/lfff48c7b49a5e3e4eb321065029fb605.m3u8";
     
     NSString *newPlayUrl = self.playUrl;
     [self pushALiPlayerViewControllerWithPlayUrl:newPlayUrl];
@@ -869,6 +919,9 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     _livePlayDetailsView.topHeadNameFIDFollorView.userInteractionEnabled = YES;
     [_livePlayDetailsView.topHeadNameFIDFollorView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(topHeadNameIDFollowViewClick)]];
     
+    // 关注：button：点击事件
+    [_livePlayDetailsView.followBtn addTarget:self action:@selector(topFollowBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
     // 关闭btn：点击事件
     [_livePlayDetailsView.closeBtn addTarget:self action:@selector(closeBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
@@ -890,7 +943,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
     [self.view addSubview:_livePlayDetailsView];
-//        self.view = _livePlayDetailsView;
+    //        self.view = _livePlayDetailsView;
     
 }
 
@@ -907,8 +960,69 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:othersInfoVC animated:YES];
     
-//    [othersInfoVC.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+    //    [othersInfoVC.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
     
+}
+
+// 上部头像：关注：点击事件
+- (void)topFollowBtnClick{
+    NSLog(@"上部头像：关注：点击事件");
+    
+    [self addFollow];
+}
+// 网络请求：加关注
+- (void)addFollow{
+    
+    // 网络请求：加关注
+    // 参数
+    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&oppUserId=%@",cAddFollowUrl,self.onlyUser.userID,self.oppUserId];
+    
+    [self showLoadingView];
+    
+    // 网络请求：加关注
+    [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"加关注：progress:%@",uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"加关注：请求成功！");
+        
+        
+        // 2.3.1.1、获取code 值
+        NSString *code = responseObject[@"code"];
+        
+        // 2.3.1.2、判断返回值
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"加关注：关注成功！");
+            
+            // 隐藏菊花
+            //            [self hidenLoadingView];
+            
+            // 刷新数据
+            [self loadData];
+            
+        }
+        else{
+            NSLog(@"加关注：关注失败！");
+            NSLog(@"msg:%@",responseObject[@"res"][@"msg"]);
+            
+            
+            // 2.3.1.2.2、加关注失败，弹窗
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+        }
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"加关注：请求失败！");
+        NSLog(@"error:%@",error);
+        
+        // 加关注：请求：失败，加载菊花消失
+        [self hidenLoadingView];
+        
+        // 2.3.1.2.2、加关注请求失败，弹窗
+        [self showHubWithLabelText:@"网络错误，请重新上传！" andHidAfterDelay:3.0];
+        
+        
+    } withToken:self.onlyUser.userToken];
 }
 
 // 关闭btn：点击事件
@@ -930,6 +1044,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark--------------------------- 上部视图：结束 ---------------------------------------
 
 
 // 网络请求：观众离开直播间
@@ -941,7 +1056,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     // 新地址
     NSString *newUrl = [NSString stringWithFormat:@"%@?liveRoomId=%@",cLeaveLiveRoomUrl,liveRoomId];
     
-//    [self showLoadingView];
+    //    [self showLoadingView];
     
     // 网络请求：观众离开直播间
     [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
@@ -961,7 +1076,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             
             
             // 取消加载
-//            [self hidenLoadingView];
+            //            [self hidenLoadingView];
             
             
         }
@@ -1054,7 +1169,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
         NSString *code = responseObject[@"code"];
         
         
-
+        
         CYVideoIsFriendModel *isFriendModel = [[CYVideoIsFriendModel alloc]initWithDictionary:responseObject[@"res"] error:nil];
         // 判断是否是朋友
         BOOL isFriend = isFriendModel.IsFriend;
@@ -1194,7 +1309,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 - (void)pushALiPlayerViewControllerWithPlayUrl:(NSString *)playUrl{
     
     
-//    playUrl = @"rtmp://live.nznychina.com/nzny/993a5e86-7e4d-4c12-921a-215e425c12f7?auth_key=1485009206-0-0-9e8abda1e86e293c80baafc08dd1f7f5";
+    //    playUrl = @"rtmp://live.nznychina.com/nzny/993a5e86-7e4d-4c12-921a-215e425c12f7?auth_key=1485009206-0-0-9e8abda1e86e293c80baafc08dd1f7f5";
     
     
     NSLog(@"newPlayUrl：%@",playUrl);
@@ -1226,7 +1341,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
     //    [self.view addSubview:aLiPlayerVC.view];
-//    [self.view insertSubview:_aliPlayVC.view atIndex:0];
+    //    [self.view insertSubview:_aliPlayVC.view atIndex:0];
     
     
 }
@@ -1236,10 +1351,15 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 -(void)showInputBar:(id)sender{
     NSLog(@"评论按钮：button：点击事件");
     
+    // 直播和聊天室
+    
     self.inputBar.hidden = NO;
     [self.inputBar setInputBarStatus:RCDLiveBottomBarKeyboardStatus];
 }
 
+
+
+#pragma mark------------------------ 送礼开始：弹窗 ---------------------------------------
 /**
  *  发送鲜花
  *
@@ -1248,35 +1368,822 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 -(void)flowerButtonPressed:(id)sender{
     
     
-    RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
-    giftMessage.type = @"0";
-    [self sendMessage:giftMessage pushContent:@""];
+    
+    _giveGiftTipView = [[[NSBundle mainBundle] loadNibNamed:@"CYGiveGiftTipWithMoneyView" owner:nil options:nil] lastObject];
+    
+    _giveGiftTipView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
+    
+    
+    
+//    if (cScreen_Width == 320) {
+//        
+//        CGRect tempRect = _giveGiftTipView.oneRoseBtn.frame;
+//        
+//        _giveGiftTipView.oneRoseBtn.frame = CGRectMake(tempRect.origin.x, tempRect.origin.y - 10, tempRect.size.width, tempRect.size.height - 10);
+//    }
+    
+//    _giveGiftTipView.backgroundColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:0.70];
+    _giveGiftTipView.backgroundColor = [UIColor clearColor];
+//    _giveGiftTipView.giveGiftBgImgView.hidden = YES;
+    
+    // tipCloseBtn：关闭弹窗：点击事件
+    [_giveGiftTipView.tipCloseBtn addTarget:self action:@selector(giveGiftTipCloseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    // 一支玫瑰花：点击事件
+    [_giveGiftTipView.oneRoseBtn addTarget:self action:@selector(oneRoseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 三支玫瑰花：点击事件
+    [_giveGiftTipView.threeRoseBtn addTarget:self action:@selector(threeRoseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 九支玫瑰花：点击事件
+    [_giveGiftTipView.nineRoseBtn addTarget:self action:@selector(nineRoseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 九十九支玫瑰花：点击事件
+    [_giveGiftTipView.ninetyNineRoseBtn addTarget:self action:@selector(ninetyNineRoseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_giveGiftTipView.giftCountTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
+    // 送礼：button：点击事件
+    [_giveGiftTipView.giveGiftBtn addTarget:self action:@selector(giveGiftBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    _giveGiftTipView.giftCountTextField.delegate = self;
+    
+    [self.view addSubview:_giveGiftTipView];
+    
+    // 直播和聊天室
+//    RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
+//    giftMessage.type = @"0";
+//    giftMessage.tempMessageType = @"0";
+//    giftMessage.tempMessageContentStr = @"为主播送了礼";
+//    [self sendMessage:giftMessage pushContent:@""];
     
     
     
 #warning 网络请求：获取账户余额
     
-//    // 送礼弹窗
-//    CYGiveGiftTipVC *giveGiftTipVC = [[CYGiveGiftTipVC alloc] init];
-//    
-//    giveGiftTipVC.oppUserId = self.oppUserId;
-//    
-//    [self presentViewController:giveGiftTipVC animated:YES completion:nil];
+    // 送礼弹窗
+//        CYGiveGiftTipVC *giveGiftTipVC = [[CYGiveGiftTipVC alloc] init];
+    //
+    //    giveGiftTipVC.oppUserId = self.oppUserId;
+    //
+    //    [self presentViewController:giveGiftTipVC animated:YES completion:nil];
     
     
 }
 
+
+// 一支玫瑰花：点击事件
+- (void)oneRoseBtnClick{
+    NSLog(@"一支玫瑰花：点击事件");
+    
+    // 送礼：玫瑰花数量
+    NSInteger roseCount = 1;
+    
+    // 网络请求：送一支玫瑰花
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
+    
+}
+
+
+
+// 三支玫瑰花：点击事件
+- (void)threeRoseBtnClick{
+    NSLog(@"三支玫瑰花：点击事件");
+    
+    // 送礼：玫瑰花数量
+    NSInteger roseCount = 3;
+    
+    // 网络请求：送三支玫瑰花
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
+    
+}
+
+// 九支玫瑰花：点击事件
+- (void)nineRoseBtnClick{
+    NSLog(@"九支玫瑰花：点击事件");
+    
+    // 送礼：玫瑰花数量
+    NSInteger roseCount = 9;
+    
+    // 网络请求：送九支玫瑰花
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
+    
+}
+
+// 九十九支玫瑰花：点击事件
+- (void)ninetyNineRoseBtnClick{
+    NSLog(@"九十九支玫瑰花：点击事件");
+    
+    // 送礼：玫瑰花数量
+    NSInteger roseCount = 99;
+    
+    // 网络请求：送九十九支玫瑰花
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
+}
+
+// 九百九十九支玫瑰花：点击事件
+- (void)ninehundredNitetyNineRoseBtnClick{
+    NSLog(@"九百九十九支玫瑰花：点击事件");
+    
+    // 送礼：玫瑰花数量
+    NSInteger roseCount = 999;
+    
+    // 网络请求：送九百九十九支玫瑰花
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
+}
+
+// 送礼：button：点击事件
+- (void)giveGiftBtnClick{
+    NSLog(@"送礼：button：点击事件");
+    
+    NSScanner *scan = [NSScanner scannerWithString:self.giveGiftTipView.giftCountTextField.text];
+    
+    NSInteger flag;
+    
+    if ([scan scanInteger:&flag] && [scan isAtEnd]) {
+        
+        // 送礼：玫瑰花数量
+        NSInteger roseCount = [self.giveGiftTipView.giftCountTextField.text integerValue];
+        
+        // 网络请求：送 n 支玫瑰花
+        [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
+        
+    }
+    else {
+        
+        [self.view bringSubviewToFront:self.hud];
+        [self showHubWithLabelText:@"请输入数字" andHidAfterDelay:3.0];
+    }
+    
+    
+}
+
+
+// 网络请求：用户余额：余额够，则送礼请求，不够则充值弹窗
+- (void)requestUserBalanceIfIsEnoughWithUserId:(NSString *)userId andOppUserId:(NSString *)oppUserId andGiftCount:(NSInteger)likeCount andCost:(float)cost{
+    NSLog(@"用户余额：网络请求！");
+    
+    [self showLoadingView];
+    
+    // 新地址
+    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@",cUserMoneyUrl,userId];
+    
+    // 网络请求：用户余额
+    [CYNetWorkManager getRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"用户余额：%@",uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"用户余额：请求成功！");
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"用户余额：获取成功！");
+            NSLog(@"用户余额：%@",responseObject);
+            
+            
+            
+            // 请求数据结束，取消加载
+            //            [self hidenLoadingView];
+            
+            
+            NSString * tempMoneyStr = responseObject[@"res"][@"data"][@"money"];
+            float tempMoney = [tempMoneyStr floatValue];
+            
+            NSLog(@"tempMoneyStr:%@",tempMoneyStr);
+            NSLog(@"tempMoney:%lf",tempMoney);
+            NSLog(@"cost:%lf",cost);
+            
+            // 如果余额够支付，则赞、支付
+            if (tempMoney >= cost) {
+                
+                self.isEnoughForPay = YES;
+                
+                // 网路请求：送礼
+                [self requestGiveGiftWithUserId:self.onlyUser.userID andReceiveUserId:self.oppUserId andGiftCount:likeCount];
+                
+            }
+            // 余额不足，则弹到充值界面
+            else {
+                
+                // 请求数据结束，取消加载
+                [self hidenLoadingView];
+                
+                
+                // 余额不足弹窗：VC
+//                CYBalanceNotEnoughVC *balanceNotEnoughVC = [[CYBalanceNotEnoughVC alloc] init];
+//                
+//                
+//                //                UINavigationController *tempBalanceNotEnoughNav = [CYUtilities createDefaultNavCWithRootVC:balanceNotEnoughVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+//                //
+//                //                [balanceNotEnoughVC.navigationController setNavigationBarHidden:YES animated:YES];
+//                
+//                //                [self showViewController:tempVideoNav sender:self];
+//                //                [self presentViewController:tempBalanceNotEnoughNav animated:YES completion:nil];
+//                [self presentViewController:balanceNotEnoughVC animated:YES completion:nil];
+                
+                
+                
+ #pragma mark------------------------ 余额不足弹窗：开始 --------------------------------------
+                
+                
+                
+                _balanceNotEnoughView = [[[NSBundle mainBundle] loadNibNamed:@"CYBalanceNotEnoughView" owner:nil options:nil] lastObject];
+                
+                _balanceNotEnoughView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
+                
+                
+                
+                if (cScreen_Width == 320) {
+                    
+//                    CGRect tempRect = _balanceNotEnoughView.oneRoseBtn.frame;
+                    
+//                    _balanceNotEnoughView.oneRoseBtn.frame = CGRectMake(tempRect.origin.x, tempRect.origin.y - 10, tempRect.size.width, tempRect.size.height - 10);
+                }
+                
+                
+                _balanceNotEnoughView.backgroundColor = [UIColor clearColor];
+                _balanceNotEnoughView.balanceNotEnoughBgImgView.hidden = YES;
+                
+                // 余额不足：弹窗关闭：button：点击事件
+                [_balanceNotEnoughView.closeBtn addTarget:self action:@selector(balanceNotEnoughCloseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                
+                // 立即充值：button：点击事件
+                [_balanceNotEnoughView.instantRechargeBtn addTarget:self action:@selector(balanceNotEnoughInstantRechargeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                
+                
+                // 送礼弹窗：恢复位置
+                [UIView animateWithDuration:0.5 animations:^{
+                    self.giveGiftTipView.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+                    
+                }];
+                // 隐藏键盘
+                [self.view endEditing:YES];
+                
+                
+                [self.view addSubview:_balanceNotEnoughView];
+                
+                
+            }
+        }
+        else{
+            NSLog(@"用户余额：获取失败:responseObject:%@",responseObject);
+            NSLog(@"用户余额：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"用户余额：请求失败！");
+        NSLog(@"点一个赞：error：%@",error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+
+// 余额不足：弹窗关闭：button：点击事件
+- (void)balanceNotEnoughCloseBtnClick{
+    NSLog(@"余额不足：弹窗关闭：button：点击事件");
+    
+    [self.balanceNotEnoughView removeFromSuperview];
+    
+}
+
+// 余额不足：立即充值：button：点击事件
+- (void)balanceNotEnoughInstantRechargeBtnClick{
+    NSLog(@"余额不足：立即充值：button：点击事件");
+    
+    
+    // 充值界面
+    CYRechargeVC *rechargeVC = [[CYRechargeVC alloc] init];
+    
+    [[self navigationControllerWithView:self.view] setNavigationBarHidden:NO animated:YES];
+    
+    // 导航VC：获取当前视图所在位置的导航控制器
+    [[self navigationControllerWithView:self.view] pushViewController:rechargeVC animated:YES];
+    
+    [self.balanceNotEnoughView removeFromSuperview];
+}
+
+#pragma mark------------------------ 充值弹窗：结束 ---------------------------------------
+
+// 送礼：网络请求
+- (void)requestGiveGiftWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)giftCount{
+    NSLog(@"送礼：网络请求！");
+    
+    [self showLoadingView];
+    
+    // 参数
+    NSDictionary *params = @{
+                             @"UserId":userId,
+                             @"ReceiveUserId":receiveUserId,
+                             @"Count":@(giftCount)
+                             };
+    
+    // 网络请求：送 n 支玫瑰花
+    [CYNetWorkManager postRequestWithUrl:cAddFlowersUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"送 %ld 支玫瑰花进度：%@",(long)giftCount,uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"送 %ld 支玫瑰花：请求成功！",(long)giftCount);
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"送 %ld 支玫瑰花：送礼成功！",(long)giftCount);
+            NSLog(@"送 %ld 支玫瑰花：%@",(long)giftCount,responseObject);
+            
+            
+            // 请求数据结束，取消加载
+            //            [self hidenLoadingView];
+            
+            [self showHubWithLabelText:[NSString stringWithFormat:@"送 %ld 朵玫瑰成功！",(long)giftCount] andHidAfterDelay:3.0];
+            
+            
+            
+            // 直播和聊天室
+            RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
+            giftMessage.type = @"0";
+            giftMessage.tempMessageType = @"0";
+            giftMessage.tempMessageContentStr = [NSString stringWithFormat:@"为主播送了 %ld 朵玫瑰",(long)giftCount];
+            giftMessage.content = [NSString stringWithFormat:@"为主播送了 %ld 朵玫瑰",(long)giftCount];
+            [self sendMessage:giftMessage pushContent:@""];
+            
+            
+            [self.giveGiftTipView removeFromSuperview];
+            
+        }
+        else{
+            NSLog(@"送 %ld 支玫瑰花：送礼:responseObject:%@",(long)giftCount,responseObject);
+            NSLog(@"送 %ld 支玫瑰花：送礼:responseObject:res:msg:%@",(long)giftCount,responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"送 %ld 支玫瑰花：请求失败！",(long)giftCount);
+        NSLog(@"失败原因：error：%@",error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+
+// 重写touchsBegan，点击旁边空白时，让UIView 类的子类，失去第一响应者
+#pragma mark --重写touchsBegan
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    
+    // 送礼：恢复位置
+    [UIView animateWithDuration:0.5 animations:^{
+        self.giveGiftTipView.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+        
+    }];
+    
+    // 点赞：恢复位置
+    [UIView animateWithDuration:0.5 animations:^{
+        self.likeTipWithMoneyView.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+        
+    }];
+    
+    for (UIView *tempView in self.view.subviews) {
+        if ([tempView isKindOfClass:[UIView class]]) {
+            // 失去第一响应者
+            [tempView resignFirstResponder];
+        }
+    }
+    
+}
+
+
+// tipCloseBtn：弹窗关闭button：点击事件
+- (void)giveGiftTipCloseBtnClick{
+    NSLog(@"送礼弹窗：弹窗关闭button：点击事件");
+    
+    [_giveGiftTipView removeFromSuperview];
+}
+#pragma mark------------------------ 送礼弹窗：结束 ---------------------------------------
+
+
+
+#pragma mark------------------------ 点赞弹窗：开始 ---------------------------------------
 /**
  *  发送掌声
  *
  *  @param sender <#sender description#>
  */
 -(void)clapButtonPressed:(id)sender{
-    RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
-    giftMessage.type = @"1";
-    [self sendMessage:giftMessage pushContent:@""];
-    [self praiseHeart];
+    
+    
+    // 直播和聊天室
+//    RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
+//    giftMessage.type = @"1";
+//    giftMessage.tempMessageType = @"1";
+//    giftMessage.tempMessageContentStr = @"为主播点了赞";
+//    giftMessage.content = @"为安卓主播点了赞赞赞赞赞赞";
+//    [self sendMessage:giftMessage pushContent:@""];
+//    [self praiseHeart];
+    
+    
+    
+//    RCMessageContent *tempGiftMessage = [[RCMessageContent alloc] init];
+    
+    
+    
+    
+    
+    
+    _likeTipWithMoneyView = [[[NSBundle mainBundle] loadNibNamed:@"CYLikeTipWithMoneyView" owner:nil options:nil] lastObject];
+    
+    _likeTipWithMoneyView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
+    
+    _likeTipWithMoneyView.backgroundColor = [UIColor clearColor];
+    
+    
+    // 弹窗关闭：点击事件
+    [_likeTipWithMoneyView.tipCloseBtn addTarget:self action:@selector(likeTipViewTipCloseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 1个赞：点击事件
+    [_likeTipWithMoneyView.oneLikeBtn addTarget:self action:@selector(likeTipViewOneLikeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 10个赞：点击事件
+    [_likeTipWithMoneyView.tenLikeBtn addTarget:self action:@selector(likeTipViewTenLikeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 32个赞：点击事件
+    [_likeTipWithMoneyView.thirtyTwoLikeBtn addTarget:self action:@selector(likeTipViewThirtyTwoLikeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 300个赞：点击事件
+    [_likeTipWithMoneyView.threeHundredLikeBtn addTarget:self action:@selector(likeTipViewThreeHundredLikeBtnBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    // 点赞：button：点击事件
+    [_likeTipWithMoneyView.likeBtn addTarget:self action:@selector(likeTipViewlikeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    _likeTipWithMoneyView.likeCountTextField.delegate = self;
+    
+    [self.view addSubview:_likeTipWithMoneyView];
+    
+    
+    
+    
+    
 }
+// 点赞弹窗：弹窗关闭：点击事件
+- (void)likeTipViewTipCloseBtnClick{
+    NSLog(@"");
+    
+    [self.likeTipWithMoneyView removeFromSuperview];
+}
+// 1个赞：点击事件
+- (void)likeTipViewOneLikeBtnClick{
+    NSLog(@"");
+    
+    
+    NSInteger likeCount = 1;
+    
+    // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
+}
+// 10个赞：点击事件
+- (void)likeTipViewTenLikeBtnClick{
+    NSLog(@"");
+    
+    NSInteger likeCount = 10;
+    
+    // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
+}
+// 32个赞：点击事件
+- (void)likeTipViewThirtyTwoLikeBtnClick{
+    NSLog(@"");
+    
+    NSInteger likeCount = 32;
+    
+    // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
+}
+// 300个赞：点击事件
+- (void)likeTipViewThreeHundredLikeBtnBtnClick{
+    NSLog(@"");
+    
+    NSInteger likeCount = 300;
+    
+    // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
+}
+// 点赞：button：点击事件
+- (void)likeTipViewlikeBtnClick{
+    NSLog(@"点赞弹窗：点赞：button：点击事件");
+    
+    NSScanner *scan = [NSScanner scannerWithString:self.likeTipWithMoneyView.likeCountTextField.text];
+    
+    NSInteger flag;
+    
+    if ([scan scanInteger:&flag] && [scan isAtEnd]) {
+        
+        NSInteger likeCount = [self.likeTipWithMoneyView.likeCountTextField.text integerValue];
+        
+        // 网络请求：点 n 个赞
+        // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
+        [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
+        
+    }
+    else {
+        
+        [self.view bringSubviewToFront:self.hud];
+        [self showHubWithLabelText:@"请输入数字" andHidAfterDelay:3.0];
+    }
+}
+
+// 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
+- (void)requestUserBalanceIfIsEnoughWithUserId:(NSString *)userId andOppUserId:(NSString *)oppUserId andLikeCount:(NSInteger)likeCount andCost:(float)cost{
+    NSLog(@"用户余额：网络请求！");
+    
+    [self showLoadingView];
+    
+    // 新地址
+    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@",cUserMoneyUrl,userId];
+    
+    // 网络请求：用户余额
+    [CYNetWorkManager getRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"用户余额：%@",uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"用户余额：请求成功！");
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"用户余额：获取成功！");
+            NSLog(@"用户余额：%@",responseObject);
+            
+            
+            
+            // 请求数据结束，取消加载
+            [self hidenLoadingView];
+            
+            
+            NSString * tempMoneyStr = responseObject[@"res"][@"data"][@"money"];
+            float tempMoney = [tempMoneyStr floatValue];
+            
+            // 如果余额够支付，则赞、支付
+            if (tempMoney >= cost) {
+                
+                self.isEnoughForPay = YES;
+                
+                // 网路请求：点 n 个赞
+                [self requestLikeWithUserId:self.onlyUser.userID andReceiveUserId:oppUserId andLikeCount:likeCount andAddLikeUrl:cAddLiveLikeUrl];
+                
+            }
+            // 余额不足，则弹到充值界面
+            else {
+                
+                // 请求数据结束，取消加载
+                [self hidenLoadingView];
+                
+                
+                // 余额不足弹窗：VC
+//                CYBalanceNotEnoughVC *balanceNotEnoughVC = [[CYBalanceNotEnoughVC alloc] init];
+//                
+//                UINavigationController *tempBalanceNotEnoughNav = [CYUtilities createDefaultNavCWithRootVC:balanceNotEnoughVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+//                
+//                [balanceNotEnoughVC.navigationController setNavigationBarHidden:YES animated:YES];
+//                
+//                //                [self showViewController:tempVideoNav sender:self];
+//                [self presentViewController:tempBalanceNotEnoughNav animated:YES completion:nil];
+                
+                
+                
+                
+                
+                
+                
+                
+                
+#pragma mark------------------------ 余额不足弹窗：开始 ---------------------------------------
+                
+                _balanceNotEnoughView = [[[NSBundle mainBundle] loadNibNamed:@"CYBalanceNotEnoughView" owner:nil options:nil] lastObject];
+                
+                _balanceNotEnoughView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
+                
+                
+                
+                if (cScreen_Width == 320) {
+                    
+                    //                    CGRect tempRect = _balanceNotEnoughView.oneRoseBtn.frame;
+                    
+                    //                    _balanceNotEnoughView.oneRoseBtn.frame = CGRectMake(tempRect.origin.x, tempRect.origin.y - 10, tempRect.size.width, tempRect.size.height - 10);
+                }
+                
+                
+                _balanceNotEnoughView.backgroundColor = [UIColor clearColor];
+                _balanceNotEnoughView.balanceNotEnoughBgImgView.hidden = YES;
+                
+                // 余额不足：弹窗关闭：button：点击事件
+                [_balanceNotEnoughView.closeBtn addTarget:self action:@selector(balanceNotEnoughCloseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                
+                // 立即充值：button：点击事件
+                [_balanceNotEnoughView.instantRechargeBtn addTarget:self action:@selector(balanceNotEnoughInstantRechargeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                
+                
+                // 送礼弹窗：恢复位置
+                [UIView animateWithDuration:0.5 animations:^{
+                    self.likeTipWithMoneyView.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+                    
+                }];
+                // 隐藏键盘
+                [self.view endEditing:YES];
+                
+                
+                [self.view addSubview:_balanceNotEnoughView];
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }
+        }
+        else{
+            NSLog(@"用户余额：获取失败:responseObject:%@",responseObject);
+            NSLog(@"用户余额：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"用户余额：请求失败！");
+        NSLog(@"点一个赞：error：%@",error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+// 点赞：网络请求
+- (void)requestLikeWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andLikeCount:(NSInteger)likeCount andAddLikeUrl:(NSString *)addLikeUrl{
+    NSLog(@"点赞：网络请求！");
+    
+    [self showLoadingView];
+    
+    // 参数
+    NSDictionary *params = @{
+                             @"UserId":userId,
+                             @"ReceiveUserId":receiveUserId,
+                             @"Count":@(likeCount)
+                             };
+    
+    // 网络请求：点 n 个赞
+    [CYNetWorkManager postRequestWithUrl:addLikeUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"点 %ld 个赞：%@",(long)likeCount,uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"点 %ld 个赞：请求成功！",(long)likeCount);
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"点 %ld 个赞：点赞成功！",(long)likeCount);
+            NSLog(@"点 %ld 个赞：%@",(long)likeCount,responseObject);
+            
+            
+            
+            
+            [self showHubWithLabelText:[NSString stringWithFormat:@"点 %ld 个赞成功！",(long)likeCount] andHidAfterDelay:3.0];
+            
+            
+            // 直播和聊天室
+            RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
+            giftMessage.type = @"1";
+            giftMessage.tempMessageType = @"1";
+            giftMessage.tempMessageContentStr = [NSString stringWithFormat:@"为主播点了 %ld 个赞",(long)likeCount];
+            giftMessage.content = [NSString stringWithFormat:@"为主播点了 %ld 个赞",(long)likeCount];
+            [self sendMessage:giftMessage pushContent:@""];
+            
+            
+            [self.likeTipWithMoneyView removeFromSuperview];
+            
+            
+        }
+        else{
+            NSLog(@"点 %ld 个赞：点赞:responseObject:%@",(long)likeCount,responseObject);
+            NSLog(@"点 %ld 个赞：点赞:responseObject:res:msg:%@",(long)likeCount,responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"点 %ld 个赞：请求失败！",(long)likeCount);
+        NSLog(@"点 %ld 个赞：error：%@",(long)likeCount,error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+#pragma mark------------------------ 点赞弹窗：结束 ---------------------------------------
+
+
+
+
+#pragma mark --UITextFieldDelegate
+-(void)textFieldDidChange :(UITextField *)theTextField{
+    NSLog( @"text changed: %@", theTextField.text);
+    
+    
+    // 送礼
+    NSScanner *giveGiftScan = [NSScanner scannerWithString:self.giveGiftTipView.giftCountTextField.text];
+    
+    
+    float giveGiftCost = [self.giveGiftTipView.giftCountTextField.text floatValue] * 2.0;
+    
+    NSInteger giveGiftFlag;
+    
+    if ([giveGiftScan scanInteger:&giveGiftFlag] && [giveGiftScan isAtEnd]) {
+        
+        self.giveGiftTipView.tfRoseCountCostLab.text = [NSString stringWithFormat:@"￥%.1f",giveGiftCost];
+        
+    }
+    else {
+        
+        self.giveGiftTipView.tfRoseCountCostLab.text = @"￥0.0";
+    }
+    
+    
+    
+    
+    
+    
+    // 点赞
+    NSScanner *likeScan = [NSScanner scannerWithString:self.giveGiftTipView.giftCountTextField.text];
+    
+    
+    float likeCost = [self.giveGiftTipView.giftCountTextField.text floatValue] * 1.0;
+    
+    NSInteger likeFlag;
+    
+    if ([likeScan scanInteger:&likeFlag] && [likeScan isAtEnd]) {
+        
+        self.giveGiftTipView.tfRoseCountCostLab.text = [NSString stringWithFormat:@"￥%.1f",likeCost];
+        
+    }
+    else {
+        
+        self.giveGiftTipView.tfRoseCountCostLab.text = @"￥0.0";
+    }
+    
+    
+    
+    
+}
+// 结束打字时恢复原位
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    
+    
+    // 送礼：恢复位置
+    [UIView animateWithDuration:0.5 animations:^{
+        self.giveGiftTipView.bounds = CGRectMake(0, 128, self.view.frame.size.width, self.view.frame.size.height);
+    }];
+    
+    
+    // 点赞：恢复位置
+    [UIView animateWithDuration:0.5 animations:^{
+        self.likeTipWithMoneyView.bounds = CGRectMake(0, 128, self.view.frame.size.width, self.view.frame.size.height);
+    }];
+    
+}
+
+
+
+
+
+
 
 /**
  *  未读消息View
@@ -1382,7 +2289,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  *  初始化视频直播
  */
 - (void)initializedLiveSubViews {
-//        _liveView = self.livePlayingManager.currentLiveView;
+    //        _liveView = self.livePlayingManager.currentLiveView;
     
     
     
@@ -1584,17 +2491,22 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  */
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
     if ([collectionView isEqual:self.portraitsCollectionView]) {
+        
+        
         RCDLivePortraitViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"portraitcell" forIndexPath:indexPath];
+        
         CYAudienceListCellModel *tempAudienceListModel = self.userList[indexPath.row];
         
         
-        RCUserInfo *user = self.userList[indexPath.row];
-        NSString *str = user.portraitUri;
+        //        RCUserInfo *user = self.userList[indexPath.row];
+        //        NSString *str = user.portraitUri;
         
         
         
-//        cell.portaitView.image = [UIImage imageNamed:str];
+        //        cell.portaitView.image = [UIImage imageNamed:str];
         cell.portaitView.image = [UIImage imageNamed:tempAudienceListModel.Portrait];
         
         
@@ -1607,10 +2519,20 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     RCMessageContent *messageContent = model.content;
     RCDLiveMessageBaseCell *cell = nil;
     if ([messageContent isMemberOfClass:[RCInformationNotificationMessage class]] || [messageContent isMemberOfClass:[RCTextMessage class]] || [messageContent isMemberOfClass:[RCDLiveGiftMessage class]]){
+        
+        
         RCDLiveTipMessageCell *__cell = [collectionView dequeueReusableCellWithReuseIdentifier:RCDLiveTipMessageCellIndentifier forIndexPath:indexPath];
+        
+        
         __cell.isFullScreenMode = YES;
+        
+        
         [__cell setDataModel:model];
+        
+        
         [__cell setDelegate:self];
+        
+        
         cell = __cell;
     }
     
@@ -1651,38 +2573,73 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  */
 - (CGSize)sizeForItem:(UICollectionView *)collectionView
           atIndexPath:(NSIndexPath *)indexPath {
+    
+    
     CGFloat __width = CGRectGetWidth(collectionView.frame);
+    
+    
     RCDLiveMessageModel *model =
     [self.conversationDataRepository objectAtIndex:indexPath.row];
+    
+    
     RCMessageContent *messageContent = model.content;
+    
     CGFloat __height = 0.0f;
+    
     NSString *localizedMessage;
+    
     if ([messageContent isMemberOfClass:[RCInformationNotificationMessage class]]) {
+        
         RCInformationNotificationMessage *notification = (RCInformationNotificationMessage *)messageContent;
+        
         localizedMessage = [RCDLiveKitUtility formatMessage:notification];
+        
     }else if ([messageContent isMemberOfClass:[RCTextMessage class]]){
+        
+        
         RCTextMessage *notification = (RCTextMessage *)messageContent;
+        
         localizedMessage = [RCDLiveKitUtility formatMessage:notification];
-        NSString *name;
-        if (messageContent.senderUserInfo) {
-            name = messageContent.senderUserInfo.name;
-        }
-        localizedMessage = [NSString stringWithFormat:@"%@ %@",name,localizedMessage];
-    }else if ([messageContent isMemberOfClass:[RCDLiveGiftMessage class]]){
-        RCDLiveGiftMessage *notification = (RCDLiveGiftMessage *)messageContent;
-        localizedMessage = @"送了一个钻戒";
-        if(notification && [notification.type isEqualToString:@"1"]){
-            localizedMessage = @"为主播点了赞";
-        }
         
         NSString *name;
+        
         if (messageContent.senderUserInfo) {
             name = messageContent.senderUserInfo.name;
         }
         localizedMessage = [NSString stringWithFormat:@"%@ %@",name,localizedMessage];
+        
+        
+        
+    }else if ([messageContent isMemberOfClass:[RCDLiveGiftMessage class]]){
+        
+        
+        RCDLiveGiftMessage *notification = (RCDLiveGiftMessage *)messageContent;
+        
+        
+        localizedMessage = notification.tempMessageContentStr;
+        
+        
+        
+        NSString *name;
+        
+        
+        if (messageContent.senderUserInfo) {
+            name = messageContent.senderUserInfo.name;
+        }
+        
+        
+        
+        localizedMessage = [NSString stringWithFormat:@"%@ %@",name,localizedMessage];
+        
+        
     }
+    
+    
     CGSize __labelSize = [RCDLiveTipMessageCell getTipMessageCellSize:localizedMessage];
+    
+    
     __height = __height + __labelSize.height;
+    
     
     return CGSizeMake(__width, __height);
 }
@@ -1853,10 +2810,18 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  */
 - (void)sendMessage:(RCMessageContent *)messageContent
         pushContent:(NSString *)pushContent {
+    NSLog(@"CYLiveALiPlayAndRCIMVC:sendMessage:pushContent:");
+    
+    
+    // 直播和聊天室
     if (_targetId == nil) {
         return;
     }
+    
+    
     messageContent.senderUserInfo = [RCDLive sharedRCDLive].currentUserInfo;
+    
+    
     if (messageContent == nil) {
         return;
     }
@@ -1867,7 +2832,13 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
                              pushContent:pushContent
                                 pushData:nil
                                  success:^(long messageId) {
+                                     
+                                     
+                                     
                                      __weak typeof(&*self) __weakself = self;
+                                     
+                                     
+                                     
                                      dispatch_async(dispatch_get_main_queue(), ^{
                                          RCMessage *message = [[RCMessage alloc] initWithType:__weakself.conversationType
                                                                                      targetId:__weakself.targetId
@@ -1880,6 +2851,9 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
                                          [__weakself appendAndDisplayMessage:message];
                                          [__weakself.inputBar clearInputView];
                                      });
+                                     
+                                     
+                                     
                                  } error:^(RCErrorCode nErrorCode, long messageId) {
                                      [[RCIMClient sharedRCIMClient]deleteMessages:@[ @(messageId) ]];
                                  }];
@@ -1891,6 +2865,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  *  @param notification
  */
 - (void)didReceiveMessageNotification:(NSNotification *)notification {
+    
+    
     __block RCMessage *rcMessage = notification.object;
     RCDLiveMessageModel *model = [[RCDLiveMessageModel alloc] initWithMessage:rcMessage];
     NSDictionary *leftDic = notification.userInfo;
@@ -1961,10 +2937,17 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  *  @param text  输入框的内容
  */
 - (void)onTouchSendButton:(NSString *)text{
-    RCTextMessage *rcTextMessage = [RCTextMessage messageWithContent:text];
-    [self sendMessage:rcTextMessage pushContent:nil];
-    //    [self.inputBar setInputBarStatus:KBottomBarDefaultStatus];
-    //    [self.inputBar setHidden:YES];
+    
+    
+    // 发送消息：用GiftMessage代替
+    RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
+    giftMessage.type = @"2";
+    giftMessage.tempMessageType = @"2";
+    giftMessage.tempMessageContentStr = text;
+    giftMessage.content = text;
+    [self sendMessage:giftMessage pushContent:@""];
+    
+    
 }
 
 //修复ios7下不断下拉加载历史消息偶尔崩溃的bug

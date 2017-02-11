@@ -21,6 +21,8 @@
 #import "CYCommunityHomePageCellModel.h"
 
 
+// 社区活动详情:VC
+#import "CYActiveDetailsVC.h"
 
 
 @interface CYCommunityHomePageCellVC ()
@@ -55,7 +57,7 @@
     
     
     // 加载数据
-    //    [self loadData];
+//    [self loadData];
     
 }
 
@@ -175,7 +177,21 @@
     
     //当离开某行时，让某行的选中状态消失
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    CYCommunityHomePageCellModel *communityHomePageCM = self.dataArray[indexPath.row];
  
+    
+    CYActiveDetailsVC *activeDetailsVC = [[CYActiveDetailsVC alloc] init];
+    
+    activeDetailsVC.activeId = communityHomePageCM.ActivityContentId;
+    NSLog(@"activeId:%@",activeDetailsVC.activeId);
+    
+    
+    activeDetailsVC.hidesBottomBarWhenPushed = YES;
+    
+    
+//    [self.navigationController pushViewController:activeDetailsVC animated:YES];
+    [[self navigationControllerWithView:self.view] pushViewController:activeDetailsVC animated:YES];
     
 }
 
@@ -184,7 +200,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    return (240.0 / 814.0) * self.view.frame.size.height;
+    return (240.0 / 1334.0) * cScreen_Height;
 }
 
 // header 的高度

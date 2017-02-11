@@ -383,7 +383,7 @@
     // 第二个tabBar：直播页面
     CYBaseSwipeViewController *liveVC = [[CYBaseSwipeViewController alloc] initWithSubVC:@[liveTrailerVC,liveLiveVC] andTitles:@[@"预告",@"直播"]];
     liveVC.view.frame = CGRectMake(0, 0, cScreen_Width, liveViewHeight);
-    liveVC.bgScrollView.frame = CGRectMake(0, (76.0 / 1334.0) * self.view.frame.size.height, cScreen_Width,liveViewHeight);
+    liveVC.bgScrollView.frame = CGRectMake(0, (76.0 / 1334.0) * cScreen_Height, cScreen_Width,liveViewHeight);
     
     
     liveVC.view.backgroundColor = [UIColor whiteColor];
@@ -546,8 +546,7 @@
 - (void)setRongSDKWithCurrentUser:(CYUser *)currentUser{
     
     
-#warning 请求后台：获取用户在融云的token
-    // 使用获用户在融云的token，连接融云的服务器；
+    // 网络请求：请求后台：获取用户在融云的token,使用获用户在融云的token，连接融云的服务器；
     [self requestRongTokenWithCurrentUser:currentUser];
     
     

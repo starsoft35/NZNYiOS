@@ -1274,7 +1274,7 @@
 
 
 // 点赞：网络请求
-- (void)requestLikeWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)likeCount andAddLikeUrl:(NSString *)addLikeUrl{
+- (void)requestLikeWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andLikeCount:(NSInteger)likeCount andAddLikeUrl:(NSString *)addLikeUrl{
     NSLog(@"点赞：网络请求！");
     
     [self showLoadingView];
@@ -1359,7 +1359,6 @@
         if ([code isEqualToString:@"0"]) {
             NSLog(@"送 %ld 支玫瑰花：送礼成功！",(long)giftCount);
             NSLog(@"送 %ld 支玫瑰花：%@",(long)giftCount,responseObject);
-            
             
             
             // 请求数据结束，取消加载

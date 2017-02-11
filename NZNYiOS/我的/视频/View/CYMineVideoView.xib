@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -219,7 +219,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7UH-Od-dcf" userLabel="4、手机视频-Button">
                     <rect key="frame" x="37.5" y="277" width="300" height="44"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="上传视频" backgroundImage="完成激活.png">
+                    <state key="normal" title="上传视频" backgroundImage="登录完成激活.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
@@ -280,10 +280,10 @@
     </objects>
     <resources>
         <image name="复选框.png" width="22" height="22"/>
-        <image name="完成激活.png" width="300" height="44"/>
         <image name="我的分享-.png" width="18" height="18"/>
         <image name="我的视频底部阴影.png" width="170" height="40"/>
         <image name="注册底.png" width="300" height="44"/>
+        <image name="登录完成激活.png" width="300" height="44"/>
         <image name="视频播放按钮.png" width="75" height="75"/>
         <image name="默认视频.png" width="170" height="170"/>
     </resources>

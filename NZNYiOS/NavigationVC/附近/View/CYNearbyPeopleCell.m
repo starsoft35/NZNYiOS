@@ -19,7 +19,7 @@
     // 头像
     _headerImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:nearbyPeopleCellModel.Portrait];
     
-    _headerImgView.layer.cornerRadius = (75.0 / 150.0) * _headerImgView.frame.size.height;
+    _headerImgView.layer.cornerRadius = (75.0 / 1334.0) * cScreen_Height;
     
     // 姓名
     _nameLab.text = nearbyPeopleCellModel.RealName;

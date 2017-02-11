@@ -14,6 +14,10 @@
 // cell的模型
 #import "CYTitleAndDetailModel.h"
 
+
+// 用户须知：VC
+#import "CYSetUpUserNeedToKnowVC.h"
+
 // 关于我们：VC
 #import "CYSetUpAboutUsVC.h"
 
@@ -141,9 +145,9 @@
         cell.detailLab.textAlignment = NSTextAlignmentLeft;
         
         float width = cScreen_Width;
-        float height = (30.0 / 1246.0) * self.view.frame.size.height;
+        float height = (30.0 / 1334.0) * cScreen_Height;
         float x = 0;
-        float y = ((88.0 / 1246.0) * self.view.frame.size.height - height) / 2;
+        float y = ((88.0 / 1334.0) * cScreen_Height - height) / 2;
         CGRect tempRect = CGRectMake(x, y, width, height);
         
         UILabel *quitLab = [[UILabel alloc] initWithFrame:tempRect];
@@ -151,6 +155,8 @@
         quitLab.text = @"退出账号";
         quitLab.textAlignment = NSTextAlignmentCenter;
         quitLab.font = [UIFont systemFontOfSize:15];
+        
+        quitLab.textColor = [UIColor redColor];
         
         [cell addSubview:quitLab];
         
@@ -177,7 +183,11 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         
         // 用户须知
+        CYSetUpUserNeedToKnowVC *userNeedToKnowVC = [[CYSetUpUserNeedToKnowVC alloc] init];
         
+        userNeedToKnowVC.hidesBottomBarWhenPushed = YES;
+        
+        [self.navigationController pushViewController:userNeedToKnowVC animated:YES];
     }
     else if (indexPath.section == 0 && indexPath.row == 1) {
         
@@ -210,7 +220,7 @@
 // cell 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    return (88.0 / 1246.0) * self.view.frame.size.height;
+    return (88.0 / 1334.0) * cScreen_Height;
 }
 
 // header 的高度
@@ -222,7 +232,7 @@
     }
     else {
         
-        return 20.0 / 1246 * self.view.frame.size.height;
+        return 20.0 / 1334 * cScreen_Height;
     }
 }
 

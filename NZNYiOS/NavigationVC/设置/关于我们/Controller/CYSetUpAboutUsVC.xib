@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CYSetUpAboutUsVC">
             <connections>
                 <outlet property="aboutUsLab" destination="lbd-8m-TZR" id="hE9-sC-qN6"/>
+                <outlet property="subTitleLab" destination="aii-3y-qeb" id="pk9-RA-BWI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,9 +28,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbd-8m-TZR" userLabel="2.关于我们-Label">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbd-8m-TZR" userLabel="2.关于我们-Label">
                     <rect key="frame" x="13" y="34" width="349" height="250"/>
-                    <string key="text">        公司成立于2004年12月，平台本着诚实守信的基本原则，服务于广大高学历、白领金领、海龟华侨、企事业高管、政府公务员与私营业主等高端单身人群。提供专业的情感顾问、婚姻猎头，帮助中国乃至世界单身人士寻找属于自己的幸福婚姻。致力于成为推动中国婚恋交友行业发展的领跑者。</string>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>

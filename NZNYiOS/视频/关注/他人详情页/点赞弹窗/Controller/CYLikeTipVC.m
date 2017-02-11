@@ -144,7 +144,7 @@
                 self.isEnoughForPay = YES;
                 
                 // 网路请求：点 n 个赞
-                [self requestLikeWithUserId:self.onlyUser.userID andReceiveUserId:oppUserId andGiftCount:likeCount andAddLikeUrl:self.addLikeUrl];
+                [self requestLikeWithUserId:self.onlyUser.userID andReceiveUserId:oppUserId andLikeCount:likeCount andAddLikeUrl:self.addLikeUrl];
                 
             }
             // 余额不足，则弹到充值界面

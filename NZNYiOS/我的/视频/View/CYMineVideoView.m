@@ -301,7 +301,7 @@
 - (void)setLeftVideoIsUse{
     [_leftVideoUseBtn setTitle:@"正在使用" forState:UIControlStateNormal];
     [_leftVideoUseBtn setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
-    [_leftVideoUseBtn setBackgroundImage:[UIImage imageNamed:@"完成未激活"] forState:UIControlStateNormal];
+    [_leftVideoUseBtn setBackgroundImage:[UIImage imageNamed:@"登录完成未激活"] forState:UIControlStateNormal];
     _leftVideoUseBtn.enabled = NO;
 }
 // 设置左侧视频使用：使用
@@ -402,7 +402,7 @@
     
     [_rightVideoUseBtn setTitle:@"正在使用" forState:UIControlStateNormal];
     [_rightVideoUseBtn setTitleColor:[UIColor redColor] forState:UIControlStateDisabled];
-    [_rightVideoUseBtn setBackgroundImage:[UIImage imageNamed:@"完成未激活"] forState:UIControlStateNormal];
+    [_rightVideoUseBtn setBackgroundImage:[UIImage imageNamed:@"登录完成未激活"] forState:UIControlStateNormal];
     _rightVideoUseBtn.enabled = NO;
 }
 

@@ -11,6 +11,10 @@
 @interface CYBalanceNotEnoughView : UIView
 
 
+// 余额不足背景：imageView
+@property (weak, nonatomic) IBOutlet UIImageView *balanceNotEnoughBgImgView;
+
+
 // 关闭：button
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 

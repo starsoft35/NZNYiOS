@@ -42,11 +42,11 @@
 
 
 @interface CYMyLiveAliLiveAndRCIMVC ()<
-UICollectionViewDelegate,
-UICollectionViewDataSource,
-UICollectionViewDelegateFlowLayout,
-UIScrollViewDelegate,
-UIGestureRecognizerDelegate,
+//UICollectionViewDelegate,
+//UICollectionViewDataSource,
+//UICollectionViewDelegateFlowLayout,
+//UIScrollViewDelegate,
+//UIGestureRecognizerDelegate,
 UINavigationControllerDelegate,
 
 
@@ -205,7 +205,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     self.defaultHistoryMessageCountOfChatRoom = 10;
     
     // 设置IMLib的连接状态监听器
-//    [[RCIMClient sharedRCIMClient]setRCConnectionStatusChangeDelegate:self];
+    //    [[RCIMClient sharedRCIMClient]setRCConnectionStatusChangeDelegate:self];
     [[RCIM sharedRCIM] setConnectionStatusDelegate:self];
 }
 
@@ -214,11 +214,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  */
 - (void)registerNotification {
     //注册接收消息
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(didReceiveMessageNotification:)
-     name:RCDLiveKitDispatchMessageNotification
-     object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMessageNotification:) name:RCDLiveKitDispatchMessageNotification object:nil];
 }
 
 
@@ -242,7 +238,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     [super viewDidLoad];
     
     // AppDelegate里面添加的假用户
-//    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    //    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     //    self.userList = delegate.userList;
     
     
@@ -310,19 +306,21 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             
             //            tempLivePlayDetailsViewModel.isTrailer = self.isTrailer;
             
+            tempLivePushDetailsViewModel.Follow = YES;
+            
             // 模型赋值
             _livePushDetailsView.livePushDetailsViewModel = tempLivePushDetailsViewModel;
             
             self.oppUserId = tempLivePushDetailsViewModel.LiveUserId;
             
             
-//            self.targetId = responseObject[@"res"][@"data"][@"model"][@"DiscussionId"];
+            //            self.targetId = responseObject[@"res"][@"data"][@"model"][@"DiscussionId"];
             
             
             
             
             // 初始化视频直播
-//            [self initializedLiveSubViews];
+            //            [self initializedLiveSubViews];
             
             
             // 当前会话类型为聊天室时，加入聊天室
@@ -374,17 +372,22 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
          joinChatRoom:self.targetId
          messageCount:-1
          success:^{
-             dispatch_async(dispatch_get_main_queue(), ^{
              
+             
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 
                  
                  
                  
                  
                  // 通知消息类：谁加入了聊天室
                  RCInformationNotificationMessage *joinChatroomMessage = [[RCInformationNotificationMessage alloc]init];
-                 joinChatroomMessage.message = [NSString stringWithFormat: @"%@加入了聊天室",[RCDLive sharedRCDLive].currentUserInfo.name];
+                 joinChatroomMessage.message = [NSString stringWithFormat: @"%@ 加入了聊天室",[RCDLive sharedRCDLive].currentUserInfo.name];
                  [self sendMessage:joinChatroomMessage pushContent:nil];
              });
+             
+             
+             
          }
          error:^(RCErrorCode status) {
              dispatch_async(dispatch_get_main_queue(), ^{
@@ -405,7 +408,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     // 添加聊天室界面
     _livePushDetailsView = [[[NSBundle mainBundle] loadNibNamed:@"CYLivePushDetailsView" owner:nil options:nil] lastObject];
     
-    //    _livePlayDetailsView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
+    _livePushDetailsView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
     
     // 上部头部：手势
     _livePushDetailsView.topHeadNameFIDFollowView.userInteractionEnabled = YES;
@@ -423,7 +426,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
     [self.view addSubview:_livePushDetailsView];
-//    self.view = _livePushDetailsView;
+    //    self.view = _livePushDetailsView;
     
     
 }
@@ -490,8 +493,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  */
 - (void)dealloc {
     
-//    [self quitConversationViewAndClear];
-//    [self closeBtnClick];
+    //    [self quitConversationViewAndClear];
+    //    [self closeBtnClick];
 }
 
 /**
@@ -522,7 +525,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             self.conversationMessageCollectionView.delegate = nil;
             [[NSNotificationCenter defaultCenter] removeObserver:self];
             
-//            [[RCDLive sharedRCDLive] logoutRongCloud];
+            //            [[RCDLive sharedRCDLive] logoutRongCloud];
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [self dismissViewControllerAnimated:YES completion:nil];
@@ -600,7 +603,9 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
         //        self.contentView.backgroundColor = RCDLive_RGBCOLOR(235, 235, 235);
         self.contentView.backgroundColor = [UIColor redColor];
         self.contentView = [[UIView alloc]initWithFrame:contentViewFrame];
+        
         [self.view addSubview:self.contentView];
+        //        [self.livePushDetailsView addSubview:self.contentView];
         
         UIImageView *chatViewBg = [[UIImageView alloc] initWithFrame:contentViewFrame];
         chatViewBg.image = [UIImage imageNamed:@"直播详情底部"];
@@ -622,7 +627,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
         _conversationViewFrame.origin.y = 0;
         
         // 设置frame小于聊天区50
-        _conversationViewFrame.size.height = self.contentView.bounds.size.height - 50;
+        _conversationViewFrame.size.height = self.contentView.bounds.size.height - (_livePushDetailsView.bottomAllBtnView.frame.size.height / 667.0 * cScreen_Height);
         _conversationViewFrame.size.width = 240;
         self.conversationMessageCollectionView =
         [[UICollectionView alloc] initWithFrame:_conversationViewFrame
@@ -631,6 +636,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
          setBackgroundColor:[UIColor clearColor]];
         self.conversationMessageCollectionView.showsHorizontalScrollIndicator = NO;
         self.conversationMessageCollectionView.alwaysBounceVertical = YES;
+        
+        
         self.conversationMessageCollectionView.dataSource = self;
         self.conversationMessageCollectionView.delegate = self;
         
@@ -717,6 +724,9 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
        forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_clapBtn];
     
+    
+    
+    
     // 直播推流详情页
     [self addLiveALiPushVC];
     
@@ -726,10 +736,12 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 // 直播推流详情页
 - (void)addLiveALiPushVC{
     
-//    self.pushUrl = @"rtmp://video-center.alivecdn.com/nzny/993a5e86-7e4d-4c12-921a-215e425c12f7?vhost=live.nznychina.com&auth_key=1485009206-0-0-9e8abda1e86e293c80baafc08dd1f7f5";
+    //    self.pushUrl = @"rtmp://video-center.alivecdn.com/nzny/993a5e86-7e4d-4c12-921a-215e425c12f7?vhost=live.nznychina.com&auth_key=1485009206-0-0-9e8abda1e86e293c80baafc08dd1f7f5";
     
     _aliLiveVC = [[AlivcLiveViewController alloc] initWithNibName:@"AlivcLiveViewController" bundle:nil url:self.pushUrl];
     //    liveVC.view.frame = self.view.frame;
+    
+    _aliLiveVC.view.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
     
     NSLog(@"livePushUrl:%@",self.pushUrl);
     
@@ -737,13 +749,15 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     _aliLiveVC.isScreenHorizontal = NO;
     //    [self presentViewController:live animated:YES completion:nil];
     
-//    UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:liveVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
-//    [liveVC.navigationController setNavigationBarHidden:YES animated:YES];
-//    [self showViewController:tempVideoNav sender:self];
+    //    UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:liveVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+    //    [liveVC.navigationController setNavigationBarHidden:YES animated:YES];
+    //    [self showViewController:tempVideoNav sender:self];
     
     
-    [self.livePushDetailsView insertSubview:_aliLiveVC.view atIndex:1];
-    
+    //    [self.livePushDetailsView insertSubview:_aliLiveVC.view atIndex:1];
+    [self.view insertSubview:_aliLiveVC.view atIndex:0];
+    self.livePushDetailsView.bgImgView.hidden = YES;
+    self.livePushDetailsView.backgroundColor = [UIColor clearColor];
 }
 
 
@@ -760,7 +774,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController pushViewController:othersInfoVC animated:YES];
     
-//    [othersInfoVC.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+    //    [othersInfoVC.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
     
 }
 
@@ -770,7 +784,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
     [self dismissViewControllerAnimated:YES completion:nil];
-
+    
     
     // 销毁自己的播放器
     [self.aliLiveVC closeBtnForPushView];
@@ -917,10 +931,10 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  *  @param sender <#sender description#>
  */
 -(void)clapButtonPressed:(id)sender{
-//    RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
-//    giftMessage.type = @"1";
-//    [self sendMessage:giftMessage pushContent:@""];
-//    [self praiseHeart];
+    //    RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
+    //    giftMessage.type = @"1";
+    //    [self sendMessage:giftMessage pushContent:@""];
+    //    [self praiseHeart];
     NSLog(@"分享btn：点击事件");
     
     
@@ -1031,7 +1045,12 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  *  初始化视频直播
  */
 - (void)initializedLiveSubViews {
-    //    _liveView = self.livePlayingManager.currentLiveView;
+    
+    
+    //    _liveView = _livePushDetailsView;
+    _liveView = _aliLiveVC.view;
+    
+    
     _liveView.frame = self.view.frame;
     [self.view addSubview:_liveView];
     [self.view sendSubviewToBack:_liveView];
@@ -1299,17 +1318,20 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
         }
         localizedMessage = [NSString stringWithFormat:@"%@ %@",name,localizedMessage];
     }else if ([messageContent isMemberOfClass:[RCDLiveGiftMessage class]]){
+        
+        
         RCDLiveGiftMessage *notification = (RCDLiveGiftMessage *)messageContent;
-        localizedMessage = @"送了一个钻戒";
-        if(notification && [notification.type isEqualToString:@"1"]){
-            localizedMessage = @"为主播点了赞";
-        }
+        localizedMessage = notification.tempMessageContentStr;
+        
         
         NSString *name;
         if (messageContent.senderUserInfo) {
             name = messageContent.senderUserInfo.name;
         }
         localizedMessage = [NSString stringWithFormat:@"%@ %@",name,localizedMessage];
+        
+        
+        
     }
     CGSize __labelSize = [RCDLiveTipMessageCell getTipMessageCellSize:localizedMessage];
     __height = __height + __labelSize.height;
@@ -1520,27 +1542,59 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  *  @param notification
  */
 - (void)didReceiveMessageNotification:(NSNotification *)notification {
+    
+    
     __block RCMessage *rcMessage = notification.object;
+    
+    
+    
     RCDLiveMessageModel *model = [[RCDLiveMessageModel alloc] initWithMessage:rcMessage];
+    
+    
     NSDictionary *leftDic = notification.userInfo;
+    
+    
+    
     if (leftDic && [leftDic[@"left"] isEqual:@(0)]) {
         self.isNeedScrollToButtom = YES;
     }
+    
+    
+    
     if (model.conversationType == self.conversationType &&
         [model.targetId isEqual:self.targetId]) {
+        
+        
         __weak typeof(&*self) __blockSelf = self;
+        
+        
         dispatch_async(dispatch_get_main_queue(), ^{
+            
+            
             if (rcMessage) {
+                
+                
                 [__blockSelf appendAndDisplayMessage:rcMessage];
+                
+                
                 UIMenuController *menu = [UIMenuController sharedMenuController];
+                
+                
                 menu.menuVisible=NO;
+                
+                
                 //如果消息不在最底部，收到消息之后不滚动到底部，加到列表中只记录未读数
                 if (![self isAtTheBottomOfTableView]) {
                     self.unreadNewMsgCount ++ ;
                     [self updateUnreadMsgCountLabel];
                 }
+                
+                
+                [self praiseHeart];
             }
         });
+        
+        
     }
 }
 

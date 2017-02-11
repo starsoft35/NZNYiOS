@@ -437,7 +437,7 @@
 // header 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    return 400.0 / 1206.0 * cScreen_Height;
+    return 400.0 / 1334.0 * cScreen_Height;
 }
 
 // 有多少组

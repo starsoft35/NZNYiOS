@@ -18,6 +18,8 @@
     
     // 头像
     _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:livePlayDetailsModel.LiveUserPortrait];
+    _headImgView.layer.cornerRadius = (30.0 / 1334.0) * cScreen_Height;
+    
     
     // 姓名
     _nameLab.text = livePlayDetailsModel.LiveUserName;
@@ -113,6 +115,30 @@
 //        _shareBtn.hidden = NO;
 //        
 //    }
+    
+    // 关注
+    // 如果已经关注，则隐藏
+    if (livePlayDetailsModel.Follow == YES) {
+        
+        _topHeadNameIDFollowBgImgView.hidden = YES;
+        
+        _topAllreadyFollowBgImgView.hidden = NO;
+        
+        
+        _followBtn.hidden = YES;
+        
+        
+    }
+    // 如果没有关注，则显示
+    else {
+        
+        _topAllreadyFollowBgImgView.hidden = YES;
+        
+        _topHeadNameIDFollowBgImgView.hidden = NO;
+        
+        
+        _followBtn.hidden = NO;
+    }
     
 }
 

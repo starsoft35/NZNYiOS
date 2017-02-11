@@ -49,13 +49,16 @@
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSString *)url{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    self = [super initWithNibName:@"CYLiveDetailsView" bundle:nibBundleOrNil];
+//    self = [super initWithNibName:@"CYLivePushDetailsView" bundle:nibBundleOrNil];
     
     
     
 //    CYLiveDetailsView *liveDetailsView = [[[NSBundle mainBundle] loadNibNamed:@"CYLiveDetailsView" owner:nil options:nil] lastObject];
-////
-////    self.view = liveDetailsView;
+    
+//    CYLivePushDetailsView *liveDetailsView = [[[NSBundle mainBundle] loadNibNamed:@"CYLivePushDetailsView" owner:nil options:nil] lastObject];
+    
+//
+//    self.view = liveDetailsView;
 //    [self.view addSubview:liveDetailsView];
     
     _url = url;

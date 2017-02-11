@@ -28,6 +28,17 @@
 // 头像、姓名、FID、观众：view
 @property (weak, nonatomic) IBOutlet UIView *topHeadNameFIDFollorView;
 
+// 上部关注：背景
+@property (weak, nonatomic) IBOutlet UIImageView *topHeadNameIDFollowBgImgView;
+
+// 上部已关注：背景
+@property (weak, nonatomic) IBOutlet UIImageView *topAllreadyFollowBgImgView;
+
+
+// 关注：button
+@property (weak, nonatomic) IBOutlet UIButton *followBtn;
+
+
 
 // 头像：imageView
 @property (weak, nonatomic) IBOutlet UIImageView *headImgView;

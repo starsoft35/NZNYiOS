@@ -25,7 +25,7 @@
 
 //- (void)setScrollViewFrame{
 //    
-//    self.bgScrollView.frame = CGRectMake(0, (76.0 / 1334) * self.view.frame.size.height, cScreen_Width, cScreen_Height - 300);
+//    self.bgScrollView.frame = CGRectMake(0, (76.0 / 1334) * cScreen_Height, cScreen_Width, cScreen_Height - 300);
 //    
 //    NSLog(@"infoVideoInfo：frame：%f",self.view.frame.size.height);
 //}

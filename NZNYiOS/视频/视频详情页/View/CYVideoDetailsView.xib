@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -47,7 +47,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="FZc-WA-XeZ" userLabel="1.1.2-姓名-Label">
-                                    <rect key="frame" x="40" y="5" width="54.5" height="12"/>
+                                    <rect key="frame" x="40" y="5" width="55" height="12"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -122,13 +122,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="97"/>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标签：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUA-XG-7Ir" userLabel="1.3.1-标签-Label">
-                                    <rect key="frame" x="13" y="13" width="349" height="12"/>
+                                    <rect key="frame" x="13" y="10" width="349" height="12"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.91768163442611694" green="0.51090770959854126" blue="0.18271613121032715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="爱情宣言：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pz4-H3-N47" userLabel="1.3.2-宣言-Label">
-                                    <rect key="frame" x="13" y="35" width="349" height="15"/>
+                                    <rect key="frame" x="13" y="32" width="349" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -146,21 +146,21 @@
                                     <rect key="frame" x="230" y="56" width="132" height="36"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eP-Si-E5v" userLabel="1.3.4.1-送礼-Button">
-                                            <rect key="frame" x="0.0" y="0.0" width="37.5" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="9eP-Si-E5v" secondAttribute="height" multiplier="1:1" id="sBX-yc-Kjh"/>
                                             </constraints>
                                             <state key="normal" backgroundImage="视频送礼.png"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vf-yz-ZD2" userLabel="1.3.4.2-点赞-Button">
-                                            <rect key="frame" x="47.5" y="0.0" width="37" height="37"/>
+                                            <rect key="frame" x="47" y="0.0" width="38" height="37"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="7vf-yz-ZD2" secondAttribute="height" multiplier="1:1" id="F4L-GS-bbV"/>
                                             </constraints>
                                             <state key="normal" backgroundImage="视频点赞-.png"/>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J7f-8Y-2pd" userLabel="1.3.4.3-分享-Button">
-                                            <rect key="frame" x="94.5" y="0.0" width="37.5" height="37"/>
+                                            <rect key="frame" x="95" y="0.0" width="37" height="37"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="J7f-8Y-2pd" secondAttribute="height" id="Lvm-Eu-mov"/>
                                             </constraints>
@@ -190,13 +190,12 @@
                                 <constraint firstItem="uwK-Re-eeR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="pz4-H3-N47" secondAttribute="bottom" constant="5" id="BJ1-oq-ej5"/>
                                 <constraint firstAttribute="bottom" secondItem="B8h-wB-U08" secondAttribute="bottom" id="CnW-PT-Htu"/>
                                 <constraint firstAttribute="trailing" secondItem="gUA-XG-7Ir" secondAttribute="trailing" constant="13" id="DDs-rc-Qbv"/>
-                                <constraint firstItem="pz4-H3-N47" firstAttribute="height" secondItem="gUA-XG-7Ir" secondAttribute="height" multiplier="30:24" id="Gch-pz-Gw2"/>
                                 <constraint firstItem="uwK-Re-eeR" firstAttribute="leading" secondItem="pz4-H3-N47" secondAttribute="leading" id="HSo-lM-PK2"/>
                                 <constraint firstItem="pz4-H3-N47" firstAttribute="top" secondItem="gUA-XG-7Ir" secondAttribute="bottom" constant="10" id="N4f-pu-9I3"/>
                                 <constraint firstItem="lHt-fp-jNX" firstAttribute="width" secondItem="5P2-k8-tnQ" secondAttribute="width" multiplier="265:750" id="Nge-ED-LaY"/>
                                 <constraint firstItem="pz4-H3-N47" firstAttribute="leading" secondItem="gUA-XG-7Ir" secondAttribute="leading" id="QIi-t8-5o6"/>
                                 <constraint firstItem="lHt-fp-jNX" firstAttribute="top" secondItem="uwK-Re-eeR" secondAttribute="top" id="XgA-9m-gUF"/>
-                                <constraint firstItem="gUA-XG-7Ir" firstAttribute="top" secondItem="5P2-k8-tnQ" secondAttribute="top" constant="13" id="eZy-j7-Ucf"/>
+                                <constraint firstItem="gUA-XG-7Ir" firstAttribute="top" secondItem="5P2-k8-tnQ" secondAttribute="top" constant="10" id="eZy-j7-Ucf"/>
                                 <constraint firstItem="gUA-XG-7Ir" firstAttribute="height" secondItem="5P2-k8-tnQ" secondAttribute="height" multiplier="24:200" id="hui-ON-Bwg"/>
                                 <constraint firstItem="uwK-Re-eeR" firstAttribute="height" secondItem="5P2-k8-tnQ" secondAttribute="height" multiplier="75:200" id="lh7-Q0-TMa"/>
                                 <constraint firstAttribute="trailing" secondItem="lHt-fp-jNX" secondAttribute="trailing" constant="13" id="lku-xX-x2q"/>

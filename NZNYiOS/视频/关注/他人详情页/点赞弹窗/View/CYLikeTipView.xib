@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,7 +20,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwM-jx-zHA" userLabel="1.点赞-View">
                     <rect key="frame" x="24.5" y="145.5" width="325" height="375"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="弹窗2.png" translatesAutoresizingMaskIntoConstraints="NO" id="w1y-H5-8Np" userLabel="1.0-点赞背景-Image View">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="弹窗没底部.png" translatesAutoresizingMaskIntoConstraints="NO" id="w1y-H5-8Np" userLabel="1.0-点赞背景-Image View">
                             <rect key="frame" x="0.0" y="0.0" width="325" height="375"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点赞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="2fI-ff-deq" userLabel="1.1-点赞-Label">
@@ -414,7 +414,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="Fbr-GS-vfH" secondAttribute="height" id="Pel-Re-7sM"/>
                             </constraints>
-                            <state key="normal" backgroundImage="弹窗关闭.png"/>
+                            <state key="normal" backgroundImage="弹窗关闭图X变小.png"/>
                         </button>
                     </subviews>
                     <constraints>
@@ -484,8 +484,8 @@
     </objects>
     <resources>
         <image name="一支底.png" width="250" height="44"/>
-        <image name="弹窗2.png" width="325" height="375"/>
-        <image name="弹窗关闭.png" width="16" height="16"/>
+        <image name="弹窗关闭图X变小.png" width="25" height="25"/>
+        <image name="弹窗没底部.png" width="325" height="375"/>
         <image name="换钱.png" width="60" height="30"/>
         <image name="数量输入框.png" width="150" height="44"/>
         <image name="点赞.png" width="21" height="18"/>
