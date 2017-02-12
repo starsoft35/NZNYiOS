@@ -40,6 +40,9 @@
 // 点赞：button
 @property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 
+// 输入赞数量的价格
+@property (weak, nonatomic) IBOutlet UILabel *tfLikeCountCostLab;
+
 
 
 @end

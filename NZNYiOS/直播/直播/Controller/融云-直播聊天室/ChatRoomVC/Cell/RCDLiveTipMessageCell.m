@@ -128,7 +128,7 @@
             
             [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:[str rangeOfString:localizedMessage]];
         }
-        if (notification && [notification.tempMessageContentStr isEqualToString:@"加入了聊天室"]) {
+        if (notification && [notification.tempMessageContentStr isEqualToString:@"进入直播间"]) {
             
             
             

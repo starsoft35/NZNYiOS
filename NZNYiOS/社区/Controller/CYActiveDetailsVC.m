@@ -169,7 +169,7 @@ NSInteger tagCount;//全局变量
     
     
     
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width , cScreen_Height - 64) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, cScreen_Width , cScreen_Height - 64) style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     

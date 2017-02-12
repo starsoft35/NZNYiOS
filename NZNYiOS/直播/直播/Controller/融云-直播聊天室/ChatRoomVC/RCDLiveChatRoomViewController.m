@@ -269,7 +269,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
                  
                  // 通知消息类：谁加入了聊天室
                  RCInformationNotificationMessage *joinChatroomMessage = [[RCInformationNotificationMessage alloc]init];
-                 joinChatroomMessage.message = [NSString stringWithFormat: @"%@加入了聊天室",[RCDLive sharedRCDLive].currentUserInfo.name];
+                 joinChatroomMessage.message = [NSString stringWithFormat: @"%@进入直播间",[RCDLive sharedRCDLive].currentUserInfo.name];
                  [self sendMessage:joinChatroomMessage pushContent:nil];
              });
          }

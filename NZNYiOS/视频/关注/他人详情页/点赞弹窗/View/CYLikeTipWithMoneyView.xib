@@ -337,7 +337,7 @@
                             </constraints>
                         </progressView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="其他" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUb-7e-lZa" userLabel="1.6-其他-Label">
-                            <rect key="frame" x="140" y="267.5" width="45" height="13"/>
+                            <rect key="frame" x="140" y="268" width="45" height="13"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="HUb-7e-lZa" secondAttribute="height" multiplier="90:26" id="Lff-JR-cca"/>
@@ -349,9 +349,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wja-xn-i9G" userLabel="1.7-输入点赞数量-View">
                             <rect key="frame" x="38" y="290" width="150" height="44"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="数量输入框.png" translatesAutoresizingMaskIntoConstraints="NO" id="Soe-h2-tbZ" userLabel="1.7.1-输入点赞数量背景-Image View">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="数量输入框.png" translatesAutoresizingMaskIntoConstraints="NO" id="Soe-h2-tbZ" userLabel="1.7.1-输入点赞数量背景-Image View">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入数量" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DZA-iQ-dGl" userLabel="1.7.2-输入数量-Round Style Text Field">
                                     <rect key="frame" x="17" y="0.0" width="86" height="44"/>
@@ -371,12 +370,16 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="Soe-h2-tbZ" firstAttribute="top" secondItem="Wja-xn-i9G" secondAttribute="top" id="4QG-oL-ab0"/>
                                 <constraint firstItem="B88-O8-K3N" firstAttribute="centerY" secondItem="Wja-xn-i9G" secondAttribute="centerY" id="A9c-tT-AfJ"/>
                                 <constraint firstItem="DZA-iQ-dGl" firstAttribute="centerY" secondItem="B88-O8-K3N" secondAttribute="centerY" id="BoL-KG-PES"/>
+                                <constraint firstItem="Soe-h2-tbZ" firstAttribute="leading" secondItem="Wja-xn-i9G" secondAttribute="leading" id="M9m-VJ-phs"/>
                                 <constraint firstItem="DZA-iQ-dGl" firstAttribute="height" secondItem="Wja-xn-i9G" secondAttribute="height" id="MLA-F9-01G"/>
+                                <constraint firstAttribute="trailing" secondItem="Soe-h2-tbZ" secondAttribute="trailing" id="S4T-F5-21w"/>
                                 <constraint firstItem="B88-O8-K3N" firstAttribute="leading" secondItem="DZA-iQ-dGl" secondAttribute="trailing" id="d6p-cx-lya"/>
                                 <constraint firstItem="DZA-iQ-dGl" firstAttribute="leading" secondItem="Wja-xn-i9G" secondAttribute="leading" constant="17" id="gZL-c3-kaX"/>
                                 <constraint firstAttribute="trailing" secondItem="B88-O8-K3N" secondAttribute="trailing" constant="7" id="gju-gr-6QS"/>
+                                <constraint firstAttribute="bottom" secondItem="Soe-h2-tbZ" secondAttribute="bottom" id="h6R-fj-yX5"/>
                                 <constraint firstAttribute="width" secondItem="Wja-xn-i9G" secondAttribute="height" multiplier="300:88" id="miH-la-XB1"/>
                             </constraints>
                         </view>
@@ -476,6 +479,7 @@
                 <outlet property="likeTipMiddleView" destination="hqA-Zp-7US" id="Gnq-KB-PIb"/>
                 <outlet property="oneLikeBtn" destination="B3p-CX-zts" id="EqH-Zj-use"/>
                 <outlet property="tenLikeBtn" destination="5AJ-v5-VlP" id="YmR-67-0Ca"/>
+                <outlet property="tfLikeCountCostLab" destination="mco-Mu-CGH" id="nQB-6a-Heq"/>
                 <outlet property="thirtyTwoLikeBtn" destination="hvY-Ti-wab" id="4lY-QM-NXn"/>
                 <outlet property="threeHundredLikeBtn" destination="bx5-DD-ua6" id="ZfD-mQ-WGl"/>
                 <outlet property="tipCloseBtn" destination="Box-ay-MKe" id="Vwr-Mn-sca"/>

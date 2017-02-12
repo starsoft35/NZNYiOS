@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
-            timestampString = "508502261.722828"
+            timestampString = "508558982.942553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2619"
-            endingLineNumber = "2619"
+            startingLineNumber = "2611"
+            endingLineNumber = "2611"
             landmarkName = "-sizeForItem:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
-            timestampString = "508502261.722828"
+            timestampString = "508558982.942553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2620"
-            endingLineNumber = "2620"
+            startingLineNumber = "2612"
+            endingLineNumber = "2612"
             landmarkName = "-sizeForItem:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
-            timestampString = "508502261.722828"
+            timestampString = "508558982.942553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2618"
-            endingLineNumber = "2618"
+            startingLineNumber = "2610"
+            endingLineNumber = "2610"
             landmarkName = "-sizeForItem:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -458,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
-            timestampString = "508502261.722828"
+            timestampString = "508558982.942553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2617"
-            endingLineNumber = "2617"
+            startingLineNumber = "2609"
+            endingLineNumber = "2609"
             landmarkName = "-sizeForItem:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -688,6 +688,38 @@
             startingLineNumber = "1554"
             endingLineNumber = "1554"
             landmarkName = "-didReceiveMessageNotification:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x89c6;&#x9891;/&#x5173;&#x6ce8;/&#x4ed6;&#x4eba;&#x8be6;&#x60c5;&#x9875;/Controller/CYOthersInfoVC.m"
+            timestampString = "508575629.635727"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "470"
+            endingLineNumber = "470"
+            landmarkName = "-likeBtnClick"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x89c6;&#x9891;/&#x5173;&#x6ce8;/&#x4ed6;&#x4eba;&#x8be6;&#x60c5;&#x9875;/Controller/CYOthersInfoVC.m"
+            timestampString = "508573331.345957"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1187"
+            endingLineNumber = "1187"
+            landmarkName = "-textFieldDidBeginEditing:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

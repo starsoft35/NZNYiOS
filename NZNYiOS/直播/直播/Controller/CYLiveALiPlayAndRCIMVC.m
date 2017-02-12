@@ -471,8 +471,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
                  RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
                  giftMessage.type = @"2";
                  giftMessage.tempMessageType = @"2";
-                 giftMessage.tempMessageContentStr = @"加入了聊天室";
-                 giftMessage.content = @"加入了安卓聊天室室室室室室室室室室室室室室";
+                 giftMessage.tempMessageContentStr = @"进入直播间";
+                 giftMessage.content = @"进入直播间";
                  [self sendMessage:giftMessage pushContent:@""];
                  
                  
@@ -1400,6 +1400,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     // 九十九支玫瑰花：点击事件
     [_giveGiftTipView.ninetyNineRoseBtn addTarget:self action:@selector(ninetyNineRoseBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
+    // 送礼：textField：文本改变事件
     [_giveGiftTipView.giftCountTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
     // 送礼：button：点击事件
@@ -1418,7 +1419,6 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
     
-#warning 网络请求：获取账户余额
     
     // 送礼弹窗
 //        CYGiveGiftTipVC *giveGiftTipVC = [[CYGiveGiftTipVC alloc] init];
@@ -1480,16 +1480,6 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
 }
 
-// 九百九十九支玫瑰花：点击事件
-- (void)ninehundredNitetyNineRoseBtnClick{
-    NSLog(@"九百九十九支玫瑰花：点击事件");
-    
-    // 送礼：玫瑰花数量
-    NSInteger roseCount = 999;
-    
-    // 网络请求：送九百九十九支玫瑰花
-    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
-}
 
 // 送礼：button：点击事件
 - (void)giveGiftBtnClick{
@@ -1616,7 +1606,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
                 
                 // 送礼弹窗：恢复位置
                 [UIView animateWithDuration:0.5 animations:^{
-                    self.giveGiftTipView.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+                    self.giveGiftTipView.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
                     
                 }];
                 // 隐藏键盘
@@ -1706,7 +1696,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             // 请求数据结束，取消加载
             //            [self hidenLoadingView];
             
-            [self showHubWithLabelText:[NSString stringWithFormat:@"送 %ld 朵玫瑰成功！",(long)giftCount] andHidAfterDelay:3.0];
+            [self showHubWithLabelText:[NSString stringWithFormat:@"送%ld朵玫瑰成功！",(long)giftCount] andHidAfterDelay:3.0];
             
             
             
@@ -1714,8 +1704,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
             giftMessage.type = @"0";
             giftMessage.tempMessageType = @"0";
-            giftMessage.tempMessageContentStr = [NSString stringWithFormat:@"为主播送了 %ld 朵玫瑰",(long)giftCount];
-            giftMessage.content = [NSString stringWithFormat:@"为主播送了 %ld 朵玫瑰",(long)giftCount];
+            giftMessage.tempMessageContentStr = [NSString stringWithFormat:@"送给主播%ld朵玫瑰",(long)giftCount];
+            giftMessage.content = [NSString stringWithFormat:@"送给主播%ld朵玫瑰",(long)giftCount];
             [self sendMessage:giftMessage pushContent:@""];
             
             
@@ -1748,13 +1738,13 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     // 送礼：恢复位置
     [UIView animateWithDuration:0.5 animations:^{
-        self.giveGiftTipView.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+        self.giveGiftTipView.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
         
     }];
     
     // 点赞：恢复位置
     [UIView animateWithDuration:0.5 animations:^{
-        self.likeTipWithMoneyView.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+        self.likeTipWithMoneyView.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
         
     }];
     
@@ -1827,6 +1817,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     // 300个赞：点击事件
     [_likeTipWithMoneyView.threeHundredLikeBtn addTarget:self action:@selector(likeTipViewThreeHundredLikeBtnBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
+    // 点赞：textField：文本改变事件
+    [_likeTipWithMoneyView.likeCountTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
     // 点赞：button：点击事件
     [_likeTipWithMoneyView.likeBtn addTarget:self action:@selector(likeTipViewlikeBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -2003,7 +1995,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
                 
                 // 送礼弹窗：恢复位置
                 [UIView animateWithDuration:0.5 animations:^{
-                    self.likeTipWithMoneyView.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+                    self.likeTipWithMoneyView.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
                     
                 }];
                 // 隐藏键盘
@@ -2112,7 +2104,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 
 
 
-#pragma mark --UITextFieldDelegate
+#pragma mark ---------------------- 点赞、送礼：代理：UITextFieldDelegate：开始 ----------------
 -(void)textFieldDidChange :(UITextField *)theTextField{
     NSLog( @"text changed: %@", theTextField.text);
     
@@ -2141,21 +2133,21 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
     // 点赞
-    NSScanner *likeScan = [NSScanner scannerWithString:self.giveGiftTipView.giftCountTextField.text];
+    NSScanner *likeScan = [NSScanner scannerWithString:self.likeTipWithMoneyView.likeCountTextField.text];
     
     
-    float likeCost = [self.giveGiftTipView.giftCountTextField.text floatValue] * 1.0;
+    float likeCost = [self.likeTipWithMoneyView.likeCountTextField.text floatValue] * 1.0;
     
     NSInteger likeFlag;
     
     if ([likeScan scanInteger:&likeFlag] && [likeScan isAtEnd]) {
         
-        self.giveGiftTipView.tfRoseCountCostLab.text = [NSString stringWithFormat:@"￥%.1f",likeCost];
+        self.likeTipWithMoneyView.tfLikeCountCostLab.text = [NSString stringWithFormat:@"￥%.1f",likeCost];
         
     }
     else {
         
-        self.giveGiftTipView.tfRoseCountCostLab.text = @"￥0.0";
+        self.likeTipWithMoneyView.tfLikeCountCostLab.text = @"￥0.0";
     }
     
     
@@ -2168,18 +2160,18 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     // 送礼：恢复位置
     [UIView animateWithDuration:0.5 animations:^{
-        self.giveGiftTipView.bounds = CGRectMake(0, 128, self.view.frame.size.width, self.view.frame.size.height);
+        self.giveGiftTipView.bounds = CGRectMake(0, 128, cScreen_Width, cScreen_Height);
     }];
     
     
     // 点赞：恢复位置
     [UIView animateWithDuration:0.5 animations:^{
-        self.likeTipWithMoneyView.bounds = CGRectMake(0, 128, self.view.frame.size.width, self.view.frame.size.height);
+        self.likeTipWithMoneyView.bounds = CGRectMake(0, 128, cScreen_Width, cScreen_Height);
     }];
     
 }
 
-
+#pragma mark ---------------------- 点赞、送礼：代理：UITextFieldDelegate：结束 ----------------
 
 
 

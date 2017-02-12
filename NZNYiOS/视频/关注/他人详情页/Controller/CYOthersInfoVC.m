@@ -33,15 +33,38 @@
 // 加好友弹窗
 #import "CYAddFriendVC.h"
 
-// 点赞：VC
-#import "CYLikeTipVC.h"
-
-// 送礼：VC
+// 送礼弹窗：VC
 #import "CYGiveGiftTipVC.h"
+// 送礼弹窗：View
+#import "CYGiveGiftTipWithMoneyView.h"
+
+
+// 点赞弹窗：VC
+#import "CYLikeTipVC.h"
+// 点赞弹窗：View
+#import "CYLikeTipWithMoneyView.h"
+
+// 余额不足弹窗：VC
+#import "CYBalanceNotEnoughVC.h"
+// 余额不足弹窗：View
+#import "CYBalanceNotEnoughView.h"
+
+
+// 充值界面：VC
+#import "CYRechargeVC.h"
 
 
 
-@interface CYOthersInfoVC ()
+@interface CYOthersInfoVC ()<UITextFieldDelegate>
+
+// 送礼弹窗：View
+@property(nonatomic, strong) CYGiveGiftTipWithMoneyView *giveGiftTipView;
+// 点赞弹窗：View
+@property(nonatomic, strong) CYLikeTipWithMoneyView *likeTipWithMoneyView;
+// 余额不足弹窗：View
+@property(nonatomic, strong) CYBalanceNotEnoughView *balanceNotEnoughView;
+
+
 
 @end
 
@@ -396,36 +419,782 @@
 }
 
 
+//// 点赞：button：点击事件
+//- (void)likeBtnClick{
+//    NSLog(@"点赞：button：点击事件");
+//    
+//    // 点赞弹窗
+//    CYLikeTipVC *likeTipVC = [[CYLikeTipVC alloc] init];
+//    
+//    likeTipVC.oppUserId = self.oppUserId;
+//    likeTipVC.addLikeUrl = cAddUserLikeUrl;
+//    
+//    [self presentViewController:likeTipVC animated:YES completion:nil];
+//    
+////    [self showViewController:likeTipVC sender:self];
+////    [self.navigationController pushViewController:likeTipVC animated:YES];
+//    
+////    [self.view addSubview :likeTipVC.view];
+//    
+//}
+//
+//// 送礼：button：点击事件
+//- (void)giveGiftBtnClick{
+//    NSLog(@"送礼：button：点击事件");
+//    
+//    // 送礼弹窗
+//    CYGiveGiftTipVC *giveGiftTipVC = [[CYGiveGiftTipVC alloc] init];
+//    
+//    giveGiftTipVC.oppUserId = self.oppUserId;
+//    
+//    [self presentViewController:giveGiftTipVC animated:YES completion:nil];
+//    
+//}
+
+
+
+
+
+
+
+#pragma mark------------------------ 点赞弹窗：开始 ---------------------------------------
+
 // 点赞：button：点击事件
 - (void)likeBtnClick{
     NSLog(@"点赞：button：点击事件");
     
     // 点赞弹窗
-    CYLikeTipVC *likeTipVC = [[CYLikeTipVC alloc] init];
+    _likeTipWithMoneyView = [[[NSBundle mainBundle] loadNibNamed:@"CYLikeTipWithMoneyView" owner:nil options:nil] lastObject];
     
-    likeTipVC.oppUserId = self.oppUserId;
-    likeTipVC.addLikeUrl = cAddUserLikeUrl;
+    _likeTipWithMoneyView.frame = CGRectMake(0, -64, cScreen_Width, cScreen_Height);
+    NSLog(@"_likeTipWithMoneyView:cScreen_Height:%f",cScreen_Height);
     
-    [self presentViewController:likeTipVC animated:YES completion:nil];
+    _likeTipWithMoneyView.backgroundColor = [UIColor clearColor];
     
-//    [self showViewController:likeTipVC sender:self];
-//    [self.navigationController pushViewController:likeTipVC animated:YES];
     
-//    [self.view addSubview :likeTipVC.view];
+    // 弹窗关闭：点击事件
+    [_likeTipWithMoneyView.tipCloseBtn addTarget:self action:@selector(likeTipViewTipCloseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 1个赞：点击事件
+    [_likeTipWithMoneyView.oneLikeBtn addTarget:self action:@selector(likeTipViewOneLikeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 10个赞：点击事件
+    [_likeTipWithMoneyView.tenLikeBtn addTarget:self action:@selector(likeTipViewTenLikeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 32个赞：点击事件
+    [_likeTipWithMoneyView.thirtyTwoLikeBtn addTarget:self action:@selector(likeTipViewThirtyTwoLikeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 300个赞：点击事件
+    [_likeTipWithMoneyView.threeHundredLikeBtn addTarget:self action:@selector(likeTipViewThreeHundredLikeBtnBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 点赞：textField：文本改变事件
+    [_likeTipWithMoneyView.likeCountTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
+    // 点赞：button：点击事件
+    [_likeTipWithMoneyView.likeBtn addTarget:self action:@selector(likeTipViewlikeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    _likeTipWithMoneyView.likeCountTextField.delegate = self;
+    
+    [self.view addSubview:_likeTipWithMoneyView];
     
 }
+
+// 点赞弹窗：弹窗关闭：点击事件
+- (void)likeTipViewTipCloseBtnClick{
+    NSLog(@"");
+    
+    [self.likeTipWithMoneyView removeFromSuperview];
+}
+// 1个赞：点击事件
+- (void)likeTipViewOneLikeBtnClick{
+    NSLog(@"");
+    
+    
+    NSInteger likeCount = 1;
+    
+    // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
+}
+// 10个赞：点击事件
+- (void)likeTipViewTenLikeBtnClick{
+    NSLog(@"");
+    
+    NSInteger likeCount = 10;
+    
+    // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
+}
+// 32个赞：点击事件
+- (void)likeTipViewThirtyTwoLikeBtnClick{
+    NSLog(@"");
+    
+    NSInteger likeCount = 32;
+    
+    // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
+}
+// 300个赞：点击事件
+- (void)likeTipViewThreeHundredLikeBtnBtnClick{
+    NSLog(@"");
+    
+    NSInteger likeCount = 300;
+    
+    // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
+}
+// 点赞：button：点击事件
+- (void)likeTipViewlikeBtnClick{
+    NSLog(@"点赞弹窗：点赞：button：点击事件");
+    
+    NSScanner *scan = [NSScanner scannerWithString:self.likeTipWithMoneyView.likeCountTextField.text];
+    
+    NSInteger flag;
+    
+    if ([scan scanInteger:&flag] && [scan isAtEnd]) {
+        
+        NSInteger likeCount = [self.likeTipWithMoneyView.likeCountTextField.text integerValue];
+        
+        // 网络请求：点 n 个赞
+        // 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
+        [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andLikeCount:likeCount andCost:(1.0 * likeCount)];
+        
+    }
+    else {
+        
+        [self.view bringSubviewToFront:self.hud];
+        [self showHubWithLabelText:@"请输入数字" andHidAfterDelay:3.0];
+    }
+}
+
+// 网络请求：用户余额：余额够，则点赞请求，不够则充值弹窗
+- (void)requestUserBalanceIfIsEnoughWithUserId:(NSString *)userId andOppUserId:(NSString *)oppUserId andLikeCount:(NSInteger)likeCount andCost:(float)cost{
+    NSLog(@"用户余额：网络请求！");
+    
+    [self showLoadingView];
+    
+    // 新地址
+    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@",cUserMoneyUrl,userId];
+    
+    // 网络请求：用户余额
+    [CYNetWorkManager getRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"用户余额：%@",uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"用户余额：请求成功！");
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"用户余额：获取成功！");
+            NSLog(@"用户余额：%@",responseObject);
+            
+            
+            
+            // 请求数据结束，取消加载
+            [self hidenLoadingView];
+            
+            
+            NSString * tempMoneyStr = responseObject[@"res"][@"data"][@"money"];
+            float tempMoney = [tempMoneyStr floatValue];
+            
+            // 如果余额够支付，则赞、支付
+            if (tempMoney >= cost) {
+                
+                self.isEnoughForPay = YES;
+                
+                // 网路请求：点 n 个赞
+                [self requestLikeWithUserId:self.onlyUser.userID andReceiveUserId:oppUserId andLikeCount:likeCount andAddLikeUrl:cAddUserVideoLikeUrl];
+                
+            }
+            // 余额不足，则弹到充值界面
+            else {
+                
+                // 请求数据结束，取消加载
+                [self hidenLoadingView];
+                
+                
+                // 余额不足弹窗：
+                
+                
+#pragma mark------------------------ 余额不足弹窗：开始 ---------------------------------------
+                
+                _balanceNotEnoughView = [[[NSBundle mainBundle] loadNibNamed:@"CYBalanceNotEnoughView" owner:nil options:nil] lastObject];
+                
+                _balanceNotEnoughView.frame = CGRectMake(0, -64, cScreen_Width, cScreen_Height);
+                
+                
+                
+                _balanceNotEnoughView.backgroundColor = [UIColor clearColor];
+                _balanceNotEnoughView.balanceNotEnoughBgImgView.hidden = YES;
+                
+                // 余额不足：弹窗关闭：button：点击事件
+                [_balanceNotEnoughView.closeBtn addTarget:self action:@selector(balanceNotEnoughCloseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                
+                // 立即充值：button：点击事件
+                [_balanceNotEnoughView.instantRechargeBtn addTarget:self action:@selector(balanceNotEnoughInstantRechargeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                
+                
+                // 送礼弹窗：恢复位置
+                [UIView animateWithDuration:0.5 animations:^{
+//                    self.likeTipWithMoneyView.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
+                    self.likeTipWithMoneyView.frame = CGRectMake(0, -64, cScreen_Width, cScreen_Height);
+                    
+                }];
+                // 隐藏键盘
+                [self.view endEditing:YES];
+                
+                
+                [self.view addSubview:_balanceNotEnoughView];
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }
+        }
+        else{
+            NSLog(@"用户余额：获取失败:responseObject:%@",responseObject);
+            NSLog(@"用户余额：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"用户余额：请求失败！");
+        NSLog(@"点一个赞：error：%@",error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+// 点赞：网络请求
+- (void)requestLikeWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andLikeCount:(NSInteger)likeCount andAddLikeUrl:(NSString *)addLikeUrl{
+    NSLog(@"点赞：网络请求！");
+    
+    [self showLoadingView];
+    
+    // 参数
+    NSDictionary *params = @{
+                             @"UserId":userId,
+                             @"ReceiveUserId":receiveUserId,
+                             @"Count":@(likeCount)
+                             };
+    
+    // 网络请求：点 n 个赞
+    [CYNetWorkManager postRequestWithUrl:addLikeUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"点 %ld 个赞：%@",(long)likeCount,uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"点 %ld 个赞：请求成功！",(long)likeCount);
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"点 %ld 个赞：点赞成功！",(long)likeCount);
+            NSLog(@"点 %ld 个赞：%@",(long)likeCount,responseObject);
+            
+            
+            
+            
+            [self showHubWithLabelText:[NSString stringWithFormat:@"点 %ld 个赞成功！",(long)likeCount] andHidAfterDelay:3.0];
+            
+            
+            
+            [self.likeTipWithMoneyView removeFromSuperview];
+            
+            
+        }
+        else{
+            NSLog(@"点 %ld 个赞：点赞:responseObject:%@",(long)likeCount,responseObject);
+            NSLog(@"点 %ld 个赞：点赞:responseObject:res:msg:%@",(long)likeCount,responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"点 %ld 个赞：请求失败！",(long)likeCount);
+        NSLog(@"点 %ld 个赞：error：%@",(long)likeCount,error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+#pragma mark------------------------ 点赞弹窗：结束 ---------------------------------------
+
+
+
+#pragma mark------------------------ 送礼开始：弹窗 ---------------------------------------
 
 // 送礼：button：点击事件
 - (void)giveGiftBtnClick{
     NSLog(@"送礼：button：点击事件");
     
-    // 送礼弹窗
-    CYGiveGiftTipVC *giveGiftTipVC = [[CYGiveGiftTipVC alloc] init];
+    _giveGiftTipView = [[[NSBundle mainBundle] loadNibNamed:@"CYGiveGiftTipWithMoneyView" owner:nil options:nil] lastObject];
     
-    giveGiftTipVC.oppUserId = self.oppUserId;
+    _giveGiftTipView.frame = CGRectMake(0, -64, cScreen_Width, cScreen_Height);
     
-    [self presentViewController:giveGiftTipVC animated:YES completion:nil];
+    
+    
+    //    if (cScreen_Width == 320) {
+    //
+    //        CGRect tempRect = _giveGiftTipView.oneRoseBtn.frame;
+    //
+    //        _giveGiftTipView.oneRoseBtn.frame = CGRectMake(tempRect.origin.x, tempRect.origin.y - 10, tempRect.size.width, tempRect.size.height - 10);
+    //    }
+    
+    //    _giveGiftTipView.backgroundColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:0.70];
+    _giveGiftTipView.backgroundColor = [UIColor clearColor];
+    //    _giveGiftTipView.giveGiftBgImgView.hidden = YES;
+    
+    // tipCloseBtn：关闭弹窗：点击事件
+    [_giveGiftTipView.tipCloseBtn addTarget:self action:@selector(giveGiftTipCloseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    // 一支玫瑰花：点击事件
+    [_giveGiftTipView.oneRoseBtn addTarget:self action:@selector(oneRoseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 三支玫瑰花：点击事件
+    [_giveGiftTipView.threeRoseBtn addTarget:self action:@selector(threeRoseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 九支玫瑰花：点击事件
+    [_giveGiftTipView.nineRoseBtn addTarget:self action:@selector(nineRoseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 九十九支玫瑰花：点击事件
+    [_giveGiftTipView.ninetyNineRoseBtn addTarget:self action:@selector(ninetyNineRoseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 送礼：textField：文本改变事件
+    [_giveGiftTipView.giftCountTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
+    // 送礼：button：点击事件
+    [_giveGiftTipView.giveGiftBtn addTarget:self action:@selector(giveGiftTipGiveGiftBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    _giveGiftTipView.giftCountTextField.delegate = self;
+    
+    [self.view addSubview:_giveGiftTipView];
     
 }
+// 一支玫瑰花：点击事件
+- (void)oneRoseBtnClick{
+    NSLog(@"一支玫瑰花：点击事件");
+    
+    // 送礼：玫瑰花数量
+    NSInteger roseCount = 1;
+    
+    // 网络请求：送一支玫瑰花
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
+    
+}
+
+
+
+// 三支玫瑰花：点击事件
+- (void)threeRoseBtnClick{
+    NSLog(@"三支玫瑰花：点击事件");
+    
+    // 送礼：玫瑰花数量
+    NSInteger roseCount = 3;
+    
+    // 网络请求：送三支玫瑰花
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
+    
+}
+
+// 九支玫瑰花：点击事件
+- (void)nineRoseBtnClick{
+    NSLog(@"九支玫瑰花：点击事件");
+    
+    // 送礼：玫瑰花数量
+    NSInteger roseCount = 9;
+    
+    // 网络请求：送九支玫瑰花
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
+    
+}
+
+// 九十九支玫瑰花：点击事件
+- (void)ninetyNineRoseBtnClick{
+    NSLog(@"九十九支玫瑰花：点击事件");
+    
+    // 送礼：玫瑰花数量
+    NSInteger roseCount = 99;
+    
+    // 网络请求：送九十九支玫瑰花
+    [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
+}
+
+
+// 送礼：button：点击事件
+- (void)giveGiftTipGiveGiftBtnClick{
+    NSLog(@"送礼：button：点击事件");
+    
+    NSScanner *scan = [NSScanner scannerWithString:self.giveGiftTipView.giftCountTextField.text];
+    
+    NSInteger flag;
+    
+    if ([scan scanInteger:&flag] && [scan isAtEnd]) {
+        
+        // 送礼：玫瑰花数量
+        NSInteger roseCount = [self.giveGiftTipView.giftCountTextField.text integerValue];
+        
+        // 网络请求：送 n 支玫瑰花
+        [self requestUserBalanceIfIsEnoughWithUserId:self.onlyUser.userID andOppUserId:self.oppUserId andGiftCount:roseCount andCost:(2.0 * roseCount)];
+        
+    }
+    else {
+        
+        [self.view bringSubviewToFront:self.hud];
+        [self showHubWithLabelText:@"请输入数字" andHidAfterDelay:3.0];
+    }
+    
+    
+}
+
+
+// 网络请求：用户余额：余额够，则送礼请求，不够则充值弹窗
+- (void)requestUserBalanceIfIsEnoughWithUserId:(NSString *)userId andOppUserId:(NSString *)oppUserId andGiftCount:(NSInteger)likeCount andCost:(float)cost{
+    NSLog(@"用户余额：网络请求！");
+    
+    [self showLoadingView];
+    
+    // 新地址
+    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@",cUserMoneyUrl,userId];
+    
+    // 网络请求：用户余额
+    [CYNetWorkManager getRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"用户余额：%@",uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"用户余额：请求成功！");
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"用户余额：获取成功！");
+            NSLog(@"用户余额：%@",responseObject);
+            
+            
+            
+            // 请求数据结束，取消加载
+            //            [self hidenLoadingView];
+            
+            
+            NSString * tempMoneyStr = responseObject[@"res"][@"data"][@"money"];
+            float tempMoney = [tempMoneyStr floatValue];
+            
+            NSLog(@"tempMoneyStr:%@",tempMoneyStr);
+            NSLog(@"tempMoney:%lf",tempMoney);
+            NSLog(@"cost:%lf",cost);
+            
+            // 如果余额够支付，则赞、支付
+            if (tempMoney >= cost) {
+                
+                self.isEnoughForPay = YES;
+                
+                // 网路请求：送礼
+                [self requestGiveGiftWithUserId:self.onlyUser.userID andReceiveUserId:self.oppUserId andGiftCount:likeCount];
+                
+            }
+            // 余额不足，则弹到充值界面
+            else {
+                
+                // 请求数据结束，取消加载
+                [self hidenLoadingView];
+                
+                
+                // 余额不足弹窗：VC
+                //                CYBalanceNotEnoughVC *balanceNotEnoughVC = [[CYBalanceNotEnoughVC alloc] init];
+                //
+                //
+                //                //                UINavigationController *tempBalanceNotEnoughNav = [CYUtilities createDefaultNavCWithRootVC:balanceNotEnoughVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+                //                //
+                //                //                [balanceNotEnoughVC.navigationController setNavigationBarHidden:YES animated:YES];
+                //
+                //                //                [self showViewController:tempVideoNav sender:self];
+                //                //                [self presentViewController:tempBalanceNotEnoughNav animated:YES completion:nil];
+                //                [self presentViewController:balanceNotEnoughVC animated:YES completion:nil];
+                
+                
+                
+#pragma mark------------------------ 余额不足弹窗：开始 --------------------------------------
+                
+                
+                
+                _balanceNotEnoughView = [[[NSBundle mainBundle] loadNibNamed:@"CYBalanceNotEnoughView" owner:nil options:nil] lastObject];
+                
+                _balanceNotEnoughView.frame = CGRectMake(0, -64, cScreen_Width, cScreen_Height);
+                
+                
+                
+                if (cScreen_Width == 320) {
+                    
+                    //                    CGRect tempRect = _balanceNotEnoughView.oneRoseBtn.frame;
+                    
+                    //                    _balanceNotEnoughView.oneRoseBtn.frame = CGRectMake(tempRect.origin.x, tempRect.origin.y - 10, tempRect.size.width, tempRect.size.height - 10);
+                }
+                
+                
+                _balanceNotEnoughView.backgroundColor = [UIColor clearColor];
+                _balanceNotEnoughView.balanceNotEnoughBgImgView.hidden = YES;
+                
+                // 余额不足：弹窗关闭：button：点击事件
+                [_balanceNotEnoughView.closeBtn addTarget:self action:@selector(balanceNotEnoughCloseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                
+                // 立即充值：button：点击事件
+                [_balanceNotEnoughView.instantRechargeBtn addTarget:self action:@selector(balanceNotEnoughInstantRechargeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                
+                
+                // 送礼弹窗：恢复位置
+                [UIView animateWithDuration:0.5 animations:^{
+//                    self.giveGiftTipView.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
+                    self.giveGiftTipView.frame = CGRectMake(0, -64, cScreen_Width, cScreen_Height);
+                    
+                }];
+                // 隐藏键盘
+                [self.view endEditing:YES];
+                
+                
+                [self.view addSubview:_balanceNotEnoughView];
+                
+                
+            }
+        }
+        else{
+            NSLog(@"用户余额：获取失败:responseObject:%@",responseObject);
+            NSLog(@"用户余额：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"用户余额：请求失败！");
+        NSLog(@"点一个赞：error：%@",error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+
+// 余额不足：弹窗关闭：button：点击事件
+- (void)balanceNotEnoughCloseBtnClick{
+    NSLog(@"余额不足：弹窗关闭：button：点击事件");
+    
+    [self.balanceNotEnoughView removeFromSuperview];
+    
+}
+
+// 余额不足：立即充值：button：点击事件
+- (void)balanceNotEnoughInstantRechargeBtnClick{
+    NSLog(@"余额不足：立即充值：button：点击事件");
+    
+    
+    // 充值界面
+    CYRechargeVC *rechargeVC = [[CYRechargeVC alloc] init];
+    
+    [[self navigationControllerWithView:self.view] setNavigationBarHidden:NO animated:YES];
+    
+    // 导航VC：获取当前视图所在位置的导航控制器
+    [[self navigationControllerWithView:self.view] pushViewController:rechargeVC animated:YES];
+    
+    [self.balanceNotEnoughView removeFromSuperview];
+}
+
+#pragma mark------------------------ 充值弹窗：结束 ---------------------------------------
+
+// 送礼：网络请求
+- (void)requestGiveGiftWithUserId:(NSString *)userId andReceiveUserId:(NSString *)receiveUserId andGiftCount:(NSInteger)giftCount{
+    NSLog(@"送礼：网络请求！");
+    
+    [self showLoadingView];
+    
+    // 参数
+    NSDictionary *params = @{
+                             @"UserId":userId,
+                             @"ReceiveUserId":receiveUserId,
+                             @"Count":@(giftCount)
+                             };
+    
+    // 网络请求：送 n 支玫瑰花
+    [CYNetWorkManager postRequestWithUrl:cAddFlowersUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"送 %ld 支玫瑰花进度：%@",(long)giftCount,uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"送 %ld 支玫瑰花：请求成功！",(long)giftCount);
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"送 %ld 支玫瑰花：送礼成功！",(long)giftCount);
+            NSLog(@"送 %ld 支玫瑰花：%@",(long)giftCount,responseObject);
+            
+            
+            // 请求数据结束，取消加载
+            //            [self hidenLoadingView];
+            
+            [self showHubWithLabelText:[NSString stringWithFormat:@"送%ld朵玫瑰成功！",(long)giftCount] andHidAfterDelay:3.0];
+            
+            
+            [self.giveGiftTipView removeFromSuperview];
+            
+        }
+        else{
+            NSLog(@"送 %ld 支玫瑰花：送礼:responseObject:%@",(long)giftCount,responseObject);
+            NSLog(@"送 %ld 支玫瑰花：送礼:responseObject:res:msg:%@",(long)giftCount,responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"送 %ld 支玫瑰花：请求失败！",(long)giftCount);
+        NSLog(@"失败原因：error：%@",error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+
+
+
+// 重写touchsBegan，点击旁边空白时，让UIView 类的子类，失去第一响应者
+#pragma mark --重写touchsBegan
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    
+    // 送礼：恢复位置
+    [UIView animateWithDuration:0.5 animations:^{
+//        self.giveGiftTipView.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
+        self.giveGiftTipView.frame = CGRectMake(0, -64, cScreen_Width, cScreen_Height);
+        
+    }];
+    
+    // 点赞：恢复位置
+    [UIView animateWithDuration:0.5 animations:^{
+//        self.likeTipWithMoneyView.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
+        self.likeTipWithMoneyView.frame = CGRectMake(0, -64, cScreen_Width, cScreen_Height);
+    }];
+    
+    for (UIView *tempView in self.view.subviews) {
+        if ([tempView isKindOfClass:[UIView class]]) {
+            // 失去第一响应者
+            [tempView resignFirstResponder];
+        }
+    }
+    
+}
+
+
+// tipCloseBtn：弹窗关闭button：点击事件
+- (void)giveGiftTipCloseBtnClick{
+    NSLog(@"送礼弹窗：弹窗关闭button：点击事件");
+    
+    [_giveGiftTipView removeFromSuperview];
+}
+#pragma mark------------------------ 送礼弹窗：结束 ---------------------------------------
+
+
+
+#pragma mark ---------------------- 点赞、送礼：代理：UITextFieldDelegate：开始 ----------------
+-(void)textFieldDidChange :(UITextField *)theTextField{
+    NSLog( @"text changed: %@", theTextField.text);
+    
+    
+    // 送礼
+    NSScanner *giveGiftScan = [NSScanner scannerWithString:self.giveGiftTipView.giftCountTextField.text];
+    
+    
+    float giveGiftCost = [self.giveGiftTipView.giftCountTextField.text floatValue] * 2.0;
+    
+    NSInteger giveGiftFlag;
+    
+    if ([giveGiftScan scanInteger:&giveGiftFlag] && [giveGiftScan isAtEnd]) {
+        
+        self.giveGiftTipView.tfRoseCountCostLab.text = [NSString stringWithFormat:@"￥%.1f",giveGiftCost];
+        
+    }
+    else {
+        
+        self.giveGiftTipView.tfRoseCountCostLab.text = @"￥0.0";
+    }
+    
+    
+    
+    
+    
+    
+    // 点赞
+    NSScanner *likeScan = [NSScanner scannerWithString:self.likeTipWithMoneyView.likeCountTextField.text];
+    
+    
+    float likeCost = [self.likeTipWithMoneyView.likeCountTextField.text floatValue] * 1.0;
+    
+    NSInteger likeFlag;
+    
+    if ([likeScan scanInteger:&likeFlag] && [likeScan isAtEnd]) {
+        
+        self.likeTipWithMoneyView.tfLikeCountCostLab.text = [NSString stringWithFormat:@"￥%.1f",likeCost];
+        
+    }
+    else {
+        
+        self.likeTipWithMoneyView.tfLikeCountCostLab.text = @"￥0.0";
+    }
+    
+    
+    
+    
+}
+
+// 开始输入时，弹窗位置上移
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    
+    
+    // 送礼：弹窗位置上移
+    [UIView animateWithDuration:0.5 animations:^{
+//        self.giveGiftTipView.bounds = CGRectMake(0, 128, cScreen_Width, cScreen_Height);
+        self.giveGiftTipView.frame = CGRectMake(0, -64 - 128, cScreen_Width, cScreen_Height);
+    }];
+    
+    
+    // 点赞：弹窗位置上移
+    [UIView animateWithDuration:0.5 animations:^{
+//        self.likeTipWithMoneyView.bounds = CGRectMake(0, -64 + 128, cScreen_Width, cScreen_Height);
+        self.likeTipWithMoneyView.frame = CGRectMake(0, -64 - 128, cScreen_Width, cScreen_Height);
+    }];
+    
+}
+
+#pragma mark ---------------------- 点赞、送礼：代理：UITextFieldDelegate：结束 ----------------
+
+
+
+
+
+
 
 @end

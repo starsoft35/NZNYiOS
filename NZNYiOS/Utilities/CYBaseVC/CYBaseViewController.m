@@ -1364,7 +1364,7 @@
             // 请求数据结束，取消加载
 //            [self hidenLoadingView];
             
-            [self showHubWithLabelText:[NSString stringWithFormat:@"送 %ld 朵玫瑰成功！",(long)giftCount] andHidAfterDelay:3.0];
+            [self showHubWithLabelText:[NSString stringWithFormat:@"送%ld朵玫瑰成功！",(long)giftCount] andHidAfterDelay:3.0];
             
         }
         else{
