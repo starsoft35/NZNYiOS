@@ -21,6 +21,8 @@
 // 关于我们：VC
 #import "CYSetUpAboutUsVC.h"
 
+// 退出登录：登录界面：VC
+#import "CYLoginViewController.h"
 
 
 
@@ -212,8 +214,60 @@
     else if (indexPath.section == 1 && indexPath.row == 0) {
         
         // 退出账号
+        [self quitCurrentUserCount];
+        
+        
         
     }
+    
+}
+
+// 退出账号
+- (void)quitCurrentUserCount{
+    
+    // 删除本地缓存
+    NSFileManager* fileManager=[NSFileManager defaultManager];
+    
+    // 沙盒路径
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingString:@"/user.src"];
+    
+    BOOL blHave=[[NSFileManager defaultManager] fileExistsAtPath:path];
+    
+    if (!blHave) {
+        
+        NSLog(@"no  have");
+        
+        return ;
+        
+    }else {
+        
+        NSLog(@" have");
+        
+        BOOL blDele= [fileManager removeItemAtPath:path error:nil];
+        
+        if (blDele) {
+            
+            NSLog(@"dele success");
+            
+            
+            // 设置登录VC 为根视图控制器
+            // 创建登录界面
+            CYLoginViewController *loginVC = [[CYLoginViewController alloc] init];
+            
+            
+            // 2、切换界面：切换window 的根视图控制器
+            AppDelegate *appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+            
+            appdelegate.window.rootViewController = loginVC;
+            
+        }else {
+            
+            NSLog(@"dele fail");
+            
+        }
+        
+    }
+
     
 }
 

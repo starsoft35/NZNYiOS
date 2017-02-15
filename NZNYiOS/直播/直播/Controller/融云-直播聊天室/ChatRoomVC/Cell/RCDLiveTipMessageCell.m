@@ -46,13 +46,22 @@
         
         RCInformationNotificationMessage *notification = (RCInformationNotificationMessage *)content;
         
+        NSString *name=@"";
+        name = [NSString stringWithFormat:@"%@",content.senderUserInfo.name];
+        
         
         NSString *localizedMessage = [RCDLiveKitUtility formatMessage:notification];
         
+        NSString *str =[NSString stringWithFormat:@"%@ %@",name,localizedMessage];
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str];
+        [attributedString addAttribute:NSForegroundColorAttributeName value:(RCDLive_HEXCOLOR(0x3ceff)) range:[str rangeOfString:name]];
+        [attributedString addAttribute:NSForegroundColorAttributeName value:(RCDLive_HEXCOLOR(0xffb83c)) range:[str rangeOfString:localizedMessage]];
         
-        self.tipMessageLabel.text = localizedMessage;
         
-        self.tipMessageLabel.textColor = RCDLive_HEXCOLOR(0xffb83c);
+//        self.tipMessageLabel.text = localizedMessage;
+        self.tipMessageLabel.attributedText = attributedString.copy;
+        
+        
         
         
         
@@ -93,26 +102,12 @@
         }
         
         NSString *localizedMessage = notification.tempMessageContentStr;
+        
+        
         if (notification.tempMessageContentStr == nil) {
             localizedMessage = notification.content;
         }
-//        
-//        if(notification && [notification.type isEqualToString:@"0"]){
-//            localizedMessage = notification.tempMessageContentStr;
-//        }
-//        
-//        if(notification && [notification.type isEqualToString:@"1"]){
-//            localizedMessage = @"为主播点了赞";
-//        }
-//        
-//        if (notification && [notification.tempMessageType isEqualToString:@"文本消息专用"]) {
-//            
-//            localizedMessage = notification.tempMessageContentStr;
-//        }
-//        if (notification && [notification.type isEqualToString:@"2"]) {
-//            
-//            localizedMessage = notification.tempMessageContentStr;
-//        }
+        
         
         NSString *str = [NSString stringWithFormat:@"%@ %@",name,localizedMessage];
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str];
@@ -124,17 +119,7 @@
             
             [attributedString addAttribute:NSForegroundColorAttributeName value:(RCDLive_HEXCOLOR(0xf719ff)) range:[str rangeOfString:localizedMessage]];
         }
-        if (notification && [notification.type isEqualToString:@"2"]) {
-            
-            [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor whiteColor] range:[str rangeOfString:localizedMessage]];
-        }
-        if (notification && [notification.tempMessageContentStr isEqualToString:@"进入直播间"]) {
-            
-            
-            
-            [attributedString addAttribute:NSForegroundColorAttributeName value:(RCDLive_HEXCOLOR(0xffb83c)) range:[str rangeOfString:name]];
-            [attributedString addAttribute:NSForegroundColorAttributeName value:(RCDLive_HEXCOLOR(0xffb83c)) range:[str rangeOfString:localizedMessage]];
-        }
+        
         
         self.tipMessageLabel.attributedText = attributedString.copy;
     }

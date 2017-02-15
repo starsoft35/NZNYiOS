@@ -329,6 +329,9 @@
     
     [[RCDLive sharedRCDLive] initRongCloud:cRongAppKey];
     
+    // 关闭所有的前台消息提示音
+    [RCIM sharedRCIM].disableMessageAlertSound = YES;
+    
     //注册自定义消息：送礼
     [[RCDLive sharedRCDLive] registerRongCloudMessageType:[RCDLiveGiftMessage class]];
     

@@ -262,6 +262,14 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     
     
+    // 通知：判断app是否进入后台，然后根据时间戳判断是否需要调用退出直播间接口
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackground) name: UIApplicationDidEnterBackgroundNotification object:nil];
+}
+
+// 通知：判断app是否进入后台，然后根据时间戳判断是否需要调用退出直播间接口
+- (void)applicationEnterBackground{
+    NSLog(@"通过通知检查app进入后台");
+    
     
 }
 
@@ -382,8 +390,17 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
                  
                  // 通知消息类：谁加入了聊天室
                  RCInformationNotificationMessage *joinChatroomMessage = [[RCInformationNotificationMessage alloc]init];
-                 joinChatroomMessage.message = [NSString stringWithFormat: @"%@ 进入直播间",[RCDLive sharedRCDLive].currentUserInfo.name];
+                 
+//                 joinChatroomMessage.message = [NSString stringWithFormat: @"%@ 进入直播间",[RCDLive sharedRCDLive].currentUserInfo.name];
+//
+                 joinChatroomMessage.message = @"进入直播间";
+                 
+                 
                  [self sendMessage:joinChatroomMessage pushContent:nil];
+                 
+                 
+                 
+                 
              });
              
              
@@ -601,7 +618,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     if(self.contentView == nil){
         CGRect contentViewFrame = CGRectMake(0, self.view.bounds.size.height-237, self.view.bounds.size.width,237);
         //        self.contentView.backgroundColor = RCDLive_RGBCOLOR(235, 235, 235);
-        self.contentView.backgroundColor = [UIColor redColor];
+//        self.contentView.backgroundColor = [UIColor redColor];
         self.contentView = [[UIView alloc]initWithFrame:contentViewFrame];
         
         [self.view addSubview:self.contentView];
@@ -672,7 +689,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     self.collectionViewHeader = [[RCDLiveCollectionViewHeader alloc]
                                  initWithFrame:CGRectMake(0, -50, self.view.bounds.size.width, 40)];
     _collectionViewHeader.tag = 1999;
-    self.collectionViewHeader.backgroundColor = [UIColor redColor];
+//    self.collectionViewHeader.backgroundColor = [UIColor redColor];
     [self.conversationMessageCollectionView addSubview:_collectionViewHeader];
     
     
@@ -1644,8 +1661,10 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  *  @param text  输入框的内容
  */
 - (void)onTouchSendButton:(NSString *)text{
+    
     RCTextMessage *rcTextMessage = [RCTextMessage messageWithContent:text];
     [self sendMessage:rcTextMessage pushContent:nil];
+    
     //    [self.inputBar setInputBarStatus:KBottomBarDefaultStatus];
     //    [self.inputBar setHidden:YES];
 }

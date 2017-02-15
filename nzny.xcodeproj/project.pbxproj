@@ -2141,10 +2141,10 @@
 		8AD1771B1E30E68400A3579C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8AD1771C1E30E68400A3579C /* CYForgetPSViewController.h */,
-				8AD1771D1E30E68400A3579C /* CYForgetPSViewController.m */,
 				8AD1771E1E30E68400A3579C /* CYLoginViewController.h */,
 				8AD1771F1E30E68400A3579C /* CYLoginViewController.m */,
+				8AD1771C1E30E68400A3579C /* CYForgetPSViewController.h */,
+				8AD1771D1E30E68400A3579C /* CYForgetPSViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

@@ -54,7 +54,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/&#x76f4;&#x64ad;&#x63a8;&#x6d41;&#x8be6;&#x60c5;&#x9875;/Controller/AlivcLiveViewController.m"
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
-            timestampString = "508558982.942553"
+            timestampString = "508844862.719848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2611"
-            endingLineNumber = "2611"
+            startingLineNumber = "2613"
+            endingLineNumber = "2613"
             landmarkName = "-sizeForItem:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -314,7 +314,55 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/&#x878d;&#x4e91;-&#x76f4;&#x64ad;&#x804a;&#x5929;&#x5ba4;/ChatRoomVC/Cell/RCDLiveTipMessageCell.m"
-            timestampString = "508490993.286994"
+            timestampString = "508845977.134076"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-setDataModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/&#x878d;&#x4e91;-&#x76f4;&#x64ad;&#x804a;&#x5929;&#x5ba4;/ChatRoomVC/Cell/RCDLiveTipMessageCell.m"
+            timestampString = "508845977.134076"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-setDataModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/&#x878d;&#x4e91;-&#x76f4;&#x64ad;&#x804a;&#x5929;&#x5ba4;/ChatRoomVC/Cell/RCDLiveTipMessageCell.m"
+            timestampString = "508845977.134076"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-setDataModel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/&#x878d;&#x4e91;-&#x76f4;&#x64ad;&#x804a;&#x5929;&#x5ba4;/ChatRoomVC/Cell/RCDLiveTipMessageCell.m"
+            timestampString = "508845977.134076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
@@ -329,92 +377,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/&#x878d;&#x4e91;-&#x76f4;&#x64ad;&#x804a;&#x5929;&#x5ba4;/ChatRoomVC/Cell/RCDLiveTipMessageCell.m"
-            timestampString = "508490993.286994"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "-setDataModel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/&#x878d;&#x4e91;-&#x76f4;&#x64ad;&#x804a;&#x5929;&#x5ba4;/ChatRoomVC/Cell/RCDLiveTipMessageCell.m"
-            timestampString = "508490993.286994"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "-setDataModel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/&#x878d;&#x4e91;-&#x76f4;&#x64ad;&#x804a;&#x5929;&#x5ba4;/ChatRoomVC/Cell/RCDLiveTipMessageCell.m"
-            timestampString = "508490993.286994"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "-setDataModel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/&#x878d;&#x4e91;-&#x76f4;&#x64ad;&#x804a;&#x5929;&#x5ba4;/ChatRoomVC/Cell/RCDLiveTipMessageCell.m"
-            timestampString = "508490993.286994"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "-setDataModel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/&#x878d;&#x4e91;-&#x76f4;&#x64ad;&#x804a;&#x5929;&#x5ba4;/ChatRoomVC/Cell/RCDLiveTipMessageCell.m"
-            timestampString = "508490993.286994"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
-            landmarkName = "-setDataModel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/Controller/CYMyLiveAliLiveAndRCIMVC.m"
-            timestampString = "508502261.722828"
+            timestampString = "508844862.719848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1324"
-            endingLineNumber = "1324"
+            startingLineNumber = "1341"
+            endingLineNumber = "1341"
             landmarkName = "-sizeForItem:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -426,7 +394,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
-            timestampString = "508558982.942553"
+            timestampString = "508844862.719848"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2614"
+            endingLineNumber = "2614"
+            landmarkName = "-sizeForItem:atIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
+            timestampString = "508844862.719848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "2612"
@@ -442,27 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
-            timestampString = "508558982.942553"
+            timestampString = "508844862.719848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2610"
-            endingLineNumber = "2610"
-            landmarkName = "-sizeForItem:atIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
-            timestampString = "508558982.942553"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2609"
-            endingLineNumber = "2609"
+            startingLineNumber = "2611"
+            endingLineNumber = "2611"
             landmarkName = "-sizeForItem:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -474,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/Controller/CYMyLiveAliLiveAndRCIMVC.m"
-            timestampString = "508502261.722828"
+            timestampString = "508844862.719848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1323"
-            endingLineNumber = "1323"
+            startingLineNumber = "1340"
+            endingLineNumber = "1340"
             landmarkName = "-sizeForItem:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -490,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/Controller/CYMyLiveAliLiveAndRCIMVC.m"
-            timestampString = "508502261.722828"
+            timestampString = "508844862.719848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1322"
-            endingLineNumber = "1322"
+            startingLineNumber = "1339"
+            endingLineNumber = "1339"
             landmarkName = "-sizeForItem:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -506,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/Controller/CYMyLiveAliLiveAndRCIMVC.m"
-            timestampString = "508502261.722828"
+            timestampString = "508844862.719848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1325"
-            endingLineNumber = "1325"
+            startingLineNumber = "1342"
+            endingLineNumber = "1342"
             landmarkName = "-sizeForItem:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -522,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/Controller/CYMyLiveAliLiveAndRCIMVC.m"
-            timestampString = "508502261.722828"
+            timestampString = "508844862.719848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1326"
-            endingLineNumber = "1326"
+            startingLineNumber = "1343"
+            endingLineNumber = "1343"
             landmarkName = "-sizeForItem:atIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
@@ -538,39 +506,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
-            timestampString = "508502261.722828"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1378"
-            endingLineNumber = "1378"
-            landmarkName = "-flowerButtonPressed:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
-            timestampString = "508502261.722828"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1379"
-            endingLineNumber = "1379"
-            landmarkName = "-flowerButtonPressed:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
-            timestampString = "508502261.722828"
+            timestampString = "508844862.719848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1380"
@@ -586,11 +522,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
-            timestampString = "508502261.722828"
+            timestampString = "508844862.719848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "1381"
             endingLineNumber = "1381"
+            landmarkName = "-flowerButtonPressed:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
+            timestampString = "508844862.719848"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1382"
+            endingLineNumber = "1382"
+            landmarkName = "-flowerButtonPressed:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/CYLiveALiPlayAndRCIMVC.m"
+            timestampString = "508844862.719848"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1383"
+            endingLineNumber = "1383"
             landmarkName = "-flowerButtonPressed:"
             landmarkType = "7">
          </BreakpointContent>
@@ -618,11 +586,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/&#x878d;&#x4e91;-&#x76f4;&#x64ad;&#x804a;&#x5929;&#x5ba4;/ChatRoomVC/Cell/RCDLiveTipMessageCell.m"
-            timestampString = "508490993.286994"
+            timestampString = "508845977.134076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-setDataModel:"
             landmarkType = "7">
          </BreakpointContent>
@@ -634,28 +602,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/&#x878d;&#x4e91;-&#x76f4;&#x64ad;&#x804a;&#x5929;&#x5ba4;/ChatRoomVC/Cell/RCDLiveTipMessageCell.m"
-            timestampString = "508490993.286994"
+            timestampString = "508845977.134076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "-setDataModel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/Controller/CYMyLiveAliLiveAndRCIMVC.m"
-            timestampString = "508502261.722828"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1554"
-            endingLineNumber = "1554"
-            landmarkName = "-didReceiveMessageNotification:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -665,28 +617,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x76f4;&#x64ad;/&#x76f4;&#x64ad;/Controller/&#x878d;&#x4e91;-&#x76f4;&#x64ad;&#x804a;&#x5929;&#x5ba4;/ChatRoomVC/Cell/RCDLiveTipMessageCell.m"
-            timestampString = "508490993.286994"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-setDataModel:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/Controller/CYMyLiveAliLiveAndRCIMVC.m"
-            timestampString = "508502261.722828"
+            timestampString = "508844862.719848"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1554"
-            endingLineNumber = "1554"
+            startingLineNumber = "1571"
+            endingLineNumber = "1571"
             landmarkName = "-didReceiveMessageNotification:"
             landmarkType = "7">
          </BreakpointContent>
@@ -721,6 +657,54 @@
             endingLineNumber = "1187"
             landmarkName = "-textFieldDidBeginEditing:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x76f4;&#x64ad;/&#x9884;&#x544a;/&#x76f4;&#x64ad;&#x63a8;&#x6d41;&#x8be6;&#x60c5;&#x9875;/Controller/AlivcLiveViewController.m"
+            timestampString = "508656824.60899"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "419"
+            endingLineNumber = "419"
+            landmarkName = "-alivcLiveVideoLiveSessionNetworkSlow:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AlivcLiveViewController alivcLiveVideoLiveSessionNetworkSlow:]"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
+                  timestampString = "508849459.035825"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "419"
+                  endingLineNumber = "419"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__64-[AlivcLiveViewController alivcLiveVideoLiveSessionNetworkSlow:]_block_invoke"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
+                  timestampString = "508849459.037116"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "419"
+                  endingLineNumber = "419"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

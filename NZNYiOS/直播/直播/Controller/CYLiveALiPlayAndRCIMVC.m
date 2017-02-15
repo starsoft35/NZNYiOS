@@ -468,14 +468,16 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
                  
                  
                  // 只有聊天室
-                 RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
-                 giftMessage.type = @"2";
-                 giftMessage.tempMessageType = @"2";
-                 giftMessage.tempMessageContentStr = @"进入直播间";
-                 giftMessage.content = @"进入直播间";
-                 [self sendMessage:giftMessage pushContent:@""];
+//                 RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
+//                 giftMessage.type = @"2";
+//                 giftMessage.tempMessageType = @"2";
+//                 giftMessage.tempMessageContentStr = @"进入直播间";
+//                 giftMessage.content = @"进入直播间";
+//                 [self sendMessage:giftMessage pushContent:@""];
                  
-                 
+                 RCInformationNotificationMessage *joinChatroomMessage = [[RCInformationNotificationMessage alloc]init];
+                 joinChatroomMessage.message = @"进入直播间";
+                 [self sendMessage:joinChatroomMessage pushContent:nil];
                  
              });
          }
@@ -724,7 +726,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     if(self.contentView == nil){
         CGRect contentViewFrame = CGRectMake(0, self.view.bounds.size.height-237, self.view.bounds.size.width,237);
         //        self.contentView.backgroundColor = RCDLive_RGBCOLOR(235, 235, 235);
-        self.contentView.backgroundColor = [UIColor redColor];
+//        self.contentView.backgroundColor = [UIColor redColor];
         self.contentView = [[UIView alloc]initWithFrame:contentViewFrame];
         [self.view addSubview:self.contentView];
         
@@ -796,7 +798,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     self.collectionViewHeader = [[RCDLiveCollectionViewHeader alloc]
                                  initWithFrame:CGRectMake(0, -50, self.view.bounds.size.width, 40)];
     _collectionViewHeader.tag = 1999;
-    self.collectionViewHeader.backgroundColor = [UIColor redColor];
+//    self.collectionViewHeader.backgroundColor = [UIColor redColor];
     [self.conversationMessageCollectionView addSubview:_collectionViewHeader];
     
     
@@ -2072,8 +2074,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
             RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
             giftMessage.type = @"1";
             giftMessage.tempMessageType = @"1";
-            giftMessage.tempMessageContentStr = [NSString stringWithFormat:@"为主播点了 %ld 个赞",(long)likeCount];
-            giftMessage.content = [NSString stringWithFormat:@"为主播点了 %ld 个赞",(long)likeCount];
+            giftMessage.tempMessageContentStr = [NSString stringWithFormat:@"为主播点了%ld个赞",(long)likeCount];
+            giftMessage.content = [NSString stringWithFormat:@"为主播点了%ld个赞",(long)likeCount];
             [self sendMessage:giftMessage pushContent:@""];
             
             
@@ -2930,14 +2932,17 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
  */
 - (void)onTouchSendButton:(NSString *)text{
     
+//    
+//    // 发送消息：用GiftMessage代替
+//    RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
+//    giftMessage.type = @"2";
+//    giftMessage.tempMessageType = @"2";
+//    giftMessage.tempMessageContentStr = text;
+//    giftMessage.content = text;
+//    [self sendMessage:giftMessage pushContent:@""];
     
-    // 发送消息：用GiftMessage代替
-    RCDLiveGiftMessage *giftMessage = [[RCDLiveGiftMessage alloc]init];
-    giftMessage.type = @"2";
-    giftMessage.tempMessageType = @"2";
-    giftMessage.tempMessageContentStr = text;
-    giftMessage.content = text;
-    [self sendMessage:giftMessage pushContent:@""];
+    RCTextMessage *rcTextMessage = [RCTextMessage messageWithContent:text];
+    [self sendMessage:rcTextMessage pushContent:nil];
     
     
 }
