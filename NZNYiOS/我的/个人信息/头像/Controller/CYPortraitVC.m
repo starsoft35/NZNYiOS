@@ -28,7 +28,15 @@
 // 设置视图
 - (void)setPortraitView{
     
-    self.headerImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:self.onlyUser.Portrait];
+//    self.headerImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:self.onlyUser.Portrait];
+    if ([self.onlyUser.Portrait isEqualToString:@""]) {
+        
+        self.headerImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        [self.headerImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,self.onlyUser.Portrait]]];
+    }
     
 }
 

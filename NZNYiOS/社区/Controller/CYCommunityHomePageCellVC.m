@@ -57,7 +57,7 @@
     
     
     // 加载数据
-//    [self loadData];
+    [self loadData];
     
 }
 

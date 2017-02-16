@@ -19,7 +19,15 @@
     
     
     // 直播背景
-    _liveTrailerBgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:myLiveTrailerCellModel.Pictrue];
+//    _liveTrailerBgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:myLiveTrailerCellModel.Pictrue];
+    if ([myLiveTrailerCellModel.Pictrue isEqualToString:@""]) {
+        
+        _liveTrailerBgImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        [_liveTrailerBgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,myLiveTrailerCellModel.Pictrue]]];
+    }
     
     // 直播状态
     if (myLiveTrailerCellModel.IsEnter) {

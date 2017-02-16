@@ -21,7 +21,15 @@
     _mineMainHeaderViewModel = mineMainHeaderViewModel;
     
     // 头像
-    _mineHeadImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:mineMainHeaderViewModel.portrait];
+//    _mineHeadImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:mineMainHeaderViewModel.portrait];
+    if ([mineMainHeaderViewModel.portrait isEqualToString:@""]) {
+        
+        _mineHeadImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        [_mineHeadImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,mineMainHeaderViewModel.portrait]]];
+    }
     
     
     _mineHeadImgView.layer.cornerRadius = (100.0 / 1334.0) * cScreen_Height;

@@ -35,6 +35,9 @@
 // 用户单例
 #include "CYUser.h"
 
+// 网络加载图片
+#import "UIImageView+WebCache.h"
+
 
 #define cScreen_Width [UIScreen mainScreen].bounds.size.width
 #define cScreen_Height [UIScreen mainScreen].bounds.size.height

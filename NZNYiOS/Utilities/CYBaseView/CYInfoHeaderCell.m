@@ -20,7 +20,15 @@
     _titleLab.text = infoHeaderCellModel.title;
     
     // headerImgView
-    _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:infoHeaderCellModel.headImgName];
+//    _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:infoHeaderCellModel.headImgName];
+    if ([infoHeaderCellModel.headImgName isEqualToString:@""]) {
+        
+        _headImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,infoHeaderCellModel.headImgName]]];
+    }
     
     _headImgView.layer.cornerRadius = (60.0 / 1334.0) * cScreen_Height;
     

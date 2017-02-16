@@ -17,7 +17,15 @@
     _nearbyPeopleCellModel = nearbyPeopleCellModel;
     
     // 头像
-    _headerImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:nearbyPeopleCellModel.Portrait];
+//    _headerImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:nearbyPeopleCellModel.Portrait];
+    if ([nearbyPeopleCellModel.Portrait isEqualToString:@""]) {
+        
+        _headerImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        [_headerImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,nearbyPeopleCellModel.Portrait]]];
+    }
     
     _headerImgView.layer.cornerRadius = (75.0 / 1334.0) * cScreen_Height;
     

@@ -395,10 +395,94 @@
             if ([code isEqualToString:@"0"]) {
                 NSLog(@"完善信息：成功！");
                 
-                // 2.3.1.2.1、完善信息成功，直接登录
-                // 创建mainTabbar，设置为根视图控制器
-//                [self dismissViewControllerAnimated:YES completion:nil];
-                [self loginSuccess];
+                
+                
+                NSDictionary *loginParams = @{
+                                              @"Account":self.forUserCount,
+                                              @"Password":self.forUserPSW
+                                              };
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                // 2.0、保存登录状态：获取token、userID，并保存
+                [CYNetWorkManager postRequestWithUrl:cLoginUrl params:loginParams progress:^(NSProgress *uploadProgress) {
+                    NSLog(@"保存登录用户信息进度：%@",uploadProgress);
+                } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+                    NSLog(@"登录：提交信息成功！");
+                    
+                    // 2.1、登录：提交信息成功
+                    // 2.1.1、获取code 值
+                    NSString *code = responseObject[@"code"];
+                    
+                    // 2.1.2、和成功的code 匹配
+                    if ([code isEqualToString:@"0"]) {
+                        NSLog(@"登录：成功！");
+                        
+                        
+                        // 2.1.2.1、登录成功，
+                        // 保存用户名、密码
+                        [self setCurrentUserWithUserAccount:self.forUserCount andUserPSW:self.forUserPSW];
+                        
+                        // 设置当前登录的用户：保存token
+                        [self setCurrentUser:responseObject];
+                        
+                        // 创建mainTabbar，设置为根视图控制器
+//                        [self loginSuccess];
+                        
+                        
+                        // 导航VC：获取当前视图所在位置的导航控制器
+//                        [[self navigationControllerWithView:self.view] dismissViewControllerAnimated:YES completion:nil];
+//                        [self dismissViewControllerAnimated:YES completion:nil];
+//                        [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
+                        
+                        
+                        // 2、切换界面：切换window 的根视图控制器
+                        AppDelegate *appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+                        
+                        appdelegate.window.rootViewController = [[CYMainTabBarController alloc] init];
+                        
+//                        [self navigationControllerWithView:self.view].view.window.rootViewController = [[CYMainTabBarController alloc] init];
+                        
+//                        [self presentViewController:[[CYMainTabBarController alloc] init] animated:YES completion:nil];
+                        
+                    }
+                    else{
+                        NSLog(@"登录：失败！");
+                        
+                        // 2.1.2.2、登录失败：弹窗提示：登录失败的返回信息
+                        [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+                        
+                    }
+                    
+                } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+                    NSLog(@"登录：提交信息失败！");
+                    NSLog(@"error：%@",error);
+                    
+                    // 2.2、登录：提交信息失败：弹窗
+                    [self showHubWithLabelText:@"登录失败，可能是网络有问题，请检查网络再试一遍!" andHidAfterDelay:3.0];
+                } withToken:nil];
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
             }
             else{

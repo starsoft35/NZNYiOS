@@ -10,4 +10,9 @@
 
 @interface CYPerfectInfoViewController : CYBaseViewController
 
+
+@property (nonatomic, copy) NSString *forUserCount;
+@property (nonatomic, copy) NSString *forUserPSW;
+
+
 @end

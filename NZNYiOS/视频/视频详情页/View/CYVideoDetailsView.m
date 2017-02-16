@@ -18,10 +18,28 @@
     
     
     // 视频详情页背景
-    _bgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:othersInfoVM.Portrait];
+//    _bgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:othersInfoVM.Portrait];
+    if ([othersInfoVM.Portrait isEqualToString:@""]) {
+        
+        _headImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        [_bgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,othersInfoVM.Portrait]]];
+    }
     
     // 头像
-    _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:othersInfoVM.Portrait];
+//    _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:othersInfoVM.Portrait];
+    if ([othersInfoVM.Portrait isEqualToString:@""]) {
+        
+        _headImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,othersInfoVM.Portrait]]];
+    }
+    
+    
     _headImgView.layer.cornerRadius = (30.0 / 1334.0) * cScreen_Height;
     
     // 姓名

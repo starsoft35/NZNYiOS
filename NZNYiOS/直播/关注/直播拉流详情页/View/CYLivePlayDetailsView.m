@@ -17,7 +17,19 @@
     _livePlayDetailsModel = livePlayDetailsModel;
     
     // 头像
-    _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:livePlayDetailsModel.LiveUserPortrait];
+//    _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:livePlayDetailsModel.LiveUserPortrait];
+    if ([livePlayDetailsModel.LiveUserPortrait isEqualToString:@""]) {
+        
+        _headImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,livePlayDetailsModel.LiveUserPortrait]]];
+    }
+    
+    
+    
     _headImgView.layer.cornerRadius = (30.0 / 1334.0) * cScreen_Height;
     
     

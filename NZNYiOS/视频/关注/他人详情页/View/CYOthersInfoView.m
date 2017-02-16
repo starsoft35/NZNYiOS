@@ -18,7 +18,15 @@
     _othersInfoViewModel = othersInfoViewModel;
     
     // 头像
-    _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:othersInfoViewModel.Portrait];
+//    _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:othersInfoViewModel.Portrait];
+    if ([othersInfoViewModel.Portrait isEqualToString:@""]) {
+        
+        _headImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,othersInfoViewModel.Portrait]]];
+    }
     
     NSMutableArray *tempTagListArr = [[NSMutableArray alloc] init];
     [tempTagListArr addObject:_workLab];

@@ -902,14 +902,33 @@
             NSLog(@"登录：成功！");
             
             
-            _ifIsFirstLogin = [responseObject[@"res"][@"data"][@"isFirstLogin"] integerValue];
+            
+            
+            // 2.1.2.1、登录成功，
+            // 保存用户名、密码
+            [self setCurrentUserWithUserAccount:userAccount andUserPSW:userPSW];
+            
+            // 设置当前登录的用户：保存token
+            [self setCurrentUser:responseObject];
+            
+            
+            
+            
+            
+            _ifIsFirstLogin = [responseObject[@"res"][@"data"][@"isFirstLogin"] boolValue];
+            NSLog(@"_ifIsFirstLogin:%d",_ifIsFirstLogin);
+            
             
             // 判断是否第一次登陆
-            if (_ifIsFirstLogin) {
+            if ([responseObject[@"res"][@"data"][@"isFirstLogin"] boolValue]) {
                 
                 // 是第一次登录，则弹出完善信息
                 // 2.1、后台返回成功，跳到下个界面：完善信息界面
                 CYPerfectInfoViewController *perfectInfoVC = [[CYPerfectInfoViewController alloc] init];
+                
+                
+                perfectInfoVC.forUserCount = userAccount;
+                perfectInfoVC.forUserPSW = userPSW;
                 
                 // navigationBar不隐藏
                 self.navigationController.navigationBarHidden = NO;
@@ -918,13 +937,13 @@
             }
             else {
                 
-                
-                // 2.1.2.1、登录成功，
-                // 保存用户名、密码
-                [self setCurrentUserWithUserAccount:userAccount andUserPSW:userPSW];
-                
-                // 设置当前登录的用户：保存token
-                [self setCurrentUser:responseObject];
+//                
+//                // 2.1.2.1、登录成功，
+//                // 保存用户名、密码
+//                [self setCurrentUserWithUserAccount:userAccount andUserPSW:userPSW];
+//                
+//                // 设置当前登录的用户：保存token
+//                [self setCurrentUser:responseObject];
                 
                 // 创建mainTabbar，设置为根视图控制器
                 [self loginSuccess];

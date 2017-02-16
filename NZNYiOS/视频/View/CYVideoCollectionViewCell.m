@@ -20,7 +20,15 @@
     
     // 视频背景
 //    _videoBgImgView.image = [UIImage imageNamed:videoCellModel.videoBgImgName];
-    _videoBgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:videoCellModel.VideoUserPortrait];
+//    _videoBgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:videoCellModel.VideoUserPortrait];
+    if ([videoCellModel.VideoUserPortrait isEqualToString:@""]) {
+        
+        _videoBgImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        [_videoBgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,videoCellModel.VideoUserPortrait]]];
+    }
     
     // 几零后、星座
     _ageAndStarSignLab.text = videoCellModel.ageAndStarSign;

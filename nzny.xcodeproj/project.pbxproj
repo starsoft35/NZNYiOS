@@ -4495,10 +4495,10 @@
 		8AD179731E30E68500A3579C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8AD179741E30E68500A3579C /* CYPerfectInfoViewController.h */,
-				8AD179751E30E68500A3579C /* CYPerfectInfoViewController.m */,
 				8AD179761E30E68500A3579C /* CYRegisterViewController.h */,
 				8AD179771E30E68500A3579C /* CYRegisterViewController.m */,
+				8AD179741E30E68500A3579C /* CYPerfectInfoViewController.h */,
+				8AD179751E30E68500A3579C /* CYPerfectInfoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4517,12 +4517,12 @@
 		8AD1797D1E30E68500A3579C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8AD1797E1E30E68500A3579C /* CYPerfectInfoMainView.h */,
-				8AD1797F1E30E68500A3579C /* CYPerfectInfoMainView.m */,
-				8AD179801E30E68500A3579C /* CYPerfectInfoMainView.xib */,
 				8AD179811E30E68500A3579C /* CYRegisterMainView.h */,
 				8AD179821E30E68500A3579C /* CYRegisterMainView.m */,
 				8AD179831E30E68500A3579C /* CYRegisterMainView.xib */,
+				8AD1797E1E30E68500A3579C /* CYPerfectInfoMainView.h */,
+				8AD1797F1E30E68500A3579C /* CYPerfectInfoMainView.m */,
+				8AD179801E30E68500A3579C /* CYPerfectInfoMainView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";

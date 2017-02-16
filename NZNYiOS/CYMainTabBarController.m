@@ -512,7 +512,10 @@
                 currentUser.Portrait = @"默认头像";
             }
             
+            NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingString:@"/user.src"];
             
+            // 3.2、保存
+            [NSKeyedArchiver archiveRootObject:currentUser toFile:path];
             
 #warning 本应该在这里进入融云的初始化的
             // 融云：SDK-初始化

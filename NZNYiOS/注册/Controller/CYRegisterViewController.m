@@ -206,9 +206,24 @@
         if ([code isEqualToString:@"0"]) {
             NSLog(@"注册：成功！");
             
-            // 2.0、保存用户信息：账号、密码
-            [self setCurrentUserWithUserAccount:self.registerMainV.cellNumTF.text andUserPSW:self.registerMainV.passwordTF.text];
             
+            
+            
+            // 2.1、后台返回成功，跳到下个界面：完善信息界面
+            CYPerfectInfoViewController *perfectInfoVC = [[CYPerfectInfoViewController alloc] init];
+            
+            perfectInfoVC.forUserCount = self.registerMainV.cellNumTF.text;
+            perfectInfoVC.forUserPSW = self.registerMainV.passwordTF.text;
+            
+            // navigationBar不隐藏
+            self.navigationController.navigationBarHidden = NO;
+            
+            [self.navigationController pushViewController:perfectInfoVC animated:nil];
+            
+//            
+//            // 2.0、保存用户信息：账号、密码
+//            [self setCurrentUserWithUserAccount:self.registerMainV.cellNumTF.text andUserPSW:self.registerMainV.passwordTF.text];
+//            
             // 2.0、保存登录状态：获取token、userID，并保存
             [CYNetWorkManager postRequestWithUrl:cLoginUrl params:loginParams progress:^(NSProgress *uploadProgress) {
                 NSLog(@"保存登录用户信息进度：%@",uploadProgress);
@@ -228,13 +243,13 @@
                     [self setCurrentUser:responseObject];
                     
                     
-                    // 2.1、后台返回成功，跳到下个界面：完善信息界面
-                    CYPerfectInfoViewController *perfectInfoVC = [[CYPerfectInfoViewController alloc] init];
-                    
-                    // navigationBar不隐藏
-                    self.navigationController.navigationBarHidden = NO;
-                    
-                    [self.navigationController pushViewController:perfectInfoVC animated:nil];
+//                    // 2.1、后台返回成功，跳到下个界面：完善信息界面
+//                    CYPerfectInfoViewController *perfectInfoVC = [[CYPerfectInfoViewController alloc] init];
+//                    
+//                    // navigationBar不隐藏
+//                    self.navigationController.navigationBarHidden = NO;
+//                    
+//                    [self.navigationController pushViewController:perfectInfoVC animated:nil];
                     
                 }
                 else{

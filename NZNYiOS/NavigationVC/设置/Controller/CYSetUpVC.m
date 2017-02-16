@@ -254,11 +254,14 @@
             // 创建登录界面
             CYLoginViewController *loginVC = [[CYLoginViewController alloc] init];
             
+            // 导航VC
+            UINavigationController *loginNav = [CYUtilities createDefaultNavCWithRootVC:loginVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"登录" bgImg:[UIImage imageNamed:@"Title1"]];
+            
             
             // 2、切换界面：切换window 的根视图控制器
             AppDelegate *appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
             
-            appdelegate.window.rootViewController = loginVC;
+            appdelegate.window.rootViewController = loginNav;
             
         }else {
             

@@ -43,13 +43,8 @@
     // 活动时间
     _activeTimeLab.text = [CYUtilities setYearMouthDayHourMinuteWithChineseMouthDay:offlineActiveCellModel.HoldingTime];
     
-    // 活动图片
-    UIImage *activePictureImg = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:offlineActiveCellModel.PictureUrl]]];
-    NSLog(@"activePictureImg.size.width:%f",activePictureImg.size.width);
-    NSLog(@"activePictureImg.size.height:%f",activePictureImg.size.height);
-//    _activePictureImgView.image = activePictureImg;
-    
-    [_activePictureImgView setImage:activePictureImg];
+    // 活动图片    
+    [_activePictureImgView sd_setImageWithURL:[NSURL URLWithString:offlineActiveCellModel.PictureUrl] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     
     [_activePictureImgView setContentScaleFactor:[[UIScreen mainScreen] scale]];
     

@@ -104,12 +104,22 @@
     currentUser.userToken = user.userToken;
     currentUser.userAccount = user.userAccount;
     currentUser.userPSW = user.userPSW;
+    currentUser.Gender = user.Gender;
     
     // 暂时定为每次登陆都做重新登陆，重新获取token，如果是微信登录，则不让其用账号密码重新登录。
     if (currentUser.userAccount != nil && currentUser.userPSW != nil) {
         
-        // 有文件：如果有账号、密码，说明之前是账号密码登录，则用账号、密码重新登录
-        [self tempLoginRequestWithUserAccount:currentUser.userAccount andUserPSW:currentUser.userPSW];
+        if (currentUser.Gender != nil) {
+            
+            
+            // 有文件：如果有账号、密码，说明之前是账号密码登录，则用账号、密码重新登录
+            [self tempLoginRequestWithUserAccount:currentUser.userAccount andUserPSW:currentUser.userPSW];
+        }
+        else {
+            
+            // 没有完善信息，让重新登录
+            [self setUpRootVCWithLoginVC];
+        }
     }
     else {
         

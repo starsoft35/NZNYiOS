@@ -23,7 +23,15 @@
     
     
     // 头像
-    _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:whoPraiseMeCellModel.Portrait];
+//    _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:whoPraiseMeCellModel.Portrait];
+    if ([whoPraiseMeCellModel.Portrait isEqualToString:@""]) {
+        
+        _headImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,whoPraiseMeCellModel.Portrait]]];
+    }
     
     // 姓名
     _nameLab.text = whoPraiseMeCellModel.RealName;

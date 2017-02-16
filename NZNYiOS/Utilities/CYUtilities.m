@@ -60,6 +60,7 @@
             
             
             image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",hostUrl,url]]]];
+            
         }
         else {
             

@@ -8,6 +8,7 @@
 
 #import "CYCommunityHomePageCell.h"
 
+
 @implementation CYCommunityHomePageCell
 
 
@@ -18,23 +19,14 @@
     
     
     // 导航图片
-    UIImage *navigationPictureImg = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:communityHomePageCellModel.PictureUrl]]];
-    NSLog(@"navigationPictureImg.size.width:%f",navigationPictureImg.size.width);
-    NSLog(@"navigationPictureImg.size.height:%f",navigationPictureImg.size.height);
-    
-    
-    [_navigationPictureImgView setImage:navigationPictureImg];
-    
+    [_navigationPictureImgView sd_setImageWithURL:[NSURL URLWithString:communityHomePageCellModel.PictureUrl] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     [_navigationPictureImgView setContentScaleFactor:[[UIScreen mainScreen] scale]];
-    
     _navigationPictureImgView.contentMode =  UIViewContentModeScaleAspectFill;
     
     _navigationPictureImgView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     
     _navigationPictureImgView.clipsToBounds  = YES;
     
-//    _navigationPictureImgView.image = navigationPictureImg;
-//    _navigationPictureImgView.image = [UIImage imageNamed:@"117.jpg"];
     
     // 所属类别
     _categoryLab.text = [NSString stringWithFormat:@"【%@】",communityHomePageCellModel.ActivityCategoryName];

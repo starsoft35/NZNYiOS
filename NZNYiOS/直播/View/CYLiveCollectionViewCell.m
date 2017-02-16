@@ -18,8 +18,15 @@
     _liveCellModel = liveCellModel;
     
     // 直播背景
-    //    _videoBgImgView.image = [UIImage imageNamed:videoCellModel.videoBgImgName];
-    _liveBgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:liveCellModel.Pictrue];
+//    _liveBgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:liveCellModel.Pictrue];
+    if ([liveCellModel.Pictrue isEqualToString:@""]) {
+        
+        _liveBgImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        [_liveBgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,liveCellModel.Pictrue]]];
+    }
     
     // 直播状态
     _liveStatusTitleLab.text = liveCellModel.liveStatusTitle;

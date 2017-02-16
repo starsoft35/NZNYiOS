@@ -16,7 +16,16 @@
     _livePushDetailsViewModel = livePushDetailsViewModel;
     
     // 头像
-    _headerImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:livePushDetailsViewModel.LiveUserPortrait];
+//    _headerImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:livePushDetailsViewModel.LiveUserPortrait];
+    if ([livePushDetailsViewModel.LiveUserPortrait isEqualToString:@""]) {
+        
+        _headerImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        [_headerImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,livePushDetailsViewModel.LiveUserPortrait]]];
+    }
+    
     _headerImgView.layer.cornerRadius = (30.0 / 1334.0) * cScreen_Height;
     
     // 姓名
@@ -40,7 +49,16 @@
     
     
     // 背景
-    _bgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:livePushDetailsViewModel.Pictrue];
+//    _bgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:livePushDetailsViewModel.Pictrue];
+    if ([livePushDetailsViewModel.Pictrue isEqualToString:@""]) {
+        
+        _bgImgView.image = [UIImage imageNamed:@"默认头像"];
+    }
+    else {
+        
+        
+        [_bgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,livePushDetailsViewModel.Pictrue]]];
+    }
     
 }
 
