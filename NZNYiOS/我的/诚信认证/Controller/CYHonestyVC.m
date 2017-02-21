@@ -121,34 +121,37 @@
         [_numberLab removeFromSuperview];
         
         
-        float numbLabFrameX = (cell.detailLab.frame.origin.x / 1334.0 * cScreen_Width) - (200 / 1334.0 * cScreen_Width) - 20;
-        NSLog(@"cell.detailLab.frame.origin.x:%f",cell.detailLab.frame.origin.x);
-        NSLog(@"numbLabFrameX:%f",numbLabFrameX);
         
-        CGRect numbLabFrame = CGRectMake(numbLabFrameX, cell.detailLab.frame.origin.y, 200, cell.detailLab.frame.size.height);
-        
-        _numberLab = [[UILabel alloc] initWithFrame:numbLabFrame];
-        
-        
-        _numberLab.text = [NSString stringWithFormat:@"%@ **** %@",[self.onlyUser.userAccount substringToIndex:3],[self.onlyUser.userAccount substringFromIndex:7]];
-        // 自动计算label的高度、宽度
-        CGSize tempLabelSize = [self labelAutoCalculateRectWith:self.numberLab.text FontSize:15 MaxSize:CGSizeMake(240.0 / 375.0 * cScreen_Width, cell.detailLab.frame.size.height)];
-        NSLog(@"tempLabelSize.width:%f",tempLabelSize.width);
-        NSLog(@"tempLabelSize.height:%f",tempLabelSize.height);
-        
-        
-        numbLabFrameX = (cell.detailLab.frame.origin.x / 375.0 * cScreen_Width) - (tempLabelSize.width / 375.0 * cScreen_Width) - 20;
-        _numberLab.frame = CGRectMake(numbLabFrameX, cell.detailLab.frame.origin.y, tempLabelSize.width, cell.detailLab.frame.size.height);
+//        _numberLab = [[UILabel alloc] initWithFrame:numbLabFrame];
+        _numberLab = [[UILabel alloc] init];
         
         _numberLab.textAlignment = NSTextAlignmentRight;
         _numberLab.font = [UIFont systemFontOfSize:15];
+        
+        _numberLab.text = [NSString stringWithFormat:@"%@ **** %@",[self.onlyUser.userAccount substringToIndex:3],[self.onlyUser.userAccount substringFromIndex:7]];
+        // 手机号label的size：自动计算label的高度、宽度
+        CGSize tempLabelSize = [self labelAutoCalculateRectWith:self.numberLab.text FontSize:15 MaxSize:CGSizeMake(240.0 / 375.0 * cScreen_Width, cell.detailLab.frame.size.height)];
+        
+        // 已认证label的size：自动计算label的高度、宽度
+        CGSize detailLabSize = [self labelAutoCalculateRectWith:@"已认证" FontSize:15 MaxSize:CGSizeMake(240.0 / 375.0 * cScreen_Width, cell.detailLab.frame.size.height)];
+        
+        
+        // 手机号label的x：手机屏宽 - nextImgView到右边的距离 - nextImgView的宽 - nextImgView到已认证label的距离 - 已认证label的宽 - 已认证到手机号label的距离 - 手机号的宽
+        float numbLabFrameX = cScreen_Width - 13 - cell.nextImgView.frame.size.width - 12 - detailLabSize.width - 10 - tempLabelSize.width;
+        
+        
+        // 手机号label的frame
+        CGRect numbLabFrame = CGRectMake(numbLabFrameX, cell.detailLab.frame.origin.y, tempLabelSize.width, cell.detailLab.frame.size.height);
+        
+        
+        _numberLab.frame = numbLabFrame;
+        
         
         cell.detailLab.textColor = [UIColor colorWithRed:0.91 green:0.51 blue:0.23 alpha:1.00];
         
         [cell addSubview:_numberLab];
         
     }
-    
     
     return cell;
     
@@ -166,6 +169,12 @@
     
     return 0.1;
 }
+
+// cell:height
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    return 88.0 / 1334.0 * cScreen_Height;
+//}
 
 
 // cell：单击事件
@@ -190,7 +199,6 @@
         
         [self.navigationController pushViewController:backCertifiVC animated:YES];
     }
-    
     
     //当离开某行时，让某行的选中状态消失
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

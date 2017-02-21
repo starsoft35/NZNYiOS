@@ -18,8 +18,11 @@
 <
 UITableViewDataSource,
 UITableViewDelegate,
-IMYWebViewDelegate,
-HZPhotoBrowserDelegate
+
+//IMYWebViewDelegate,
+HZPhotoBrowserDelegate,
+
+UIWebViewDelegate
 >
 
 
@@ -169,7 +172,7 @@ NSInteger tagCount;//全局变量
                 imageWidthMax = 394;
             }
             
-            _HTMLData = [NSString stringWithFormat:@" <style>img{max-width: %fpx !important;height: auto;}; video{max-width: %fpx !important;height: auto;}</style>%@",imageWidthMax,imageWidthMax,self.activeDetailsVCModel.Content];
+            _HTMLData = [NSString stringWithFormat:@" <style>img{max-width: %fpx !important;height: auto;}</style><style>video{max-width: %fpx !important;height: auto;}</style>%@",imageWidthMax,imageWidthMax,self.activeDetailsVCModel.Content];
             
             
             // 设置webView
@@ -183,12 +186,16 @@ NSInteger tagCount;//全局变量
             
             webView.backgroundColor = [UIColor whiteColor];
             
-            webView.scalesPageToFit = YES;
+//            webView.scalesPageToFit = YES;
             
             webView.delegate = self;
             
             [webView loadHTMLString:_HTMLData baseURL:nil];
             [self.view addSubview:webView];
+            
+            
+            
+            
             
             
         }
@@ -260,7 +267,7 @@ NSInteger tagCount;//全局变量
     _htmlWebView.frame = CGRectMake(0, 0, _tableView.frame.size.width, 1);
     
     _titleLabel.textAlignment = 1;
-//    _htmlWebView.delegate = self;
+    _htmlWebView.delegate = self;
     _htmlWebView.scrollView.scrollEnabled = NO;//设置webview不可滚动，让tableview本身滚动即可
     _htmlWebView.scrollView.bounces = NO;
     _htmlWebView.opaque = NO;
@@ -308,60 +315,92 @@ NSInteger tagCount;//全局变量
     return cell;
 }
 
--(void)webViewDidFinishLoad:(IMYWebView *)webView{
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
     
-    NSString *meta = [NSString stringWithFormat:@"document.getElementsByName(\"viewport\")[0].content = \"width=%f, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\"", webView.frame.size.width];
-    [webView stringByEvaluatingJavaScriptFromString:meta];
     
-//    [self.htmlWebView stringByEvaluatingJavaScriptFromString:     @"var script = document.createElement('script');"
-//     "script.type = 'text/javascript';"
-//     "script.text = /"function ResizeImages() { "
-//         "var myimg,oldwidth,oldheight;"
-//         "var maxwidth=320;"// 图片宽度
-//         "for(i=0;i  maxwidth){"
-//         "myimg.width = maxwidth;"
-//         "}"
-//         "}"
-//         "}/";"
-//         "document.getElementsByTagName('head')[0].appendChild(script);"];
-//         [self.htmlWebView stringByEvaluatingJavaScriptFromString:@"ResizeImages();"];
+//    NSString *meta = [NSString stringWithFormat:@"document.getElementsByName(\"viewport\")[0].content = \"width=%f, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\"", webView.frame.size.width];
+//    [webView stringByEvaluatingJavaScriptFromString:meta];
 //    
 //    
-//         [self.htmlWebView stringByEvaluatingJavaScriptFromString:@""];
+//    [self.htmlWebView evaluateJavaScript:@"document.documentElement.scrollHeight" completionHandler:^(id object, NSError *error) {
+//        CGFloat height = [object integerValue];
+//        
+//        if (error != nil) {
+//            
+//        }else{
+//            _webviewHight = height + 30;
+//            [_tableView beginUpdates];
+//            self.htmlWebView.frame = CGRectMake(_htmlWebView.frame.origin.x,_htmlWebView.frame.origin.y, _tableView.frame.size.width, _webviewHight );
+//            
+//            
+//        }
+//        
+//        [_tableView endUpdates];
+//    }];
+//    
+//    //    插入js代码，对图片进行点击操作
+//    [webView stringByEvaluatingJavaScriptFromString:@"function assignImageClickAction(){var imgs=document.getElementsByTagName('img');var length=imgs.length;for(var i=0; i < length;i++){img=imgs[i];if(\"ad\" ==img.getAttribute(\"flag\")){var parent = this.parentNode;if(parent.nodeName.toLowerCase() != \"a\")return;}img.onclick=function(){window.location.href='image-preview:'+this.src}}}"];
+//    [webView stringByEvaluatingJavaScriptFromString:@"assignImageClickAction();"];
+//    
+//    //获取HTML中的图片
+//    [self getImgs];
+//    
+//    
+//    [self hidenLoadingView];
     
     
-    [self.htmlWebView evaluateJavaScript:@"document.documentElement.scrollHeight" completionHandler:^(id object, NSError *error) {
-        CGFloat height = [object integerValue];
-        
-        if (error != nil) {
-            
-        }else{
-            _webviewHight = height + 30;
-            [_tableView beginUpdates];
-            self.htmlWebView.frame = CGRectMake(_htmlWebView.frame.origin.x,_htmlWebView.frame.origin.y, _tableView.frame.size.width, _webviewHight );
-            
-            
-        }
-        
-        [_tableView endUpdates];
-    }];
-    
-    //    插入js代码，对图片进行点击操作
-    [webView evaluateJavaScript:@"function assignImageClickAction(){var imgs=document.getElementsByTagName('img');var length=imgs.length;for(var i=0; i < length;i++){img=imgs[i];if(\"ad\" ==img.getAttribute(\"flag\")){var parent = this.parentNode;if(parent.nodeName.toLowerCase() != \"a\")return;}img.onclick=function(){window.location.href='image-preview:'+this.src}}}" completionHandler:^(id object, NSError *error) {
-        
-    }];
-    [webView evaluateJavaScript:@"assignImageClickAction();" completionHandler:^(id object, NSError *error) {
-        
-    }];
-    
-    //获取HTML中的图片
-    [self getImgs];
     
     
-    [self hidenLoadingView];
+    
+    //这里是js，主要目的实现对url的获取
+    NSString *jsGetImages =
+    @"function getImages(){\
+    var objs = document.getElementsByTagName(\"img\");\
+    var imgScr = '';\
+    for(var i=0;i<objs.length;i++){\
+    imgScr = imgScr + objs[i].src + '+';\
+    };\
+    return imgScr;\
+    };";
+    
+    [webView stringByEvaluatingJavaScriptFromString:jsGetImages];//注入js方法
+    NSString *urlResurlt = [webView stringByEvaluatingJavaScriptFromString:@"getImages()"];
+    
+    
+    NSMutableArray *mUrlArray = [NSMutableArray arrayWithArray:[urlResurlt componentsSeparatedByString:@"+"]];
+    _imageArray = [NSMutableArray arrayWithArray:[urlResurlt componentsSeparatedByString:@"+"]];
+    
+    if (mUrlArray.count >= 2) {
+        [mUrlArray removeLastObject];
+    }
+    if (_imageArray.count >= 2) {
+        [_imageArray removeLastObject];
+    }
+    
+    //urlResurlt 就是获取到得所有图片的url的拼接；mUrlArray就是所有Url的数组
+    
+    //添加图片可点击js
+    [webView stringByEvaluatingJavaScriptFromString:@"function registerImageClickAction(){\
+     var imgs=document.getElementsByTagName('img');\
+     var length=imgs.length;\
+     for(var i=0;i<length;i++){\
+     img=imgs[i];\
+     img.onclick=function(){\
+     window.location.href='image-preview:'+this.src}\
+     }\
+     }"];
+    [webView stringByEvaluatingJavaScriptFromString:@"registerImageClickAction();"];
+    
+    
+    
+    
+    
+    
+    
 }
 
--(BOOL)webView:(IMYWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     
     if ([request.URL isEqual:@"about:blank"])
     {
@@ -399,7 +438,103 @@ NSInteger tagCount;//全局变量
     }
     
     return YES;
+    
+    
+    
+    
+    
+    
+    //预览图片
+//    if ([request.URL.scheme isEqualToString:@"image-preview"]) {
+//        NSString* path = [request.URL.absoluteString substringFromIndex:[@"image-preview:" length]];
+//        path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//        //path 就是被点击图片的url
+//        return NO;
+//    }
+//    return YES;
+    
+    
+    
+    
+    
 }
+
+//-(void)webViewDidFinishLoad:(IMYWebView *)webView{
+//    
+//    NSString *meta = [NSString stringWithFormat:@"document.getElementsByName(\"viewport\")[0].content = \"width=%f, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\"", webView.frame.size.width];
+//    [webView stringByEvaluatingJavaScriptFromString:meta];
+//    
+//    
+//    [self.htmlWebView evaluateJavaScript:@"document.documentElement.scrollHeight" completionHandler:^(id object, NSError *error) {
+//        CGFloat height = [object integerValue];
+//        
+//        if (error != nil) {
+//            
+//        }else{
+//            _webviewHight = height + 30;
+//            [_tableView beginUpdates];
+//            self.htmlWebView.frame = CGRectMake(_htmlWebView.frame.origin.x,_htmlWebView.frame.origin.y, _tableView.frame.size.width, _webviewHight );
+//            
+//            
+//        }
+//        
+//        [_tableView endUpdates];
+//    }];
+//    
+//    //    插入js代码，对图片进行点击操作
+//    [webView evaluateJavaScript:@"function assignImageClickAction(){var imgs=document.getElementsByTagName('img');var length=imgs.length;for(var i=0; i < length;i++){img=imgs[i];if(\"ad\" ==img.getAttribute(\"flag\")){var parent = this.parentNode;if(parent.nodeName.toLowerCase() != \"a\")return;}img.onclick=function(){window.location.href='image-preview:'+this.src}}}" completionHandler:^(id object, NSError *error) {
+//        
+//    }];
+//    [webView evaluateJavaScript:@"assignImageClickAction();" completionHandler:^(id object, NSError *error) {
+//        
+//    }];
+//    
+//    //获取HTML中的图片
+//    [self getImgs];
+//    
+//    
+//    [self hidenLoadingView];
+//}
+//
+//-(BOOL)webView:(IMYWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+//    
+//    if ([request.URL isEqual:@"about:blank"])
+//    {
+//        return true;
+//    }
+//    if ([request.URL.scheme isEqualToString: @"image-preview"])
+//    {
+//        
+//        NSString *url = [request.URL.absoluteString substringFromIndex:14];
+//        
+//        
+//        //启动图片浏览器， 跳转到图片浏览页面
+//        if (_imageArray.count != 0) {
+//            
+//            HZPhotoBrowser *browserVc = [[HZPhotoBrowser alloc] init];
+//            browserVc.imageCount = self.imageArray.count; // 图片总数
+//            browserVc.currentImageIndex = [_imageArray indexOfObject:url];//当前点击的图片
+//            browserVc.delegate = self;
+//            [browserVc show];
+//            
+//        }
+//        return NO;
+//        
+//    }
+//    
+//    //    用户点击文章详情中的链接
+//    if ( navigationType == UIWebViewNavigationTypeLinkClicked ) {
+//        
+//        WebViewURLViewController *webViewVC = [WebViewURLViewController new];
+//        webViewVC.URLString = request.URL.absoluteString;
+//        [self.navigationController pushViewController:webViewVC animated:YES];
+//        
+//        
+//        return NO;
+//    }
+//    
+//    return YES;
+//}
 
 
 #pragma mark - photobrowser代理方法

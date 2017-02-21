@@ -8,6 +8,13 @@
 
 #import "HZPhotoBrowser.h"
 #import "HZPhotoBrowserConfig.h"
+
+
+
+// cy基类：baseVC：用于显示提示
+#import "CYBaseViewController.h"
+
+
  
 @interface HZPhotoBrowser() <UIScrollViewDelegate>
 @property (nonatomic,strong) UIScrollView *scrollView;
@@ -191,14 +198,16 @@
 }
 
 - (void)imageSavedToPhotosAlbum:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo{
-    NSLog(@"cuowu");
     if (!error) {
-        
-        
+        NSLog(@"没有错误：");
+        CYBaseViewController *tempBaseVC = [[CYBaseViewController alloc] init];
+        tempBaseVC.view.userInteractionEnabled = NO;
+        [self.view addSubview:tempBaseVC.view];
+        [tempBaseVC showHubWithLabelText:@"保存成功" andHidAfterDelay:3.0];
         
     }else
     {
-      
+        NSLog(@"cuowule");
         
         
     }
