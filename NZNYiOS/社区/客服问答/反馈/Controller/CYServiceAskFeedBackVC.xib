@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CYServiceAskFeedBackVC">
+            <connections>
+                <outlet property="feedBackInfoTV" destination="CsK-gz-7mv" id="a0v-ND-oPC"/>
+                <outlet property="maxCountLab" destination="r3k-Ua-Igb" id="Ho3-A1-joy"/>
+                <outlet property="submitBtn" destination="mxE-yt-HxK" id="gG7-mc-3g8"/>
+                <outlet property="surplusCountLab" destination="fbc-LY-MK9" id="dOJ-0P-yQD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="-输入反馈问题.png" translatesAutoresizingMaskIntoConstraints="NO" id="fBk-Rz-yMJ" userLabel="0.反馈信息背景-Image View">
+                    <rect key="frame" x="13" y="5" width="349" height="100"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CsK-gz-7mv" userLabel="1.反馈信息-Text View">
+                    <rect key="frame" x="13" y="5" width="349" height="100"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbc-LY-MK9" userLabel="2.剩余输入字数-Label">
+                    <rect key="frame" x="323" y="85.5" width="11" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.91768163442611694" green="0.51090770959854126" blue="0.18271613121032715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/ 50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3k-Ua-Igb" userLabel="3.最大输入字数-Label">
+                    <rect key="frame" x="334" y="85.5" width="23" height="14.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxE-yt-HxK" userLabel="4.提交-Button">
+                    <rect key="frame" x="37.5" y="130" width="300" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="mxE-yt-HxK" secondAttribute="height" multiplier="600:88" id="ztR-us-nho"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="提交" backgroundImage="登录底.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fBk-Rz-yMJ" firstAttribute="top" secondItem="CsK-gz-7mv" secondAttribute="top" id="3DW-Vh-AsS"/>
+                <constraint firstItem="CsK-gz-7mv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="4DB-hp-wTY"/>
+                <constraint firstItem="mxE-yt-HxK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ApB-Ck-jdp"/>
+                <constraint firstItem="fBk-Rz-yMJ" firstAttribute="bottom" secondItem="CsK-gz-7mv" secondAttribute="bottom" id="Bc7-CJ-LJS"/>
+                <constraint firstItem="fBk-Rz-yMJ" firstAttribute="trailing" secondItem="CsK-gz-7mv" secondAttribute="trailing" id="HQO-Fu-BNh"/>
+                <constraint firstAttribute="trailing" secondItem="CsK-gz-7mv" secondAttribute="trailing" constant="13" id="LLi-Mc-dhx"/>
+                <constraint firstItem="fBk-Rz-yMJ" firstAttribute="leading" secondItem="CsK-gz-7mv" secondAttribute="leading" id="QKd-np-JP9"/>
+                <constraint firstItem="CsK-gz-7mv" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="200:1334" id="Qv1-EB-37Y"/>
+                <constraint firstItem="mxE-yt-HxK" firstAttribute="top" secondItem="CsK-gz-7mv" secondAttribute="bottom" constant="25" id="Rjo-Oi-OPB"/>
+                <constraint firstItem="mxE-yt-HxK" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="88:1334" id="WLp-Br-Qxh"/>
+                <constraint firstItem="r3k-Ua-Igb" firstAttribute="bottom" secondItem="CsK-gz-7mv" secondAttribute="bottom" constant="-5" id="ZhW-bQ-PFV"/>
+                <constraint firstItem="CsK-gz-7mv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="kPW-qS-Wel"/>
+                <constraint firstItem="r3k-Ua-Igb" firstAttribute="trailing" secondItem="CsK-gz-7mv" secondAttribute="trailing" constant="-5" id="ktc-xp-2pf"/>
+                <constraint firstItem="r3k-Ua-Igb" firstAttribute="leading" secondItem="fbc-LY-MK9" secondAttribute="trailing" id="mZJ-vB-esK"/>
+                <constraint firstItem="fbc-LY-MK9" firstAttribute="bottom" secondItem="CsK-gz-7mv" secondAttribute="bottom" constant="-5" id="q3X-rC-9P3"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="33.5" y="74.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="-输入反馈问题.png" width="350" height="100"/>
+        <image name="登录底.png" width="300" height="44"/>
+    </resources>
+</document>

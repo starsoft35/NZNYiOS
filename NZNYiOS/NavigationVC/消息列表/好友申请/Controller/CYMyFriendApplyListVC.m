@@ -28,6 +28,8 @@
     [super viewDidLoad];
     
     
+    self.title = @"好友申请";
+    
     // 提前注册
     [self.baseTableView registerNib:[UINib nibWithNibName:@"CYMyFriendApplyListCell" bundle:nil] forCellReuseIdentifier:@"CYMyFriendApplyListCell"];
     

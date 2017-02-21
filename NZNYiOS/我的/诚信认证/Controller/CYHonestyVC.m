@@ -121,7 +121,9 @@
         [_numberLab removeFromSuperview];
         
         
-        float numbLabFrameX = cell.detailLab.frame.origin.x - 200 - 20;
+        float numbLabFrameX = (cell.detailLab.frame.origin.x / 1334.0 * cScreen_Width) - (200 / 1334.0 * cScreen_Width) - 20;
+        NSLog(@"cell.detailLab.frame.origin.x:%f",cell.detailLab.frame.origin.x);
+        NSLog(@"numbLabFrameX:%f",numbLabFrameX);
         
         CGRect numbLabFrame = CGRectMake(numbLabFrameX, cell.detailLab.frame.origin.y, 200, cell.detailLab.frame.size.height);
         
@@ -129,6 +131,14 @@
         
         
         _numberLab.text = [NSString stringWithFormat:@"%@ **** %@",[self.onlyUser.userAccount substringToIndex:3],[self.onlyUser.userAccount substringFromIndex:7]];
+        // 自动计算label的高度、宽度
+        CGSize tempLabelSize = [self labelAutoCalculateRectWith:self.numberLab.text FontSize:15 MaxSize:CGSizeMake(240.0 / 375.0 * cScreen_Width, cell.detailLab.frame.size.height)];
+        NSLog(@"tempLabelSize.width:%f",tempLabelSize.width);
+        NSLog(@"tempLabelSize.height:%f",tempLabelSize.height);
+        
+        
+        numbLabFrameX = (cell.detailLab.frame.origin.x / 375.0 * cScreen_Width) - (tempLabelSize.width / 375.0 * cScreen_Width) - 20;
+        _numberLab.frame = CGRectMake(numbLabFrameX, cell.detailLab.frame.origin.y, tempLabelSize.width, cell.detailLab.frame.size.height);
         
         _numberLab.textAlignment = NSTextAlignmentRight;
         _numberLab.font = [UIFont systemFontOfSize:15];

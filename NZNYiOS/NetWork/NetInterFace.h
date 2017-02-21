@@ -20,7 +20,7 @@
 
 
 // 下载地址
-#define cDownLoadUrl (@"http://api.212bg.com/Uploads/ios.ipa")
+#define cDownLoadUrl (@"http://api.212bg.com/uploads/appdown.html")
 
 
 #pragma 0、登录、注册
@@ -93,9 +93,12 @@
 #define cPastActivityListUrl (@"api/Activity/PastActivityList")
 // 3.4-客服问答
 #define cServiceActivityListUrl (@"api/Activity/ServiceActivityList")
+// 3.4.1-反馈
+#define cFeedBackAddUrl (@"api/FeedBack/Add")
 // 3.5-活动详情页
 #define cActivityDetailsUrl (@"api/Activity/ActivityDetail")
-
+// 3.5.1-活动报名
+#define cActivityApplyUrl (@"api/Activity/Apply")
 
 
 // 4、我的-一级界面

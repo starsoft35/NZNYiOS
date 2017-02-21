@@ -51,14 +51,72 @@ NSInteger tagCount;//全局变量
     // 背景颜色
     self.view.backgroundColor = [UIColor whiteColor];
     
+    // 设置活动报名navigationBar
+    [self setActiveEnrollRightNavigationBar];
+    
+    
+    
     // 加载数据
     [self loadData];
     
-//    
+//
 //    // 设置webView
 //    [self setWebView];
     
 }
+
+// 设置活动报名navigationBar
+- (void)setActiveEnrollRightNavigationBar{
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"报名" style:2 target:self action:@selector(activeEnrollRightBarBtnItemClick)];
+}
+
+// 活动报名：navigationBarClick
+- (void)activeEnrollRightBarBtnItemClick{
+    NSLog(@"活动报名：navigationBarClick");
+    
+    // 网络请求：活动报名    
+    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&activityContentId=%@",cActivityApplyUrl,self.onlyUser.userID,self.activeId];
+
+    
+    // 网络请求：活动报名
+    [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"活动报名进度：%@",uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"活动报名：请求成功！");
+        
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"活动报名：获取成功！");
+            NSLog(@"活动报名：%@",responseObject);
+            
+            [self showHubWithLabelText:@"报名成功" andHidAfterDelay:3.0];
+        }
+        else{
+            NSLog(@"活动报名：获取失败:responseObject:%@",responseObject);
+            NSLog(@"活动报名：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"活动报名：请求失败！");
+        NSLog(@"失败原因：error：%@",error);
+        
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+}
+
 
 // 加载数据：社区活动详情
 - (void)loadData{
@@ -76,7 +134,6 @@ NSInteger tagCount;//全局变量
         
     } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"社区活动详情：请求成功！");
-        
         
         
         // 1、
@@ -112,12 +169,26 @@ NSInteger tagCount;//全局变量
                 imageWidthMax = 394;
             }
             
-            _HTMLData = [NSString stringWithFormat:@" <style>img{max-width: %fpx !important;height: auto;}</style>%@",imageWidthMax,self.activeDetailsVCModel.Content];
+            _HTMLData = [NSString stringWithFormat:@" <style>img{max-width: %fpx !important;height: auto;}; video{max-width: %fpx !important;height: auto;}</style>%@",imageWidthMax,imageWidthMax,self.activeDetailsVCModel.Content];
             
             
             // 设置webView
-            [self setWebView];
+//            [self setWebView];
             
+            
+            
+            UIWebView * webView = [[UIWebView alloc]initWithFrame:CGRectMake(25.0 / 750.0 * cScreen_Width, 18.0 / 1334.0 * cScreen_Height, cScreen_Width - 2 * 25.0 / 750.0 * cScreen_Width, cScreen_Height - 64 - 18.0 / 1334.0 * cScreen_Height)];
+            
+            webView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - 64 - 18.0 / 1334.0 * cScreen_Height);
+            
+            webView.backgroundColor = [UIColor whiteColor];
+            
+            webView.scalesPageToFit = YES;
+            
+            webView.delegate = self;
+            
+            [webView loadHTMLString:_HTMLData baseURL:nil];
+            [self.view addSubview:webView];
             
             
         }
@@ -140,6 +211,7 @@ NSInteger tagCount;//全局变量
     } withToken:self.onlyUser.userToken];
     
 }
+
 
 
 // 模型赋值
@@ -188,7 +260,7 @@ NSInteger tagCount;//全局变量
     _htmlWebView.frame = CGRectMake(0, 0, _tableView.frame.size.width, 1);
     
     _titleLabel.textAlignment = 1;
-    _htmlWebView.delegate = self;
+//    _htmlWebView.delegate = self;
     _htmlWebView.scrollView.scrollEnabled = NO;//设置webview不可滚动，让tableview本身滚动即可
     _htmlWebView.scrollView.bounces = NO;
     _htmlWebView.opaque = NO;
@@ -238,7 +310,8 @@ NSInteger tagCount;//全局变量
 
 -(void)webViewDidFinishLoad:(IMYWebView *)webView{
     
-    
+    NSString *meta = [NSString stringWithFormat:@"document.getElementsByName(\"viewport\")[0].content = \"width=%f, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no\"", webView.frame.size.width];
+    [webView stringByEvaluatingJavaScriptFromString:meta];
     
 //    [self.htmlWebView stringByEvaluatingJavaScriptFromString:     @"var script = document.createElement('script');"
 //     "script.type = 'text/javascript';"

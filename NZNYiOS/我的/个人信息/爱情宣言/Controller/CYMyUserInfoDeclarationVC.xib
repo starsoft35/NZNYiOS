@@ -23,6 +23,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="-输入反馈问题.png" translatesAutoresizingMaskIntoConstraints="NO" id="qwT-Qz-LOD" userLabel="0.爱情宣言背景-Image View">
+                    <rect key="frame" x="13" y="5" width="349" height="100"/>
+                </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="R8y-1W-w7f" userLabel="1.爱情宣言-Text View">
                     <rect key="frame" x="13" y="5" width="349" height="100"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -45,10 +48,14 @@
             <color key="backgroundColor" red="0.94119703769683838" green="0.94116175174713135" blue="0.94118571281433105" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="Rhl-og-GB1" firstAttribute="trailing" secondItem="R8y-1W-w7f" secondAttribute="trailing" id="3lR-kG-3bB"/>
+                <constraint firstItem="qwT-Qz-LOD" firstAttribute="trailing" secondItem="R8y-1W-w7f" secondAttribute="trailing" id="4X7-6a-n0Y"/>
                 <constraint firstItem="Rhl-og-GB1" firstAttribute="leading" secondItem="ZSD-Q0-qVI" secondAttribute="trailing" id="AF4-df-adN"/>
                 <constraint firstItem="R8y-1W-w7f" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="200:1334" id="Adj-Xe-yOz"/>
                 <constraint firstItem="Rhl-og-GB1" firstAttribute="bottom" secondItem="R8y-1W-w7f" secondAttribute="bottom" id="E7s-1c-nsZ"/>
                 <constraint firstItem="R8y-1W-w7f" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="5" id="FZS-wx-eE0"/>
+                <constraint firstItem="qwT-Qz-LOD" firstAttribute="bottom" secondItem="R8y-1W-w7f" secondAttribute="bottom" id="dtY-WP-Ojq"/>
+                <constraint firstItem="qwT-Qz-LOD" firstAttribute="leading" secondItem="R8y-1W-w7f" secondAttribute="leading" id="hBx-I5-yTO"/>
+                <constraint firstItem="qwT-Qz-LOD" firstAttribute="top" secondItem="R8y-1W-w7f" secondAttribute="top" id="ldf-Qe-JTw"/>
                 <constraint firstItem="ZSD-Q0-qVI" firstAttribute="bottom" secondItem="R8y-1W-w7f" secondAttribute="bottom" id="uKc-hn-cOP"/>
                 <constraint firstAttribute="trailing" secondItem="R8y-1W-w7f" secondAttribute="trailing" constant="13" id="wOe-6w-0Jz"/>
                 <constraint firstItem="R8y-1W-w7f" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="13" id="yQA-DO-7hH"/>
@@ -60,4 +67,7 @@
             <point key="canvasLocation" x="33.5" y="73.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="-输入反馈问题.png" width="350" height="100"/>
+    </resources>
 </document>

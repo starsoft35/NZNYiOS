@@ -65,10 +65,14 @@
     [self setFriendsRightBarButtonItem];
     
     
+    self.view.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - 64);
+    
     
     _friendApplyView = [[[NSBundle mainBundle] loadNibNamed:@"CYFriendApplyView" owner:nil options:nil] lastObject];
+    _systemNewsView = [[[NSBundle mainBundle] loadNibNamed:@"CYFriendApplyView" owner:nil options:nil] lastObject];
     
-    
+    // 加载数据
+//    [self loadData];
 }
 
 // 界面将要显示：刷新数据
@@ -92,6 +96,16 @@
 - (void)loadData{
     
     // 网络请求：我的好友申请列表
+    [self requestMyFriendApplyList];
+    
+    // 网络请求：系统消息列表
+    [self requestSystemNewsList];
+    
+}
+
+// 网络请求：我的好友申请列表
+- (void)requestMyFriendApplyList{
+    
     // url参数
     NSDictionary *params = @{
                              @"userId":self.currentUserId
@@ -150,8 +164,76 @@
         
         
     } withToken:self.currentUserToken];
-    
 }
+
+
+// 网络请求：系统消息列表
+- (void)requestSystemNewsList{
+    
+    // url参数
+    NSDictionary *params = @{
+                             @"userId":self.currentUserId
+                             };
+    
+#warning 地址需要换成系统消息列表的地址
+    // 网络请求：
+    [CYNetWorkManager getRequestWithUrl:cApplyFriendsListUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"系统消息列表：网络请求：进度：%@",uploadProgress);
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"系统消息列表：网络请求：请求成功");
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"系统消息列表：获取成功！");
+            NSLog(@"系统消息列表：%@",responseObject);
+            
+            // 清空：每次刷新都需要
+            [self.systemNewsListArr removeAllObjects];
+            
+            
+#warning 模型需要换成系统消息列表的模型
+            // 解析数据，模型存到数组
+            [self.systemNewsListArr addObjectsFromArray:[CYMyFriendApplyListCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
+            
+            
+            if (self.systemNewsListArr.count == 0) {
+                
+                self.systemNewsView.unReadCountLab.text = [NSString stringWithFormat:@""];
+                self.systemNewsView.unReadCountImgView.hidden = YES;
+                
+            }
+            else if (self.systemNewsListArr.count >= 10) {
+                
+                self.systemNewsView.unReadCountLab.text = [NSString stringWithFormat:@"9+"];
+                self.systemNewsView.unReadCountImgView.hidden = NO;
+            }
+            else {
+                //                self.unReadCountLab.text = [NSString stringWithFormat:@"9+"];
+                self.systemNewsView.unReadCountLab.text = [NSString stringWithFormat:@"%ld",self.myFriendApplyListArr.count];
+                self.systemNewsView.unReadCountImgView.hidden = NO;
+            }
+            
+            
+        }
+        else{
+            NSLog(@"系统消息列表：获取失败:responseObject:%@",responseObject);
+            NSLog(@"系统消息列表：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+        }
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"系统消息列表：网络请求：请求失败");
+        
+        
+    } withToken:self.currentUserToken];
+}
+
+
+
 
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -167,12 +249,41 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     
+    
+    // header
+    CGRect systemNewsAndApplyFriendViewRect = CGRectMake(0, 0, cScreen_Width, 340.0 / 1334.0 * cScreen_Height);
+    UIView *newsFromOurBackView = [[UIView alloc] initWithFrame:systemNewsAndApplyFriendViewRect];
+    newsFromOurBackView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
+    
+    
+    
+    // 系统消息：界面
+    CGRect systemNewsViewRect = CGRectMake(0, 10, cScreen_Width, 140.0 / 1334.0 * cScreen_Height);
+    
+    self.systemNewsView.frame = systemNewsViewRect;
+    self.systemNewsView.headImgView.image = [UIImage imageNamed:@"矢量智能对象"];
+    self.systemNewsView.applyFriendLab.text = @"系统消息";
+    // 系统消息：View：点击事件
+    self.systemNewsView.userInteractionEnabled = YES;
+    [self.systemNewsView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(systemNewsViewClick)]];
+    
+    [newsFromOurBackView addSubview:self.systemNewsView];
+    
+    
+    // 好友申请：界面
+    CGRect friendApplyViewRect = CGRectMake(0, systemNewsViewRect.origin.y + systemNewsViewRect.size.height, cScreen_Width, 140.0 / 1334.0 * cScreen_Height);
+    self.friendApplyView.frame = friendApplyViewRect;
+    self.friendApplyView.applyFriendLab.text = @"好友申请";
     // 好友申请：View：点击事件
-    _friendApplyView.userInteractionEnabled = YES;
-    [_friendApplyView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(applyFriendViewClick)]];
+    self.friendApplyView.userInteractionEnabled = YES;
+    [self.friendApplyView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(applyFriendViewClick)]];
+    
+    [newsFromOurBackView addSubview:self.friendApplyView];
     
     
-    return _friendApplyView;
+    
+    
+    return newsFromOurBackView;
 }
 
 
@@ -187,11 +298,24 @@
     
 }
 
+// 系统消息：View：点击事件
+- (void)systemNewsViewClick{
+    NSLog(@"系统消息：View：点击事件");
+}
+
 
 // header 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    return 180.0 / 1334.0 * cScreen_Height;
+    return 340.0 / 1334.0 * cScreen_Height;
+    
+}
+
+
+// cell 的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 140.0 / 1334.0 * cScreen_Height;
 }
 
 
@@ -309,6 +433,15 @@
     }
     
     return _myFriendApplyListArr;
+}
+- (NSMutableArray *)systemNewsListArr {
+    
+    if (_systemNewsListArr == nil) {
+        
+        _systemNewsListArr = [[NSMutableArray alloc] init];
+    }
+    
+    return _systemNewsListArr;
 }
 
 // 懒加载弹窗

@@ -22,8 +22,11 @@
 
 // 我的好友申请列表：array
 @property (nonatomic, strong) NSMutableArray *myFriendApplyListArr;
+// 系统消息列表：array
+@property (nonatomic, strong) NSMutableArray *systemNewsListArr;
 
-
+//系统消息：View
+@property (nonatomic, strong) CYFriendApplyView *systemNewsView;
 // 好友申请：View
 @property (nonatomic, strong) CYFriendApplyView *friendApplyView;
 

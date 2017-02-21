@@ -1129,7 +1129,7 @@
     
     NSString *downloadUrl = [[NSString alloc] init];
     downloadUrl = cDownLoadUrl;
-    downloadUrl = @"https://www.baidu.com/";
+//    downloadUrl = @"https://www.baidu.com/";
     
     
     
@@ -1143,7 +1143,7 @@
 //    [self shareToWechatWithThumbImage:thumbImage andImageData:thumbImageData andbText:NO andScene:0];
     
     // 分享：网页分享
-    [self sharedToWeChatWithWebpageWithShareTitle:@"APP 下载地址" andDescription:@"男左女右 遇见你的TA" andImage:[UIImage imageNamed:@"logo.png"] andWebpageUrl:downloadUrl andbText:NO andScene:0];
+    [self sharedToWeChatWithWebpageWithShareTitle:@"APP 下载地址" andDescription:@"男左女右 遇见你的TA" andImage:[UIImage imageNamed:@"logo.png"] andWebpageUrl:cDownLoadUrl andbText:NO andScene:0];
     
 }
 

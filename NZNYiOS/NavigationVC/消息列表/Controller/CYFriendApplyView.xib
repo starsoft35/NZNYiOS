@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -14,20 +14,23 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="pbc-Ns-2Zn" customClass="CYFriendApplyView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Kt-kG-pe1" userLabel="0.搜索-View">
-                    <rect key="frame" x="13" y="5" width="349" height="1"/>
+                    <rect key="frame" x="13" y="0.0" width="349" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="AFn-wC-2Lr"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t3J-Ar-2wo" userLabel="1.好友申请-View">
-                    <rect key="frame" x="0.0" y="11" width="375" height="69"/>
+                    <rect key="frame" x="0.0" y="1" width="375" height="69"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUE-gw-b9v" userLabel="1.1-头像-View">
-                            <rect key="frame" x="13" y="10" width="49" height="49"/>
+                            <rect key="frame" x="13" y="9.5" width="50" height="50"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="好友申请.png" translatesAutoresizingMaskIntoConstraints="NO" id="d49-eJ-fEO" userLabel="1.1.1-头像-Image View">
-                                    <rect key="frame" x="0.0" y="0.0" width="49" height="49"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="50"/>
@@ -35,13 +38,13 @@
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ch-jB-IuB" userLabel="1.1.2-未读数-View">
-                                    <rect key="frame" x="34" y="0.0" width="15" height="15.5"/>
+                                    <rect key="frame" x="35" y="0.0" width="15" height="15"/>
                                     <subviews>
                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="信息条数.png" translatesAutoresizingMaskIntoConstraints="NO" id="Udp-7V-sTe" userLabel="1.1.2.1-未读数-Image View">
-                                            <rect key="frame" x="0.5" y="0.0" width="15" height="15.5"/>
+                                            <rect key="frame" x="0.5" y="0.0" width="15" height="15"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCK-Fa-WFW" userLabel="1.1.2.2-未读数-Label">
-                                            <rect key="frame" x="0.5" y="0.0" width="15" height="15.5"/>
+                                            <rect key="frame" x="0.5" y="0.0" width="15" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -73,7 +76,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好友申请" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="p1Q-XW-8Vv" userLabel="1.2-好友申请-Label">
-                            <rect key="frame" x="77" y="24.5" width="102.5" height="20.5"/>
+                            <rect key="frame" x="78" y="25" width="102.5" height="20.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="p1Q-XW-8Vv" secondAttribute="height" multiplier="5" id="A1P-VW-kYx"/>
                             </constraints>
@@ -95,21 +98,23 @@
             </subviews>
             <color key="backgroundColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="3Kt-kG-pe1" firstAttribute="top" secondItem="pbc-Ns-2Zn" secondAttribute="top" constant="5" id="2DS-gq-O8g"/>
+                <constraint firstItem="3Kt-kG-pe1" firstAttribute="top" secondItem="pbc-Ns-2Zn" secondAttribute="top" id="2DS-gq-O8g"/>
                 <constraint firstItem="3Kt-kG-pe1" firstAttribute="leading" secondItem="pbc-Ns-2Zn" secondAttribute="leading" constant="13" id="Go2-v1-XpV"/>
                 <constraint firstAttribute="trailing" secondItem="3Kt-kG-pe1" secondAttribute="trailing" constant="13" id="UYi-4G-bBn"/>
-                <constraint firstItem="t3J-Ar-2wo" firstAttribute="top" secondItem="3Kt-kG-pe1" secondAttribute="bottom" constant="5" id="WHJ-Qy-RFD"/>
-                <constraint firstAttribute="bottom" secondItem="t3J-Ar-2wo" secondAttribute="bottom" constant="10" id="awW-u1-or8"/>
+                <constraint firstItem="t3J-Ar-2wo" firstAttribute="top" secondItem="3Kt-kG-pe1" secondAttribute="bottom" id="WHJ-Qy-RFD"/>
+                <constraint firstAttribute="bottom" secondItem="t3J-Ar-2wo" secondAttribute="bottom" id="awW-u1-or8"/>
                 <constraint firstAttribute="trailing" secondItem="t3J-Ar-2wo" secondAttribute="trailing" id="iWo-Yo-thM"/>
                 <constraint firstItem="t3J-Ar-2wo" firstAttribute="leading" secondItem="pbc-Ns-2Zn" secondAttribute="leading" id="lKG-0u-8xM"/>
-                <constraint firstItem="3Kt-kG-pe1" firstAttribute="height" secondItem="pbc-Ns-2Zn" secondAttribute="height" multiplier="1:1206" id="pJO-3e-Yxf"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="applyFriendLab" destination="p1Q-XW-8Vv" id="06t-8b-ArI"/>
                 <outlet property="applyFriendView" destination="t3J-Ar-2wo" id="yDm-es-Bbo"/>
+                <outlet property="headImgView" destination="d49-eJ-fEO" id="pnn-eA-kwS"/>
+                <outlet property="searchView" destination="3Kt-kG-pe1" id="LVs-Jx-ziy"/>
                 <outlet property="unReadCountImgView" destination="Udp-7V-sTe" id="eyv-sC-e7k"/>
                 <outlet property="unReadCountLab" destination="gCK-Fa-WFW" id="8Hd-IF-RfU"/>
             </connections>

@@ -14,6 +14,10 @@
 // 模型
 #import "CYCustomerServerAskCellModel.h"
 
+// 反馈：VC
+#import "CYServiceAskFeedBackVC.h"
+
+
 
 // 社区活动详情:VC
 #import "CYActiveDetailsVC.h"
@@ -30,6 +34,8 @@
     
     self.navigationItem.title = @"客服问答";
     
+    // 右侧navigationBar：反馈
+    [self setFeedBackRightNavigationBar];
     
     // 加载数据
     [self loadData];
@@ -40,6 +46,25 @@
     
     
 }
+
+// 反馈：右侧navigationBar
+- (void)setFeedBackRightNavigationBar{
+    NSLog(@"设置反馈：右侧navigationBar");
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"反馈" style:2 target:self action:@selector(feedBackLeftBarBtnItemClick)];
+}
+// 反馈：右侧navigationBar：点击事件
+- (void)feedBackLeftBarBtnItemClick{
+    NSLog(@"反馈：右侧navigationBar：点击事件");
+    
+    CYServiceAskFeedBackVC *feedBackVC = [[CYServiceAskFeedBackVC alloc] init];
+    
+    feedBackVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:feedBackVC animated:YES];
+    
+}
+
 // 加载数据
 - (void)loadData{
     

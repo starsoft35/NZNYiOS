@@ -289,7 +289,7 @@
     }
     else {
         
-        return 20.0 / 1334 * cScreen_Height;
+        return 20.0 / 1334.0 * cScreen_Height;
     }
 }
 

@@ -55,7 +55,15 @@
 // 添加选择器视图
 - (void)addLocationSelectView{
     
-    self.locationLab.text = self.onlyUser.City;
+    
+    if ([self.onlyUser.City isEqualToString:@""]) {
+        
+        self.locationLab.text = @"或点击这里选择所在地";
+    }
+    else {
+        
+        self.locationLab.text = self.onlyUser.City;
+    }
     
     
     // 点击出现地址选择器：View

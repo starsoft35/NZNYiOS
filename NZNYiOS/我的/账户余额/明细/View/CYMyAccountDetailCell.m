@@ -30,11 +30,12 @@
     if (myAccountDetailCellModel.Money > 0) {
         
         
-        _moneyLab.text = [NSString stringWithFormat:@"+ %.2lf",myAccountDetailCellModel.Money];
+        _moneyLab.text = [NSString stringWithFormat:@"+%.2lf",myAccountDetailCellModel.Money];
     }
     else {
         
-        _moneyLab.text = [NSString stringWithFormat:@"- %.2lf",myAccountDetailCellModel.Money];
+        // 小叶给了-号
+        _moneyLab.text = [NSString stringWithFormat:@"%.2lf",myAccountDetailCellModel.Money];
     }
 }
 
