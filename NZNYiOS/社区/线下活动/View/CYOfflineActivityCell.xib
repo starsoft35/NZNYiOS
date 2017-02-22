@@ -24,7 +24,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="130" height="20"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016年08月25日 17:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="KI4-xG-dwU" userLabel="1.1-发布时间-Label">
-                            <rect key="frame" x="3" y="0.0" width="124" height="20"/>
+                            <rect key="frame" x="6" y="0.0" width="118" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -32,13 +32,13 @@
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="KI4-xG-dwU" secondAttribute="bottom" id="8mp-FF-dL5"/>
-                        <constraint firstItem="KI4-xG-dwU" firstAttribute="leading" secondItem="jew-0K-zv9" secondAttribute="leading" constant="3" id="ESp-jE-PQc"/>
+                        <constraint firstItem="KI4-xG-dwU" firstAttribute="leading" secondItem="jew-0K-zv9" secondAttribute="leading" constant="6" id="ESp-jE-PQc"/>
                         <constraint firstItem="bG5-vP-onV" firstAttribute="top" secondItem="jew-0K-zv9" secondAttribute="top" id="MWj-xl-v68"/>
                         <constraint firstAttribute="trailing" secondItem="bG5-vP-onV" secondAttribute="trailing" id="TD2-pq-BIS"/>
                         <constraint firstItem="bG5-vP-onV" firstAttribute="leading" secondItem="jew-0K-zv9" secondAttribute="leading" id="TtK-OP-OL6"/>
                         <constraint firstAttribute="width" secondItem="jew-0K-zv9" secondAttribute="height" multiplier="260:40" id="YkA-H6-O7e"/>
                         <constraint firstItem="KI4-xG-dwU" firstAttribute="top" secondItem="jew-0K-zv9" secondAttribute="top" id="jsG-D8-ZHk"/>
-                        <constraint firstAttribute="trailing" secondItem="KI4-xG-dwU" secondAttribute="trailing" constant="3" id="vpa-5F-fiq"/>
+                        <constraint firstAttribute="trailing" secondItem="KI4-xG-dwU" secondAttribute="trailing" constant="6" id="vpa-5F-fiq"/>
                         <constraint firstAttribute="bottom" secondItem="bG5-vP-onV" secondAttribute="bottom" id="xK4-vK-fXG"/>
                     </constraints>
                 </view>

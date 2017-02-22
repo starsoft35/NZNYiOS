@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="hVv-9J-QJa" customClass="CYHeaderTimeCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EwK-53-Q01" userLabel="1.时间-View">
+                    <rect key="frame" x="122.5" y="9.5" width="130" height="20"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="日期时间背景.png" translatesAutoresizingMaskIntoConstraints="NO" id="rTx-XG-Q8L" userLabel="1.0-时间背景-Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="130" height="20"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="j3K-MD-zDj" userLabel="1.1-时间-Label">
+                            <rect key="frame" x="6" y="0.0" width="118" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="rTx-XG-Q8L" secondAttribute="bottom" id="41X-NR-ruQ"/>
+                        <constraint firstItem="j3K-MD-zDj" firstAttribute="top" secondItem="EwK-53-Q01" secondAttribute="top" id="NP9-h3-Ohq"/>
+                        <constraint firstAttribute="width" secondItem="EwK-53-Q01" secondAttribute="height" multiplier="260:40" id="QBZ-B9-NLp"/>
+                        <constraint firstItem="rTx-XG-Q8L" firstAttribute="top" secondItem="EwK-53-Q01" secondAttribute="top" id="QT5-Cq-WKb"/>
+                        <constraint firstAttribute="trailing" secondItem="j3K-MD-zDj" secondAttribute="trailing" constant="6" id="YGB-cX-f1n"/>
+                        <constraint firstAttribute="bottom" secondItem="j3K-MD-zDj" secondAttribute="bottom" id="c7r-Pq-Wv2"/>
+                        <constraint firstItem="rTx-XG-Q8L" firstAttribute="leading" secondItem="EwK-53-Q01" secondAttribute="leading" id="ecV-X7-zjx"/>
+                        <constraint firstAttribute="trailing" secondItem="rTx-XG-Q8L" secondAttribute="trailing" id="fa4-hq-Pau"/>
+                        <constraint firstItem="j3K-MD-zDj" firstAttribute="leading" secondItem="EwK-53-Q01" secondAttribute="leading" constant="6" id="flz-9x-fF3"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="EwK-53-Q01" firstAttribute="height" secondItem="hVv-9J-QJa" secondAttribute="height" multiplier="40:80" id="Isl-ep-OKe"/>
+                <constraint firstItem="EwK-53-Q01" firstAttribute="centerY" secondItem="hVv-9J-QJa" secondAttribute="centerY" id="eTh-By-cFp"/>
+                <constraint firstItem="EwK-53-Q01" firstAttribute="centerX" secondItem="hVv-9J-QJa" secondAttribute="centerX" id="obl-Tq-9VV"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="timeLab" destination="j3K-MD-zDj" id="3Ms-UF-s3v"/>
+            </connections>
+            <point key="canvasLocation" x="27.5" y="100"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="日期时间背景.png" width="130" height="20"/>
+    </resources>
+</document>

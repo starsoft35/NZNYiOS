@@ -13,18 +13,19 @@
 // 好友申请：View
 #import "CYFriendApplyView.h"
 
-
-// 好友申请列表
+// 系统消息列表:VC
+#import "CYSystemNewsVC.h"
+// 好友申请列表:VC
 #import "CYMyFriendApplyListVC.h"
 
 // 模型
 #import "CYMyFriendApplyListCellModel.h"
 
 
-// 聊天界面
+// 聊天界面:VC
 #import "CYChatVC.h"
 
-// 我的好友VC
+// 我的好友:VC
 #import "CYMyFriendVC.h"
 
 
@@ -301,6 +302,10 @@
 // 系统消息：View：点击事件
 - (void)systemNewsViewClick{
     NSLog(@"系统消息：View：点击事件");
+    
+    CYSystemNewsVC *systemNewsVC = [[CYSystemNewsVC alloc] init];
+    
+    [self.navigationController pushViewController:systemNewsVC animated:YES];
 }
 
 
