@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -63,13 +63,13 @@
                     <rect key="frame" x="13" y="93.5" width="349" height="33.5"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Right-.png" translatesAutoresizingMaskIntoConstraints="NO" id="nbL-eS-LVZ" userLabel="7.3.下一页-Image View">
-                            <rect key="frame" x="340" y="9" width="9" height="16"/>
+                            <rect key="frame" x="340" y="9.5" width="9" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="nbL-eS-LVZ" secondAttribute="height" multiplier="18:32" id="bO2-Ob-1mG"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufl-qB-y10" userLabel="7.2-轮播图-View">
-                            <rect key="frame" x="27.5" y="9" width="302" height="14.5"/>
+                            <rect key="frame" x="27.5" y="0.0" width="302" height="33.5"/>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="喇叭.png" translatesAutoresizingMaskIntoConstraints="NO" id="2GR-Ds-YNh" userLabel="7.1.喇叭-Image View">
                             <rect key="frame" x="0.0" y="9.5" width="17.5" height="15"/>
@@ -80,14 +80,14 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="2GR-Ds-YNh" firstAttribute="height" secondItem="Lat-ye-vFB" secondAttribute="height" multiplier="30:68" id="4pJ-F7-I3j"/>
-                        <constraint firstItem="Ufl-qB-y10" firstAttribute="centerY" secondItem="Lat-ye-vFB" secondAttribute="centerY" id="7Sa-o1-d4y"/>
+                        <constraint firstAttribute="bottom" secondItem="Ufl-qB-y10" secondAttribute="bottom" id="7BD-c2-5p5"/>
                         <constraint firstItem="nbL-eS-LVZ" firstAttribute="leading" secondItem="Ufl-qB-y10" secondAttribute="trailing" constant="10" id="AR0-81-kdV"/>
                         <constraint firstItem="nbL-eS-LVZ" firstAttribute="height" secondItem="Lat-ye-vFB" secondAttribute="height" multiplier="32:64" id="AvH-vI-dMu"/>
                         <constraint firstItem="Ufl-qB-y10" firstAttribute="leading" secondItem="2GR-Ds-YNh" secondAttribute="trailing" constant="10" id="MJD-Gk-6Jq"/>
                         <constraint firstItem="2GR-Ds-YNh" firstAttribute="centerY" secondItem="Lat-ye-vFB" secondAttribute="centerY" id="QZL-1Y-ELw"/>
                         <constraint firstAttribute="trailing" secondItem="nbL-eS-LVZ" secondAttribute="trailing" id="SDK-VZ-3YF"/>
                         <constraint firstItem="2GR-Ds-YNh" firstAttribute="leading" secondItem="Lat-ye-vFB" secondAttribute="leading" id="VSP-2H-qv7"/>
-                        <constraint firstItem="Ufl-qB-y10" firstAttribute="height" secondItem="Lat-ye-vFB" secondAttribute="height" multiplier="30:68" id="kEw-Hf-lBj"/>
+                        <constraint firstItem="Ufl-qB-y10" firstAttribute="top" secondItem="Lat-ye-vFB" secondAttribute="top" id="WXY-z7-1qP"/>
                         <constraint firstItem="nbL-eS-LVZ" firstAttribute="centerY" secondItem="Lat-ye-vFB" secondAttribute="centerY" id="tK0-Ii-oJi"/>
                     </constraints>
                 </view>

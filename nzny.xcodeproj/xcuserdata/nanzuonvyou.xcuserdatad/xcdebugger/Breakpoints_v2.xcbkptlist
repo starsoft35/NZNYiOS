@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x793e;&#x533a;/Controller/CYCommunityViewController.m"
-            timestampString = "507980786.945481"
+            timestampString = "509537272.373756"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "-offlineActiveImgViewClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -761,13 +761,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/NavigationVC/&#x6d88;&#x606f;&#x5217;&#x8868;/&#x7cfb;&#x7edf;&#x6d88;&#x606f;/Controller/CYSystemNewsVC.m"
-            timestampString = "509447863.673912"
+            filePath = "NZNYiOS/&#x793e;&#x533a;/Controller/CYCommunityViewController.m"
+            timestampString = "509520562.733331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-creatView"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-viewWillAppear:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

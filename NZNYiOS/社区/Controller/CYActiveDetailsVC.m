@@ -36,6 +36,9 @@ UIWebViewDelegate
 
 
 
+// webView
+@property (nonatomic, strong) UIWebView *mainWebView;
+
 
 
 @end
@@ -56,6 +59,23 @@ NSInteger tagCount;//全局变量
     
     // 设置活动报名navigationBar
     [self setActiveEnrollRightNavigationBar];
+    
+    
+    
+    
+    _mainWebView = [[UIWebView alloc]initWithFrame:CGRectMake(25.0 / 750.0 * cScreen_Width, 18.0 / 1334.0 * cScreen_Height, cScreen_Width - 2 * 25.0 / 750.0 * cScreen_Width, cScreen_Height - 64 - 18.0 / 1334.0 * cScreen_Height)];
+    
+    _mainWebView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - 64 - 18.0 / 1334.0 * cScreen_Height);
+    
+    _mainWebView.backgroundColor = [UIColor whiteColor];
+    
+    //            webView.scalesPageToFit = YES;
+    
+    _mainWebView.delegate = self;
+    
+//    [webView loadHTMLString:_HTMLData baseURL:nil];
+    [self.view addSubview:_mainWebView];
+    
     
     
     
@@ -147,6 +167,8 @@ NSInteger tagCount;//全局变量
             NSLog(@"社区活动详情：获取成功！：%@",responseObject);
             
             
+            
+            
             // 解析数据，模型存到数组
             //            [self.dataArray addObject:[[CYSetUpAboutUsVCModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil]];
             
@@ -190,10 +212,14 @@ NSInteger tagCount;//全局变量
             
             webView.delegate = self;
             
+//            [self.mainWebView loadHTMLString:_HTMLData baseURL:nil];
             [webView loadHTMLString:_HTMLData baseURL:nil];
+
+            
             [self.view addSubview:webView];
             
-            
+            [self hidenLoadingView];
+            [self.view bringSubviewToFront:self.hud];
             
             
             

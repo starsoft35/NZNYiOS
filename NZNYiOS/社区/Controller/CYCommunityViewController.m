@@ -95,11 +95,43 @@
 // 添加视图
 - (void)addView{
     
-    
+    [self.topView setNeedsLayout];
+    [self.topView layoutIfNeeded];
     // 上部
     _topView = [[[NSBundle mainBundle] loadNibNamed:@"CYCommunityHeaderView" owner:nil options:nil] lastObject];
     
+    
     _topView.frame = CGRectMake(0, 0, cScreen_Width, 294.0 / 1334.0 * cScreen_Height);
+    NSLog(@"cScreen_Height:%f",cScreen_Height);
+    NSLog(@"_topView.frame.size.height:%f",_topView.frame.size.height);
+    NSLog(@"_topView.activeNotiveView.frame.size.height:%f",_topView.activeNotiveView.frame.size.height);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.size.height:%f",_topView.activeNoticeCarouselView.frame.size.height);
+    
+    // 广告轮播
+    _topView.activeNotiveView.frame = CGRectMake(0, 0, cScreen_Width, 34.0 / 147.0 * _topView.frame.size.height);
+    _topView.activeNoticeCarouselView.frame = CGRectMake(0, 0, cScreen_Width, 15.0 / 34.0 * _topView.activeNotiveView.frame.size.height);
+    
+//    _topView.activeNoticeCarouselView.frame.size.height = 2;
+    _topView.activeNotiveView.backgroundColor = [UIColor cyanColor];
+    
+    _topView.activeNoticeCarouselView.backgroundColor = [UIColor redColor];
+    
+    _topView.activeNoticeCarouselView.frame = CGRectMake(0, 0, cScreen_Width, 15.0 / 34.0 * _topView.activeNotiveView.frame.size.height);
+    UILabel *firstLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _topView.activeNoticeCarouselView.frame.size.width, _topView.activeNoticeCarouselView.frame.size.height)];
+    firstLab.text = @"这是第一个label";
+    firstLab.textAlignment = NSTextAlignmentLeft;
+    [firstLab setFont:[UIFont systemFontOfSize:9]];
+    [_topView.activeNoticeCarouselView addSubview:firstLab];
+    
+    
+    
+    
+    NSLog(@"_topView.frame.size.height:%f",_topView.frame.size.height);
+    NSLog(@"_topView.activeNotiveView.frame.size.height:%f",_topView.activeNotiveView.frame.size.height);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.origin.y:%f",_topView.activeNoticeCarouselView.frame.origin.y);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.origin.x:%f",_topView.activeNoticeCarouselView.frame.origin.x);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.size.width:%f",_topView.activeNoticeCarouselView.frame.size.width);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.size.height:%f",_topView.activeNoticeCarouselView.frame.size.height);
     
     // 线下活动：imageView：点击事件
     _topView.offlineActiveImgView.userInteractionEnabled = YES;
@@ -127,6 +159,45 @@
 //    tempChatListVC.view.frame = CGRectMake(0, 294.0 / 1334.0 * cScreen_Height, cScreen_Width, 407);
     communityActiveCellVC.baseTableView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height - 294.0 / 1334.0 * cScreen_Height - 64 - 49);
     [self.view addSubview:communityActiveCellVC.view];
+    
+    
+    
+    [self viewWillLayoutSubviews];
+}
+
+// 重写这个方法，可以获取到xib真实的frame
+- (void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    NSLog(@"viewWillLayoutSubviews");
+    
+//    _topView.activeNoticeCarouselView.frame = CGRectMake(0, 0, cScreen_Width, 15.0 / 34.0 * _topView.activeNotiveView.frame.size.height);
+//    UILabel *firstLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _topView.activeNoticeCarouselView.frame.size.width, _topView.activeNoticeCarouselView.frame.size.height)];
+//    firstLab.text = @"这是第一个label";
+//    firstLab.textAlignment = NSTextAlignmentLeft;
+//    [firstLab setFont:[UIFont systemFontOfSize:9]];
+//    [_topView.activeNoticeCarouselView addSubview:firstLab];
+    
+    NSLog(@"_topView.frame.size.height:%f",_topView.frame.size.height);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.origin.y:%f",_topView.activeNoticeCarouselView.frame.origin.y);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.origin.x:%f",_topView.activeNoticeCarouselView.frame.origin.x);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.size.width:%f",_topView.activeNoticeCarouselView.frame.size.width);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.size.height:%f",_topView.activeNoticeCarouselView.frame.size.height);
+    
+}
+//
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    NSLog(@"viewDidLayoutSubviews");
+    
+    
+//    _topView.activeNoticeCarouselView.frame = CGRectMake(0, 0, cScreen_Width, 15.0 / 34.0 * _topView.activeNotiveView.frame.size.height);
+    
+    
+    NSLog(@"_topView.frame.size.height:%f",_topView.frame.size.height);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.origin.y:%f",_topView.activeNoticeCarouselView.frame.origin.y);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.origin.x:%f",_topView.activeNoticeCarouselView.frame.origin.x);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.size.width:%f",_topView.activeNoticeCarouselView.frame.size.width);
+    NSLog(@"_topView.activeNoticeCarouselView.frame.size.height:%f",_topView.activeNoticeCarouselView.frame.size.height);
 }
 
 // 线下活动：imageView：点击事件

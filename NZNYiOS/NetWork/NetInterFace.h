@@ -264,6 +264,8 @@
 #define cAddApplyFriendUrl (@"api/Relationship/AddApplyFriend")
 // 5.3.1.2-拒绝好友申请
 #define cDelApplyFriendUrl (@"api/Relationship/DelApplyFriend")
+// 5.3.2-系统消息列表
+#define cMySysMessageListUrl (@"api/SysMessage/MySysMessageList")
 
 
 // 5.4-设置
