@@ -147,10 +147,15 @@
 - (void)WXPay{
     
     
+    float moneyYuan = [_rechargeView.rechargeCountTF.text floatValue];
+    
+    int moneyFen = moneyYuan * 100;
+    NSLog(@"moneyYuan:%f",moneyYuan);
+    NSLog(@"moneyFen:%d",moneyFen);
     
     
     // 网络请求：微信支付-统一下单
-    NSString *newUrl = [NSString stringWithFormat:@"%@?total_fee=%d&spbill_create_ip=%@",cWechatPaymentUnifiedOrderUrl,[_rechargeView.rechargeCountTF.text intValue],[self getIPAddress]];
+    NSString *newUrl = [NSString stringWithFormat:@"%@?total_fee=%d&spbill_create_ip=%@",cWechatPaymentUnifiedOrderUrl,moneyFen,[self getIPAddress]];
     NSLog(@"newUrl:weChatPay:%@",newUrl);
     
     
@@ -166,7 +171,7 @@
         // 通信标识
         NSString *return_code = responseObject[@"return_code"];
         // 业务结果
-        NSString *result_code = responseObject[@"result_code"];
+//        NSString *result_code = responseObject[@"result_code"];
         
         
         // 通信:
@@ -176,8 +181,8 @@
             
             
             // 业务
-            if ([result_code isEqualToString:@"SUCCESS"]) {
-                
+//            if ([result_code isEqualToString:@"SUCCESS"]) {
+            
                 
                 // 清空：每次刷新都需要
                 [self.dataArray removeAllObjects];
@@ -188,25 +193,25 @@
                 // 向微信发起请求：支付
                 [self requestWeChatPay];
                 
-            }
-            else {
-                
-                NSLog(@"微信支付-统一下单：业务：结果失败:responseObject:%@",responseObject);
-                
-                // 1.2.1.1.2.2、我的粉丝失败：弹窗提示：获取失败的返回信息
-                [self showHubWithLabelText:@"请求失败" andHidAfterDelay:3.0];
-
-            }
+//            }
+//            else {
+//                
+//                NSLog(@"微信支付-统一下单：业务：结果失败:responseObject:%@",responseObject);
+//                
+//                // 1.2.1.1.2.2、我的粉丝失败：弹窗提示：获取失败的返回信息
+//                [self showHubWithLabelText:@"请求失败" andHidAfterDelay:3.0];
+//
+//            }
             
             
-            // 请求数据结束，取消加载
-            [self hidenLoadingView];
+//            // 请求数据结束，取消加载
+//            [self hidenLoadingView];
             
         }
         else{
             NSLog(@"微信支付-统一下单：通信标识：结果失败:responseObject:%@",responseObject);
             // 1.2.1.1.2.2、我的粉丝失败：弹窗提示：获取失败的返回信息
-            [self showHubWithLabelText:@"请求失败" andHidAfterDelay:3.0];
+            [self showHubWithLabelText:return_code andHidAfterDelay:3.0];
             
         }
         
@@ -242,16 +247,16 @@
         PayReq *request = [[PayReq alloc] init];
         
         // 商户号
-        request.partnerId = tempWeChatPayModel.mch_id;
+        request.partnerId = tempWeChatPayModel.partnerId;
         
         // 预支付交易会话ID
-        request.prepayId= tempWeChatPayModel.prepay_id;
+        request.prepayId= tempWeChatPayModel.prepayId;
         
         // 扩展字段
-        request.package = @"Sign=WXPay";
+        request.package = tempWeChatPayModel.package;
         
         // 随机字符串
-        request.nonceStr= tempWeChatPayModel.nonce_str;
+        request.nonceStr= tempWeChatPayModel.nonceStr;
         
         // 时间戳
         // 获取时间戳
@@ -259,7 +264,10 @@
         NSLog(@"interval:%f",interval);
         
         request.timeStamp = interval;
-        NSLog(@"request.timeStamp:%d",request.timeStamp);
+        
+        request.timeStamp = [tempWeChatPayModel.timeStamp intValue];
+        
+        NSLog(@"request.timeStamp:%d",(unsigned int)request.timeStamp);
         
         
         // 签名
@@ -268,6 +276,8 @@
         
         [WXApi sendReq:request];
         
+        // 请求数据结束，取消加载
+        [self hidenLoadingView];
     }
     
     

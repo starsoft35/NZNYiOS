@@ -233,22 +233,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x8d26;&#x6237;&#x4f59;&#x989d;/&#x5145;&#x503c;/Controller/CYRechargeVC.m"
-            timestampString = "506778846.008512"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
-            landmarkName = "-WXPay"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x89c6;&#x9891;/&#x5173;&#x6ce8;/&#x4ed6;&#x4eba;&#x8be6;&#x60c5;&#x9875;/&#x8d44;&#x6599;&#x3001;&#x89c6;&#x9891;&#x3001;&#x76f4;&#x64ad;/&#x8d44;&#x6599;/&#x8bda;&#x4fe1;&#x7b49;&#x7ea7;/Controller/CYCertificateDetailVC.m"
             timestampString = "506778556.720451"
             startingColumnNumber = "9223372036854775807"
@@ -272,22 +256,6 @@
             startingLineNumber = "207"
             endingLineNumber = "207"
             landmarkName = "-offlineActiveImgViewClick"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x8d26;&#x6237;&#x4f59;&#x989d;/&#x5145;&#x503c;/Controller/CYRechargeVC.m"
-            timestampString = "508218846.130449"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "-confirmPayBtnClick"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -673,6 +641,38 @@
             endingLineNumber = "419"
             landmarkName = "-alivcLiveVideoLiveSessionNetworkSlow:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AlivcLiveViewController alivcLiveVideoLiveSessionNetworkSlow:]"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
+                  timestampString = "509794849.422208"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "419"
+                  endingLineNumber = "419"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__64-[AlivcLiveViewController alivcLiveVideoLiveSessionNetworkSlow:]_block_invoke"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
+                  timestampString = "509794849.423534"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "420"
+                  endingLineNumber = "420"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -768,6 +768,70 @@
             startingLineNumber = "51"
             endingLineNumber = "51"
             landmarkName = "-viewWillAppear:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x8d26;&#x6237;&#x4f59;&#x989d;/&#x5145;&#x503c;/Controller/CYRechargeVC.m"
+            timestampString = "509793899.234925"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "-WXPay"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x8d26;&#x6237;&#x4f59;&#x989d;/&#x5145;&#x503c;/Controller/CYRechargeVC.m"
+            timestampString = "509793919.91346"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "-requestWeChatPay"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/AppDelegate.m"
+            timestampString = "509794113.299723"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
+            landmarkName = "-onResp:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x8d26;&#x6237;&#x4f59;&#x989d;/&#x5145;&#x503c;/Controller/CYRechargeVC.m"
+            timestampString = "509794657.638115"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
+            landmarkName = "-requestWeChatPay"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

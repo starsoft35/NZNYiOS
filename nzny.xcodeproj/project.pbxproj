@@ -6112,8 +6112,8 @@
 				TargetAttributes = {
 					8A309E741D63172900F41396 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = L2X9TQTZVB;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = ZAW8YEPUB7;
+						ProvisioningStyle = Manual;
 					};
 					8A309E8D1D63172900F41396 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -7047,7 +7047,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
-				DEVELOPMENT_TEAM = L2X9TQTZVB;
+				DEVELOPMENT_TEAM = ZAW8YEPUB7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7075,9 +7075,10 @@
 					"-Objc",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nzny;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c3059855-c8d8-4132-a641-495146f5d7a3";
+				PROVISIONING_PROFILE_SPECIFIER = "2-26-test1";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -7090,7 +7091,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
-				DEVELOPMENT_TEAM = L2X9TQTZVB;
+				DEVELOPMENT_TEAM = ZAW8YEPUB7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7118,9 +7119,10 @@
 					"-Objc",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nzny;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "c3059855-c8d8-4132-a641-495146f5d7a3";
+				PROVISIONING_PROFILE_SPECIFIER = "2-26-test1";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
