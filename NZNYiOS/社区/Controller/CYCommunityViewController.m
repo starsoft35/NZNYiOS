@@ -108,20 +108,20 @@
     NSLog(@"_topView.activeNoticeCarouselView.frame.size.height:%f",_topView.activeNoticeCarouselView.frame.size.height);
     
     // 广告轮播
-    _topView.activeNotiveView.frame = CGRectMake(0, 0, cScreen_Width, 34.0 / 147.0 * _topView.frame.size.height);
-    _topView.activeNoticeCarouselView.frame = CGRectMake(0, 0, cScreen_Width, 15.0 / 34.0 * _topView.activeNotiveView.frame.size.height);
-    
-//    _topView.activeNoticeCarouselView.frame.size.height = 2;
-    _topView.activeNotiveView.backgroundColor = [UIColor cyanColor];
-    
-    _topView.activeNoticeCarouselView.backgroundColor = [UIColor redColor];
-    
-    _topView.activeNoticeCarouselView.frame = CGRectMake(0, 0, cScreen_Width, 15.0 / 34.0 * _topView.activeNotiveView.frame.size.height);
-    UILabel *firstLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _topView.activeNoticeCarouselView.frame.size.width, _topView.activeNoticeCarouselView.frame.size.height)];
-    firstLab.text = @"这是第一个label";
-    firstLab.textAlignment = NSTextAlignmentLeft;
-    [firstLab setFont:[UIFont systemFontOfSize:9]];
-    [_topView.activeNoticeCarouselView addSubview:firstLab];
+//    _topView.activeNotiveView.frame = CGRectMake(0, 0, cScreen_Width, 34.0 / 147.0 * _topView.frame.size.height);
+//    _topView.activeNoticeCarouselView.frame = CGRectMake(0, 0, cScreen_Width, 15.0 / 34.0 * _topView.activeNotiveView.frame.size.height);
+//    
+////    _topView.activeNoticeCarouselView.frame.size.height = 2;
+//    _topView.activeNotiveView.backgroundColor = [UIColor cyanColor];
+//    
+//    _topView.activeNoticeCarouselView.backgroundColor = [UIColor redColor];
+//    
+//    _topView.activeNoticeCarouselView.frame = CGRectMake(0, 0, cScreen_Width, 15.0 / 34.0 * _topView.activeNotiveView.frame.size.height);
+//    UILabel *firstLab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _topView.activeNoticeCarouselView.frame.size.width, _topView.activeNoticeCarouselView.frame.size.height)];
+//    firstLab.text = @"这是第一个label";
+//    firstLab.textAlignment = NSTextAlignmentLeft;
+//    [firstLab setFont:[UIFont systemFontOfSize:9]];
+//    [_topView.activeNoticeCarouselView addSubview:firstLab];
     
     
     
