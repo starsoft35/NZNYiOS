@@ -1,13 +1,15 @@
 {
   "images" : [
     {
-      "idiom" : "iphone",
       "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "40-1.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "60-1.png",
       "scale" : "3x"
     },
     {
@@ -17,13 +19,15 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "58-1.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "29x29",
+      "idiom" : "iphone",
+      "filename" : "87-1.png",
       "scale" : "3x"
     },
     {
@@ -39,8 +43,9 @@
       "scale" : "3x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "120-1.png",
       "scale" : "2x"
     },
     {
@@ -50,8 +55,9 @@
       "scale" : "3x"
     },
     {
-      "idiom" : "ipad",
       "size" : "20x20",
+      "idiom" : "ipad",
+      "filename" : "40-2.png",
       "scale" : "1x"
     },
     {
@@ -61,8 +67,9 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "29x29",
+      "idiom" : "ipad",
+      "filename" : "29-1.png",
       "scale" : "1x"
     },
     {
@@ -72,13 +79,15 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "40-3.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "80-1.png",
       "scale" : "2x"
     },
     {
@@ -115,6 +124,7 @@
     {
       "size" : "29x29",
       "idiom" : "watch",
+      "filename" : "58-2.png",
       "role" : "companionSettings",
       "scale" : "2x"
     },
@@ -128,6 +138,7 @@
     {
       "size" : "40x40",
       "idiom" : "watch",
+      "filename" : "40-4.png",
       "scale" : "2x",
       "role" : "appLauncher",
       "subtype" : "38mm"

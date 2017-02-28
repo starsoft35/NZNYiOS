@@ -21,7 +21,7 @@
     // 视频背景
 //    _videoBgImgView.image = [UIImage imageNamed:videoCellModel.videoBgImgName];
 //    _videoBgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:videoCellModel.VideoUserPortrait];
-    if ([videoCellModel.VideoUserPortrait isEqualToString:@""]) {
+    if ([videoCellModel.VideoUserPortrait isEqualToString:@""] || videoCellModel.VideoUserPortrait == nil) {
         
         _videoBgImgView.image = [UIImage imageNamed:@"默认头像"];
     }

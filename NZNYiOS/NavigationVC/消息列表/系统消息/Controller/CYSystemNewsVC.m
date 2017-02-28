@@ -436,8 +436,8 @@
 // height：cell
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"indexPath.section:%ld",indexPath.section);
-    NSLog(@"indexPath.row:%ld",indexPath.row);
+    NSLog(@"indexPath.section:%ld",(long)indexPath.section);
+    NSLog(@"indexPath.row:%ld",(long)indexPath.row);
     
     CYSystemNewsCellModel *systemNewsCellModel = self.dataArray[indexPath.section];
     

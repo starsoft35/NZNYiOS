@@ -15,6 +15,9 @@
 
 // 系统消息列表:VC
 #import "CYSystemNewsVC.h"
+// 所有的系统消息：分类：VC
+#import "CYAllSystemNewsVC.h"
+
 // 好友申请列表:VC
 #import "CYMyFriendApplyListVC.h"
 
@@ -148,7 +151,7 @@
             }
             else {
                 //                self.unReadCountLab.text = [NSString stringWithFormat:@"9+"];
-                self.friendApplyView.unReadCountLab.text = [NSString stringWithFormat:@"%ld",self.myFriendApplyListArr.count];
+                self.friendApplyView.unReadCountLab.text = [NSString stringWithFormat:@"%ld",(unsigned long)self.myFriendApplyListArr.count];
                 self.friendApplyView.unReadCountImgView.hidden = NO;
             }
             
@@ -214,7 +217,7 @@
             }
             else {
                 //                self.unReadCountLab.text = [NSString stringWithFormat:@"9+"];
-                self.systemNewsView.unReadCountLab.text = [NSString stringWithFormat:@"%ld",self.myFriendApplyListArr.count];
+                self.systemNewsView.unReadCountLab.text = [NSString stringWithFormat:@"%ld",(unsigned long)self.myFriendApplyListArr.count];
                 self.systemNewsView.unReadCountImgView.hidden = NO;
             }
             
@@ -303,9 +306,16 @@
 - (void)systemNewsViewClick{
     NSLog(@"系统消息：View：点击事件");
     
-    CYSystemNewsVC *systemNewsVC = [[CYSystemNewsVC alloc] init];
+//    CYSystemNewsVC *systemNewsVC = [[CYSystemNewsVC alloc] init];
+//    
+//    [self.navigationController pushViewController:systemNewsVC animated:YES];
     
-    [self.navigationController pushViewController:systemNewsVC animated:YES];
+    
+    CYAllSystemNewsVC *allSystemNewsVC = [[CYAllSystemNewsVC alloc] init];
+    
+    [self.navigationController pushViewController:allSystemNewsVC animated:YES];
+    
+    
 }
 
 

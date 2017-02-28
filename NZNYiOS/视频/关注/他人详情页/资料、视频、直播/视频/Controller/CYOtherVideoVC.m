@@ -199,6 +199,15 @@
     [cell.connectBtn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     
     
+    // 他人详情页：模型
+    CYOthersInfoViewModel *othersInfoViewModel = [[CYOthersInfoViewModel alloc] init];
+    if (self.dataArray.count > 0) {
+        
+        othersInfoViewModel = self.dataArray[indexPath.row];
+    }
+    
+    
+    // 视频cell：模型
     CYOtherVideoCellModel *videoCellModel = self.videoListDataArr[indexPath.row];
     
     
@@ -206,6 +215,9 @@
     CYVideoCollectionViewCellModel *tempCollectionModel = [[CYVideoCollectionViewCellModel alloc] init];
     
     tempCollectionModel.videoBgImgName = @"117.jpg";
+    
+    tempCollectionModel.VideoUserPortrait = othersInfoViewModel.Portrait;
+    
     tempCollectionModel.VideoUserName = [NSString stringWithFormat:@"%.1f M",videoCellModel.Size];
     tempCollectionModel.connectTitle = [NSString stringWithFormat:@"分享"];
     

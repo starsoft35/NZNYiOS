@@ -18,6 +18,7 @@
 		8A309E7A1D63172900F41396 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A309E791D63172900F41396 /* main.m */; };
 		8A309E881D63172900F41396 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A309E861D63172900F41396 /* LaunchScreen.storyboard */; };
 		8A309E931D63172900F41396 /* NZNYiOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A309E921D63172900F41396 /* NZNYiOSTests.m */; };
+		8A32A6D01E6518FC00B3F285 /* CYAllSystemNewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A32A6CF1E6518FC00B3F285 /* CYAllSystemNewsVC.m */; };
 		8A37F1221E481DB500D7EB3B /* 编辑1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A37F11F1E481DB500D7EB3B /* 编辑1.png */; };
 		8A37F1231E481DB500D7EB3B /* 编辑1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A37F1201E481DB500D7EB3B /* 编辑1@2x.png */; };
 		8A37F1241E481DB500D7EB3B /* 编辑1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A37F1211E481DB500D7EB3B /* 编辑1@3x.png */; };
@@ -840,6 +841,8 @@
 		8A309E8E1D63172900F41396 /* nznyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = nznyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A309E921D63172900F41396 /* NZNYiOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NZNYiOSTests.m; sourceTree = "<group>"; };
 		8A309E941D63172900F41396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A32A6CE1E6518FC00B3F285 /* CYAllSystemNewsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYAllSystemNewsVC.h; sourceTree = "<group>"; };
+		8A32A6CF1E6518FC00B3F285 /* CYAllSystemNewsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAllSystemNewsVC.m; sourceTree = "<group>"; };
 		8A37F11F1E481DB500D7EB3B /* 编辑1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "编辑1.png"; sourceTree = "<group>"; };
 		8A37F1201E481DB500D7EB3B /* 编辑1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "编辑1@2x.png"; sourceTree = "<group>"; };
 		8A37F1211E481DB500D7EB3B /* 编辑1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "编辑1@3x.png"; sourceTree = "<group>"; };
@@ -2057,6 +2060,37 @@
 				8A309E941D63172900F41396 /* Info.plist */,
 			);
 			path = NZNYiOSTests;
+			sourceTree = "<group>";
+		};
+		8A32A6D11E6521CD00B3F285 /* 其他消息 */ = {
+			isa = PBXGroup;
+			children = (
+				8A32A6D21E6521CD00B3F285 /* Controller */,
+				8A32A6D31E6521CE00B3F285 /* Model */,
+				8A32A6D41E6521CE00B3F285 /* View */,
+			);
+			path = "其他消息";
+			sourceTree = "<group>";
+		};
+		8A32A6D21E6521CD00B3F285 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8A32A6D31E6521CE00B3F285 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8A32A6D41E6521CE00B3F285 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8A653D031E46CCCA00B5B01B /* IMYWebView */ = {
@@ -5989,6 +6023,7 @@
 				8A997DE31E5D293A00F74EA2 /* header时间cell */,
 				8A997DD01E5D1EBE00F74EA2 /* 活动反馈 */,
 				8A997DD41E5D1EBE00F74EA2 /* 问答反馈 */,
+				8A32A6D11E6521CD00B3F285 /* 其他消息 */,
 			);
 			path = "系统消息";
 			sourceTree = "<group>";
@@ -5998,6 +6033,8 @@
 			children = (
 				8AD4779E1E5823410026B846 /* CYSystemNewsVC.h */,
 				8AD4779F1E5823410026B846 /* CYSystemNewsVC.m */,
+				8A32A6CE1E6518FC00B3F285 /* CYAllSystemNewsVC.h */,
+				8A32A6CF1E6518FC00B3F285 /* CYAllSystemNewsVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -6800,6 +6837,7 @@
 				8A6A8EAF1E4AFB0C00B19835 /* CYGiveGiftTipWithMoneyView.m in Sources */,
 				8A6A8EB21E4B221800B19835 /* CYLikeTipWithMoneyView.m in Sources */,
 				8AD17C6C1E30E68600A3579C /* CYCommunityHomePageCellModel.m in Sources */,
+				8A32A6D01E6518FC00B3F285 /* CYAllSystemNewsVC.m in Sources */,
 				8AD17F301E30E68700A3579C /* CYBaseSwipeViewController.m in Sources */,
 				8AD17C8A1E30E68600A3579C /* CYLikeTipView.m in Sources */,
 				8AD17C761E30E68600A3579C /* CYVideoCollectionViewCellModel.m in Sources */,
@@ -7045,7 +7083,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: NAN ZUO NV YOU SHANGHAI INFORMATION TECHNOLOGY CO LTD (ZAW8YEPUB7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NAN ZUO NV YOU SHANGHAI INFORMATION TECHNOLOGY CO LTD (ZAW8YEPUB7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
 				DEVELOPMENT_TEAM = ZAW8YEPUB7;
 				ENABLE_BITCODE = NO;
@@ -7077,8 +7115,8 @@
 				"OTHER_LDFLAGS[arch=*]" = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5599c17a-18e5-44a5-a4ed-88ff179d732f";
-				PROVISIONING_PROFILE_SPECIFIER = "2-27-Profile";
+				PROVISIONING_PROFILE = "15e759fc-2289-4db5-93dc-13b8732f6c32";
+				PROVISIONING_PROFILE_SPECIFIER = "2-27-test2";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -7089,7 +7127,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: NAN ZUO NV YOU SHANGHAI INFORMATION TECHNOLOGY CO LTD (ZAW8YEPUB7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: NAN ZUO NV YOU SHANGHAI INFORMATION TECHNOLOGY CO LTD (ZAW8YEPUB7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
 				DEVELOPMENT_TEAM = ZAW8YEPUB7;
 				ENABLE_BITCODE = NO;
@@ -7121,8 +7159,8 @@
 				"OTHER_LDFLAGS[arch=*]" = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5599c17a-18e5-44a5-a4ed-88ff179d732f";
-				PROVISIONING_PROFILE_SPECIFIER = "2-27-Profile";
+				PROVISIONING_PROFILE = "15e759fc-2289-4db5-93dc-13b8732f6c32";
+				PROVISIONING_PROFILE_SPECIFIER = "2-27-test2";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
