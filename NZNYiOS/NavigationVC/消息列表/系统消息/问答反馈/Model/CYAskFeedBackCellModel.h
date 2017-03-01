@@ -10,4 +10,14 @@
 
 @interface CYAskFeedBackCellModel : CYBaseModel
 
+
+// 问
+@property (nonatomic, copy) NSString *Ask;
+
+// 答
+@property (nonatomic, copy) NSString *Answer;
+
+// 创建时间
+@property (nonatomic, copy) NSString *CreateDate;
+
 @end

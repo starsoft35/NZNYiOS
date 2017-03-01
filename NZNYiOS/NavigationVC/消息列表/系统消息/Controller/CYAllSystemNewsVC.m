@@ -17,6 +17,7 @@
 // 活动提示：VC
 #import "CYActiveFeedBackVC.h"
 // 我的问答：VC
+#import "CYAskFeedBackVC.h"
 // 其他消息：VC
 
 
@@ -161,7 +162,20 @@
         
         [self.navigationController pushViewController:activeFeedBackVC animated:YES];
     }
-    
+    else if (indexPath.section == 0 && indexPath.row == 1) {
+        
+        // 第二行：问答反馈
+        CYAskFeedBackVC *askFeedBackVC = [[CYAskFeedBackVC alloc] init];
+        
+        [self.navigationController pushViewController:askFeedBackVC animated:YES];
+    }
+    else if (indexPath.section == 0 && indexPath.row == 2) {
+        
+        // 第三行：其他消息
+//        CYAskFeedBackVC *askFeedBackVC = [[CYAskFeedBackVC alloc] init];
+//        
+//        [self.navigationController pushViewController:askFeedBackVC animated:YES];
+    }
 }
 
 // cell 的高度

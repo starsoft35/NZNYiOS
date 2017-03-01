@@ -9,19 +9,14 @@
 #import "CYActiveFeedBackVC.h"
 
 
-// cell
-#import "CYActiveFeedBackCell.h"
-// 模型
-#import "CYActiveFeedBackCellModel.h"
-
 // 系统消息：列表：模型(可以用为总的模型)
-#import "CYSystemNewsCellModel.h"
+//#import "CYSystemNewsCellModel.h"
 
 // header时间：cell
 #import "CYHeaderTimeCell.h"
 
 // 活动反馈：cell
-#import "CYActiveFeedBackCell.h"
+//#import "CYActiveFeedBackCell.h"
 // 活动反馈：模型
 #import "CYActiveFeedBackCellModel.h"
 
@@ -29,8 +24,12 @@
 
 // 问答反馈：cell
 #import "CYAskFeedBackCell.h"
-// 问答反馈：模型
-#import "CYAskFeedBackCellModel.h"
+//// 问答反馈：模型
+//#import "CYAskFeedBackCellModel.h"
+
+
+// 活动详情页：VC
+#import "CYActiveDetailsVC.h"
 
 
 
@@ -66,7 +65,8 @@
     // 加载数据
     [self loadData];
     
-    
+    // 提前注册
+    [self.baseTableView registerNib:[UINib nibWithNibName:@"CYAskFeedBackCell" bundle:nil] forCellReuseIdentifier:@"CYAskFeedBackCell"];
     
 }
 
@@ -91,7 +91,7 @@
 - (void)loadData{
     
     
-    // 网络请求：系统消息列表
+    // 网络请求：活动反馈列表
     // url参数
     NSDictionary *params = @{
                              @"userId":self.onlyUser.userID,
@@ -103,11 +103,11 @@
     [self showLoadingView];
     
     // 网络请求：
-    [CYNetWorkManager getRequestWithUrl:cMySysMessageListUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"系统消息列表：网络请求：进度：%@",uploadProgress);
+    [CYNetWorkManager getRequestWithUrl:cActivitySysMessageListUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"活动反馈列表：网络请求：进度：%@",uploadProgress);
         
     } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"系统消息列表：网络请求：请求成功");
+        NSLog(@"活动反馈列表：网络请求：请求成功");
         
         // 停止刷新
         [self.baseTableView.header endRefreshing];
@@ -118,7 +118,7 @@
         
         // 1.2.1.1.2、和成功的code 匹配
         if ([code isEqualToString:@"0"]) {
-            NSLog(@"主视频热门界面：获取成功！：%@",responseObject);
+            NSLog(@"活动反馈列表：获取成功！：%@",responseObject);
             
             // 清空：每次刷新都需要：但是上拉加载、下拉刷新的不需要；
             if (self.curPage == 1) {
@@ -131,12 +131,12 @@
             [self.noDataLab removeFromSuperview];
             
             // 解析数据，模型存到数组
-            [self.dataArray addObjectsFromArray:[CYSystemNewsCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
+            [self.dataArray addObjectsFromArray:[CYActiveFeedBackCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
             
             
             if (self.dataArray.count == 0) {
                 
-                // 如果没有直播，添加提示
+                // 如果没有活动反馈，添加提示
                 [self addLabelToShowNoVideo];
             }
             
@@ -148,8 +148,8 @@
             
         }
         else{
-            NSLog(@"主视频热门界面：获取失败:responseObject:%@",responseObject);
-            NSLog(@"主视频热门界面：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            NSLog(@"活动反馈：获取失败:responseObject:%@",responseObject);
+            NSLog(@"活动反馈：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
             
             
             // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
@@ -158,7 +158,7 @@
         }
         
     } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"系统消息列表：网络请求：请求失败");
+        NSLog(@"活动反馈列表：网络请求：请求失败");
         
         
         // 停止刷新
@@ -170,93 +170,6 @@
         
     } withToken:self.onlyUser.userToken];
     
-    
-    
-    
-    
-    
-    
-    
-    
-    NSArray *tempArr = @[
-                         
-                         
-                         @{
-                             @"type":@"active",
-                             @"detailInfo":@"你瞅啥1",
-                             @"time":@"2016年08月25日 17:30"
-                             },
-                         
-                         
-                         @{
-                             @"type":@"ask",
-                             @"detailInfo":@"ask你瞅啥1",
-                             @"time":@"2016年08月25日 17:30",
-                             @"ask":@"ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1",
-                             @"answer":@"answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地"
-                             
-                             },
-                         
-                         @{
-                             @"type":@"active",
-                             @"detailInfo":@"你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2你瞅啥2",
-                             @"time":@"2016年08月26日 17:30"
-                             },
-                         
-                         @{
-                             @"type":@"active",
-                             @"detailInfo":@"你瞅啥3你瞅啥3你瞅啥3你瞅啥3你瞅啥3你瞅啥3你瞅啥3你瞅啥3你瞅啥3你瞅啥3你瞅啥3你瞅啥3你瞅啥3你瞅啥3你瞅啥3",
-                             @"time":@"2016年08月27日 17:30"
-                             },
-                         @{
-                             @"type":@"active",
-                             @"detailInfo":@"你瞅啥4",
-                             @"time":@"2016年08月28日 17:30"
-                             },
-                         @{
-                             @"type":@"active",
-                             @"detailInfo":@"你瞅啥5",
-                             @"time":@"2016年08月29日 17:30"
-                             },
-                         @{
-                             @"type":@"active",
-                             @"detailInfo":@"你瞅啥6",
-                             @"time":@"2016年08月30日 17:30"
-                             },
-                         
-                         @{
-                             @"type":@"ask",
-                             @"detailInfo":@"ask你瞅啥1",
-                             @"time":@"2016年08月25日 17:30",
-                             @"ask":@"ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1ask你瞅啥1",
-                             @"answer":@"answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地answer瞅你咋地"
-                             
-                             },
-                         @{
-                             @"type":@"active",
-                             @"detailInfo":@"你瞅啥7",
-                             @"time":@"2016年08月31日 17:30"
-                             },
-                         @{
-                             @"type":@"active",
-                             @"detailInfo":@"你瞅啥8",
-                             @"time":@"2016年09月01日 17:30"
-                             },
-                         @{
-                             @"type":@"active",
-                             @"detailInfo":@"你瞅啥9",
-                             @"time":@"2016年09月02日 17:30"
-                             },
-                         @{
-                             @"type":@"active",
-                             @"detailInfo":@"你瞅啥10",
-                             @"time":@"2016年09月03日 17:30"
-                             },
-                         
-                         ];
-    
-    
-    //    self.dataArray = (NSMutableArray *)tempArr;
     
     
     
@@ -313,9 +226,9 @@
     
     CYHeaderTimeCell *timeCell = [[[NSBundle mainBundle] loadNibNamed:@"CYHeaderTimeCell" owner:nil options:nil] lastObject];
     
-    CYSystemNewsCellModel *systemNewsCellModel = self.dataArray[section];
+    CYActiveFeedBackCellModel *activeFeedBackCellModel = self.dataArray[section];
     
-    timeCell.timeLab.text = systemNewsCellModel.CreateDate;
+    timeCell.timeLab.text = activeFeedBackCellModel.CreateDate;
     
     //    timeCell.backgroundColor = [UIColor redColor];
     timeCell.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
@@ -340,15 +253,14 @@
     
     //    UITableViewCell *cell = [[UITableViewCell alloc] init];
     
-    CYSystemNewsCellModel *systemNewsCellModel = self.dataArray[indexPath.section];
+    CYActiveFeedBackCellModel *activeFeedBackCellModel = self.dataArray[indexPath.section];
     
-    if (systemNewsCellModel.Type == 1) {
-        
+//    if (activeFeedBackCellModel.Type == 1) {
+    
         
         
         // 问答fank
-        // 提前注册
-        [self.baseTableView registerNib:[UINib nibWithNibName:@"CYAskFeedBackCell" bundle:nil] forCellReuseIdentifier:@"CYAskFeedBackCell"];
+    
         
         
         // cell
@@ -359,11 +271,11 @@
         
         
         // 问
-        cell.askLab.text = systemNewsCellModel.Ask;
+        cell.askLab.text = activeFeedBackCellModel.Title;
         cell.askLab.textColor = [UIColor colorWithRed:0.37 green:0.65 blue:0.99 alpha:1.00];
         
         // 答
-        cell.answerLab.text = systemNewsCellModel.Answer;
+        cell.answerLab.text = activeFeedBackCellModel.Content;
         
         
         
@@ -401,49 +313,49 @@
         
         
         
-    }
-    
-    else {
-        
-        
-        // 活动反馈
-        // 提前注册
-        [self.baseTableView registerNib:[UINib nibWithNibName:@"CYActiveFeedBackCell" bundle:nil] forCellReuseIdentifier:@"CYActiveFeedBackCell"];
-        
-        
-        // cell
-        CYActiveFeedBackCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CYActiveFeedBackCell" forIndexPath:indexPath];
-        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        // cell：模型
-        //    CYOfflineActivityCellModel *offlineActivityCellModel = self.dataArray[indexPath.row];
-        
-        
-        // 假数据
-        //    cell.offlineActiveCellModel = offlineActivityCellModel;
-        
-        
-        cell.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
-        
-        
-        cell.detailInfoLab.text = systemNewsCellModel.Content;
-        
-        
-        // 自动计算label的高度、宽度
-        //        CGSize tempLabelSize = [self labelAutoCalculateRectWith:cell.detailInfoLab.text FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
-        //        CGRect tempDetailLabRect = CGRectMake(cell.detailInfoLab.frame.origin.x, cell.detailInfoLab.frame.origin.y, tempLabelSize.width, tempLabelSize.height);
-        cell.detailInfoLab.numberOfLines = 0;
-        //        cell.detailInfoLab.font = [UIFont systemFontOfSize:15];
-        //        cell.detailInfoLab.adjustsFontSizeToFitWidth = NO;
-        //        cell.detailInfoLab.frame = tempDetailLabRect;
-        
-        
-        
-        
-        
-        return cell;
-        
-        
-    }
+//    }
+//    
+//    else {
+//    
+//        
+//        // 活动反馈
+//        // 提前注册
+//        [self.baseTableView registerNib:[UINib nibWithNibName:@"CYActiveFeedBackCell" bundle:nil] forCellReuseIdentifier:@"CYActiveFeedBackCell"];
+//        
+//        
+//        // cell
+//        CYActiveFeedBackCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CYActiveFeedBackCell" forIndexPath:indexPath];
+//        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        // cell：模型
+//        //    CYOfflineActivityCellModel *offlineActivityCellModel = self.dataArray[indexPath.row];
+//        
+//        
+//        // 假数据
+//        //    cell.offlineActiveCellModel = offlineActivityCellModel;
+//        
+//        
+//        cell.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
+//        
+//        
+//        cell.detailInfoLab.text = systemNewsCellModel.Content;
+//        
+//        
+//        // 自动计算label的高度、宽度
+//        //        CGSize tempLabelSize = [self labelAutoCalculateRectWith:cell.detailInfoLab.text FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+//        //        CGRect tempDetailLabRect = CGRectMake(cell.detailInfoLab.frame.origin.x, cell.detailInfoLab.frame.origin.y, tempLabelSize.width, tempLabelSize.height);
+//        cell.detailInfoLab.numberOfLines = 0;
+//        //        cell.detailInfoLab.font = [UIFont systemFontOfSize:15];
+//        //        cell.detailInfoLab.adjustsFontSizeToFitWidth = NO;
+//        //        cell.detailInfoLab.frame = tempDetailLabRect;
+//        
+//        
+//        
+//        
+//        
+//        return cell;
+//        
+//        
+//    }
     
 }
 
@@ -454,14 +366,14 @@
     NSLog(@"indexPath.section:%ld",(long)indexPath.section);
     NSLog(@"indexPath.row:%ld",(long)indexPath.row);
     
-    CYSystemNewsCellModel *systemNewsCellModel = self.dataArray[indexPath.section];
+    CYActiveFeedBackCellModel *activeFeedBackCellModel = self.dataArray[indexPath.section];
     
-    if (systemNewsCellModel.Type == 1) {
-        
+//    if (systemNewsCellModel.Type == 1) {
+    
         // 自动计算label的高度、宽度
-        CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:systemNewsCellModel.Ask FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+        CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:activeFeedBackCellModel.Title FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
         
-        CGSize tempAnswerLabelSize = [self labelAutoCalculateRectWith:systemNewsCellModel.Answer FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+        CGSize tempAnswerLabelSize = [self labelAutoCalculateRectWith:activeFeedBackCellModel.Content FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
         
 //        NSLog(@"self.dataArray.Ask:%@",self.dataArray[indexPath.section][@"Ask"]);
 //        NSLog(@"self.dataArray.Answer:%@",self.dataArray[indexPath.section][@"Answer"]);
@@ -475,16 +387,16 @@
         
         return tempHeight;
         
-    }
-    else {
-        
-        // 自动计算label的高度、宽度
-        CGSize tempLabelSize = [self labelAutoCalculateRectWith:systemNewsCellModel.Content FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
-        
-        //        return ((146.0 / 1334.0) * cScreen_Height) + (tempLabelSize.height);
-        return (73.0) + (tempLabelSize.height);
-        
-    }
+//    }
+//    else {
+//        
+//        // 自动计算label的高度、宽度
+//        CGSize tempLabelSize = [self labelAutoCalculateRectWith:systemNewsCellModel.Content FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+//        
+//        //        return ((146.0 / 1334.0) * cScreen_Height) + (tempLabelSize.height);
+//        return (73.0) + (tempLabelSize.height);
+//        
+//    }
     
 }
 
@@ -494,6 +406,24 @@
     
     //当离开某行时，让某行的选中状态消失
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    // 活动详情页
+    CYActiveFeedBackCellModel *activeFeedBackCellModel = self.dataArray[indexPath.row];
+    
+    
+    CYActiveDetailsVC *activeDetailsVC = [[CYActiveDetailsVC alloc] init];
+    
+    activeDetailsVC.activeId = activeFeedBackCellModel.ActivityId;
+    NSLog(@"activeId:%@",activeDetailsVC.activeId);
+    
+    
+//    activeDetailsVC.hidesBottomBarWhenPushed = YES;
+    
+    
+    //    [self.navigationController pushViewController:activeDetailsVC animated:YES];
+    [[self navigationControllerWithView:self.view] pushViewController:activeDetailsVC animated:YES];
+    
     
 }
 

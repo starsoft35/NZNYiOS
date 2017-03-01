@@ -57,8 +57,6 @@ NSInteger tagCount;//全局变量
     // 背景颜色
     self.view.backgroundColor = [UIColor whiteColor];
     
-    // 设置活动报名navigationBar
-    [self setActiveEnrollRightNavigationBar];
     
     
     
@@ -255,6 +253,15 @@ NSInteger tagCount;//全局变量
     
     self.title = activeDetailsVCModel.Title;
     
+    NSLog(@"activeDetailsVCModel.AllowApply:%d",activeDetailsVCModel.AllowApply);
+    
+    if (activeDetailsVCModel.AllowApply) {
+        
+        
+        // 设置活动报名navigationBar
+        [self setActiveEnrollRightNavigationBar];
+        
+    }
     
 //    // 二、使用webView加载html
 //    UIWebView * webView = [[UIWebView alloc]initWithFrame:CGRectMake(25.0 / 750.0 * cScreen_Width, 18.0 / 1334.0 * cScreen_Height, cScreen_Width - 2 * 25.0 / 750.0 * cScreen_Width, cScreen_Height - 64 - 18.0 / 1334.0 * cScreen_Height)];

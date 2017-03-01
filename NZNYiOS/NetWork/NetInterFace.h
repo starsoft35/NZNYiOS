@@ -266,6 +266,10 @@
 #define cDelApplyFriendUrl (@"api/Relationship/DelApplyFriend")
 // 5.3.2-系统消息列表
 #define cMySysMessageListUrl (@"api/SysMessage/MySysMessageList")
+// 5.3.2.1-活动提示消息列表
+#define cActivitySysMessageListUrl (@"api/SysMessage/ActivitySysMessageList")
+// 5.3.2.1-问答消息列表
+#define cAskSysMessageListUrl (@"api/SysMessage/AskSysMessageList")
 
 
 // 5.4-设置

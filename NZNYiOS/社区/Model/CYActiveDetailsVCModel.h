@@ -17,8 +17,14 @@
 // 活动内容的id
 @property (nonatomic, copy) NSString *ActivityContentId;
 
+// 是否允许申请
+@property (nonatomic, assign) BOOL AllowApply;
+
 // 附件
 @property (nonatomic, copy) NSString *Attachment;
+
+// 最大男生报名数
+@property (nonatomic, assign) NSInteger BoyMaxCount;
 
 // 内容
 @property (nonatomic, copy) NSString *Content;
@@ -34,6 +40,12 @@
 
 // 允许的标记
 @property (nonatomic, assign) NSInteger EnabledMark;
+
+// 报名费
+@property (nonatomic, assign) NSInteger Fee;
+
+// 最大女生报名数
+@property (nonatomic, assign) NSInteger GirlMaxCount;
 
 // 每个页面元素的请求
 @property (nonatomic, assign) NSInteger Hits;

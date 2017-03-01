@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,16 +22,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOg-lv-3QH" userLabel="1.标题、时间-View">
-                        <rect key="frame" x="21" y="13" width="155" height="32"/>
+                        <rect key="frame" x="21" y="10" width="187" height="38"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# 预谋邂逅预谋邂逅 #" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="xqT-n2-2Ud" userLabel="1.1-标题-Label">
-                                <rect key="frame" x="0.0" y="0.0" width="155" height="16"/>
+                                <rect key="frame" x="0.0" y="0.0" width="187" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.10194466263055801" green="0.10197005420923233" blue="0.10194308310747147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016/09/01 08:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="Un0-9g-DlV" userLabel="1.2-时间-Label">
-                                <rect key="frame" x="0.0" y="18" width="155" height="14"/>
+                                <rect key="frame" x="0.0" y="23" width="187" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.79991227388381958" green="0.80005055665969849" blue="0.7999035120010376" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -44,13 +44,13 @@
                             <constraint firstAttribute="trailing" secondItem="Un0-9g-DlV" secondAttribute="trailing" id="JB9-GD-305"/>
                             <constraint firstItem="xqT-n2-2Ud" firstAttribute="leading" secondItem="hOg-lv-3QH" secondAttribute="leading" id="Zqb-mQ-v2E"/>
                             <constraint firstAttribute="bottom" secondItem="Un0-9g-DlV" secondAttribute="bottom" id="cPj-I7-Mzd"/>
-                            <constraint firstItem="Un0-9g-DlV" firstAttribute="top" secondItem="xqT-n2-2Ud" secondAttribute="bottom" constant="2" id="j4x-qX-14X"/>
+                            <constraint firstItem="Un0-9g-DlV" firstAttribute="top" secondItem="xqT-n2-2Ud" secondAttribute="bottom" constant="5" id="j4x-qX-14X"/>
                             <constraint firstAttribute="trailing" secondItem="xqT-n2-2Ud" secondAttribute="trailing" id="m4o-kl-8Fb"/>
                             <constraint firstItem="Un0-9g-DlV" firstAttribute="leading" secondItem="hOg-lv-3QH" secondAttribute="leading" id="x4Z-wz-m8U"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在直播" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6E-KO-hIH" userLabel="3.直播状态-Label">
-                        <rect key="frame" x="360" y="22" width="61" height="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="正在直播" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="e6E-KO-hIH" userLabel="3.直播状态-Label">
+                        <rect key="frame" x="341" y="19.5" width="80" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="e6E-KO-hIH" secondAttribute="height" multiplier="4" id="9Hf-aR-Inc"/>
                         </constraints>
@@ -65,7 +65,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.2 万观看" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZ0-d8-pyL" userLabel="2.观看人数-Label">
-                        <rect key="frame" x="287" y="23" width="49" height="13"/>
+                        <rect key="frame" x="268" y="23" width="49" height="13"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -78,13 +78,13 @@
                     <constraint firstItem="hOg-lv-3QH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="Rgl-LP-YFW"/>
                     <constraint firstAttribute="trailingMargin" secondItem="h1L-al-WdI" secondAttribute="trailing" constant="13" id="UXp-pW-6Ed"/>
                     <constraint firstItem="e6E-KO-hIH" firstAttribute="centerY" secondItem="h1L-al-WdI" secondAttribute="centerY" id="gfq-V6-J9U"/>
-                    <constraint firstItem="e6E-KO-hIH" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="100:750" id="jOD-mk-5jm"/>
+                    <constraint firstItem="e6E-KO-hIH" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="130:750" id="jOD-mk-5jm"/>
                     <constraint firstItem="FZ0-d8-pyL" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="20:88" id="lcj-q1-x6M"/>
                     <constraint firstItem="FZ0-d8-pyL" firstAttribute="centerY" secondItem="e6E-KO-hIH" secondAttribute="centerY" id="orP-sv-86f"/>
-                    <constraint firstItem="hOg-lv-3QH" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="48:88" id="rLq-rm-he4"/>
+                    <constraint firstItem="hOg-lv-3QH" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="58:88" id="rLq-rm-he4"/>
                     <constraint firstItem="h1L-al-WdI" firstAttribute="leading" secondItem="e6E-KO-hIH" secondAttribute="trailing" constant="8" id="thS-8B-qG5"/>
                     <constraint firstItem="h1L-al-WdI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="vFK-Wq-hrJ"/>
-                    <constraint firstItem="FZ0-d8-pyL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hOg-lv-3QH" secondAttribute="trailing" constant="24" id="vpP-et-iBu"/>
+                    <constraint firstItem="FZ0-d8-pyL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hOg-lv-3QH" secondAttribute="trailing" constant="10" id="vpP-et-iBu"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -38,6 +38,7 @@
 		8A4FDDE91E45C4FA0076B1AB /* CYSetUpUserNeedToKnowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDDE81E45C4FA0076B1AB /* CYSetUpUserNeedToKnowVC.m */; };
 		8A4FDDEC1E45D6640076B1AB /* CYActiveDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDDEB1E45D6640076B1AB /* CYActiveDetailsVC.m */; };
 		8A4FDDEF1E45D6C90076B1AB /* CYActiveDetailsVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDDEE1E45D6C90076B1AB /* CYActiveDetailsVCModel.m */; };
+		8A5180A91E66650E00CB9A77 /* CYAskFeedBackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5180A81E66650E00CB9A77 /* CYAskFeedBackVC.m */; };
 		8A57B27F1E4EEC4B00BD4BA5 /* 弹窗关闭图X变小.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A57B27C1E4EEC4B00BD4BA5 /* 弹窗关闭图X变小.png */; };
 		8A57B2801E4EEC4B00BD4BA5 /* 弹窗关闭图X变小@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A57B27D1E4EEC4B00BD4BA5 /* 弹窗关闭图X变小@2x.png */; };
 		8A57B2811E4EEC4B00BD4BA5 /* 弹窗关闭图X变小@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A57B27E1E4EEC4B00BD4BA5 /* 弹窗关闭图X变小@3x.png */; };
@@ -867,6 +868,8 @@
 		8A4FDDEB1E45D6640076B1AB /* CYActiveDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYActiveDetailsVC.m; sourceTree = "<group>"; };
 		8A4FDDED1E45D6C90076B1AB /* CYActiveDetailsVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYActiveDetailsVCModel.h; sourceTree = "<group>"; };
 		8A4FDDEE1E45D6C90076B1AB /* CYActiveDetailsVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYActiveDetailsVCModel.m; sourceTree = "<group>"; };
+		8A5180A71E66650E00CB9A77 /* CYAskFeedBackVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYAskFeedBackVC.h; sourceTree = "<group>"; };
+		8A5180A81E66650E00CB9A77 /* CYAskFeedBackVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAskFeedBackVC.m; sourceTree = "<group>"; };
 		8A57B27C1E4EEC4B00BD4BA5 /* 弹窗关闭图X变小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗关闭图X变小.png"; sourceTree = "<group>"; };
 		8A57B27D1E4EEC4B00BD4BA5 /* 弹窗关闭图X变小@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗关闭图X变小@2x.png"; sourceTree = "<group>"; };
 		8A57B27E1E4EEC4B00BD4BA5 /* 弹窗关闭图X变小@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗关闭图X变小@3x.png"; sourceTree = "<group>"; };
@@ -2254,6 +2257,8 @@
 		8A997DD51E5D1EBE00F74EA2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8A5180A71E66650E00CB9A77 /* CYAskFeedBackVC.h */,
+				8A5180A81E66650E00CB9A77 /* CYAskFeedBackVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -6737,6 +6742,7 @@
 				8AD17EE21E30E68700A3579C /* MJRefreshAutoGifFooter.m in Sources */,
 				8AD17CDA1E30E68600A3579C /* CYMyLiveTrailerCell.m in Sources */,
 				8AD17F1E1E30E68700A3579C /* CYMyFriendApplyListVC.m in Sources */,
+				8A5180A91E66650E00CB9A77 /* CYAskFeedBackVC.m in Sources */,
 				8AD17EFA1E30E68700A3579C /* NSData+ImageContentType.m in Sources */,
 				8AD17C971E30E68600A3579C /* CYGiveGiftTipVC.m in Sources */,
 				8AD17CDF1E30E68600A3579C /* CYLivePushDetailsViewModel.m in Sources */,

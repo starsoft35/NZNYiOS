@@ -14,6 +14,17 @@
 // 消息详情
 @property (nonatomic, copy) NSString *detailInfo;
 
+// 活动Id
+@property (nonatomic, copy) NSString *ActivityId;
+
+// 活动内容
+@property (nonatomic, copy) NSString *Content;
+
+// 创建时间
+@property (nonatomic, copy) NSString *CreateDate;
+
+// 标题
+@property (nonatomic, copy) NSString *Title;
 
 
 @end
