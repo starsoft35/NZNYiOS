@@ -13,6 +13,12 @@
 #import "IMYWebView.h"
 
 
+// 活动报名提示：弹窗
+#import "CYActiveEnrollConditionTipView.h"
+
+
+
+
 
 @interface CYActiveDetailsVC ()
 <
@@ -40,6 +46,9 @@ UIWebViewDelegate
 @property (nonatomic, strong) UIWebView *mainWebView;
 
 
+
+// 活动报名提示：弹窗：View
+@property (nonatomic, strong) CYActiveEnrollConditionTipView *activeEnrollConditionTipView;
 
 @end
 
@@ -96,9 +105,69 @@ NSInteger tagCount;//全局变量
 - (void)activeEnrollRightBarBtnItemClick{
     NSLog(@"活动报名：navigationBarClick");
     
-    // 网络请求：活动报名    
-    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&activityContentId=%@",cActivityApplyUrl,self.onlyUser.userID,self.activeId];
+    
+    // 活动报名提示：弹窗
+//    CYActiveEnrollConditionTipView *ativeEnrollConditionTipView = [[CYActiveEnrollConditionTipView alloc] init];
+    
+    _activeEnrollConditionTipView = [[[NSBundle mainBundle] loadNibNamed:@"CYActiveEnrollConditionTipView" owner:nil options:nil] lastObject];
+    
+    
+    
+    // 赋值
+    // 报名费：
+    NSString *activeFee = [NSString stringWithFormat:@"活动费用：%ld",(long)self.activeDetailsVCModel.Fee];
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:activeFee];
+    
+    [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.87 green:0.17 blue:0.19 alpha:1.00] range:[activeFee rangeOfString:[NSString stringWithFormat:@"%ld",self.activeDetailsVCModel.Fee]]];
+    [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00] range:[activeFee rangeOfString:@"活动费用："]];
+    
+    _activeEnrollConditionTipView.activeFeeLab.attributedText = attributedString.copy;
+//    _activeEnrollConditionTipView.activeFeeLab.text = [NSString stringWithFormat:@"活动费用：%ld",(long)self.activeDetailsVCModel.Fee];
+    
+    
+    _activeEnrollConditionTipView.frame = CGRectMake(0, -64, cScreen_Width, cScreen_Height);
+    
+    _activeEnrollConditionTipView.backgroundColor = [UIColor clearColor];
+    _activeEnrollConditionTipView.backgroundColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:0.80];
+    //    _giveGiftTipView.giveGiftBgImgView.hidden = YES;
+    
+    // tipCloseBtn：关闭弹窗：点击事件
+    [_activeEnrollConditionTipView.tipCloseBtn addTarget:self action:@selector(tipCloseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    // 确认报名：button：点击事件
+    [_activeEnrollConditionTipView.confirmEnrollBtn addTarget:self action:@selector(confirmEnrollBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:_activeEnrollConditionTipView];
+    
+    
+    
+    
+    
+    
+    
+}
 
+
+// tipCloseBtn：关闭弹窗：点击事件
+- (void)tipCloseBtnClick{
+    NSLog(@"tipCloseBtn：关闭弹窗：点击事件");
+    
+    [self.activeEnrollConditionTipView removeFromSuperview];
+}
+
+// 确认报名：button：点击事件
+- (void)confirmEnrollBtnClick{
+    NSLog(@"确认报名：button：点击事件");
+    
+    // hud：放到最上层
+    [self.view bringSubviewToFront:self.hud];
+    
+    
+    // 网络请求：活动报名
+    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&activityContentId=%@",cActivityApplyUrl,self.onlyUser.userID,self.activeId];
+    
     
     // 网络请求：活动报名
     [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
@@ -108,6 +177,9 @@ NSInteger tagCount;//全局变量
     } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"活动报名：请求成功！");
         
+        
+        // 关闭弹窗
+        [self tipCloseBtnClick];
         
         // 1、
         NSString *code = responseObject[@"code"];
@@ -132,11 +204,14 @@ NSInteger tagCount;//全局变量
         NSLog(@"活动报名：请求失败！");
         NSLog(@"失败原因：error：%@",error);
         
+        // 关闭弹窗
+        [self tipCloseBtnClick];
         
         [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
     } withToken:self.onlyUser.userToken];
     
 }
+
 
 
 // 加载数据：社区活动详情

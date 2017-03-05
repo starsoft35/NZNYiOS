@@ -291,187 +291,178 @@
     return 1;
 }
 
-// 代理
-// 设置Header 的title
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+
+
+//// header
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
 //    
-//    if (section == 0) {
-//        return @"男神";
+//    
+//    
+//    
+//    CYHeaderTimeCell *timeCell = [[[NSBundle mainBundle] loadNibNamed:@"CYHeaderTimeCell" owner:nil options:nil] lastObject];
+//    
+//    CYSystemNewsCellModel *systemNewsCellModel = self.dataArray[section];
+//    
+//    timeCell.timeLab.text = systemNewsCellModel.CreateDate;
+//    
+////    timeCell.backgroundColor = [UIColor redColor];
+//    timeCell.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
+//    
+//    return timeCell;
+//}
+//
+//// height：header
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    
+//    return 40;
+//    
+//}
+//
+//-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+//    
+//    return 0.1;
+//}
+//
+//// cell
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    //    UITableViewCell *cell = [[UITableViewCell alloc] init];
+//    
+//    CYSystemNewsCellModel *systemNewsCellModel = self.dataArray[indexPath.section];
+//    
+//    if (systemNewsCellModel.Type == 1) {
+//        
+//        
+//        // 提前注册
+//        [self.baseTableView registerNib:[UINib nibWithNibName:@"CYAskFeedBackCell" bundle:nil] forCellReuseIdentifier:@"CYAskFeedBackCell"];
+//        
+//        
+//        // cell
+//        CYAskFeedBackCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CYAskFeedBackCell" forIndexPath:indexPath];
+//        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        
+//        cell.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
+//        
+//        
+//        cell.askLab.text = systemNewsCellModel.Ask;
+//        cell.answerLab.text = systemNewsCellModel.Answer;
+//        
+//        
+//        
+//        
+//        
+//        
+//        
+////        // 赋值
+////        cell.askLab.font = [UIFont systemFontOfSize:15];
+////        cell.askLab.adjustsFontSizeToFitWidth = NO;
+////        cell.answerLab.font = [UIFont systemFontOfSize:15];
+////        cell.answerLab.adjustsFontSizeToFitWidth = NO;
+////        
+////        
+////        
+////        // 自动计算label的高度、宽度
+////        CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:cell.askLab.text FontSize:15 MaxSize:CGSizeMake(333.0 / 375.0 * cScreen_Width, 300.0 / 667.0 * cScreen_Height)];
+////        CGRect tempAskDetailLabRect = CGRectMake(cell.askLab.frame.origin.x, cell.askLab.frame.origin.y, tempAskLabelSize.width, tempAskLabelSize.height);
+//        cell.askLab.numberOfLines = 0;
+////        cell.askLab.frame = tempAskDetailLabRect;
+////
+////        // 自动计算label的高度、宽度
+////        CGSize tempAnswerLabelSize = [self labelAutoCalculateRectWith:cell.answerLab.text FontSize:15 MaxSize:CGSizeMake(333.0 / 375.0 * cScreen_Width, 300.0 / 667.0 * cScreen_Height)];
+////        CGRect tempAnswerDetailLabRect = CGRectMake(cell.answerLab.frame.origin.x, cell.answerLab.frame.origin.y, tempAnswerLabelSize.width, tempAnswerLabelSize.height);
+//        cell.answerLab.numberOfLines = 0;
+////        cell.answerLab.frame = tempAnswerDetailLabRect;
+////        
+////        NSLog(@"tempAskDetailLabRect.size.height:%f",tempAskDetailLabRect.size.height);
+////        NSLog(@"tempAnswerDetailLabRect.size.height:%f",tempAnswerDetailLabRect.size.height);
+//        
+//        
+//        return cell;
+//    }
+//    else {
+//        
+//        
+//        
+//        // 提前注册
+//        [self.baseTableView registerNib:[UINib nibWithNibName:@"CYActiveFeedBackCell" bundle:nil] forCellReuseIdentifier:@"CYActiveFeedBackCell"];
+//        
+//        
+//        // cell
+//        CYActiveFeedBackCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CYActiveFeedBackCell" forIndexPath:indexPath];
+//        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//        // cell：模型
+//        //    CYOfflineActivityCellModel *offlineActivityCellModel = self.dataArray[indexPath.row];
+//        
+//        
+//        // 假数据
+//        //    cell.offlineActiveCellModel = offlineActivityCellModel;
+//        
+//        
+//        cell.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
+//        
+//        
+//        cell.detailInfoLab.text = systemNewsCellModel.Content;
+//        
+//        
+//        // 自动计算label的高度、宽度
+//        //        CGSize tempLabelSize = [self labelAutoCalculateRectWith:cell.detailInfoLab.text FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+//        //        CGRect tempDetailLabRect = CGRectMake(cell.detailInfoLab.frame.origin.x, cell.detailInfoLab.frame.origin.y, tempLabelSize.width, tempLabelSize.height);
+//        cell.detailInfoLab.numberOfLines = 0;
+//        //        cell.detailInfoLab.font = [UIFont systemFontOfSize:15];
+//        //        cell.detailInfoLab.adjustsFontSizeToFitWidth = NO;
+//        //        cell.detailInfoLab.frame = tempDetailLabRect;
+//        
+//        
+//        
+//        
+//        
+//        return cell;
+//        
+//        
 //    }
 //    
-//    return @"女神";
 //}
-
-// header
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    
-    
-    
-    CYHeaderTimeCell *timeCell = [[[NSBundle mainBundle] loadNibNamed:@"CYHeaderTimeCell" owner:nil options:nil] lastObject];
-    
-    CYSystemNewsCellModel *systemNewsCellModel = self.dataArray[section];
-    
-    timeCell.timeLab.text = systemNewsCellModel.CreateDate;
-    
-//    timeCell.backgroundColor = [UIColor redColor];
-    timeCell.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
-    
-    return timeCell;
-}
-
-// height：header
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    
-    return 40;
-    
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    
-    return 0.1;
-}
-
-// cell
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    //    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    
-    CYSystemNewsCellModel *systemNewsCellModel = self.dataArray[indexPath.section];
-    
-    if (systemNewsCellModel.Type == 1) {
-        
-        
-        // 提前注册
-        [self.baseTableView registerNib:[UINib nibWithNibName:@"CYAskFeedBackCell" bundle:nil] forCellReuseIdentifier:@"CYAskFeedBackCell"];
-        
-        
-        // cell
-        CYAskFeedBackCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CYAskFeedBackCell" forIndexPath:indexPath];
-        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        
-        cell.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
-        
-        
-        cell.askLab.text = systemNewsCellModel.Ask;
-        cell.answerLab.text = systemNewsCellModel.Answer;
-        
-        
-        
-        
-        
-        
-        
-//        // 赋值
-//        cell.askLab.font = [UIFont systemFontOfSize:15];
-//        cell.askLab.adjustsFontSizeToFitWidth = NO;
-//        cell.answerLab.font = [UIFont systemFontOfSize:15];
-//        cell.answerLab.adjustsFontSizeToFitWidth = NO;
-//        
-//        
-//        
-//        // 自动计算label的高度、宽度
-//        CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:cell.askLab.text FontSize:15 MaxSize:CGSizeMake(333.0 / 375.0 * cScreen_Width, 300.0 / 667.0 * cScreen_Height)];
-//        CGRect tempAskDetailLabRect = CGRectMake(cell.askLab.frame.origin.x, cell.askLab.frame.origin.y, tempAskLabelSize.width, tempAskLabelSize.height);
-        cell.askLab.numberOfLines = 0;
-//        cell.askLab.frame = tempAskDetailLabRect;
 //
-//        // 自动计算label的高度、宽度
-//        CGSize tempAnswerLabelSize = [self labelAutoCalculateRectWith:cell.answerLab.text FontSize:15 MaxSize:CGSizeMake(333.0 / 375.0 * cScreen_Width, 300.0 / 667.0 * cScreen_Height)];
-//        CGRect tempAnswerDetailLabRect = CGRectMake(cell.answerLab.frame.origin.x, cell.answerLab.frame.origin.y, tempAnswerLabelSize.width, tempAnswerLabelSize.height);
-        cell.answerLab.numberOfLines = 0;
-//        cell.answerLab.frame = tempAnswerDetailLabRect;
+//
+//// height：cell
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    NSLog(@"indexPath.section:%ld",(long)indexPath.section);
+//    NSLog(@"indexPath.row:%ld",(long)indexPath.row);
+//    
+//    CYSystemNewsCellModel *systemNewsCellModel = self.dataArray[indexPath.section];
+//    
+//    if (systemNewsCellModel.Type == 1) {
 //        
-//        NSLog(@"tempAskDetailLabRect.size.height:%f",tempAskDetailLabRect.size.height);
-//        NSLog(@"tempAnswerDetailLabRect.size.height:%f",tempAnswerDetailLabRect.size.height);
-        
-        
-        return cell;
-    }
-    else {
-        
-        
-        
-        // 提前注册
-        [self.baseTableView registerNib:[UINib nibWithNibName:@"CYActiveFeedBackCell" bundle:nil] forCellReuseIdentifier:@"CYActiveFeedBackCell"];
-        
-        
-        // cell
-        CYActiveFeedBackCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CYActiveFeedBackCell" forIndexPath:indexPath];
-        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        // cell：模型
-        //    CYOfflineActivityCellModel *offlineActivityCellModel = self.dataArray[indexPath.row];
-        
-        
-        // 假数据
-        //    cell.offlineActiveCellModel = offlineActivityCellModel;
-        
-        
-        cell.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
-        
-        
-        cell.detailInfoLab.text = systemNewsCellModel.Content;
-        
-        
-        // 自动计算label的高度、宽度
-        //        CGSize tempLabelSize = [self labelAutoCalculateRectWith:cell.detailInfoLab.text FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
-        //        CGRect tempDetailLabRect = CGRectMake(cell.detailInfoLab.frame.origin.x, cell.detailInfoLab.frame.origin.y, tempLabelSize.width, tempLabelSize.height);
-        cell.detailInfoLab.numberOfLines = 0;
-        //        cell.detailInfoLab.font = [UIFont systemFontOfSize:15];
-        //        cell.detailInfoLab.adjustsFontSizeToFitWidth = NO;
-        //        cell.detailInfoLab.frame = tempDetailLabRect;
-        
-        
-        
-        
-        
-        return cell;
-        
-        
-    }
-    
-}
-
-
-// height：cell
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSLog(@"indexPath.section:%ld",(long)indexPath.section);
-    NSLog(@"indexPath.row:%ld",(long)indexPath.row);
-    
-    CYSystemNewsCellModel *systemNewsCellModel = self.dataArray[indexPath.section];
-    
-    if (systemNewsCellModel.Type == 1) {
-        
-        // 自动计算label的高度、宽度
-        CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:systemNewsCellModel.Ask FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
-        
-        CGSize tempAnswerLabelSize = [self labelAutoCalculateRectWith:systemNewsCellModel.Answer FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
-        
-        NSLog(@"self.dataArray.ask:%@",self.dataArray[indexPath.section][@"ask"]);
-        NSLog(@"self.dataArray.answer:%@",self.dataArray[indexPath.section][@"answer"]);
-        
-        NSLog(@"tempAskLabelSize.height:%f",tempAskLabelSize.height);
-        NSLog(@"tempAnswerLabelSize.height:%f",tempAnswerLabelSize.height);
-        
-        float tempHeight = (61) + (tempAskLabelSize.height) + (tempAnswerLabelSize.height);
-        
-        NSLog(@"tempHeight:%f",tempHeight);
-        
-        return tempHeight;
-        
-    }
-    else {
-        
-        // 自动计算label的高度、宽度
-        CGSize tempLabelSize = [self labelAutoCalculateRectWith:systemNewsCellModel.Content FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
-        
-//        return ((146.0 / 1334.0) * cScreen_Height) + (tempLabelSize.height);
-        return (73.0) + (tempLabelSize.height);
-        
-    }
-    
-}
+//        // 自动计算label的高度、宽度
+//        CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:systemNewsCellModel.Ask FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+//        
+//        CGSize tempAnswerLabelSize = [self labelAutoCalculateRectWith:systemNewsCellModel.Answer FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+//        
+//        NSLog(@"self.dataArray.ask:%@",self.dataArray[indexPath.section][@"ask"]);
+//        NSLog(@"self.dataArray.answer:%@",self.dataArray[indexPath.section][@"answer"]);
+//        
+//        NSLog(@"tempAskLabelSize.height:%f",tempAskLabelSize.height);
+//        NSLog(@"tempAnswerLabelSize.height:%f",tempAnswerLabelSize.height);
+//        
+//        float tempHeight = (61) + (tempAskLabelSize.height) + (tempAnswerLabelSize.height);
+//        
+//        NSLog(@"tempHeight:%f",tempHeight);
+//        
+//        return tempHeight;
+//        
+//    }
+//    else {
+//        
+//        // 自动计算label的高度、宽度
+//        CGSize tempLabelSize = [self labelAutoCalculateRectWith:systemNewsCellModel.Content FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+//        
+////        return ((146.0 / 1334.0) * cScreen_Height) + (tempLabelSize.height);
+//        return (73.0) + (tempLabelSize.height);
+//        
+//    }
+//    
+//}
 
 // cell：点击事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

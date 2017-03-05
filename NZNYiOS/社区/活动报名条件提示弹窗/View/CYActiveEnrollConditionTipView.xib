@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="BBU-zL-UJu" customClass="CYActiveEnrollConditionTipView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJc-hA-ikY" userLabel="1.-还不是好友弹窗-View">
+                    <rect key="frame" x="25" y="146" width="325" height="375"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="弹窗没底部.png" translatesAutoresizingMaskIntoConstraints="NO" id="bYT-ba-ztf" userLabel="1.0-背景-Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="325" height="375"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="5Ww-Xd-2iK" userLabel="1.1-提示-Label">
+                            <rect key="frame" x="15" y="15" width="31" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您正在报名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="h5d-tB-6Qh" userLabel="1.2-您正在报名-Label">
+                            <rect key="frame" x="124.5" y="105" width="76.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="《白色情人节交友》" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="tF4-vK-dRJ" userLabel="1.3-活动名-Label">
+                            <rect key="frame" x="93.5" y="158" width="138" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.91768163439999995" green="0.51090770959999998" blue="0.18271613119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动费用：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meM-CB-ogb" userLabel="1.4-活动费用-Label">
+                            <rect key="frame" x="124" y="246" width="76.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O95-hM-byi" userLabel="1.5-确认报名-Button">
+                            <rect key="frame" x="0.0" y="331" width="325" height="44"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="确认报名" backgroundImage="登录底.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwg-u3-oUU" userLabel="1.6-关闭-Button">
+                            <rect key="frame" x="299" y="0.0" width="26" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Rwg-u3-oUU" secondAttribute="height" id="Dos-A3-mUt"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="弹窗关闭图X变小.png"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.91768163439999995" green="0.51090770959999998" blue="0.18271613119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="O95-hM-byi" firstAttribute="height" secondItem="bJc-hA-ikY" secondAttribute="height" multiplier="88:750" id="3yd-OQ-Cbc"/>
+                        <constraint firstAttribute="bottom" secondItem="O95-hM-byi" secondAttribute="bottom" id="FYR-5F-9Jz"/>
+                        <constraint firstAttribute="trailing" secondItem="bYT-ba-ztf" secondAttribute="trailing" id="FnP-YQ-8sj"/>
+                        <constraint firstItem="O95-hM-byi" firstAttribute="leading" secondItem="bJc-hA-ikY" secondAttribute="leading" id="Fys-vC-4Mt"/>
+                        <constraint firstItem="bYT-ba-ztf" firstAttribute="leading" secondItem="bJc-hA-ikY" secondAttribute="leading" id="Jve-B9-Ej5"/>
+                        <constraint firstItem="Rwg-u3-oUU" firstAttribute="top" secondItem="bJc-hA-ikY" secondAttribute="top" id="Od7-74-4Wk"/>
+                        <constraint firstItem="5Ww-Xd-2iK" firstAttribute="leading" secondItem="bJc-hA-ikY" secondAttribute="leading" constant="15" id="PTx-jF-6zm"/>
+                        <constraint firstAttribute="trailing" secondItem="O95-hM-byi" secondAttribute="trailing" id="U7s-T1-5TG"/>
+                        <constraint firstItem="h5d-tB-6Qh" firstAttribute="top" secondItem="bJc-hA-ikY" secondAttribute="top" constant="105" id="VvO-Ul-bNH"/>
+                        <constraint firstItem="tF4-vK-dRJ" firstAttribute="top" secondItem="h5d-tB-6Qh" secondAttribute="bottom" constant="35" id="X7I-6n-KKF"/>
+                        <constraint firstItem="O95-hM-byi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="meM-CB-ogb" secondAttribute="bottom" constant="20" id="ag3-8e-fim"/>
+                        <constraint firstItem="tF4-vK-dRJ" firstAttribute="centerX" secondItem="h5d-tB-6Qh" secondAttribute="centerX" id="bdd-SC-gee"/>
+                        <constraint firstItem="h5d-tB-6Qh" firstAttribute="centerX" secondItem="bJc-hA-ikY" secondAttribute="centerX" id="dVf-2o-zgn"/>
+                        <constraint firstAttribute="bottom" secondItem="bYT-ba-ztf" secondAttribute="bottom" id="e2P-Zu-M72"/>
+                        <constraint firstItem="bYT-ba-ztf" firstAttribute="top" secondItem="bJc-hA-ikY" secondAttribute="top" id="e5B-ps-e3C"/>
+                        <constraint firstItem="meM-CB-ogb" firstAttribute="top" secondItem="tF4-vK-dRJ" secondAttribute="bottom" constant="70" id="fo1-Bb-Awq"/>
+                        <constraint firstItem="meM-CB-ogb" firstAttribute="centerX" secondItem="tF4-vK-dRJ" secondAttribute="centerX" id="qd5-Ef-T4f"/>
+                        <constraint firstItem="Rwg-u3-oUU" firstAttribute="width" secondItem="bYT-ba-ztf" secondAttribute="width" multiplier="52:650" id="vhq-9P-xOR"/>
+                        <constraint firstItem="5Ww-Xd-2iK" firstAttribute="top" secondItem="bJc-hA-ikY" secondAttribute="top" constant="15" id="xrT-we-e5j"/>
+                        <constraint firstAttribute="trailing" secondItem="Rwg-u3-oUU" secondAttribute="trailing" id="y0p-K7-8Tp"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.54895764589999996" green="0.54905533790000005" blue="0.54895150660000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bJc-hA-ikY" firstAttribute="width" secondItem="BBU-zL-UJu" secondAttribute="width" multiplier="650:750" id="6W7-vb-8XD"/>
+                <constraint firstItem="bJc-hA-ikY" firstAttribute="centerX" secondItem="BBU-zL-UJu" secondAttribute="centerX" id="VWh-Md-QRp"/>
+                <constraint firstItem="bJc-hA-ikY" firstAttribute="height" secondItem="BBU-zL-UJu" secondAttribute="height" multiplier="750:1334" id="s0t-3W-DmX"/>
+                <constraint firstItem="bJc-hA-ikY" firstAttribute="centerY" secondItem="BBU-zL-UJu" secondAttribute="centerY" id="uUW-o2-dWU"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="activeFeeLab" destination="meM-CB-ogb" id="8zH-Fl-b7C"/>
+                <outlet property="confirmEnrollBtn" destination="O95-hM-byi" id="jYG-1k-fzr"/>
+                <outlet property="tipCloseBtn" destination="Rwg-u3-oUU" id="ly5-eq-HEE"/>
+            </connections>
+            <point key="canvasLocation" x="70" y="44"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="弹窗关闭图X变小.png" width="25" height="25"/>
+        <image name="弹窗没底部.png" width="325" height="375"/>
+        <image name="登录底.png" width="300" height="44"/>
+    </resources>
+</document>

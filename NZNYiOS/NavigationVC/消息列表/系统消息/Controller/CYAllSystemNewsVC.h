@@ -10,4 +10,9 @@
 
 @interface CYAllSystemNewsVC : CYBaseTableViewController
 
+
+//
+
+
+
 @end

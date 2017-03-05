@@ -11,23 +11,41 @@
 @interface CYSystemNewsCellModel : CYBaseModel
 
 
-// 系统消息类型 1-我提交的系统反馈 2-我报名的活动
-@property (nonatomic, assign) NSInteger Type;
+//// 系统消息类型 1-我提交的系统反馈 2-我报名的活动
+//@property (nonatomic, assign) NSInteger Type;
+//
+//// 创建时间
+//@property (nonatomic, copy) NSString *CreateDate;
+//
+//// 我的提问
+//@property (nonatomic, copy) NSString *Ask;
+//
+//// 系统回答
+//@property (nonatomic, copy) NSString *Answer;
+//
+//// 系统消息内容
+//@property (nonatomic, copy) NSString *Content;
+//
+//// 报名的活动的ID
+//@property (nonatomic, copy) NSString *ActivityId;
 
-// 创建时间
-@property (nonatomic, copy) NSString *CreateDate;
 
-// 我的提问
-@property (nonatomic, copy) NSString *Ask;
 
-// 系统回答
-@property (nonatomic, copy) NSString *Answer;
 
-// 系统消息内容
-@property (nonatomic, copy) NSString *Content;
+// 系统消息未读数量
+@property (nonatomic, assign) NSInteger UnreadCount;
 
-// 报名的活动的ID
-@property (nonatomic, copy) NSString *ActivityId;
+// 活动提示未读数量
+@property (nonatomic, assign) NSInteger UnreadActivityCount;
+
+// 我的问答未读数量
+@property (nonatomic, assign) NSInteger UnreadFeedbackCount;
+
+// 其它消息未读数量
+@property (nonatomic, assign) NSInteger UnreadOtherCount;
+
+
+
 
 
 

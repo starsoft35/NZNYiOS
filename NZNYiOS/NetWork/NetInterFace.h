@@ -266,10 +266,14 @@
 #define cDelApplyFriendUrl (@"api/Relationship/DelApplyFriend")
 // 5.3.2-系统消息列表
 #define cMySysMessageListUrl (@"api/SysMessage/MySysMessageList")
+// 5.3.2.0-系统消息-未读消息数量
+#define cSysUnreadMessageUrl (@"api/SysMessage/UnreadMessage")
 // 5.3.2.1-活动提示消息列表
 #define cActivitySysMessageListUrl (@"api/SysMessage/ActivitySysMessageList")
 // 5.3.2.1-问答消息列表
 #define cAskSysMessageListUrl (@"api/SysMessage/AskSysMessageList")
+// 5.3.3-系统消息栏目点击
+#define cSysMessageColumnClickUrl (@"api/SysMessage/ColumnClick")
 
 
 // 5.4-设置

@@ -38,6 +38,10 @@
 		8A4FDDE91E45C4FA0076B1AB /* CYSetUpUserNeedToKnowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDDE81E45C4FA0076B1AB /* CYSetUpUserNeedToKnowVC.m */; };
 		8A4FDDEC1E45D6640076B1AB /* CYActiveDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDDEB1E45D6640076B1AB /* CYActiveDetailsVC.m */; };
 		8A4FDDEF1E45D6C90076B1AB /* CYActiveDetailsVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDDEE1E45D6C90076B1AB /* CYActiveDetailsVCModel.m */; };
+		8A50B5191E6BD93200EDC316 /* CYActiveEnrollConditionTipVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A50B5181E6BD93200EDC316 /* CYActiveEnrollConditionTipVC.m */; };
+		8A50B51C1E6BD96900EDC316 /* CYActiveEnrollConditionTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A50B51B1E6BD96900EDC316 /* CYActiveEnrollConditionTipView.m */; };
+		8A50B51E1E6BD97300EDC316 /* CYActiveEnrollConditionTipView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A50B51D1E6BD97300EDC316 /* CYActiveEnrollConditionTipView.xib */; };
+		8A50B5211E6BD98500EDC316 /* CYActiveEnrollConditionTipViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A50B5201E6BD98500EDC316 /* CYActiveEnrollConditionTipViewModel.m */; };
 		8A5180A91E66650E00CB9A77 /* CYAskFeedBackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5180A81E66650E00CB9A77 /* CYAskFeedBackVC.m */; };
 		8A57B27F1E4EEC4B00BD4BA5 /* 弹窗关闭图X变小.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A57B27C1E4EEC4B00BD4BA5 /* 弹窗关闭图X变小.png */; };
 		8A57B2801E4EEC4B00BD4BA5 /* 弹窗关闭图X变小@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A57B27D1E4EEC4B00BD4BA5 /* 弹窗关闭图X变小@2x.png */; };
@@ -868,6 +872,13 @@
 		8A4FDDEB1E45D6640076B1AB /* CYActiveDetailsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYActiveDetailsVC.m; sourceTree = "<group>"; };
 		8A4FDDED1E45D6C90076B1AB /* CYActiveDetailsVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYActiveDetailsVCModel.h; sourceTree = "<group>"; };
 		8A4FDDEE1E45D6C90076B1AB /* CYActiveDetailsVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYActiveDetailsVCModel.m; sourceTree = "<group>"; };
+		8A50B5171E6BD93200EDC316 /* CYActiveEnrollConditionTipVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYActiveEnrollConditionTipVC.h; sourceTree = "<group>"; };
+		8A50B5181E6BD93200EDC316 /* CYActiveEnrollConditionTipVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYActiveEnrollConditionTipVC.m; sourceTree = "<group>"; };
+		8A50B51A1E6BD96900EDC316 /* CYActiveEnrollConditionTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYActiveEnrollConditionTipView.h; sourceTree = "<group>"; };
+		8A50B51B1E6BD96900EDC316 /* CYActiveEnrollConditionTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYActiveEnrollConditionTipView.m; sourceTree = "<group>"; };
+		8A50B51D1E6BD97300EDC316 /* CYActiveEnrollConditionTipView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYActiveEnrollConditionTipView.xib; sourceTree = "<group>"; };
+		8A50B51F1E6BD98500EDC316 /* CYActiveEnrollConditionTipViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYActiveEnrollConditionTipViewModel.h; sourceTree = "<group>"; };
+		8A50B5201E6BD98500EDC316 /* CYActiveEnrollConditionTipViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYActiveEnrollConditionTipViewModel.m; sourceTree = "<group>"; };
 		8A5180A71E66650E00CB9A77 /* CYAskFeedBackVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYAskFeedBackVC.h; sourceTree = "<group>"; };
 		8A5180A81E66650E00CB9A77 /* CYAskFeedBackVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAskFeedBackVC.m; sourceTree = "<group>"; };
 		8A57B27C1E4EEC4B00BD4BA5 /* 弹窗关闭图X变小.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗关闭图X变小.png"; sourceTree = "<group>"; };
@@ -2096,6 +2107,44 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8A50B5131E6BD7F300EDC316 /* 活动报名条件提示弹窗 */ = {
+			isa = PBXGroup;
+			children = (
+				8A50B5141E6BD7F300EDC316 /* Controller */,
+				8A50B5151E6BD7F300EDC316 /* Model */,
+				8A50B5161E6BD7F300EDC316 /* View */,
+			);
+			path = "活动报名条件提示弹窗";
+			sourceTree = "<group>";
+		};
+		8A50B5141E6BD7F300EDC316 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8A50B5171E6BD93200EDC316 /* CYActiveEnrollConditionTipVC.h */,
+				8A50B5181E6BD93200EDC316 /* CYActiveEnrollConditionTipVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8A50B5151E6BD7F300EDC316 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8A50B51F1E6BD98500EDC316 /* CYActiveEnrollConditionTipViewModel.h */,
+				8A50B5201E6BD98500EDC316 /* CYActiveEnrollConditionTipViewModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8A50B5161E6BD7F300EDC316 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A50B51A1E6BD96900EDC316 /* CYActiveEnrollConditionTipView.h */,
+				8A50B51B1E6BD96900EDC316 /* CYActiveEnrollConditionTipView.m */,
+				8A50B51D1E6BD97300EDC316 /* CYActiveEnrollConditionTipView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8A653D031E46CCCA00B5B01B /* IMYWebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2367,6 +2416,7 @@
 				8AD1772D1E30E68400A3579C /* Controller */,
 				8AD177321E30E68400A3579C /* Model */,
 				8AD177351E30E68400A3579C /* View */,
+				8A50B5131E6BD7F300EDC316 /* 活动报名条件提示弹窗 */,
 				8AD1773C1E30E68400A3579C /* 线下活动 */,
 				8A819C931E47240C0094833F /* 往期回顾 */,
 				8A819C8F1E47240C0094833F /* 客服问答 */,
@@ -6378,6 +6428,7 @@
 				8AD17DE61E30E68600A3579C /* 身份证2@3x.png in Resources */,
 				8AD17E3B1E30E68600A3579C /* 玫瑰花.png in Resources */,
 				8AD17D751E30E68600A3579C /* map-pin.png in Resources */,
+				8A50B51E1E6BD97300EDC316 /* CYActiveEnrollConditionTipView.xib in Resources */,
 				8AD17D431E30E68600A3579C /* 互相关注-@2x.png in Resources */,
 				8AD17E581E30E68600A3579C /* 直播预告@3x.png in Resources */,
 				8AD17E191E30E68600A3579C /* 手机@3x.png in Resources */,
@@ -6715,6 +6766,7 @@
 				8AD17D211E30E68600A3579C /* RCDLiveTipLabel.m in Sources */,
 				8AD17EF01E30E68700A3579C /* AbstractActionSheetPicker.m in Sources */,
 				8AD17C8C1E30E68600A3579C /* CYOthersInfoVideoLiveVC.m in Sources */,
+				8A50B51C1E6BD96900EDC316 /* CYActiveEnrollConditionTipView.m in Sources */,
 				8AD17CCB1E30E68600A3579C /* CYWhoPraiseMeCell.m in Sources */,
 				8AD17EFD1E30E68700A3579C /* SDWebImageDecoder.m in Sources */,
 				8AD17EF81E30E68700A3579C /* SWActionSheet.m in Sources */,
@@ -6876,6 +6928,7 @@
 				8AD17EF41E30E68700A3579C /* ActionSheetLocalePicker.m in Sources */,
 				8AD17C9F1E30E68600A3579C /* CYMineViewController.m in Sources */,
 				8AD17D2B1E30E68600A3579C /* CYRegisterMainView.m in Sources */,
+				8A50B5191E6BD93200EDC316 /* CYActiveEnrollConditionTipVC.m in Sources */,
 				8AD17EDB1E30E68700A3579C /* NSObject+MJProperty.m in Sources */,
 				8AD17CD31E30E68600A3579C /* CYMyLiveRecordVC.m in Sources */,
 				8AD17CA01E30E68600A3579C /* CYMineHeaderViewModel.m in Sources */,
@@ -6942,6 +6995,7 @@
 				8AD17CAB1E30E68600A3579C /* CYMyUserInfoNameVC.m in Sources */,
 				8AD17EC01E30E68700A3579C /* AFImageDownloader.m in Sources */,
 				8AD17CED1E30E68600A3579C /* CYPhoneCertifiVC.m in Sources */,
+				8A50B5211E6BD98500EDC316 /* CYActiveEnrollConditionTipViewModel.m in Sources */,
 				8AD17EFE1E30E68700A3579C /* SDWebImageDownloader.m in Sources */,
 				8AD17D1D1E30E68600A3579C /* RCDLiveInputView.m in Sources */,
 				8AD17D221E30E68600A3579C /* RCDLive.m in Sources */,

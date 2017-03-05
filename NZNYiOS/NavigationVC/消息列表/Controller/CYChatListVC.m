@@ -17,11 +17,13 @@
 #import "CYSystemNewsVC.h"
 // 所有的系统消息：分类：VC
 #import "CYAllSystemNewsVC.h"
+// 系统消息：未读信息条数：模型
+#import "CYSystemNewsCellModel.h"
 
 // 好友申请列表:VC
 #import "CYMyFriendApplyListVC.h"
 
-// 模型
+// 好友申请：模型
 #import "CYMyFriendApplyListCellModel.h"
 
 
@@ -171,7 +173,7 @@
 }
 
 
-// 网络请求：系统消息列表
+// 网络请求：系统消息：未读消息
 - (void)requestSystemNewsList{
     
     // url参数
@@ -179,58 +181,60 @@
                              @"userId":self.currentUserId
                              };
     
-#warning 地址需要换成系统消息列表的地址
-    // 网络请求：
-    [CYNetWorkManager getRequestWithUrl:cApplyFriendsListUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"系统消息列表：网络请求：进度：%@",uploadProgress);
+    
+    // 网络请求：系统消息：未读消息
+    [CYNetWorkManager getRequestWithUrl:cSysUnreadMessageUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"系统消息列表：系统消息：未读消息：进度：%@",uploadProgress);
         
     } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"系统消息列表：网络请求：请求成功");
+        NSLog(@"系统消息列表：系统消息：未读消息：请求成功");
         
         // 1、
         NSString *code = responseObject[@"code"];
         
         // 1.2.1.1.2、和成功的code 匹配
         if ([code isEqualToString:@"0"]) {
-            NSLog(@"系统消息列表：获取成功！");
-            NSLog(@"系统消息列表：%@",responseObject);
+            NSLog(@"系统消息列表：系统消息：未读消息：获取成功！");
+            NSLog(@"系统消息列表：系统消息：未读消息：%@",responseObject);
             
             // 清空：每次刷新都需要
             [self.systemNewsListArr removeAllObjects];
             
             
-#warning 模型需要换成系统消息列表的模型
             // 解析数据，模型存到数组
-            [self.systemNewsListArr addObjectsFromArray:[CYMyFriendApplyListCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
+//            [self.systemNewsListArr addObjectsFromArray:[CYSystemNewsCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"model"]]];
+            [self.systemNewsListArr addObject:[[CYSystemNewsCellModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil]];
+            
+            CYSystemNewsCellModel *systemNewsCellModel = self.systemNewsListArr[0];
             
             
-            if (self.systemNewsListArr.count == 0) {
+            if (systemNewsCellModel.UnreadCount == 0) {
                 
                 self.systemNewsView.unReadCountLab.text = [NSString stringWithFormat:@""];
                 self.systemNewsView.unReadCountImgView.hidden = YES;
                 
             }
-            else if (self.systemNewsListArr.count >= 10) {
+            else if (systemNewsCellModel.UnreadCount >= 10) {
                 
                 self.systemNewsView.unReadCountLab.text = [NSString stringWithFormat:@"9+"];
                 self.systemNewsView.unReadCountImgView.hidden = NO;
             }
             else {
                 //                self.unReadCountLab.text = [NSString stringWithFormat:@"9+"];
-                self.systemNewsView.unReadCountLab.text = [NSString stringWithFormat:@"%ld",(unsigned long)self.myFriendApplyListArr.count];
+                self.systemNewsView.unReadCountLab.text = [NSString stringWithFormat:@"%ld",(unsigned long)systemNewsCellModel.UnreadCount];
                 self.systemNewsView.unReadCountImgView.hidden = NO;
             }
             
             
         }
         else{
-            NSLog(@"系统消息列表：获取失败:responseObject:%@",responseObject);
-            NSLog(@"系统消息列表：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            NSLog(@"系统消息列表：系统消息：未读消息：获取失败:responseObject:%@",responseObject);
+            NSLog(@"系统消息列表：系统消息：未读消息：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
             // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
         }
         
     } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"系统消息列表：网络请求：请求失败");
+        NSLog(@"系统消息列表：系统消息：未读消息：网络请求：请求失败");
         
         
     } withToken:self.currentUserToken];

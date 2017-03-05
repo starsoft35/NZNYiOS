@@ -155,7 +155,7 @@
     
     
     // 网络请求：微信支付-统一下单
-    NSString *newUrl = [NSString stringWithFormat:@"%@?total_fee=%d&spbill_create_ip=%@",cWechatPaymentUnifiedOrderUrl,moneyFen,[self getIPAddress]];
+    NSString *newUrl = [NSString stringWithFormat:@"%@?total_fee=%d&spbill_create_ip=%@&userid=%@",cWechatPaymentUnifiedOrderUrl,moneyFen,[self getIPAddress],self.onlyUser.userID];
     NSLog(@"newUrl:weChatPay:%@",newUrl);
     
     
