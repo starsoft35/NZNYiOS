@@ -789,6 +789,7 @@
 		8AD17F391E30E68700A3579C /* UIImage+CYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD17C5C1E30E68600A3579C /* UIImage+CYImage.m */; };
 		8AD17F3A1E30E68700A3579C /* ZCYSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD17C5F1E30E68600A3579C /* ZCYSegment.m */; };
 		8AD17F3B1E30E68700A3579C /* ZCYSwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD17C611E30E68600A3579C /* ZCYSwipeViewController.m */; };
+		8AD46FEC1E6CF7A300C00399 /* CYSystemOtherNewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD46FEB1E6CF7A300C00399 /* CYSystemOtherNewsVC.m */; };
 		8AD477981E57F4970026B846 /* CYServiceAskFeedBackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD477961E57F4970026B846 /* CYServiceAskFeedBackVC.m */; };
 		8AD477991E57F4970026B846 /* CYServiceAskFeedBackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AD477971E57F4970026B846 /* CYServiceAskFeedBackVC.xib */; };
 		8AD477A01E5823420026B846 /* CYSystemNewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD4779F1E5823410026B846 /* CYSystemNewsVC.m */; };
@@ -1932,6 +1933,8 @@
 		8AD17C5F1E30E68600A3579C /* ZCYSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCYSegment.m; sourceTree = "<group>"; };
 		8AD17C601E30E68600A3579C /* ZCYSwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCYSwipeViewController.h; sourceTree = "<group>"; };
 		8AD17C611E30E68600A3579C /* ZCYSwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZCYSwipeViewController.m; sourceTree = "<group>"; };
+		8AD46FEA1E6CF7A300C00399 /* CYSystemOtherNewsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYSystemOtherNewsVC.h; sourceTree = "<group>"; };
+		8AD46FEB1E6CF7A300C00399 /* CYSystemOtherNewsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYSystemOtherNewsVC.m; sourceTree = "<group>"; };
 		8AD477951E57F4970026B846 /* CYServiceAskFeedBackVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYServiceAskFeedBackVC.h; sourceTree = "<group>"; };
 		8AD477961E57F4970026B846 /* CYServiceAskFeedBackVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYServiceAskFeedBackVC.m; sourceTree = "<group>"; };
 		8AD477971E57F4970026B846 /* CYServiceAskFeedBackVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYServiceAskFeedBackVC.xib; sourceTree = "<group>"; };
@@ -2089,6 +2092,8 @@
 		8A32A6D21E6521CD00B3F285 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8AD46FEA1E6CF7A300C00399 /* CYSystemOtherNewsVC.h */,
+				8AD46FEB1E6CF7A300C00399 /* CYSystemOtherNewsVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -3028,16 +3033,16 @@
 				8AD177CD1E30E68400A3579C /* Model */,
 				8AD177D41E30E68400A3579C /* View */,
 				8AD177DB1E30E68400A3579C /* 个人信息 */,
-				8AD178161E30E68500A3579C /* 关注 */,
-				8AD1781C1E30E68500A3579C /* 我的好友 */,
-				8AD178201E30E68500A3579C /* 我的标签 */,
-				8AD1783E1E30E68500A3579C /* 我的礼物 */,
-				8AD178501E30E68500A3579C /* 我的赞 */,
+				8AD178B51E30E68500A3579C /* 视频 */,
 				8AD178771E30E68500A3579C /* 直播 */,
 				8AD178AF1E30E68500A3579C /* 粉丝 */,
-				8AD178B51E30E68500A3579C /* 视频 */,
-				8AD178C01E30E68500A3579C /* 诚信认证 */,
+				8AD178161E30E68500A3579C /* 关注 */,
 				8AD178E71E30E68500A3579C /* 账户余额 */,
+				8AD178501E30E68500A3579C /* 我的赞 */,
+				8AD178C01E30E68500A3579C /* 诚信认证 */,
+				8AD1783E1E30E68500A3579C /* 我的礼物 */,
+				8AD178201E30E68500A3579C /* 我的标签 */,
+				8AD1781C1E30E68500A3579C /* 我的好友 */,
 			);
 			path = "我的";
 			sourceTree = "<group>";
@@ -6833,6 +6838,7 @@
 				8AD17D001E30E68600A3579C /* CYLiveCollectionViewCellModel.m in Sources */,
 				8AD17ECD1E30E68700A3579C /* JSONAPI.m in Sources */,
 				8AD17EB91E30E68700A3579C /* AFHTTPSessionManager.m in Sources */,
+				8AD46FEC1E6CF7A300C00399 /* CYSystemOtherNewsVC.m in Sources */,
 				8AD17ED41E30E68700A3579C /* MJFoundation.m in Sources */,
 				8AD17D151E30E68600A3579C /* RCDLiveTipMessageCell.m in Sources */,
 				8AD17ED31E30E68700A3579C /* MJExtensionConst.m in Sources */,

@@ -1,44 +1,34 @@
 //
-//  CYAskFeedBackVC.m
+//  CYSystemOtherNewsVC.m
 //  nzny
 //
-//  Created by 男左女右 on 2017/3/1.
+//  Created by 男左女右 on 2017/3/6.
 //  Copyright © 2017年 nznychina. All rights reserved.
 //
 
-#import "CYAskFeedBackVC.h"
+#import "CYSystemOtherNewsVC.h"
 
-
-
-// 问答反馈：cell
+// cell：
 #import "CYAskFeedBackCell.h"
-// 问答反馈：模型
+// 模型：
 #import "CYAskFeedBackCellModel.h"
 
-// 系统消息：列表：模型(可以用为总的模型)
-//#import "CYSystemNewsCellModel.h"
 
 // header时间：cell
 #import "CYHeaderTimeCell.h"
 
-//// 活动反馈：cell
-//#import "CYActiveFeedBackCell.h"
-//// 活动反馈：模型
-//#import "CYActiveFeedBackCellModel.h"
 
 
-
-
-@interface CYAskFeedBackVC ()
+@interface CYSystemOtherNewsVC ()
 
 @end
 
-@implementation CYAskFeedBackVC
+@implementation CYSystemOtherNewsVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"我的问答";
+    self.title = @"其他消息";
     
     // 添加下拉刷新
     self.baseTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -87,7 +77,7 @@
 - (void)loadData{
     
     
-    // 网络请求：问答反馈列表
+    // 网络请求：其他消息列表
     // url参数
     NSDictionary *params = @{
                              @"userId":self.onlyUser.userID,
@@ -99,11 +89,11 @@
     [self showLoadingView];
     
     // 网络请求：
-    [CYNetWorkManager getRequestWithUrl:cAskSysMessageListUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"问答反馈列表：网络请求：进度：%@",uploadProgress);
+    [CYNetWorkManager getRequestWithUrl:cOtherSysMessageListUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"其他消息列表：网络请求：进度：%@",uploadProgress);
         
     } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"问答反馈列表：网络请求：请求成功");
+        NSLog(@"其他消息列表：网络请求：请求成功");
         
         // 停止刷新
         [self.baseTableView.header endRefreshing];
@@ -114,7 +104,7 @@
         
         // 1.2.1.1.2、和成功的code 匹配
         if ([code isEqualToString:@"0"]) {
-            NSLog(@"问答反馈列表：获取成功！：%@",responseObject);
+            NSLog(@"其他消息列表：获取成功！：%@",responseObject);
             
             // 清空：每次刷新都需要：但是上拉加载、下拉刷新的不需要；
             if (self.curPage == 1) {
@@ -144,8 +134,8 @@
             
         }
         else{
-            NSLog(@"问答反馈：获取失败:responseObject:%@",responseObject);
-            NSLog(@"问答反馈：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            NSLog(@"其他消息：获取失败:responseObject:%@",responseObject);
+            NSLog(@"其他消息：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
             
             
             // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
@@ -154,7 +144,7 @@
         }
         
     } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"问答反馈列表：网络请求：请求失败");
+        NSLog(@"其他消息列表：网络请求：请求失败");
         
         
         // 停止刷新
@@ -195,24 +185,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    //
-    //    if (section == 2) {
-    //
-    //        return 10;
-    //    }
+    
     return 1;
 }
 
-// 代理
-// 设置Header 的title
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-//
-//    if (section == 0) {
-//        return @"男神";
-//    }
-//
-//    return @"女神";
-//}
 
 // header
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -251,14 +227,8 @@
     
     CYAskFeedBackCellModel *askFeedBackCellModel = self.dataArray[indexPath.section];
     
-    //    if (activeFeedBackCellModel.Type == 1) {
-    
-    
     
     // 问答fank
-    
-    
-    
     // cell
     CYAskFeedBackCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CYAskFeedBackCell" forIndexPath:indexPath];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -268,7 +238,7 @@
     
     // 问
     cell.askLab.text = askFeedBackCellModel.Ask;
-//    cell.askLab.textColor = [UIColor colorWithRed:0.37 green:0.65 blue:0.99 alpha:1.00];
+    //    cell.askLab.textColor = [UIColor colorWithRed:0.37 green:0.65 blue:0.99 alpha:1.00];
     
     // 答
     cell.answerLab.text = askFeedBackCellModel.Answer;
@@ -306,53 +276,6 @@
     return cell;
     
     
-    
-    
-    
-    //    }
-    //
-    //    else {
-    //
-    //
-    //        // 活动反馈
-    //        // 提前注册
-    //        [self.baseTableView registerNib:[UINib nibWithNibName:@"CYActiveFeedBackCell" bundle:nil] forCellReuseIdentifier:@"CYActiveFeedBackCell"];
-    //
-    //
-    //        // cell
-    //        CYActiveFeedBackCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CYActiveFeedBackCell" forIndexPath:indexPath];
-    //        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    //        // cell：模型
-    //        //    CYOfflineActivityCellModel *offlineActivityCellModel = self.dataArray[indexPath.row];
-    //
-    //
-    //        // 假数据
-    //        //    cell.offlineActiveCellModel = offlineActivityCellModel;
-    //
-    //
-    //        cell.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
-    //
-    //
-    //        cell.detailInfoLab.text = systemNewsCellModel.Content;
-    //
-    //
-    //        // 自动计算label的高度、宽度
-    //        //        CGSize tempLabelSize = [self labelAutoCalculateRectWith:cell.detailInfoLab.text FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
-    //        //        CGRect tempDetailLabRect = CGRectMake(cell.detailInfoLab.frame.origin.x, cell.detailInfoLab.frame.origin.y, tempLabelSize.width, tempLabelSize.height);
-    //        cell.detailInfoLab.numberOfLines = 0;
-    //        //        cell.detailInfoLab.font = [UIFont systemFontOfSize:15];
-    //        //        cell.detailInfoLab.adjustsFontSizeToFitWidth = NO;
-    //        //        cell.detailInfoLab.frame = tempDetailLabRect;
-    //
-    //
-    //
-    //
-    //
-    //        return cell;
-    //
-    //
-    //    }
-    
 }
 
 
@@ -364,7 +287,6 @@
     
     CYAskFeedBackCellModel *askFeedBackCellModel = self.dataArray[indexPath.section];
     
-    //    if (systemNewsCellModel.Type == 1) {
     
     // 自动计算label的高度、宽度
     CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:askFeedBackCellModel.Ask FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
@@ -383,16 +305,7 @@
     
     return tempHeight;
     
-    //    }
-    //    else {
-    //
-    //        // 自动计算label的高度、宽度
-    //        CGSize tempLabelSize = [self labelAutoCalculateRectWith:systemNewsCellModel.Content FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
-    //
-    //        //        return ((146.0 / 1334.0) * cScreen_Height) + (tempLabelSize.height);
-    //        return (73.0) + (tempLabelSize.height);
-    //
-    //    }
+    
     
 }
 
@@ -404,7 +317,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
-
 
 
 

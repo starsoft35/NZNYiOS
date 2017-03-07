@@ -650,12 +650,12 @@
                   moduleName = "nzny"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
-                  timestampString = "510403060.657981"
+                  timestampString = "510571895.969641"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "419"
                   endingLineNumber = "419"
-                  offsetFromSymbolStart = "56">
+                  offsetFromSymbolStart = "12">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -665,12 +665,12 @@
                   moduleName = "nzny"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
-                  timestampString = "510403060.659842"
+                  timestampString = "510571895.971188"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "419"
-                  endingLineNumber = "419"
-                  offsetFromSymbolStart = "24">
+                  startingLineNumber = "420"
+                  endingLineNumber = "420"
+                  offsetFromSymbolStart = "12">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -688,22 +688,6 @@
             startingLineNumber = "271"
             endingLineNumber = "271"
             landmarkName = "-applicationEnterBackground"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x6211;&#x7684;/&#x7c89;&#x4e1d;/Controller/CYMyFansVC.m"
-            timestampString = "508926387.356979"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-loadData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

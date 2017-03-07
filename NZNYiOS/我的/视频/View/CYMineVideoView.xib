@@ -23,14 +23,14 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认视频.png" translatesAutoresizingMaskIntoConstraints="NO" id="rMg-iR-bTK" userLabel="1.1-左侧视频背景-Image View">
                             <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                         </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xxc-l0-UZA" userLabel="1.9-左侧审核时黑色背景-Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                        </imageView>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="视频播放按钮.png" translatesAutoresizingMaskIntoConstraints="NO" id="JFP-4A-txc" userLabel="1.2-左侧视频播放-Image View">
-                            <rect key="frame" x="47.5" y="47.5" width="75" height="75"/>
+                            <rect key="frame" x="47" y="47" width="75" height="75"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="JFP-4A-txc" secondAttribute="height" id="ZU7-ZZ-ZKJ"/>
                             </constraints>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xxc-l0-UZA" userLabel="1.9-左侧审核时黑色背景-Image View">
-                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="我的视频底部阴影.png" translatesAutoresizingMaskIntoConstraints="NO" id="ySG-dL-yOO" userLabel="1.10-下部显示信息阴影-Image View">
                             <rect key="frame" x="0.0" y="130" width="170" height="40"/>
@@ -121,14 +121,14 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认视频.png" translatesAutoresizingMaskIntoConstraints="NO" id="1e6-9S-6Ah" userLabel="2.1-右侧视频背景-Image View">
                             <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                         </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ke-QL-Pzm" userLabel="2.9-右侧审核时黑色背景-Image View">
+                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                        </imageView>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="视频播放按钮.png" translatesAutoresizingMaskIntoConstraints="NO" id="kGW-k0-p89" userLabel="2.2-右侧视频播放-Image View">
-                            <rect key="frame" x="47.5" y="47.5" width="75" height="75"/>
+                            <rect key="frame" x="47" y="47" width="75" height="75"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="kGW-k0-p89" secondAttribute="height" id="z75-yn-pnk"/>
                             </constraints>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3ke-QL-Pzm" userLabel="2.9-右侧审核时黑色背景-Image View">
-                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="我的视频底部阴影.png" translatesAutoresizingMaskIntoConstraints="NO" id="3ZE-DY-twg" userLabel="1.10-下部显示信息阴影-Image View">
                             <rect key="frame" x="0.0" y="130" width="170" height="40"/>

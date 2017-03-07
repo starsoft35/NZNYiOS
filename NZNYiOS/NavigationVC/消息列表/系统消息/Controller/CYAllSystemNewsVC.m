@@ -24,7 +24,7 @@
 // 我的问答：VC
 #import "CYAskFeedBackVC.h"
 // 其他消息：VC
-
+#import "CYSystemOtherNewsVC.h"
 
 
 @interface CYAllSystemNewsVC ()
@@ -251,13 +251,13 @@
 // tableView有多少组
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 1;
+    return self.dataArray.count;
 }
 
 // 每组多少行
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return self.dataArray.count;
+    return 1;
 }
 
 // 创建tableView（即tableView要展示的内容）
@@ -279,8 +279,8 @@
     }
     
     // 假数据
-    titleDetailModel.title = self.dataArray[indexPath.row][@"title"];
-    titleDetailModel.detail = self.dataArray[indexPath.row][@"detail"];
+    titleDetailModel.title = self.dataArray[indexPath.section][@"title"];
+    titleDetailModel.detail = self.dataArray[indexPath.section][@"detail"];
     
     cell.titleAndDetailModel = titleDetailModel;
     
@@ -315,7 +315,7 @@
         
         [self.navigationController pushViewController:activeFeedBackVC animated:YES];
     }
-    else if (indexPath.section == 0 && indexPath.row == 1) {
+    else if (indexPath.section == 1 && indexPath.row == 0) {
         
         // 第二行：问答反馈
         CYAskFeedBackVC *askFeedBackVC = [[CYAskFeedBackVC alloc] init];
@@ -329,18 +329,18 @@
         
         [self.navigationController pushViewController:askFeedBackVC animated:YES];
     }
-    else if (indexPath.section == 0 && indexPath.row == 2) {
+    else if (indexPath.section == 2 && indexPath.row == 0) {
         
         // 第三行：其他消息
-//        CYAskFeedBackVC *askFeedBackVC = [[CYAskFeedBackVC alloc] init];
-//        
-//        [self.navigationController pushViewController:askFeedBackVC animated:YES];
+        CYSystemOtherNewsVC *otherNewsVC = [[CYSystemOtherNewsVC alloc] init];
         
         
         // 网络请求：系统消息栏目点击
         [self requestSystemNewsCellClickWithColumnType:0];
         
         
+        
+        [self.navigationController pushViewController:otherNewsVC animated:YES];
         
         
     }
@@ -408,7 +408,11 @@
     
     return 30.0 / 1334 * cScreen_Height;
 }
-
+// footer 的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    return 0.1 / 1334 * cScreen_Height;
+}
 
 // 懒加载
 - (NSArray *)allUnReadNewsCountTempArr{

@@ -69,12 +69,12 @@
                                  },
                              @{
                                  @"title":@"联系我们",
-                                 @"detail":@"021-31116836",
+                                 @"detail":@"admin@nznychina.com",
                                  },
-                             @{
-                                 @"title":@"版本号",
-                                 @"detail":@"1.1.0",
-                                 },
+//                             @{
+//                                 @"title":@"版本号",
+//                                 @"detail":@"1.1.0",
+//                                 },
                              ],
                          @[
                              @{
@@ -133,11 +133,11 @@
         cell.nextImgView.hidden = YES;
         [cell.detailLab setTextColor:[UIColor colorWithRed:0.37 green:0.65 blue:0.99 alpha:1.00]];
     }
-    if ([titleAndDetailModel.title isEqualToString:@"版本号"]) {
-        
-        cell.nextImgView.hidden = YES;
-        [cell.detailLab setTextColor:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00]];
-    }
+//    if ([titleAndDetailModel.title isEqualToString:@"版本号"]) {
+//        
+//        cell.nextImgView.hidden = YES;
+//        [cell.detailLab setTextColor:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00]];
+//    }
     if ([titleAndDetailModel.detail isEqualToString:@"退出账号"]) {
         
         [cell.detailLab removeFromSuperview];
@@ -206,11 +206,11 @@
         // 联系我们
         
     }
-    else if (indexPath.section == 0 && indexPath.row == 3) {
-        
-        // 版本号
-        
-    }
+//    else if (indexPath.section == 0 && indexPath.row == 3) {
+//        
+//        // 版本号
+//        
+//    }
     else if (indexPath.section == 1 && indexPath.row == 0) {
         
         // 退出账号
