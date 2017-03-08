@@ -11,7 +11,8 @@
 // cell：
 #import "CYAskFeedBackCell.h"
 // 模型：
-#import "CYAskFeedBackCellModel.h"
+//#import "CYAskFeedBackCellModel.h"
+#import "CYSystemOtherNewsCellModel.h"
 
 
 // header时间：cell
@@ -117,7 +118,7 @@
             [self.noDataLab removeFromSuperview];
             
             // 解析数据，模型存到数组
-            [self.dataArray addObjectsFromArray:[CYAskFeedBackCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
+            [self.dataArray addObjectsFromArray:[CYSystemOtherNewsCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
             
             
             if (self.dataArray.count == 0) {
@@ -198,9 +199,9 @@
     
     CYHeaderTimeCell *timeCell = [[[NSBundle mainBundle] loadNibNamed:@"CYHeaderTimeCell" owner:nil options:nil] lastObject];
     
-    CYAskFeedBackCellModel *askFeedBackCellModel = self.dataArray[section];
+    CYSystemOtherNewsCellModel *otherNewsCellModel = self.dataArray[section];
     
-    timeCell.timeLab.text = askFeedBackCellModel.CreateDate;
+    timeCell.timeLab.text = otherNewsCellModel.CreateDate;
     
     //    timeCell.backgroundColor = [UIColor redColor];
     timeCell.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.00];
@@ -225,7 +226,7 @@
     
     //    UITableViewCell *cell = [[UITableViewCell alloc] init];
     
-    CYAskFeedBackCellModel *askFeedBackCellModel = self.dataArray[indexPath.section];
+    CYSystemOtherNewsCellModel *otherNewsCellModel = self.dataArray[indexPath.section];
     
     
     // 问答fank
@@ -237,11 +238,14 @@
     
     
     // 问
-    cell.askLab.text = askFeedBackCellModel.Ask;
+//    cell.askLab.text = otherNewsCellModel.Ask;
+    cell.askLab.text = @"";
     //    cell.askLab.textColor = [UIColor colorWithRed:0.37 green:0.65 blue:0.99 alpha:1.00];
     
+    cell.askAndAnswerBoundaryProgressView.hidden = YES;
+    
     // 答
-    cell.answerLab.text = askFeedBackCellModel.Answer;
+    cell.answerLab.text = otherNewsCellModel.Content;
     
     
     
@@ -285,13 +289,16 @@
     NSLog(@"indexPath.section:%ld",(long)indexPath.section);
     NSLog(@"indexPath.row:%ld",(long)indexPath.row);
     
-    CYAskFeedBackCellModel *askFeedBackCellModel = self.dataArray[indexPath.section];
+    CYSystemOtherNewsCellModel *otherNewsCellModel = self.dataArray[indexPath.section];
     
     
     // 自动计算label的高度、宽度
-    CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:askFeedBackCellModel.Ask FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+//    CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:otherNewsCellModel.Ask FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
     
-    CGSize tempAnswerLabelSize = [self labelAutoCalculateRectWith:askFeedBackCellModel.Answer FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+    CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:@"" FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+    tempAskLabelSize = CGSizeMake(cScreen_Width - 42, 0.1);
+    
+    CGSize tempAnswerLabelSize = [self labelAutoCalculateRectWith:otherNewsCellModel.Content FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
     
     //        NSLog(@"self.dataArray.Ask:%@",self.dataArray[indexPath.section][@"Ask"]);
     //        NSLog(@"self.dataArray.Answer:%@",self.dataArray[indexPath.section][@"Answer"]);

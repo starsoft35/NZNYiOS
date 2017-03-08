@@ -71,6 +71,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="answerLab" destination="qii-bl-cXR" id="2TT-Xq-Ij4"/>
+                <outlet property="askAndAnswerBoundaryProgressView" destination="t4U-tX-Olu" id="jjW-d1-cyk"/>
                 <outlet property="askLab" destination="dFV-sY-u2Z" id="sCX-7G-cl6"/>
             </connections>
             <point key="canvasLocation" x="57.5" y="77"/>

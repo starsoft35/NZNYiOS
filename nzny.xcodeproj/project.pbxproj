@@ -14,6 +14,7 @@
 		8A18C89C1E3309A80004DBBA /* AliyunPlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BF41E30E68500A3579C /* AliyunPlayerSDK.framework */; };
 		8A18C89D1E3309A80004DBBA /* AliyunPlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BF41E30E68500A3579C /* AliyunPlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A18C8A01E330A8B0004DBBA /* AliyunPlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A18C89F1E330A8B0004DBBA /* AliyunPlayerSDK.framework */; };
+		8A26E5821E70163F004F0B65 /* CYSystemOtherNewsCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A26E5811E70163F004F0B65 /* CYSystemOtherNewsCellModel.m */; };
 		8A27EEE51E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27EEE41E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.m */; };
 		8A309E7A1D63172900F41396 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A309E791D63172900F41396 /* main.m */; };
 		8A309E881D63172900F41396 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A309E861D63172900F41396 /* LaunchScreen.storyboard */; };
@@ -838,6 +839,8 @@
 		8A1048F11E5D835100289275 /* CYAskFeedBackCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYAskFeedBackCellModel.h; sourceTree = "<group>"; };
 		8A1048F21E5D835100289275 /* CYAskFeedBackCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYAskFeedBackCellModel.m; sourceTree = "<group>"; };
 		8A18C89F1E330A8B0004DBBA /* AliyunPlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AliyunPlayerSDK.framework; path = "../男左女右iOS/资料/7.阿里云/阿里云视频SDK/AliyunVideoPlayerSDK_ios2.2/lib/arm/AliyunPlayerSDK.framework"; sourceTree = "<group>"; };
+		8A26E5801E70163F004F0B65 /* CYSystemOtherNewsCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYSystemOtherNewsCellModel.h; sourceTree = "<group>"; };
+		8A26E5811E70163F004F0B65 /* CYSystemOtherNewsCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYSystemOtherNewsCellModel.m; sourceTree = "<group>"; };
 		8A27EEE31E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYWechatPaymentUnifiedOrderModel.h; sourceTree = "<group>"; };
 		8A27EEE41E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYWechatPaymentUnifiedOrderModel.m; sourceTree = "<group>"; };
 		8A309E751D63172900F41396 /* nzny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nzny.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2101,6 +2104,8 @@
 		8A32A6D31E6521CE00B3F285 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8A26E5801E70163F004F0B65 /* CYSystemOtherNewsCellModel.h */,
+				8A26E5811E70163F004F0B65 /* CYSystemOtherNewsCellModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -6896,6 +6901,7 @@
 				8AD17F311E30E68700A3579C /* CYBaseTableViewController.m in Sources */,
 				8A653D121E46CCCA00B5B01B /* IMYWebView.m in Sources */,
 				8AD17EC51E30E68700A3579C /* UIProgressView+AFNetworking.m in Sources */,
+				8A26E5821E70163F004F0B65 /* CYSystemOtherNewsCellModel.m in Sources */,
 				8AD17C7C1E30E68600A3579C /* CYOthersInfoViewModel.m in Sources */,
 				8AD17ED61E30E68700A3579C /* MJPropertyKey.m in Sources */,
 				8A6A8EAF1E4AFB0C00B19835 /* CYGiveGiftTipWithMoneyView.m in Sources */,

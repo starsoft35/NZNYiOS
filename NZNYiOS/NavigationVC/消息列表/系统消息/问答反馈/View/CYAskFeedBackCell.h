@@ -15,6 +15,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *askLab;
 
 
+// 问题、答案分界线：progressView
+@property (weak, nonatomic) IBOutlet UIProgressView *askAndAnswerBoundaryProgressView;
+
+
 // 答案：label
 @property (weak, nonatomic) IBOutlet UILabel *answerLab;
 
