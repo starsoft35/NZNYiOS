@@ -27,7 +27,7 @@
     }
     else {
         
-        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,infoHeaderCellModel.headImgName]]];
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,infoHeaderCellModel.headImgName]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     _headImgView.layer.cornerRadius = (60.0 / 1334.0) * cScreen_Height;

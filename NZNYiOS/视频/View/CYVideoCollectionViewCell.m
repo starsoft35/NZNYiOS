@@ -28,7 +28,6 @@
     }
     else {
         
-//        [_videoBgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,videoCellModel.VideoUserPortrait]]];
         [_videoBgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,videoCellModel.VideoUserPortrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     

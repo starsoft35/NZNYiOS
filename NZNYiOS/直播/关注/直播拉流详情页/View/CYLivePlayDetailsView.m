@@ -25,7 +25,7 @@
     else {
         
         
-        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,livePlayDetailsModel.LiveUserPortrait]]];
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,livePlayDetailsModel.LiveUserPortrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     

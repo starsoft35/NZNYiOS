@@ -28,7 +28,7 @@
     }
     else {
         
-        [_mineHeadImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,mineMainHeaderViewModel.portrait]]];
+        [_mineHeadImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,mineMainHeaderViewModel.portrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     

@@ -46,6 +46,7 @@
     // 活动图片    
     [_activePictureImgView sd_setImageWithURL:[NSURL URLWithString:offlineActiveCellModel.PictureUrl] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     
+    
     [_activePictureImgView setContentScaleFactor:[[UIScreen mainScreen] scale]];
     
     _activePictureImgView.contentMode =  UIViewContentModeScaleAspectFit;

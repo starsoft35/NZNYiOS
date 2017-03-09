@@ -25,7 +25,7 @@
     }
     else {
         
-        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,othersInfoViewModel.Portrait]]];
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,othersInfoViewModel.Portrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     NSMutableArray *tempTagListArr = [[NSMutableArray alloc] init];

@@ -30,7 +30,7 @@
     }
     else {
         
-        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,searchModel.Portrait]]];
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,searchModel.Portrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     

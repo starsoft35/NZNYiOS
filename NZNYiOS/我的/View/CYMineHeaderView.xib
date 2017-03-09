@@ -20,7 +20,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPZ-MX-I2C" userLabel="1-头像View">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bxg-89-SrI" userLabel="1.0-Image View">
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bxg-89-SrI" userLabel="1.0-Image View">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                         </imageView>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="默认头像.png" translatesAutoresizingMaskIntoConstraints="NO" id="dR0-x1-1pK" userLabel="1.1-头像Image View">
@@ -86,6 +86,7 @@
                             <state key="normal" backgroundImage="编辑1.png"/>
                         </button>
                     </subviews>
+                    <color key="backgroundColor" red="0.35845804214477539" green="0.63922595977783203" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="uix-nO-TtM" firstAttribute="bottom" secondItem="dR0-x1-1pK" secondAttribute="bottom" id="0uE-NV-LnS"/>
                         <constraint firstItem="9e3-mP-XMd" firstAttribute="leading" secondItem="uix-nO-TtM" secondAttribute="trailing" id="2Lb-gI-Lo1"/>
@@ -112,7 +113,7 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="FEr-0J-XbS" userLabel="2.1.1-视频数量-Label">
                                     <rect key="frame" x="0.0" y="0.0" width="94" height="31"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" red="0.91768163439999995" green="0.51090770959999998" blue="0.18271613119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -122,7 +123,7 @@
                                     <color key="textColor" red="0.50190365314483643" green="0.50199371576309204" blue="0.50189799070358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5H-5N-xqP" userLabel="2.1.3-视频、直播分界线-View">
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w5H-5N-xqP" userLabel="2.1.3-视频、直播分界线-View">
                                     <rect key="frame" x="93" y="10" width="1" height="50"/>
                                     <color key="backgroundColor" red="0.79991227388381958" green="0.80005055665969849" blue="0.7999035120010376" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -149,11 +150,11 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Mno-dN-lNX" userLabel="2.2.1-直播数量-Label">
                                     <rect key="frame" x="0.0" y="0.0" width="93.5" height="31"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" red="0.91768163442611694" green="0.51090770959854126" blue="0.18271613121032715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXi-7L-it8" userLabel="2.2.3-直播、粉丝分界线-View">
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXi-7L-it8" userLabel="2.2.3-直播、粉丝分界线-View">
                                     <rect key="frame" x="92" y="10" width="1" height="50"/>
                                     <color key="backgroundColor" red="0.79991227389999997" green="0.80005055670000003" blue="0.79990351199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -186,7 +187,7 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Rig-rg-K3i" userLabel="2.3.1-粉丝数量-Label">
                                     <rect key="frame" x="0.0" y="0.0" width="94" height="31"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" red="0.91768163439999995" green="0.51090770959999998" blue="0.18271613119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -196,7 +197,7 @@
                                     <color key="textColor" red="0.50190365309999996" green="0.50199371579999996" blue="0.50189799069999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7Q-1t-OdG" userLabel="2.3.3-粉丝、关注分界线-View">
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7Q-1t-OdG" userLabel="2.3.3-粉丝、关注分界线-View">
                                     <rect key="frame" x="92.5" y="10" width="1" height="50"/>
                                     <color key="backgroundColor" red="0.79991227389999997" green="0.80005055670000003" blue="0.79990351199999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -223,7 +224,7 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="kMa-Qc-nLU" userLabel="2.4.1-关注数量-Label">
                                     <rect key="frame" x="0.0" y="0.0" width="93.5" height="31"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" red="0.91768163439999995" green="0.51090770959999998" blue="0.18271613119999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>

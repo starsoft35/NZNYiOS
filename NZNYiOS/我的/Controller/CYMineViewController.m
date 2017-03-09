@@ -442,6 +442,12 @@
     return 400.0 / 1334.0 * cScreen_Height;
 }
 
+// cell 高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    return 88.0 / 1334.0 * cScreen_Height;
+}
+
 // 有多少组
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     

@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     
-    self.title = @"用户须知";
+    self.title = @"用户注册协议";
     
     // 背景颜色
     self.view.backgroundColor = [UIColor whiteColor];
@@ -84,7 +84,7 @@
     
     _setUpAboutUsVCModel = setUpAboutUsVCModel;
     
-    //    self.title = setUpAboutUsVCModel.Title;
+//    self.title = setUpAboutUsVCModel.Title;
     
     //    [self showLoadingView];
     

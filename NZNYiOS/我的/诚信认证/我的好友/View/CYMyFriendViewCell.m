@@ -25,7 +25,7 @@
     else {
         
         
-        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,myFriendViewCellModel.Portrait]]];
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,myFriendViewCellModel.Portrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     // 姓名

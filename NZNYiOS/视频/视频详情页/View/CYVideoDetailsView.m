@@ -25,7 +25,7 @@
     }
     else {
         
-        [_bgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,othersInfoVM.Portrait]]];
+        [_bgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,othersInfoVM.Portrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     // 头像
@@ -36,7 +36,7 @@
     }
     else {
         
-        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,othersInfoVM.Portrait]]];
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,othersInfoVM.Portrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     

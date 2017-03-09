@@ -26,7 +26,8 @@
     }
     else {
         
-        [_liveTrailerBgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,myLiveTrailerCellModel.Pictrue]]];
+        
+        [_liveTrailerBgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,myLiveTrailerCellModel.Pictrue]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     // 直播状态

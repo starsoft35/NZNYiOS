@@ -25,7 +25,8 @@
     }
     else {
         
-        [_liveBgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,liveCellModel.Pictrue]]];
+        
+        [_liveBgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,liveCellModel.Pictrue]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     // 直播状态

@@ -23,7 +23,10 @@
     }
     else {
         
-        [_headerImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,livePushDetailsViewModel.LiveUserPortrait]]];
+        
+        [_headerImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,livePushDetailsViewModel.LiveUserPortrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
+        
+        
     }
     
     _headerImgView.layer.cornerRadius = (30.0 / 1334.0) * cScreen_Height;
@@ -56,8 +59,7 @@
     }
     else {
         
-        
-        [_bgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,livePushDetailsViewModel.Pictrue]]];
+        [_bgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,livePushDetailsViewModel.Pictrue]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
 }

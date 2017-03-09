@@ -30,7 +30,7 @@
     }
     else {
         
-        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,whoPraiseMeCellModel.Portrait]]];
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,whoPraiseMeCellModel.Portrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     // 姓名
