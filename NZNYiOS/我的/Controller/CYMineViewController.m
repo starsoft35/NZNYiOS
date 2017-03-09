@@ -85,6 +85,8 @@
     
     self.baseTableView.frame = CGRectMake(0, -1, cScreen_Width, cScreen_Height);
     
+    self.baseTableView.scrollEnabled = NO;
+    
     // 设置navigationBarButtonItem
     [self setNavBarBtnItem];
 }

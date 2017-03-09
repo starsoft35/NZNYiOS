@@ -15,6 +15,9 @@
 #import "CYPerfectInfoViewController.h"
 
 
+// 用户注册协议：VC
+#import "CYUserRegisterProtocolVC.h"
+
 
 @interface CYRegisterViewController ()
 
@@ -60,8 +63,32 @@
     [_registerMainV.goLoginBtn addTarget:self action:@selector(goLoginBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     
+    // 用户注册协议：label
+    NSString *userRegisterProtocol = @"注册即表示您同意《男左女右用户注册协议》";
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:userRegisterProtocol];
+    
+    [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00] range:[userRegisterProtocol rangeOfString:@"注册即表示您同意"]];
+    [attributedString addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:0.37 green:0.65 blue:0.99 alpha:1.00] range:[userRegisterProtocol rangeOfString:@"《男左女右用户注册协议》"]];
+    _registerMainV.userRegisterProtocolLab.attributedText = attributedString;
+    
+    // 用户注册协议：label：点击事件
+    UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userRegisterProtocolLabClick)];
+    // 2. 将点击事件添加到label上
+    [_registerMainV.userRegisterProtocolLab addGestureRecognizer:labelTapGestureRecognizer];
+    _registerMainV.userRegisterProtocolLab.userInteractionEnabled = YES;
     
     [self.view addSubview:_registerMainV];
+}
+
+// 用户注册协议：label：点击事件
+- (void)userRegisterProtocolLabClick{
+    NSLog(@"用户注册协议：label：点击事件");
+    
+    CYUserRegisterProtocolVC *userRegisterProtocolVC = [[CYUserRegisterProtocolVC alloc] init];
+    
+    
+    [self.navigationController pushViewController:userRegisterProtocolVC animated:YES];
+    
 }
 
 // 密码显示隐藏：点击事件

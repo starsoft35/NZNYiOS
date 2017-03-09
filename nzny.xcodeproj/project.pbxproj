@@ -797,6 +797,7 @@
 		8AD477A31E58238B0026B846 /* CYSystemNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD477A21E58238B0026B846 /* CYSystemNewsCell.m */; };
 		8AD477A51E5823950026B846 /* CYSystemNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AD477A41E5823950026B846 /* CYSystemNewsCell.xib */; };
 		8AD477A81E5823A20026B846 /* CYSystemNewsCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD477A71E5823A20026B846 /* CYSystemNewsCellModel.m */; };
+		8ADFC9E51E70F45100FF916A /* CYUserRegisterProtocolVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ADFC9E41E70F45100FF916A /* CYUserRegisterProtocolVC.m */; };
 		8AF58DF31E1B8B0B00D523D3 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF58DF21E1B8B0B00D523D3 /* CoreText.framework */; };
 		8AF58DF51E1B8B4000D523D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF58DF41E1B8B4000D523D3 /* Foundation.framework */; };
 		8AF58DF71E1B8B5100D523D3 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AF58DF61E1B8B5100D523D3 /* CoreMotion.framework */; };
@@ -1948,6 +1949,8 @@
 		8AD477A41E5823950026B846 /* CYSystemNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYSystemNewsCell.xib; sourceTree = "<group>"; };
 		8AD477A61E5823A20026B846 /* CYSystemNewsCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYSystemNewsCellModel.h; sourceTree = "<group>"; };
 		8AD477A71E5823A20026B846 /* CYSystemNewsCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYSystemNewsCellModel.m; sourceTree = "<group>"; };
+		8ADFC9E31E70F45100FF916A /* CYUserRegisterProtocolVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYUserRegisterProtocolVC.h; sourceTree = "<group>"; };
+		8ADFC9E41E70F45100FF916A /* CYUserRegisterProtocolVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYUserRegisterProtocolVC.m; sourceTree = "<group>"; };
 		8AF58DF21E1B8B0B00D523D3 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		8AF58DF41E1B8B4000D523D3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8AF58DF61E1B8B5100D523D3 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -4736,6 +4739,7 @@
 				8AD179731E30E68500A3579C /* Controller */,
 				8AD179781E30E68500A3579C /* Model */,
 				8AD1797D1E30E68500A3579C /* View */,
+				8ADFC9DF1E70F42600FF916A /* 用户注册协议 */,
 			);
 			path = "注册";
 			sourceTree = "<group>";
@@ -6123,6 +6127,39 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8ADFC9DF1E70F42600FF916A /* 用户注册协议 */ = {
+			isa = PBXGroup;
+			children = (
+				8ADFC9E01E70F42600FF916A /* Controller */,
+				8ADFC9E11E70F42600FF916A /* Model */,
+				8ADFC9E21E70F42600FF916A /* View */,
+			);
+			path = "用户注册协议";
+			sourceTree = "<group>";
+		};
+		8ADFC9E01E70F42600FF916A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8ADFC9E31E70F45100FF916A /* CYUserRegisterProtocolVC.h */,
+				8ADFC9E41E70F45100FF916A /* CYUserRegisterProtocolVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8ADFC9E11E70F42600FF916A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8ADFC9E21E70F42600FF916A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8AFA3A521DACC2D5001880C9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -6758,6 +6795,7 @@
 				8AD17CE51E30E68600A3579C /* CYMineVideoView.m in Sources */,
 				8AD17ED91E30E68700A3579C /* NSObject+MJCoding.m in Sources */,
 				8AD17CB01E30E68600A3579C /* CYMyUserInfoAgeVC.m in Sources */,
+				8ADFC9E51E70F45100FF916A /* CYUserRegisterProtocolVC.m in Sources */,
 				8AD17F391E30E68700A3579C /* UIImage+CYImage.m in Sources */,
 				8AD17EF61E30E68700A3579C /* ActionSheetStringPicker.m in Sources */,
 				8AD17EDD1E30E68700A3579C /* MJRefreshAutoFooter.m in Sources */,

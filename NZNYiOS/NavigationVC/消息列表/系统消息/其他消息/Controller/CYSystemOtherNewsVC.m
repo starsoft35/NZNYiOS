@@ -239,14 +239,13 @@
     
     // 问
 //    cell.askLab.text = otherNewsCellModel.Ask;
-    cell.askLab.text = @"";
+    cell.askLab.text = otherNewsCellModel.Content;
     //    cell.askLab.textColor = [UIColor colorWithRed:0.37 green:0.65 blue:0.99 alpha:1.00];
     
     cell.askAndAnswerBoundaryProgressView.hidden = YES;
     
     // 答
-    cell.answerLab.text = otherNewsCellModel.Content;
-    
+    cell.answerLab.text = @"";
     
     
     
@@ -293,20 +292,42 @@
     
     
     // 自动计算label的高度、宽度
-//    CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:otherNewsCellModel.Ask FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+    CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:otherNewsCellModel.Content FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
     
-    CGSize tempAskLabelSize = [self labelAutoCalculateRectWith:@"" FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
-    tempAskLabelSize = CGSizeMake(cScreen_Width - 42, 0.1);
     
-    CGSize tempAnswerLabelSize = [self labelAutoCalculateRectWith:otherNewsCellModel.Content FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
     
+    
+    
+//    tempAskLabelSize = CGSizeMake(cScreen_Width - 42, 0.1);
+    
+    
+    
+    
+    
+//    CGSize tempAnswerLabelSize = [self labelAutoCalculateRectWith:otherNewsCellModel.Content FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
+    CGSize tempAnswerLabelSize = [self labelAutoCalculateRectWith:@"" FontSize:15 MaxSize:CGSizeMake(cScreen_Width - 42, 500.0 / 667.0 * cScreen_Height)];
     //        NSLog(@"self.dataArray.Ask:%@",self.dataArray[indexPath.section][@"Ask"]);
     //        NSLog(@"self.dataArray.Answer:%@",self.dataArray[indexPath.section][@"Answer"]);
     
     NSLog(@"tempAskLabelSize.height:%f",tempAskLabelSize.height);
     NSLog(@"tempAnswerLabelSize.height:%f",tempAnswerLabelSize.height);
     
-    float tempHeight = (61) + (tempAskLabelSize.height) + (tempAnswerLabelSize.height);
+    
+    
+    
+    
+    tempAnswerLabelSize = CGSizeMake(cScreen_Width - 42, 0.1);
+    
+    
+    
+    
+    
+    
+//    float tempHeight = (61) + (tempAskLabelSize.height) + (tempAnswerLabelSize.height);
+    
+    float tempHeight = (61) + (tempAskLabelSize.height) + (tempAnswerLabelSize.height) - 10;
+    
+    
     
     NSLog(@"tempHeight:%f",tempHeight);
     

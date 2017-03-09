@@ -48,4 +48,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *WeChatLoginBtn;
 
 
+// 用户注册协议
+@property (weak, nonatomic) IBOutlet UILabel *userRegisterProtocolLab;
+
+
+
+
+
 @end

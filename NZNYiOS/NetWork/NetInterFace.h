@@ -30,7 +30,8 @@
 
 // 0.2-注册地址
 #define cRegisterUrl (@"api/Account/Register")
-
+// 0.2.1-用户注册协议
+#define cRegistrationUrl (@"api/Article/Registration")
 
 // 0.3-完善信息
 #define cFurRegisterUrl (@"api/User/FurRegister")

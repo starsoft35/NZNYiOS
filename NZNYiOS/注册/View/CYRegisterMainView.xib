@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,8 +18,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oml-Kn-xj2" userLabel="1-信息注册-View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="292"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="为保证您的账号安全，请将密码设为8~16位数字和字母" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="fvL-8n-emu">
+                            <rect key="frame" x="37" y="280" width="301" height="12"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="12" id="mz9-Iw-uQ1"/>
                             </constraints>
@@ -25,8 +30,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eYS-Zy-d0R" userLabel="1.1-手机号-View">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+86" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ycm-yf-V6U" userLabel="+86-Label">
+                                    <rect key="frame" x="37" y="59" width="35" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="35" id="qpx-MR-SBZ"/>
                                         <constraint firstAttribute="height" constant="20" id="rDE-A8-rxV"/>
@@ -36,11 +43,12 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="jja-HI-APA" userLabel="手机号Text Field">
+                                    <rect key="frame" x="89" y="59" width="249" height="20"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="uaS-YN-lD6" userLabel="手机号Progress View">
-                                    <frame key="frameInset" minX="37" minY="89" width="301" height="1"/>
+                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="uaS-YN-lD6" userLabel="手机号Progress View">
+                                    <rect key="frame" x="37" y="89" width="301" height="1"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="IUU-o9-dfZ"/>
                                     </constraints>
@@ -60,8 +68,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uqa-qB-OF7" userLabel="1.2-验证码-View">
+                            <rect key="frame" x="0.0" y="90" width="375" height="90"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mgq-5T-LhF" userLabel="验证码Text Field">
+                                    <rect key="frame" x="80" y="58" width="158" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="y6D-h7-xyg"/>
                                     </constraints>
@@ -69,6 +79,7 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znt-qF-o0i" userLabel="发送验证码Button">
+                                    <rect key="frame" x="238" y="46" width="100" height="44"/>
                                     <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="2tO-5z-WeY"/>
@@ -78,8 +89,8 @@
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                 </button>
-                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="EoT-IF-G2a" userLabel="验证码Progress View">
-                                    <frame key="frameInset" minX="37" minY="89" width="301" height="1"/>
+                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="EoT-IF-G2a" userLabel="验证码Progress View">
+                                    <rect key="frame" x="37" y="89" width="301" height="1"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="tMX-bf-2NX"/>
                                     </constraints>
@@ -98,21 +109,24 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Of3-xZ-JED" userLabel="1.3-密码-View">
+                            <rect key="frame" x="0.0" y="180" width="375" height="90"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="9UC-vP-naF" userLabel="密码Text Field">
+                                    <rect key="frame" x="80" y="54" width="236" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="Yog-8x-jgj"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
-                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" misplaced="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="r0F-As-SuM" userLabel="密码Progress View">
-                                    <frame key="frameInset" minX="37" minY="89" width="301" height="1"/>
+                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="r0F-As-SuM" userLabel="密码Progress View">
+                                    <rect key="frame" x="37" y="89" width="301" height="1"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="ODC-dT-XeF"/>
                                     </constraints>
                                 </progressView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="隐藏.png" translatesAutoresizingMaskIntoConstraints="NO" id="2Wp-eQ-G2u" userLabel="显示密码Image View">
+                                    <rect key="frame" x="316" y="57.5" width="22" height="13"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="2Wp-eQ-G2u" secondAttribute="height" multiplier="22:13" id="B6Q-Sd-vNy"/>
                                         <constraint firstAttribute="width" constant="22" id="GEA-YI-hmb"/>
@@ -151,13 +165,16 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7j1-3A-zPt" userLabel="2-注册登录button-View">
+                    <rect key="frame" x="0.0" y="292" width="375" height="193"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtb-gj-Ecy" userLabel="注册Button">
+                            <rect key="frame" x="37" y="80" width="301" height="44"/>
                             <state key="normal" title="注册" backgroundImage="登录底.png">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="orn-v0-1vD" userLabel="已有账号，登录-Button">
+                            <rect key="frame" x="37" y="149" width="301" height="44"/>
                             <state key="normal" title="已有账号，去登录" backgroundImage="注册底.png"/>
                         </button>
                     </subviews>
@@ -172,7 +189,21 @@
                         <constraint firstAttribute="trailing" secondItem="orn-v0-1vD" secondAttribute="trailing" constant="37" id="ypE-TC-93U"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2C-fW-IdY" userLabel="3-微信登录View"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2C-fW-IdY" userLabel="3-微信登录View">
+                    <rect key="frame" x="0.0" y="485" width="375" height="182"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册即表示您同意《男左女右用户注册协议》" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F06-fg-Gjc" userLabel="4-用户协议-Label">
+                            <rect key="frame" x="65" y="137.5" width="245.5" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="F06-fg-Gjc" secondAttribute="bottom" constant="30" id="ZCU-fV-Qwk"/>
+                        <constraint firstItem="F06-fg-Gjc" firstAttribute="centerX" secondItem="n2C-fW-IdY" secondAttribute="centerX" id="zuH-HE-zPy"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -202,6 +233,7 @@
                 <outlet property="promptPSFormatLab" destination="fvL-8n-emu" id="ov5-lY-oTJ"/>
                 <outlet property="registerBtn" destination="gtb-gj-Ecy" id="mLg-sw-r7O"/>
                 <outlet property="sendVerificationBtn" destination="Znt-qF-o0i" id="bhl-SA-rZu"/>
+                <outlet property="userRegisterProtocolLab" destination="F06-fg-Gjc" id="cvA-BK-Vpl"/>
                 <outlet property="verificationTF" destination="Mgq-5T-LhF" id="2Lv-kg-xSF"/>
             </connections>
             <point key="canvasLocation" x="417.5" y="334.5"/>
