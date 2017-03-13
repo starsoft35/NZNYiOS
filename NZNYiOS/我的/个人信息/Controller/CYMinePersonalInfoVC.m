@@ -329,15 +329,9 @@
             
             cell.detailLab.font = [UIFont systemFontOfSize:15];
             cell.detailLab.adjustsFontSizeToFitWidth = NO;
-            
-            // 自动计算label的高度、宽度
-            CGSize tempLabelSize = [self labelAutoCalculateRectWith:cell.detailLab.text FontSize:15 MaxSize:CGSizeMake(240.0 / 375.0 * cScreen_Width, 80.0 / 667.0 * cScreen_Height)];
-            
-            
-            CGRect tempDetailLabRect = CGRectMake(cell.detailLab.frame.origin.x, cell.detailLab.frame.origin.y, tempLabelSize.width, tempLabelSize.height);
-            
             cell.detailLab.numberOfLines = 0;
-            cell.detailLab.frame = tempDetailLabRect;
+            
+            
             
             
             // 首行缩进
@@ -347,12 +341,12 @@
             //参数：（字体大小17号字乘以2，34f即首行空出两个字符）
             CGFloat emptylen = cell.detailLab.font.pointSize * 2;
             paraStyle01.firstLineHeadIndent = emptylen;
+            
+            
+            // detailLabel：赋值
             NSAttributedString *attrText = [[NSAttributedString alloc] initWithString:cell.detailLab.text attributes:@{NSParagraphStyleAttributeName:paraStyle01}];
             cell.detailLab.attributedText = attrText;
             
-            CGRect loveDeclarationRect = cell.titleLab.frame;
-            float loveDeclarationWidth = loveDeclarationRect.size.height * 5.0;
-            cell.titleLab.frame = CGRectMake(loveDeclarationRect.origin.x, loveDeclarationRect.origin.y, 300, loveDeclarationRect.size.height);
         }
         
         [cell.detailLab setTextColor:[UIColor colorWithRed:0.50 green:0.50 blue:0.50 alpha:1.00]];

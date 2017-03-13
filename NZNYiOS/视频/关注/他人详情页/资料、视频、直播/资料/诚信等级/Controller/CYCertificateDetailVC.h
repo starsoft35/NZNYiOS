@@ -16,5 +16,9 @@
 @property (nonatomic, strong) NSMutableArray *newCertificateArr;
 
 
+// 所查看的诚信等级的人
+@property (nonatomic, copy) NSString *oppUserId;
+
+
 
 @end

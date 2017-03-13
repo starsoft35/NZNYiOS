@@ -10,8 +10,13 @@
 
 // 是否为好友模型
 #import "CYVideoIsFriendModel.h"
+
 // 加好友界面：VC
-#import "CYAddFriendVC.h"
+//#import "CYAddFriendVC.h"
+// 加好友弹窗：view
+#import "CYAddFriendView.h"
+
+
 // 聊天界面:VC
 #import "CYChatVC.h"
 
@@ -31,7 +36,18 @@
 #define cCellEdgeDown ((10.0 / 1334.0) * cScreen_Height)
 #define cCellEdgeRight ((25.0 / 750.0) * cScreen_Width)
 
-@interface CYLiveViewController ()
+
+#define MAX_LIMIT_NUMS (30)
+
+
+
+@interface CYLiveViewController ()<UITextViewDelegate>
+
+
+// 加好友弹窗：View
+@property(nonatomic, strong) CYAddFriendView *addFriendView;
+
+
 
 @end
 
@@ -141,14 +157,14 @@
     // collectionView类 调用方法，获取cell的indexPath
     NSIndexPath *indexPath = [self.baseCollectionView indexPathForCell:tempView];
     
-    NSLog(@"当前的cell：%ld",indexPath.row);
+    NSLog(@"当前的cell：%ld",(long)indexPath.row);
     
     // 模型：当前选中的cell
     CYLiveCollectionViewCellModel *liveCellModel = self.dataArray[indexPath.row];
     
     // 网络请求：联系他
     // 参数
-    NSString *newUrlStr = [NSString stringWithFormat:@"api/Relationship/contact?userId=%@&oppUserId=%@",self.onlyUser.userID,liveCellModel.LiveUserId];
+    NSString *newUrlStr = [NSString stringWithFormat:@"%@?userId=%@&oppUserId=%@",cContactUrl,self.onlyUser.userID,liveCellModel.LiveUserId];
     
     // 网络请求：联系他
     [CYNetWorkManager postRequestWithUrl:newUrlStr params:nil progress:^(NSProgress *uploadProgress) {
@@ -167,22 +183,22 @@
         NSString *code = responseObject[@"code"];
         
         
-#warning 为什么 IsFriend 打印中有值，但是赋值时是没有值的？？？？？？？
-        CYVideoIsFriendModel *isFriendModel = [[CYVideoIsFriendModel alloc]initWithDictionary:responseObject[@"res"] error:nil];
-        // 判断是否是朋友
-        BOOL isFriend = isFriendModel.IsFriend;
         
         // 2.3.1.2、判断返回值
         if ([code isEqualToString:@"0"]) {
             NSLog(@"联系他：关注成功！");
             
             
-            if (isFriend) {
+            if ([responseObject[@"res"][@"IsFriend"] boolValue]) {
                 
                 // 聊天界面
                 [self chatViewWithOppUserId:liveCellModel.LiveUserId andOppUserName:liveCellModel.LiveUserName];
             }
             else {
+                
+                
+                self.oppUserId = liveCellModel.LiveUserId;
+                
                 
                 // 加好友界面
                 [self addFriendViewWithOppUserId:liveCellModel.LiveUserId];
@@ -244,22 +260,265 @@
     // tabbar：显示
     self.parentViewController.hidesBottomBarWhenPushed = NO;
 }
+
 // 加好友界面
 - (void)addFriendViewWithOppUserId:(NSString *)oppUserId{
     NSLog(@"加好友界面");
     
-    //        CYNotFriendTipVC *notFriendVC = [[CYNotFriendTipVC alloc] init];
-    //
-    //        notFriendVC.OppUserId = othersInfoViewModel.Id;
-    //
-    //        [self presentViewController:notFriendVC animated:YES completion:nil];
-    CYAddFriendVC *addFriendVC = [[CYAddFriendVC alloc] init];
-    
-    addFriendVC.OppUserId = oppUserId;
+//    CYAddFriendVC *addFriendVC = [[CYAddFriendVC alloc] init];
+//    
+//    addFriendVC.OppUserId = oppUserId;
+//    
+//    
+//    [self presentViewController:addFriendVC animated:YES completion:nil];
     
     
-    [self presentViewController:addFriendVC animated:YES completion:nil];
+    
+    
+    
+    
+    
+    
+    
+    
+    _addFriendView = [[[NSBundle mainBundle] loadNibNamed:@"CYAddFriendView" owner:nil options:nil] lastObject];
+    
+    _addFriendView.frame = CGRectMake(0, -128, cScreen_Width, cScreen_Height);
+    
+    
+//    _addFriendView.backgroundColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:0.50];
+    _addFriendView.backgroundColor = [UIColor clearColor];
+    //    _giveGiftTipView.giveGiftBgImgView.hidden = YES;
+    
+    // tipCloseBtn：关闭弹窗：点击事件
+    [_addFriendView.tipCloseBtn addTarget:self action:@selector(addFriendViewCloseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    // 添加好友：button：点击事件
+    [_addFriendView.addFriendBtn addTarget:self action:@selector(addFriendViewAddFriendBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    _addFriendView.sayToYouTextView.delegate = self;
+    
+    
+    [self.view addSubview:_addFriendView];
+    
+    
+    
+    
+    
 }
+
+// tipCloseBtn：关闭弹窗：点击事件
+- (void)addFriendViewCloseBtnClick{
+    NSLog(@"tipCloseBtn：关闭弹窗：点击事件");
+    
+    [self.addFriendView removeFromSuperview];
+    
+}
+
+// 添加好友：button：点击事件
+- (void)addFriendViewAddFriendBtnClick{
+    NSLog(@"添加好友：button：点击事件");
+    
+    // 网络请求：添加好友
+    // 参数
+    NSDictionary *params = @{
+                             @"UserId":self.onlyUser.userID,
+                             @"OppUserId":self.oppUserId,
+                             @"Description":self.addFriendView.sayToYouTextView.text
+                             };
+    NSLog(@"Description:%@",self.addFriendView.sayToYouTextView.text);
+    // 网络请求：添加好友
+    [CYNetWorkManager postRequestWithUrl:cApplyFriendUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"progress:%@",uploadProgress);
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"添加好友：请求成功！");
+        
+        
+        // 去掉添加好友弹窗
+        [self.addFriendView removeFromSuperview];
+        
+        
+        // 2.3.1.1、获取code 值
+        NSString *code = responseObject[@"code"];
+        
+        // 2.3.1.2、判断返回值
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"添加好友：添加成功！");
+            
+            
+            //            [self dismissViewControllerAnimated:YES completion:nil];
+            
+            // 添加好友成功，提示用户：保存成功
+            [self showHubWithLabelText:@"申请成功！" andHidAfterDelay:3.0];
+            
+            
+            
+        }
+        else{
+            NSLog(@"添加好友：添加失败！");
+            NSLog(@"msg:%@",responseObject[@"res"][@"msg"]);
+            
+            // 2.3.1.2.2、添加好友失败，弹窗
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+        }
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"添加好友：请求失败！");
+        NSLog(@"error:%@",error);
+        [self showHubWithLabelText:@"添加好友失败，请检查网络" andHidAfterDelay:3.0];
+        
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+// 重写touchsBegan，点击旁边空白时，让UIView 类的子类，失去第一响应者
+#pragma mark --重写touchsBegan
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    
+    //
+    [UIView animateWithDuration:0.5 animations:^{
+        self.addFriendView.frame = CGRectMake(0, -128, cScreen_Width, cScreen_Height);
+        
+    }];
+    
+    for (UIView *tempView in self.view.subviews) {
+        if ([tempView isKindOfClass:[UIView class]]) {
+            // 失去第一响应者
+            [tempView resignFirstResponder];
+        }
+    }
+    
+    
+}
+
+#pragma mark --UITextViewDelegate
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    
+    
+    // 键盘弹出：上拉弹窗
+    [UIView animateWithDuration:0.5 animations:^{
+        self.addFriendView.frame = CGRectMake(0, -192, cScreen_Width, cScreen_Height);
+    }];
+}
+
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    
+    
+    self.addFriendView.surplusCountLab.hidden = NO;
+    self.addFriendView.maxCountLab.hidden = NO;
+    self.addFriendView.guideHerToSayLab.hidden = YES;
+    
+    UITextRange *selectedRange = [textView markedTextRange];
+    //获取高亮部分
+    UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
+    //获取高亮部分内容
+    //NSString * selectedtext = [textView textInRange:selectedRange];
+    
+    //如果有高亮且当前字数开始位置小于最大限制时允许输入
+    if (selectedRange && pos) {
+        NSInteger startOffset = [textView offsetFromPosition:textView.beginningOfDocument toPosition:selectedRange.start];
+        NSInteger endOffset = [textView offsetFromPosition:textView.beginningOfDocument toPosition:selectedRange.end];
+        NSRange offsetRange = NSMakeRange(startOffset, endOffset - startOffset);
+        
+        if (offsetRange.location < MAX_LIMIT_NUMS) {
+            return YES;
+        }
+        else
+        {
+            return NO;
+        }
+    }
+    
+    
+    NSString *comcatstr = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    
+    NSInteger caninputlen = MAX_LIMIT_NUMS - comcatstr.length;
+    
+    if (caninputlen >= 0)
+    {
+        return YES;
+    }
+    else
+    {
+        NSInteger len = text.length + caninputlen;
+        //防止当text.length + caninputlen < 0时，使得rg.length为一个非法最大正数出错
+        NSRange rg = {0,MAX(len,0)};
+        
+        if (rg.length > 0)
+        {
+            NSString *s = @"";
+            //判断是否只普通的字符或asc码(对于中文和表情返回NO)
+            BOOL asc = [text canBeConvertedToEncoding:NSASCIIStringEncoding];
+            if (asc) {
+                s = [text substringWithRange:rg];//因为是ascii码直接取就可以了不会错
+            }
+            else
+            {
+                __block NSInteger idx = 0;
+                __block NSString  *trimString = @"";//截取出的字串
+                //使用字符串遍历，这个方法能准确知道每个emoji是占一个unicode还是两个
+                [text enumerateSubstringsInRange:NSMakeRange(0, [text length])
+                                         options:NSStringEnumerationByComposedCharacterSequences
+                                      usingBlock: ^(NSString* substring, NSRange substringRange, NSRange enclosingRange, BOOL* stop) {
+                                          
+                                          if (idx >= rg.length) {
+                                              *stop = YES; //取出所需要就break，提高效率
+                                              return ;
+                                          }
+                                          
+                                          trimString = [trimString stringByAppendingString:substring];
+                                          
+                                          idx++;
+                                      }];
+                
+                s = trimString;
+            }
+            //rang是指从当前光标处进行替换处理(注意如果执行此句后面返回的是YES会触发didchange事件)
+            [textView setText:[textView.text stringByReplacingCharactersInRange:range withString:s]];
+            //既然是超出部分截取了，哪一定是最大限制了。
+            //            self.declarationTF.text = [NSString stringWithFormat:@"%d/%ld",0,(long)MAX_LIMIT_NUMS];
+            self.addFriendView.surplusCountLab.text = [NSString stringWithFormat:@"%d ",0];
+            self.addFriendView.maxCountLab.text = [NSString stringWithFormat:@"/ %ld",(long)MAX_LIMIT_NUMS];
+        }
+        return NO;
+    }
+}
+- (void)textViewDidChange:(UITextView *)textView{
+    
+    self.addFriendView.surplusCountLab.hidden = NO;
+    self.addFriendView.maxCountLab.hidden = NO;
+    
+    
+    UITextRange *selectedRange = [textView markedTextRange];
+    //获取高亮部分
+    UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
+    
+    //如果在变化中是高亮部分在变，就不要计算字符了
+    if (selectedRange && pos) {
+        return;
+    }
+    
+    NSString  *nsTextContent = textView.text;
+    NSInteger existTextNum = nsTextContent.length;
+    
+    if (existTextNum > MAX_LIMIT_NUMS)
+    {
+        //截取到最大位置的字符(由于超出截部分在should时被处理了所在这里这了提高效率不再判断)
+        NSString *s = [nsTextContent substringToIndex:MAX_LIMIT_NUMS];
+        
+        [textView setText:s];
+    }
+    
+    //不让显示负数 口口日
+    //    self.declarationTF.text = [NSString stringWithFormat:@"%ld/%d",MAX(0,MAX_LIMIT_NUMS - existTextNum),MAX_LIMIT_NUMS];
+    self.addFriendView.surplusCountLab.text = [NSString stringWithFormat:@"%ld ",MAX(0,MAX_LIMIT_NUMS - existTextNum)];
+    self.addFriendView.maxCountLab.text = [NSString stringWithFormat:@"/ %d",MAX_LIMIT_NUMS];
+}
+
 
 
 // 设置cell 的大小

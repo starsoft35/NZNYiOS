@@ -233,22 +233,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NZNYiOS/&#x89c6;&#x9891;/&#x5173;&#x6ce8;/&#x4ed6;&#x4eba;&#x8be6;&#x60c5;&#x9875;/&#x8d44;&#x6599;&#x3001;&#x89c6;&#x9891;&#x3001;&#x76f4;&#x64ad;/&#x8d44;&#x6599;/&#x8bda;&#x4fe1;&#x7b49;&#x7ea7;/Controller/CYCertificateDetailVC.m"
-            timestampString = "506778556.720451"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
-            landmarkName = "-loadNewData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x793e;&#x533a;/Controller/CYCommunityViewController.m"
             timestampString = "509537272.373756"
             startingColumnNumber = "9223372036854775807"
@@ -602,11 +586,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x89c6;&#x9891;/&#x5173;&#x6ce8;/&#x4ed6;&#x4eba;&#x8be6;&#x60c5;&#x9875;/Controller/CYOthersInfoVC.m"
-            timestampString = "508575629.635727"
+            timestampString = "510983797.739209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "470"
-            endingLineNumber = "470"
+            startingLineNumber = "734"
+            endingLineNumber = "734"
             landmarkName = "-likeBtnClick"
             landmarkType = "7">
          </BreakpointContent>
@@ -618,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x89c6;&#x9891;/&#x5173;&#x6ce8;/&#x4ed6;&#x4eba;&#x8be6;&#x60c5;&#x9875;/Controller/CYOthersInfoVC.m"
-            timestampString = "508573331.345957"
+            timestampString = "510983797.739209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1187"
-            endingLineNumber = "1187"
+            startingLineNumber = "1459"
+            endingLineNumber = "1459"
             landmarkName = "-textFieldDidBeginEditing:"
             landmarkType = "7">
          </BreakpointContent>
@@ -650,12 +634,12 @@
                   moduleName = "nzny"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
-                  timestampString = "510734443.135701"
+                  timestampString = "511080820.954659"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "419"
                   endingLineNumber = "419"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "56">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -665,12 +649,12 @@
                   moduleName = "nzny"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nanzuonvyou/Desktop/NZNYiOS/NZNYiOS/%E6%88%91%E7%9A%84/%E7%9B%B4%E6%92%AD/%E9%A2%84%E5%91%8A/%E7%9B%B4%E6%92%AD%E6%8E%A8%E6%B5%81%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/AlivcLiveViewController.m"
-                  timestampString = "510734443.137369"
+                  timestampString = "511080820.95638"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "420"
-                  endingLineNumber = "420"
-                  offsetFromSymbolStart = "12">
+                  startingLineNumber = "419"
+                  endingLineNumber = "419"
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -698,11 +682,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/Utilities/CYBaseVC/CYBaseViewController.m"
-            timestampString = "508932516.254717"
+            timestampString = "511005595.470967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "923"
-            endingLineNumber = "923"
+            startingLineNumber = "927"
+            endingLineNumber = "927"
             landmarkName = "-loginRequestWithAccount:andUserPSW:"
             landmarkType = "7">
          </BreakpointContent>
@@ -746,11 +730,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x6211;&#x7684;/&#x8d26;&#x6237;&#x4f59;&#x989d;/&#x5145;&#x503c;/Controller/CYRechargeVC.m"
-            timestampString = "509793899.234925"
+            timestampString = "510995185.769305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "-WXPay"
             landmarkType = "7">
          </BreakpointContent>
@@ -762,11 +746,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x6211;&#x7684;/&#x8d26;&#x6237;&#x4f59;&#x989d;/&#x5145;&#x503c;/Controller/CYRechargeVC.m"
-            timestampString = "509793919.91346"
+            timestampString = "510995185.769305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "-requestWeChatPay"
             landmarkType = "7">
          </BreakpointContent>
@@ -778,11 +762,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NZNYiOS/&#x6211;&#x7684;/&#x8d26;&#x6237;&#x4f59;&#x989d;/&#x5145;&#x503c;/Controller/CYRechargeVC.m"
-            timestampString = "509794657.638115"
+            timestampString = "510995185.769305"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
             landmarkName = "-requestWeChatPay"
             landmarkType = "7">
          </BreakpointContent>

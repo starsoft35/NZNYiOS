@@ -12,10 +12,21 @@
 #import "CYMyLiveSignUpView.h"
 
 // 余额不足弹窗：VC
-#import "CYBalanceNotEnoughVC.h"
+//#import "CYBalanceNotEnoughVC.h"
+// 余额不足弹窗：View
+#import "CYBalanceNotEnoughView.h"
+
+
+// 充值界面：VC
+#import "CYRechargeVC.h"
 
 
 @interface CYMyLiveSignUpVC ()
+
+
+// 余额不足弹窗：View
+@property(nonatomic, strong) CYBalanceNotEnoughView *balanceNotEnoughView;
+
 
 @end
 
@@ -123,9 +134,11 @@
                 
                 
                 // 余额不足弹窗：VC
-                CYBalanceNotEnoughVC *balanceNotEnoughVC = [[CYBalanceNotEnoughVC alloc] init];
-                
-                [self.navigationController pushViewController:balanceNotEnoughVC animated:YES];
+//                CYBalanceNotEnoughVC *balanceNotEnoughVC = [[CYBalanceNotEnoughVC alloc] init];
+//                
+//                [self.navigationController pushViewController:balanceNotEnoughVC animated:YES];
+                // 余额不足弹窗：View
+                [self addBalanceNotEnoughView];
                 
             }
         }
@@ -146,6 +159,62 @@
     } withToken:self.onlyUser.userToken];
     
 }
+
+// 余额不足弹窗View
+- (void)addBalanceNotEnoughView{
+    NSLog(@"余额不足弹窗View");
+    
+    
+    _balanceNotEnoughView = [[[NSBundle mainBundle] loadNibNamed:@"CYBalanceNotEnoughView" owner:nil options:nil] lastObject];
+    
+    _balanceNotEnoughView.frame = CGRectMake(0, -64, cScreen_Width, cScreen_Height);
+    
+    
+    
+    _balanceNotEnoughView.backgroundColor = [UIColor clearColor];
+    _balanceNotEnoughView.balanceNotEnoughBgImgView.hidden = YES;
+    
+    // 余额不足：弹窗关闭：button：点击事件
+    [_balanceNotEnoughView.closeBtn addTarget:self action:@selector(balanceNotEnoughCloseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 立即充值：button：点击事件
+    [_balanceNotEnoughView.instantRechargeBtn addTarget:self action:@selector(balanceNotEnoughInstantRechargeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    // 隐藏键盘
+    [self.view endEditing:YES];
+    
+    
+    [self.view addSubview:_balanceNotEnoughView];
+    
+    
+}
+
+
+// 余额不足：弹窗关闭：button：点击事件
+- (void)balanceNotEnoughCloseBtnClick{
+    NSLog(@"余额不足：弹窗关闭：button：点击事件");
+    
+    [self.balanceNotEnoughView removeFromSuperview];
+    
+}
+
+// 余额不足：立即充值：button：点击事件
+- (void)balanceNotEnoughInstantRechargeBtnClick{
+    NSLog(@"余额不足：立即充值：button：点击事件");
+    
+    
+    // 充值界面
+    CYRechargeVC *rechargeVC = [[CYRechargeVC alloc] init];
+    
+    [[self navigationControllerWithView:self.view] setNavigationBarHidden:NO animated:YES];
+    
+    // 导航VC：获取当前视图所在位置的导航控制器
+    [[self navigationControllerWithView:self.view] pushViewController:rechargeVC animated:YES];
+    
+    [self.balanceNotEnoughView removeFromSuperview];
+}
+
 
 // 网络请求：申请直播报名
 - (void)requestApplyGoToLive{

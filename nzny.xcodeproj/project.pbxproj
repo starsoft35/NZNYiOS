@@ -13,7 +13,6 @@
 		8A1048F31E5D835100289275 /* CYAskFeedBackCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1048F21E5D835100289275 /* CYAskFeedBackCellModel.m */; };
 		8A18C89C1E3309A80004DBBA /* AliyunPlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BF41E30E68500A3579C /* AliyunPlayerSDK.framework */; };
 		8A18C89D1E3309A80004DBBA /* AliyunPlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8AD17BF41E30E68500A3579C /* AliyunPlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8A18C8A01E330A8B0004DBBA /* AliyunPlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A18C89F1E330A8B0004DBBA /* AliyunPlayerSDK.framework */; };
 		8A26E5821E70163F004F0B65 /* CYSystemOtherNewsCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A26E5811E70163F004F0B65 /* CYSystemOtherNewsCellModel.m */; };
 		8A27EEE51E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A27EEE41E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.m */; };
 		8A309E7A1D63172900F41396 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A309E791D63172900F41396 /* main.m */; };
@@ -35,6 +34,11 @@
 		8A37F13A1E48298000D7EB3B /* 弹窗关闭图.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A37F1371E48298000D7EB3B /* 弹窗关闭图.png */; };
 		8A37F13B1E48298000D7EB3B /* 弹窗关闭图@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A37F1381E48298000D7EB3B /* 弹窗关闭图@2x.png */; };
 		8A37F13C1E48298000D7EB3B /* 弹窗关闭图@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A37F1391E48298000D7EB3B /* 弹窗关闭图@3x.png */; };
+		8A46B9691E7677BC007A9C3E /* CYChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A46B95F1E7677BC007A9C3E /* CYChatVC.m */; };
+		8A46B96A1E7677BC007A9C3E /* CYMyFriendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A46B9611E7677BC007A9C3E /* CYMyFriendVC.m */; };
+		8A46B96B1E7677BC007A9C3E /* CYMyFriendViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A46B9641E7677BC007A9C3E /* CYMyFriendViewCellModel.m */; };
+		8A46B96C1E7677BC007A9C3E /* CYMyFriendViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A46B9671E7677BC007A9C3E /* CYMyFriendViewCell.m */; };
+		8A46B96D1E7677BC007A9C3E /* CYMyFriendViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A46B9681E7677BC007A9C3E /* CYMyFriendViewCell.xib */; };
 		8A4FDDE61E45B8500076B1AB /* CYSetUpAboutUsVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDDE51E45B8500076B1AB /* CYSetUpAboutUsVCModel.m */; };
 		8A4FDDE91E45C4FA0076B1AB /* CYSetUpUserNeedToKnowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDDE81E45C4FA0076B1AB /* CYSetUpUserNeedToKnowVC.m */; };
 		8A4FDDEC1E45D6640076B1AB /* CYActiveDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A4FDDEB1E45D6640076B1AB /* CYActiveDetailsVC.m */; };
@@ -225,11 +229,6 @@
 		8AD17CE51E30E68600A3579C /* CYMineVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD178BE1E30E68500A3579C /* CYMineVideoView.m */; };
 		8AD17CE61E30E68600A3579C /* CYMineVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AD178BF1E30E68500A3579C /* CYMineVideoView.xib */; };
 		8AD17CE71E30E68600A3579C /* CYHonestyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD178C31E30E68500A3579C /* CYHonestyVC.m */; };
-		8AD17CE81E30E68600A3579C /* CYChatVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD178C91E30E68500A3579C /* CYChatVC.m */; };
-		8AD17CE91E30E68600A3579C /* CYMyFriendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD178CB1E30E68500A3579C /* CYMyFriendVC.m */; };
-		8AD17CEA1E30E68600A3579C /* CYMyFriendViewCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD178CE1E30E68500A3579C /* CYMyFriendViewCellModel.m */; };
-		8AD17CEB1E30E68600A3579C /* CYMyFriendViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD178D11E30E68500A3579C /* CYMyFriendViewCell.m */; };
-		8AD17CEC1E30E68600A3579C /* CYMyFriendViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AD178D21E30E68500A3579C /* CYMyFriendViewCell.xib */; };
 		8AD17CED1E30E68600A3579C /* CYPhoneCertifiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD178D61E30E68500A3579C /* CYPhoneCertifiVC.m */; };
 		8AD17CEE1E30E68600A3579C /* CYPhoneCertifiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AD178DA1E30E68500A3579C /* CYPhoneCertifiView.m */; };
 		8AD17CEF1E30E68600A3579C /* CYPhoneCertifiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8AD178DB1E30E68500A3579C /* CYPhoneCertifiView.xib */; };
@@ -869,6 +868,15 @@
 		8A37F1381E48298000D7EB3B /* 弹窗关闭图@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗关闭图@2x.png"; sourceTree = "<group>"; };
 		8A37F1391E48298000D7EB3B /* 弹窗关闭图@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "弹窗关闭图@3x.png"; sourceTree = "<group>"; };
 		8A38C4301E5A96580086ABBF /* MJProperty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJProperty.h; sourceTree = "<group>"; };
+		8A46B95E1E7677BC007A9C3E /* CYChatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYChatVC.h; sourceTree = "<group>"; };
+		8A46B95F1E7677BC007A9C3E /* CYChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYChatVC.m; sourceTree = "<group>"; };
+		8A46B9601E7677BC007A9C3E /* CYMyFriendVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMyFriendVC.h; sourceTree = "<group>"; };
+		8A46B9611E7677BC007A9C3E /* CYMyFriendVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMyFriendVC.m; sourceTree = "<group>"; };
+		8A46B9631E7677BC007A9C3E /* CYMyFriendViewCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMyFriendViewCellModel.h; sourceTree = "<group>"; };
+		8A46B9641E7677BC007A9C3E /* CYMyFriendViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMyFriendViewCellModel.m; sourceTree = "<group>"; };
+		8A46B9661E7677BC007A9C3E /* CYMyFriendViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMyFriendViewCell.h; sourceTree = "<group>"; };
+		8A46B9671E7677BC007A9C3E /* CYMyFriendViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMyFriendViewCell.m; sourceTree = "<group>"; };
+		8A46B9681E7677BC007A9C3E /* CYMyFriendViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYMyFriendViewCell.xib; sourceTree = "<group>"; };
 		8A4FDDE41E45B8500076B1AB /* CYSetUpAboutUsVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYSetUpAboutUsVCModel.h; sourceTree = "<group>"; };
 		8A4FDDE51E45B8500076B1AB /* CYSetUpAboutUsVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYSetUpAboutUsVCModel.m; sourceTree = "<group>"; };
 		8A4FDDE71E45C4FA0076B1AB /* CYSetUpUserNeedToKnowVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYSetUpUserNeedToKnowVC.h; sourceTree = "<group>"; };
@@ -1185,15 +1193,6 @@
 		8AD178BF1E30E68500A3579C /* CYMineVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYMineVideoView.xib; sourceTree = "<group>"; };
 		8AD178C21E30E68500A3579C /* CYHonestyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYHonestyVC.h; sourceTree = "<group>"; };
 		8AD178C31E30E68500A3579C /* CYHonestyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYHonestyVC.m; sourceTree = "<group>"; };
-		8AD178C81E30E68500A3579C /* CYChatVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYChatVC.h; sourceTree = "<group>"; };
-		8AD178C91E30E68500A3579C /* CYChatVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYChatVC.m; sourceTree = "<group>"; };
-		8AD178CA1E30E68500A3579C /* CYMyFriendVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMyFriendVC.h; sourceTree = "<group>"; };
-		8AD178CB1E30E68500A3579C /* CYMyFriendVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMyFriendVC.m; sourceTree = "<group>"; };
-		8AD178CD1E30E68500A3579C /* CYMyFriendViewCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMyFriendViewCellModel.h; sourceTree = "<group>"; };
-		8AD178CE1E30E68500A3579C /* CYMyFriendViewCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMyFriendViewCellModel.m; sourceTree = "<group>"; };
-		8AD178D01E30E68500A3579C /* CYMyFriendViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMyFriendViewCell.h; sourceTree = "<group>"; };
-		8AD178D11E30E68500A3579C /* CYMyFriendViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMyFriendViewCell.m; sourceTree = "<group>"; };
-		8AD178D21E30E68500A3579C /* CYMyFriendViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CYMyFriendViewCell.xib; sourceTree = "<group>"; };
 		8AD178D51E30E68500A3579C /* CYPhoneCertifiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPhoneCertifiVC.h; sourceTree = "<group>"; };
 		8AD178D61E30E68500A3579C /* CYPhoneCertifiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYPhoneCertifiVC.m; sourceTree = "<group>"; };
 		8AD178D91E30E68500A3579C /* CYPhoneCertifiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYPhoneCertifiView.h; sourceTree = "<group>"; };
@@ -1966,7 +1965,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A18C8A01E330A8B0004DBBA /* AliyunPlayerSDK.framework in Frameworks */,
 				8A18C89C1E3309A80004DBBA /* AliyunPlayerSDK.framework in Frameworks */,
 				8AF58DF71E1B8B5100D523D3 /* CoreMotion.framework in Frameworks */,
 				8AF58DF51E1B8B4000D523D3 /* Foundation.framework in Frameworks */,
@@ -2116,6 +2114,46 @@
 		8A32A6D41E6521CE00B3F285 /* View */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8A46B95C1E7677BC007A9C3E /* 我的好友 */ = {
+			isa = PBXGroup;
+			children = (
+				8A46B95D1E7677BC007A9C3E /* Controller */,
+				8A46B9621E7677BC007A9C3E /* Model */,
+				8A46B9651E7677BC007A9C3E /* View */,
+			);
+			path = "我的好友";
+			sourceTree = "<group>";
+		};
+		8A46B95D1E7677BC007A9C3E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8A46B95E1E7677BC007A9C3E /* CYChatVC.h */,
+				8A46B95F1E7677BC007A9C3E /* CYChatVC.m */,
+				8A46B9601E7677BC007A9C3E /* CYMyFriendVC.h */,
+				8A46B9611E7677BC007A9C3E /* CYMyFriendVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8A46B9621E7677BC007A9C3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8A46B9631E7677BC007A9C3E /* CYMyFriendViewCellModel.h */,
+				8A46B9641E7677BC007A9C3E /* CYMyFriendViewCellModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8A46B9651E7677BC007A9C3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8A46B9661E7677BC007A9C3E /* CYMyFriendViewCell.h */,
+				8A46B9671E7677BC007A9C3E /* CYMyFriendViewCell.m */,
+				8A46B9681E7677BC007A9C3E /* CYMyFriendViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -3050,7 +3088,7 @@
 				8AD178C01E30E68500A3579C /* 诚信认证 */,
 				8AD1783E1E30E68500A3579C /* 我的礼物 */,
 				8AD178201E30E68500A3579C /* 我的标签 */,
-				8AD1781C1E30E68500A3579C /* 我的好友 */,
+				8A46B95C1E7677BC007A9C3E /* 我的好友 */,
 			);
 			path = "我的";
 			sourceTree = "<group>";
@@ -3378,37 +3416,6 @@
 			sourceTree = "<group>";
 		};
 		8AD1781B1E30E68500A3579C /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8AD1781C1E30E68500A3579C /* 我的好友 */ = {
-			isa = PBXGroup;
-			children = (
-				8AD1781D1E30E68500A3579C /* Controller */,
-				8AD1781E1E30E68500A3579C /* Model */,
-				8AD1781F1E30E68500A3579C /* View */,
-			);
-			path = "我的好友";
-			sourceTree = "<group>";
-		};
-		8AD1781D1E30E68500A3579C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		8AD1781E1E30E68500A3579C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8AD1781F1E30E68500A3579C /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -4137,7 +4144,6 @@
 				8AD178C51E30E68500A3579C /* View */,
 				8AD178D31E30E68500A3579C /* 手机认证 */,
 				8AD178DC1E30E68500A3579C /* 背景认证 */,
-				8AD178C61E30E68500A3579C /* 我的好友 */,
 			);
 			path = "诚信认证";
 			sourceTree = "<group>";
@@ -4161,46 +4167,6 @@
 		8AD178C51E30E68500A3579C /* View */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		8AD178C61E30E68500A3579C /* 我的好友 */ = {
-			isa = PBXGroup;
-			children = (
-				8AD178C71E30E68500A3579C /* Controller */,
-				8AD178CC1E30E68500A3579C /* Model */,
-				8AD178CF1E30E68500A3579C /* View */,
-			);
-			path = "我的好友";
-			sourceTree = "<group>";
-		};
-		8AD178C71E30E68500A3579C /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				8AD178C81E30E68500A3579C /* CYChatVC.h */,
-				8AD178C91E30E68500A3579C /* CYChatVC.m */,
-				8AD178CA1E30E68500A3579C /* CYMyFriendVC.h */,
-				8AD178CB1E30E68500A3579C /* CYMyFriendVC.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		8AD178CC1E30E68500A3579C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8AD178CD1E30E68500A3579C /* CYMyFriendViewCellModel.h */,
-				8AD178CE1E30E68500A3579C /* CYMyFriendViewCellModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8AD178CF1E30E68500A3579C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				8AD178D01E30E68500A3579C /* CYMyFriendViewCell.h */,
-				8AD178D11E30E68500A3579C /* CYMyFriendViewCell.m */,
-				8AD178D21E30E68500A3579C /* CYMyFriendViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -5983,12 +5949,12 @@
 				8AD17C461E30E68600A3579C /* CYBaseVC */,
 				8AD17C511E30E68600A3579C /* CYBaseView */,
 				8AD17C3D1E30E68600A3579C /* CYBaseModel */,
+				8AD17C5D1E30E68600A3579C /* 滑动视图 */,
 				8AD17C581E30E68600A3579C /* CYUtilities.h */,
 				8AD17C591E30E68600A3579C /* CYUtilities.m */,
 				8AD17C5A1E30E68600A3579C /* PCH.pch */,
 				8AD17C5B1E30E68600A3579C /* UIImage+CYImage.h */,
 				8AD17C5C1E30E68600A3579C /* UIImage+CYImage.m */,
-				8AD17C5D1E30E68600A3579C /* 滑动视图 */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -6211,6 +6177,7 @@
 				8A309E721D63172900F41396 /* Frameworks */,
 				8A309E731D63172900F41396 /* Resources */,
 				8A18C89E1E3309A80004DBBA /* Embed Frameworks */,
+				8A8975891E751857009CC2A0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -6313,6 +6280,7 @@
 				8AD17EAC1E30E68700A3579C /* heart11@2x.png in Resources */,
 				8AD17DC51E30E68600A3579C /* 行驶证3@3x.png in Resources */,
 				8AD17EA81E30E68700A3579C /* feedback@3x.png in Resources */,
+				8A46B96D1E7677BC007A9C3E /* CYMyFriendViewCell.xib in Resources */,
 				8AD17DBA1E30E68600A3579C /* 进入直播间激活.png in Resources */,
 				8AD17D961E30E68600A3579C /* 学历证4.png in Resources */,
 				8AD17E1D1E30E68600A3579C /* 注册底.png in Resources */,
@@ -6557,7 +6525,6 @@
 				8AD17E4F1E30E68600A3579C /* 直播开播时间@3x.png in Resources */,
 				8AD17DB81E30E68600A3579C /* 进入直播间未激活@2x.png in Resources */,
 				8AD17E301E30E68600A3579C /* 隐藏@2x.png in Resources */,
-				8AD17CEC1E30E68600A3579C /* CYMyFriendViewCell.xib in Resources */,
 				8A57B27F1E4EEC4B00BD4BA5 /* 弹窗关闭图X变小.png in Resources */,
 				8AD17D091E30E68600A3579C /* CYLivePlayDetailsView.xib in Resources */,
 				8AD17E611E30E68600A3579C /* 回頋@3x.png in Resources */,
@@ -6745,6 +6712,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8A8975891E751857009CC2A0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8A309E711D63172900F41396 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -6779,8 +6762,8 @@
 				8AD17C9A1E30E68600A3579C /* CYVideoHotVC.m in Sources */,
 				8AD17F261E30E68700A3579C /* CYNearbyPeopleCellModel.m in Sources */,
 				8AD17C931E30E68600A3579C /* CYOtherVideoCellModel.m in Sources */,
-				8AD17CEB1E30E68600A3579C /* CYMyFriendViewCell.m in Sources */,
 				8AD17F291E30E68700A3579C /* CYNetWorkManager.m in Sources */,
+				8A46B96B1E7677BC007A9C3E /* CYMyFriendViewCellModel.m in Sources */,
 				8A997DDD1E5D212800F74EA2 /* CYActiveFeedBackCell.m in Sources */,
 				8AD17C871E30E68600A3579C /* CYNotFriendTipView.m in Sources */,
 				8AD17C751E30E68600A3579C /* CYVideoVC.m in Sources */,
@@ -6801,7 +6784,6 @@
 				8AD17EDD1E30E68700A3579C /* MJRefreshAutoFooter.m in Sources */,
 				8AD17CE71E30E68600A3579C /* CYHonestyVC.m in Sources */,
 				8A4FDDEC1E45D6640076B1AB /* CYActiveDetailsVC.m in Sources */,
-				8AD17CEA1E30E68600A3579C /* CYMyFriendViewCellModel.m in Sources */,
 				8AD17CCD1E30E68600A3579C /* CYMyLiveVC.m in Sources */,
 				8AD17D0E1E30E68600A3579C /* CYLiveALiPlayAndRCIMVC.m in Sources */,
 				8AD17CF61E30E68600A3579C /* CYMyAccountBalanceView.m in Sources */,
@@ -6846,7 +6828,6 @@
 				8AD17EFA1E30E68700A3579C /* NSData+ImageContentType.m in Sources */,
 				8AD17C971E30E68600A3579C /* CYGiveGiftTipVC.m in Sources */,
 				8AD17CDF1E30E68600A3579C /* CYLivePushDetailsViewModel.m in Sources */,
-				8AD17CE81E30E68600A3579C /* CYChatVC.m in Sources */,
 				8AD17CB31E30E68600A3579C /* CYMyUserInfoGenderCell.m in Sources */,
 				8AD17EC41E30E68700A3579C /* UIImageView+AFNetworking.m in Sources */,
 				8AD17EE91E30E68700A3579C /* MJRefreshNormalHeader.m in Sources */,
@@ -6872,7 +6853,6 @@
 				8AD17EE11E30E68700A3579C /* MJRefreshHeader.m in Sources */,
 				8AD17C631E30E68600A3579C /* CYLoginViewController.m in Sources */,
 				8AD17EDF1E30E68700A3579C /* MJRefreshComponent.m in Sources */,
-				8AD17CE91E30E68600A3579C /* CYMyFriendVC.m in Sources */,
 				8AD17CD71E30E68600A3579C /* CYMyLiveAliLiveAndRCIMVC.m in Sources */,
 				8A653D141E46CCCA00B5B01B /* HZIndicatorView.m in Sources */,
 				8AD17D0B1E30E68600A3579C /* CYAudienceListCellModel.m in Sources */,
@@ -6919,6 +6899,7 @@
 				8AD17D101E30E68600A3579C /* RCDLiveGiftMessageCell.m in Sources */,
 				8A27EEE51E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.m in Sources */,
 				8AD17EF71E30E68700A3579C /* DistancePickerView.m in Sources */,
+				8A46B96A1E7677BC007A9C3E /* CYMyFriendVC.m in Sources */,
 				8AD17D111E30E68600A3579C /* RCDLiveMessageBaseCell.m in Sources */,
 				8AD17F081E30E68700A3579C /* UIView+WebCacheOperation.m in Sources */,
 				8AD17EBA1E30E68700A3579C /* AFNetworkReachabilityManager.m in Sources */,
@@ -6987,7 +6968,9 @@
 				8AD17C801E30E68600A3579C /* CYBalanceNotEnoughVC.m in Sources */,
 				8AD17CCE1E30E68600A3579C /* CYMyLiveView.m in Sources */,
 				8AD17F2A1E30E68700A3579C /* CYUser.m in Sources */,
+				8A46B96C1E7677BC007A9C3E /* CYMyFriendViewCell.m in Sources */,
 				8AD17F1D1E30E68700A3579C /* CYUserInfoModel.m in Sources */,
+				8A46B9691E7677BC007A9C3E /* CYChatVC.m in Sources */,
 				8AD17CB91E30E68600A3579C /* CYMyFollowVC.m in Sources */,
 				8AD17C6D1E30E68600A3579C /* CYCommunityHeaderView.m in Sources */,
 				8AD17D2E1E30E68600A3579C /* CYMainTabBarController.m in Sources */,

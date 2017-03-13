@@ -37,10 +37,18 @@
     
     
     // 加载数据
-    [self loadData];
+//    [self loadData];
     
     // 添加视图
     [self addView];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    // 加载数据
+    [self loadData];
     
 }
 

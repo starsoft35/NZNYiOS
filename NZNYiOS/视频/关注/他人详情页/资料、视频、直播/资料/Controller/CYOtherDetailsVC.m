@@ -268,6 +268,8 @@
         // 诚信认证详情
         CYCertificateDetailVC *certificateDetailVC = [[CYCertificateDetailVC alloc] init];
         
+        certificateDetailVC.oppUserId = self.oppUserId;
+        
         // 导航VC：获取当前视图所在位置的导航控制器
         [[self navigationControllerWithView:self.view] pushViewController:certificateDetailVC animated:YES];
     }

@@ -263,7 +263,7 @@
                 case 4:
                     
                     // 未通过
-                    _otherImgView.image = [UIImage imageNamed:@"其它未通过"];
+                    _otherImgView.image = [UIImage imageNamed:@"其它未通过-"];
                     _otherImgView.userInteractionEnabled = YES;
                     
                     // 其它1：显示
@@ -311,7 +311,7 @@
                 case 4:
                     
                     // 未通过
-                    _otherFirstImgView.image = [UIImage imageNamed:@"其它未通过"];
+                    _otherFirstImgView.image = [UIImage imageNamed:@"其它未通过-"];
                     _otherFirstImgView.userInteractionEnabled = YES;
                     
                     // 其它2：显示
@@ -359,7 +359,7 @@
                 case 4:
                     
                     // 未通过
-                    _otherSecondImgView.image = [UIImage imageNamed:@"其它未通过"];
+                    _otherSecondImgView.image = [UIImage imageNamed:@"其它未通过-"];
                     _otherSecondImgView.userInteractionEnabled = YES;
                     
                     // 其它3：显示
@@ -401,7 +401,7 @@
                 case 4:
                     
                     // 未通过
-                    _otherThirdImgView.image = [UIImage imageNamed:@"其它未通过"];
+                    _otherThirdImgView.image = [UIImage imageNamed:@"其它未通过-"];
                     _otherThirdImgView.userInteractionEnabled = YES;
                     break;
                     

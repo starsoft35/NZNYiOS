@@ -10,6 +10,15 @@
 
 @interface CYMineVideoViewModel : CYBaseModel
 
+
+
+
+// 背景图片
+@property (nonatomic, copy) NSString *bgImgStr;
+
+
+
+
 //
 @property (nonatomic, copy) NSString *AuditDate;
 @property (nonatomic, copy) NSString *AuditIdea;

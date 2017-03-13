@@ -211,8 +211,8 @@
 //    // 参数拼接
 //    NSDictionary *params = @{
 //                             @"UserId":currentUser.userID,
-//                             @"Longitude":latitude,
-//                             @"Latitude":longitude
+//                             @"Longitude":longitude,
+//                             @"Latitude":latitude
 //                             };
 //    // 位置信息请求，把经纬度 发送给后台
 //    [CYNetWorkManager postRequestWithUrl:cCoordinatesUrl params:params progress:^(NSProgress *uploadProgress) {

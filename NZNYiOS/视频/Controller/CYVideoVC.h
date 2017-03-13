@@ -12,5 +12,8 @@
 
 
 
+// oppUserId
+@property (nonatomic, copy) NSString *oppUserId;
+
 
 @end

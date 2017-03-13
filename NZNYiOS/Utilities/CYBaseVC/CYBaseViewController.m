@@ -9,6 +9,7 @@
 #import "CYBaseViewController.h"
 
 
+
 #import "CYMainTabBarController.h"
 
 
@@ -415,6 +416,11 @@
     // 获取其中的一个位置
     CLLocation *location = locations.firstObject;
     
+    
+    // 关闭定位
+    [self.locationManager stopUpdatingLocation];
+    
+    
     NSLog(@"定位：当前的位置：%@",location);
     
     // 当前用户
@@ -425,8 +431,8 @@
     // 参数拼接
     NSDictionary *params = @{
                              @"UserId":currentUser.userID,
-                             @"Longitude":latitude,
-                             @"Latitude":longitude
+                             @"Longitude":longitude,
+                             @"Latitude":latitude
                              };
     // 位置信息请求，把经纬度 发送给后台
     [CYNetWorkManager postRequestWithUrl:cCoordinatesUrl params:params progress:^(NSProgress *uploadProgress) {
@@ -470,8 +476,6 @@
         [self showHubWithLabelText:@"完善信息失败，可能是网络有问题，请检查网络再试一遍!" andHidAfterDelay:3.0];
     } withToken:currentUser.userToken];
     
-    // 关闭定位
-    [self.locationManager stopUpdatingLocation];
     
     // 地理位置反编码
     [self locationWithLatitude:location.coordinate.latitude andLongitude:location.coordinate.longitude];
@@ -1610,7 +1614,6 @@
     freeifaddrs(interfaces);
     return address;
 }
-
 
 
 // 提示框

@@ -114,7 +114,6 @@
     // 隐藏键盘
     [self.view endEditing:YES];
     
-#warning 网络请求：充值支付
     
     // 如果是纯数字，则支付
     if ([self checkIfIsNum:_rechargeView.rechargeCountTF.text]) {
@@ -130,6 +129,10 @@
         // 否则，选择的是支付宝支付：
         else {
             NSLog(@"当前为：支付宝支付");
+            
+#warning 网络请求：支付宝支付
+            
+            [self showHubWithLabelText:@"暂不支持支付宝" andHidAfterDelay:3.0];
             
         }
         

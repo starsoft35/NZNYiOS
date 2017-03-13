@@ -52,4 +52,25 @@
 // 提示框
 //+ (void)showHubWithLabelText:(NSString *)text andHidAfterDelay:(double)afterDelay;
 
+
+
+// 获取当前帧数下，视频的图片
++ (UIImage*) thumbnailImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time;
+
+
+// 获取视频文件的时长：单位是秒
++ (CGFloat)getVideoLengthWithVideoUrl:(NSURL *)URL;
+
+// 获取视频文件的大小，返回的是单位是KB。
++ (CGFloat)getFileSizeWithPath:(NSString *)path;
+
+// 压缩视频：返回压缩后视频的地址，该地址在沙盒目录中
++ (NSURL *)condenseVideoWithUrl:(NSURL *)url;
+
+// 获取当前时间
++ (NSString *)getCurrentTime;
+
+
+
+
 @end

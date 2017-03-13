@@ -928,10 +928,10 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     [_livePlayDetailsView.closeBtn addTarget:self action:@selector(closeBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     // 发消息btn：点击事件
-    [_livePlayDetailsView.sendMessageBtn addTarget:self action:@selector(sendMessageBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    [_livePlayDetailsView.sendMessageBtn addTarget:self action:@selector(sendMessageBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     // 联系他btn：点击事件
-    [_livePlayDetailsView.connectBtn addTarget:self action:@selector(connectBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    [_livePlayDetailsView.connectBtn addTarget:self action:@selector(connectBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     // 送礼btn：点击事件
     [_livePlayDetailsView.sendGiftBtn addTarget:self action:@selector(sendGiftBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -940,7 +940,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     [_livePlayDetailsView.likeBtn addTarget:self action:@selector(likeBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     // 分享btn：点击事件
-    [_livePlayDetailsView.shareBtn addTarget:self action:@selector(shareBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    [_livePlayDetailsView.shareBtn addTarget:self action:@selector(shareBtnClick) forControlEvents:UIControlEventTouchUpInside];
     
     
     

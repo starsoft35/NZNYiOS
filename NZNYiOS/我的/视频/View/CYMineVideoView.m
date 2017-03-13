@@ -68,7 +68,7 @@
             case 1:
                 // 审核通过
                 // 左侧信息
-                [self setLeftVideoShowInfo];
+                [self setLeftVideoShowInfoWithModel:leftModel];
                 
                 // 左侧：use、share 显示
                 [self setLeftVideoShowUseAndShareBtn];
@@ -120,12 +120,14 @@
             case 1:
                 // 审核通过
                 // 左侧信息
-                [self setLeftVideoShowInfo];
+                [self setLeftVideoShowInfoWithModel:leftModel];
                 
                 // 左侧：use、share 显示
                 [self setLeftVideoShowUseAndShareBtn];
                 
                 
+                // 左侧使用
+                [self setLeftVideoIsUse];
                 
                 break;
             case 2:
@@ -159,7 +161,7 @@
             case 1:
                 // 审核通过
                 // 右侧信息
-                [self setRightVideoShowInfo];
+                [self setRightVideoShowInfoWithModel:rightModel];
                 
                 // 右侧：use、share 显示
                 [self setRightVideoShowUseAndShareBtn];
@@ -229,22 +231,32 @@
 
 
 // 设置左侧视频显示内容
-- (void)setLeftVideoShowInfo{
+- (void)setLeftVideoShowInfoWithModel:(CYMineVideoViewModel *)model{
     
     _leftVideoBlackImgView.hidden = YES;
     _leftVideoPlayImgView.hidden = NO;
     
-    CYMineVideoViewModel *leftModel = _listArr[0];
+//    CYMineVideoViewModel *leftModel = _listArr[0];
     
     
     
-    _leftVideoBackImgView.image = [UIImage imageNamed:@"默认头像"];
+//    _leftVideoBackImgView.image = [UIImage imageNamed:@"默认头像"];
+//    [_leftVideoBackImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,model.headImgName]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // 处理耗时操作的代码块...
+        
+        _leftVideoBackImgView.image = [CYUtilities thumbnailImageForVideo:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,model.Video]] atTime:0.1];
+
+        
+    });
+    
+//    [_leftVideoBackImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,model.Video]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     
     _leftVideoAuditStatusLab.text = @"";
     
-    _leftVideoTimeLab.text = [leftModel.CreateDate substringToIndex:10];
+    _leftVideoTimeLab.text = [model.CreateDate substringToIndex:10];
     
-    _leftVideoSizeLab.text = [NSString stringWithFormat:@"%.2f",leftModel.Size];
+    _leftVideoSizeLab.text = [NSString stringWithFormat:@"%.2fM",model.Size];
     
     
 }
@@ -270,7 +282,7 @@
     }
     else if (leftModel.AuditStatus == 2) {
         
-        _leftVideoAuditStatusLab.text = @"审核失败";
+        _leftVideoAuditStatusLab.text = @"不通过";
         
         _leftVideoTimeLab.text = @"请重新上传";
     }
@@ -331,21 +343,28 @@
 }
 
 // 设置右侧视频显示内容
-- (void)setRightVideoShowInfo{
+- (void)setRightVideoShowInfoWithModel:(CYMineVideoViewModel *)model{
     _rightVideoBlackImgView.hidden = YES;
     _rightVideoPlayImgView.hidden = NO;
     
-    CYMineVideoViewModel *rightModel = _listArr[1];
+//    CYMineVideoViewModel *rightModel = _listArr[1];
     
     
     
-    _rightVideoBackImgView.image = [UIImage imageNamed:@"默认头像"];
+//    _rightVideoBackImgView.image = [UIImage imageNamed:@"默认头像"];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        // 处理耗时操作的代码块...
+        
+        _rightVideoBackImgView.image = [CYUtilities thumbnailImageForVideo:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,model.Video]] atTime:0.1];
+
+        
+    });
     
     _rightVideoAuditStatusLab.text = @"";
     
-    _rightVideoTimeLab.text = [rightModel.CreateDate substringToIndex:10];
+    _rightVideoTimeLab.text = [model.CreateDate substringToIndex:10];
     
-    _rightVideoSizeLab.text = [NSString stringWithFormat:@"%.2f",rightModel.Size];
+    _rightVideoSizeLab.text = [NSString stringWithFormat:@"%.2fM",model.Size];
 }
 
 // 设置右侧视频：正在审核、未通过，黑色覆盖
@@ -369,7 +388,7 @@
     }
     else if (rightModel.AuditStatus == 2) {
         
-        _rightVideoAuditStatusLab.text = @"审核失败";
+        _rightVideoAuditStatusLab.text = @"不通过";
         
         _rightVideoTimeLab.text = @"请重新上传";
     }

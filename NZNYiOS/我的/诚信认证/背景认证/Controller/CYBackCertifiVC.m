@@ -285,13 +285,28 @@ static NSString *boundary = @"AlvinLeonPostRequest";
 // ImagePicker delegate 事件
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     
+    
+    
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    
+    
+    
     [picker dismissViewControllerAnimated:YES completion:nil];
     
-    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    
-    
-    // 上传图片
-    [self uploadImgWithImg:image];
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        NSLog(@"选择的是照片~~");
+        
+        
+        UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+        
+        
+        // 上传图片
+        [self uploadImgWithImg:image];
+    }
+    else {
+        
+        [self showHubWithLabelText:@"请选择照片上传" andHidAfterDelay:3.0];
+    }
     
 }
 

@@ -22,6 +22,10 @@
 
 //
 
+// 视频详情页
+#import "CYVideoDetailsVC.h"
+
+
 
 
 @interface CYMineVideoVC ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate>
@@ -487,6 +491,19 @@
     NSLog(@"左侧视频播放ImgView：手势：点击事件");
     
     
+    // 左侧
+    CYMineVideoViewModel *leftModel = self.dataArray[0];
+    
+    // 视频详情页
+    CYVideoDetailsVC *videoDetailsVC = [[CYVideoDetailsVC alloc] init];
+    
+    videoDetailsVC.oppUserId = leftModel.UserId;
+    videoDetailsVC.indexPath = nil;
+    
+    //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
+    UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:videoDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+    
+    [self showViewController:tempVideoNav sender:self];
 }
 
 
@@ -586,6 +603,21 @@
 - (void)rightVideoPlayImgViewClick{
     NSLog(@"右侧视频播放ImgView：手势：点击事件");
     
+    
+    
+    // 右侧
+    CYMineVideoViewModel *rightModel = self.dataArray[1];
+    
+    // 视频详情页
+    CYVideoDetailsVC *videoDetailsVC = [[CYVideoDetailsVC alloc] init];
+    
+    videoDetailsVC.oppUserId = rightModel.UserId;
+    videoDetailsVC.indexPath = nil;
+    
+    //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
+    UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:videoDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+    
+    [self showViewController:tempVideoNav sender:self];
     
 }
 
@@ -762,16 +794,16 @@
     UIActionSheet *sheet;
     
     // 判断是否支持相机
-//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-//        
-//        sheet = [[UIActionSheet alloc] initWithTitle:@"选择" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"拍照",@"相册", nil];
-//    }
-//    else {
-//        
-        sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"相册", nil];
-//    }
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        sheet = [[UIActionSheet alloc] initWithTitle:@"选择" delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"录制视频",@"相册视频", nil];
+    }
+    else {
+
+        sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"相册视频", nil];
+    }
     
-    //
+    
     sheet.tag = 255;
     [sheet showInView:self.view];
     
@@ -786,29 +818,29 @@
         NSUInteger sourceType = 0;
         
         // 判断是否支持相机
-//        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-//            
-//            switch (buttonIndex) {
-//                case 0:
-//                    // 取消
-//                    return;
-//                case 1:
-//                    // 相机
-//                    sourceType = UIImagePickerControllerSourceTypeCamera;
-//                    
-//                    break;
-//                case 2:
-//                    // 相册
-//                    sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//                    
-//                    break;
-//                    
-//                default:
-//                    break;
-//            }
-//        }
-//        else {
-//            
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            
+            switch (buttonIndex) {
+                case 0:
+                    // 取消
+                    return;
+                case 1:
+                    // 相机
+                    sourceType = UIImagePickerControllerSourceTypeCamera;
+                    
+                    break;
+                case 2:
+                    // 相册
+                    sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                    
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        else {
+            
             if (buttonIndex == 0) {
                 
                 return;
@@ -816,7 +848,7 @@
             else {
                 sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
             }
-//        }
+        }
         
         // 跳转到相机或相册页面。
         UIImagePickerController *imgPickerController = [[UIImagePickerController alloc] init];
@@ -852,18 +884,19 @@
         // 如果是视频：获取视频的地址（在本地的）
         NSURL *videoUrl = info[UIImagePickerControllerMediaURL];
         NSLog(@"videoUrl：%@",videoUrl);
-        NSLog(@"视频文件的大小：FileSize：%@",[NSString stringWithFormat:@"%.2f",[self getFileSize:[videoUrl path]]]);
+        NSLog(@"视频文件的大小：FileSize：%@",[NSString stringWithFormat:@"%.2f",[CYUtilities getFileSizeWithPath:[videoUrl path]]]);
         
         
         // 视频的大小：单位KB
-        CGFloat videoSize = [self getFileSize:[videoUrl path]];
+        CGFloat videoSize = [CYUtilities getFileSizeWithPath:[videoUrl path]];
+        NSLog(@"videoSize:%f",videoSize);
         
         // 获取视频总时长
-        CGFloat lengthTime = [self getVideoLength:videoUrl];
+        CGFloat lengthTime = [CYUtilities getVideoLengthWithVideoUrl:videoUrl];
         NSLog(@"获取的视频总时长：%f",lengthTime);
         
         // 压缩视频
-//        NSData *videoData = [NSData dataWithContentsOfURL:[self condenseVideoNewUrl:videoUrl]];
+//        NSURL *newUrl = [CYUtilities condenseVideoWithUrl:videoUrl];
         
         
         // 判断视频的大小
@@ -1033,98 +1066,6 @@
         [self showHubWithLabelText:@"网络错误，请重新上传！" andHidAfterDelay:3.0];
         
     } withToken:self.onlyUser.userToken];
-}
-
-
-
-
-// 压缩视频
-//- (NSURL *)condenseVideoNewUrl: (NSURL *)url{
-//    // 沙盒目录
-//    NSString *docuPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-//    NSString *destFilePath = [docuPath stringByAppendingPathComponent:[NSString stringWithFormat:@"lyh%@.MOV",[self getCurrentTime]]];
-//    NSURL *destUrl = [NSURL fileURLWithPath:destFilePath];
-//    //将视频文件copy到沙盒目录中
-//    NSFileManager *manager = [NSFileManager defaultManager];
-//    NSError *error = nil;
-//    [manager copyItemAtURL:url toURL:destUrl error:&error];
-//    NSLog(@"压缩前--%.2fk",[self getFileSize:destFilePath]);
-//    // 播放视频
-//    /*
-//     NSURL *videoURL = [NSURL fileURLWithPath:destFilePath];
-//     AVPlayer *player = [AVPlayer playerWithURL:videoURL];
-//     AVPlayerLayer *playerLayer = [AVPlayerLayer playerLayerWithPlayer:player];
-//     playerLayer.frame = self.view.bounds;
-//     [self.view.layer addSublayer:playerLayer];
-//     [player play];
-//     */
-//    // 进行压缩
-//    AVAsset *asset = [AVAsset assetWithURL:destUrl];
-//    //创建视频资源导出会话
-//    /**
-//     NSString *const AVAssetExportPresetLowQuality; // 低质量
-//     NSString *const AVAssetExportPresetMediumQuality;
-//     NSString *const AVAssetExportPresetHighestQuality; //高质量
-//     */
-//    
-//    AVAssetExportSession *session = [[AVAssetExportSession alloc] initWithAsset:asset presetName:AVAssetExportPresetLowQuality];
-//    // 创建导出的url
-//    NSString *resultPath = [docuPath stringByAppendingPathComponent:[NSString stringWithFormat:@"lyhg%@.MOV",[self getCurrentTime]]];
-//    session.outputURL = [NSURL fileURLWithPath:resultPath];
-//    // 必须配置输出属性
-//    session.outputFileType = @"com.apple.quicktime-movie";
-//    // 导出视频
-//    [session exportAsynchronouslyWithCompletionHandler:^{
-//        NSLog(@"压缩后---%.2fk",[self getFileSize:resultPath]);
-//        NSLog(@"视频导出完成");
-//        
-//    }];
-//    
-//    return session.outputURL;
-//}
-
-// 获取当前时间
-- (NSString *)getCurrentTime{
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *dateTime = [formatter stringFromDate:[NSDate date]];
-    //    NSString *str = [NSString stringWithFormat:@"%@mdxx",dateTime];
-    //    NSString *tokenStr = [str stringToMD5:str];
-    return dateTime;
-    
-}
-
-
-//此方法可以获取文件的大小，返回的是单位是KB。
-- (CGFloat) getFileSize:(NSString *)path
-{
-    NSLog(@"filePath：%@",path);
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    float filesize = -1.0;
-    if ([fileManager fileExistsAtPath:path]) {
-        NSDictionary *fileDic = [fileManager attributesOfItemAtPath:path error:nil];//获取文件的属性
-        unsigned long long size = [[fileDic objectForKey:NSFileSize] longLongValue];
-        filesize = 1.0*size/1024;
-    }else{
-        NSLog(@"找不到文件");
-    }
-    return filesize;
-}
-
-
-//此方法可以获取视频文件的时长。
-- (CGFloat) getVideoLength:(NSURL *)URL
-{
-    
-//    AVURLAsset *avUrl = [AVURLAsset assetWithURL:URL];
-//    
-//    CMTime time = [avUrl duration];
-//    int second = ceil(time.value/time.timescale);
-//    return second;
-    
-    
-    return 000.0;
 }
 
 

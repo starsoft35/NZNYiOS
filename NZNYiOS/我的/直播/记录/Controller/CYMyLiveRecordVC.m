@@ -138,7 +138,7 @@
     UILabel *tipLab = [[UILabel alloc] initWithFrame:CGRectMake((12.0 / 750.0) * cScreen_Width, (80.0 / 1334.0) * cScreen_Height, (726.0 / 750.0) * cScreen_Width, (30.0 / 1334.0) * cScreen_Height)];
     
     
-    tipLab.text = @"暂时没有直播预告";
+    tipLab.text = @"暂时没有直播记录";
     
     tipLab.textAlignment = NSTextAlignmentCenter;
     tipLab.font = [UIFont systemFontOfSize:15];

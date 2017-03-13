@@ -8,7 +8,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是四个" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46e-oc-T2B" userLabel="1-title-Label">
@@ -31,21 +30,22 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="UhT-JD-9Qn" userLabel="2-detail-Label">
-                        <rect key="frame" x="304" y="13" width="38" height="18"/>
+                        <rect key="frame" x="89" y="13" width="252.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Right-.png" translatesAutoresizingMaskIntoConstraints="NO" id="ubN-gL-jHA" userLabel="3-next-Image View">
-                        <rect key="frame" x="354" y="15" width="8" height="14"/>
+                        <rect key="frame" x="353.5" y="14.5" width="8.5" height="15"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="15" id="1B2-Il-TT5"/>
                             <constraint firstAttribute="width" secondItem="ubN-gL-jHA" secondAttribute="height" multiplier="9:16" id="YeS-EX-m9i"/>
                         </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="ubN-gL-jHA" secondAttribute="trailing" constant="13" id="2az-Ad-fbO"/>
-                    <constraint firstItem="UhT-JD-9Qn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="46e-oc-T2B" secondAttribute="trailing" constant="12" id="8Zf-FG-zim"/>
+                    <constraint firstItem="UhT-JD-9Qn" firstAttribute="leading" secondItem="46e-oc-T2B" secondAttribute="trailing" constant="12" id="8Zf-FG-zim"/>
                     <constraint firstItem="ubN-gL-jHA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IqV-wb-qLF"/>
                     <constraint firstItem="UhT-JD-9Qn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="13" id="Jwm-5v-hqx"/>
                     <constraint firstItem="46e-oc-T2B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Phh-Yz-GMM"/>
@@ -53,7 +53,6 @@
                     <constraint firstItem="ubN-gL-jHA" firstAttribute="leading" secondItem="UhT-JD-9Qn" secondAttribute="trailing" constant="12" id="uLz-Nu-NTL"/>
                     <constraint firstItem="UhT-JD-9Qn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="y0R-wF-wKo"/>
                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="UhT-JD-9Qn" secondAttribute="trailing" constant="13" id="yQC-wD-eVq"/>
-                    <constraint firstItem="ubN-gL-jHA" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="30:88" id="yXf-3r-56O"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

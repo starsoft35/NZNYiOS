@@ -43,7 +43,7 @@
     
     // 参数
     NSDictionary *params = @{
-                             @"userId":self.onlyUser.userID
+                             @"userId":self.oppUserId
                              };
     
     
@@ -99,7 +99,7 @@
     
     // 参数
     NSDictionary *params = @{
-                             @"userId":self.onlyUser.userID
+                             @"userId":self.oppUserId
                              };
     
     // 显示加载

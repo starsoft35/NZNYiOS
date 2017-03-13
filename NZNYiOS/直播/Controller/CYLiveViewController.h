@@ -13,4 +13,11 @@
 // connectBtn：联系他
 - (void)connectBtnClickWithConnectBtn:(UIButton *)connectBtn;
 
+
+
+// oppUserId
+@property (nonatomic, copy) NSString *oppUserId;
+
+
+
 @end
