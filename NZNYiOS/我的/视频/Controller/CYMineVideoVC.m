@@ -499,6 +499,7 @@
     
     videoDetailsVC.oppUserId = leftModel.UserId;
     videoDetailsVC.indexPath = nil;
+    videoDetailsVC.videoId = leftModel.Id;
     
     //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
     UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:videoDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
@@ -613,6 +614,7 @@
     
     videoDetailsVC.oppUserId = rightModel.UserId;
     videoDetailsVC.indexPath = nil;
+    videoDetailsVC.videoId = rightModel.Id;
     
     //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
     UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:videoDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
@@ -732,20 +734,20 @@
     
     
     
-//    ALAssetsLibrary *library1 = [[ALAssetsLibrary alloc] init];
-//    
-//    [library1 enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-//        NSLog(@"ALAssetsLibrary：获取视频：成功！");
-//        
-//        if (group) {
-//            
-//            [group setAssetsFilter:[ALAssetsFilter allVideos]];
-//            [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-//                NSLog(@"");
-//                
-//                if (result) {
-//                    
-//                    // 设置缩略图：用的好像是本身的类
+    ALAssetsLibrary *library1 = [[ALAssetsLibrary alloc] init];
+    
+    [library1 enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        NSLog(@"ALAssetsLibrary：获取视频：成功！");
+        
+        if (group) {
+            
+            [group setAssetsFilter:[ALAssetsFilter allVideos]];
+            [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
+                NSLog(@"");
+                
+                if (result) {
+                    
+                    // 设置缩略图：用的好像是本身的类
 //                    CYMineVideoVC *videoInfo = [[CYMineVideoVC alloc] init];
 //                    videoInfo.thumbnail = [UIImage imageWithCGImage:result.thumbnail];
 //                    videoInfo.videoURL = [result valueForProperty:ALAssetPropertyAssetURL];
@@ -756,20 +758,20 @@
 //                    videoInfo.size = result.defaultRepresentation.size;
 //                    
 //                    videoInfo.format = [result.defaultRepresentation.filename pathExtension];
-//                    
-////                    [];
-//                    
-//                }
-//                
-//            }];
-//        }
-//        
-//        
-//    } failureBlock:^(NSError *error) {
-//        NSLog(@"ALAssetsLibrary：获取视频：失败！");
-//        
-//        
-//    }];
+                    
+//                    [];
+                    
+                }
+                
+            }];
+        }
+        
+        
+    } failureBlock:^(NSError *error) {
+        NSLog(@"ALAssetsLibrary：获取视频：失败！");
+        
+        
+    }];
     
     
 }

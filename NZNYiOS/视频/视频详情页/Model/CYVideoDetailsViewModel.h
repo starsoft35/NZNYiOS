@@ -18,13 +18,18 @@
 
 @interface CYVideoDetailsViewModel : CYBaseModel
 
+
+// 是否已关注
+@property (nonatomic, assign) BOOL IsFollow;
+
+
 // 视频Id
 @property (nonatomic, copy) NSString *VideoId;
 
 // 视频地址
 @property (nonatomic, copy) NSString *VideoUrl;
 
-// 视频简介
+// 爱情宣言
 @property (nonatomic, copy) NSString *VideoUserDeclaration;
 
 // 视频FId

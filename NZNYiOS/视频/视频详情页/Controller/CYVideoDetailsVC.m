@@ -59,13 +59,16 @@
 // 余额不足弹窗：View
 @property(nonatomic, strong) CYBalanceNotEnoughView *balanceNotEnoughView;
 
-
-
-
 // 加好友弹窗：View
 @property(nonatomic, strong) CYAddFriendView *addFriendView;
 
 
+// 模型：视频详情页
+@property (nonatomic, strong) CYVideoDetailsViewModel *videoDetailsViewModel;
+
+
+// 临时arr
+//@property(nonatomic, strong) NSMutableArray *tempArr;
 
 
 @end
@@ -100,67 +103,137 @@
     
 }
 
-
-- (void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     
     // 显示导航栏
     self.navigationController.navigationBarHidden = NO;
-    
-//    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
+
 
 // 加载数据
 - (void)loadData{
     
-    // 网络请求：他人详情页
+//    // 网络请求：他人详情页
+//    // URL参数
+//    NSDictionary *params = @{
+//                             @"userId":self.onlyUser.userID,
+//                             @"oppUserId":self.oppUserId,
+//                             };
+//    
+//    //    [self showLoadingView];
+//    
+//    // 网络请求：他人详情页
+//    [CYNetWorkManager getRequestWithUrl:cOppUserInfoUrl params:params progress:^(NSProgress *uploadProgress) {
+//        NSLog(@"获取他人详情页进度：%@",uploadProgress);
+//        
+//        
+//    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+//        NSLog(@"他人详情页：请求成功！");
+//        
+//        // 1、
+//        NSString *code = responseObject[@"code"];
+//        
+//        // 1.2.1.1.2、和成功的code 匹配
+//        if ([code isEqualToString:@"0"]) {
+//            NSLog(@"他人详情页：获取成功！");
+//            NSLog(@"他人详情页：%@",responseObject);
+//            
+//            // 清空：每次刷新都需要
+//            [self.dataArray removeAllObjects];
+//            
+//            // 解析数据，模型存到数组
+//            [self.dataArray addObject:[[CYOthersInfoViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil]];
+//            
+//            // 模型赋值
+//            if (self.dataArray.count != 0) {
+//                
+//                _videoDetailsView.othersInfoVM = self.dataArray[0];
+//                
+//                
+//            }
+//            
+//            // 请求数据结束，取消加载
+//            [self hidenLoadingView];
+//            
+//            
+//        }
+//        else{
+//            NSLog(@"他人详情页：获取失败:responseObject:%@",responseObject);
+//            NSLog(@"他人详情页：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+//            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+//            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+//            
+//        }
+//        
+//        
+//    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+//        NSLog(@"他人详情页：请求失败！");
+//        NSLog(@"失败原因：error：%@",error);
+//        
+//        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+//    } withToken:self.onlyUser.userToken];
     
-    // 新地址
-    NSDictionary *params = @{
-                             @"userId":self.onlyUser.userID,
-                             @"oppUserId":self.oppUserId,
-                             };
     
-    //    [self showLoadingView];
     
-    // 网络请求：他人详情页
-    [CYNetWorkManager getRequestWithUrl:cOppUserInfoUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"获取他人详情页进度：%@",uploadProgress);
+    
+    
+    [self showLoadingView];
+    
+    
+    
+    
+    
+    
+    
+    
+    // 网络请求：视频视图详情
+    // URL参数
+    NSDictionary *videoDetailParams = @{
+                                        @"id":self.videoId
+                                        };
+    
+    [CYNetWorkManager getRequestWithUrl:cVideoViewDetailUrl params:videoDetailParams progress:^(NSProgress *uploadProgress) {
+        NSLog(@"获取视频视图详情进度：%@",uploadProgress);
         
         
     } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"他人详情页：请求成功！");
+        NSLog(@"视频视图详情：请求成功！");
+        
+        [self hidenLoadingView];
         
         // 1、
         NSString *code = responseObject[@"code"];
         
         // 1.2.1.1.2、和成功的code 匹配
         if ([code isEqualToString:@"0"]) {
-            NSLog(@"他人详情页：获取成功！");
-            NSLog(@"他人详情页：%@",responseObject);
+            NSLog(@"视频视图详情：获取成功！");
+            NSLog(@"视频视图详情：%@",responseObject);
             
             // 清空：每次刷新都需要
-            [self.dataArray removeAllObjects];
+//            [self.tempArr removeAllObjects];
+            
             
             // 解析数据，模型存到数组
-            [self.dataArray addObject:[[CYOthersInfoViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil]];
+            _videoDetailsViewModel = [[CYVideoDetailsViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil];
             
-            // 模型赋值
-            if (self.dataArray.count != 0) {
-                
-                _videoDetailsView.othersInfoVM = self.dataArray[0];
-                
-                
-            }
             
-            // 请求数据结束，取消加载
-            [self hidenLoadingView];
+            
+            // 网络请求：判断是否已关注
+            [self requestIfIsFollow];
+            
+            
+            self.oppUserId = _videoDetailsViewModel.VideoUserId;
+            self.videoId = _videoDetailsViewModel.VideoId;
+            self.videoPlayUrl = _videoDetailsViewModel.VideoUrl;
+            
+            
             
             
         }
         else{
-            NSLog(@"他人详情页：获取失败:responseObject:%@",responseObject);
-            NSLog(@"他人详情页：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            NSLog(@"视频视图详情：获取失败:responseObject:%@",responseObject);
+            NSLog(@"视频视图详情：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
             // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
             [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
             
@@ -168,12 +241,75 @@
         
         
     } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"他人详情页：请求失败！");
+        NSLog(@"视频视图详情：请求失败！");
         NSLog(@"失败原因：error：%@",error);
         
         [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
     } withToken:self.onlyUser.userToken];
     
+    
+    
+    
+    
+}
+
+// 网络请求：判断是否已关注
+- (void)requestIfIsFollow{
+    
+    
+    // 网络请求：判断是否已关注
+    // 参数
+    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&oppUserId=%@",cIfIsFriendUrl,self.onlyUser.userID,self.oppUserId];
+    
+    [self showLoadingView];
+    
+    [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"判断是否已关注：progress:%@",uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"判断是否已关注：请求成功！");
+        
+        
+        // 2.3.1.1、获取code 值
+        NSString *code = responseObject[@"code"];
+        
+        // 2.3.1.2、判断返回值
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"判断是否已关注：结果成功！");
+            
+            _videoDetailsViewModel.IsFollow = [responseObject[@"res"][@"IsFriend"] boolValue];
+            
+            
+            
+            _videoDetailsView.videoDetailsViewModel = _videoDetailsViewModel;
+            
+            
+            [self hidenLoadingView];
+            
+        }
+        else{
+            NSLog(@"判断是否已关注：结果失败！");
+            NSLog(@"msg:%@",responseObject[@"res"][@"msg"]);
+            
+            
+            // 2.3.1.2.2、加关注失败，弹窗
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+        }
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"判断是否已关注：请求失败！");
+        NSLog(@"error:%@",error);
+        
+        
+        // 2.3.1.2.2、加关注请求失败，弹窗
+        [self showHubWithLabelText:@"网络错误，请重新上传！" andHidAfterDelay:3.0];
+        
+        
+    } withToken:self.onlyUser.userToken];
+    
+    
+
 }
 
 
@@ -231,6 +367,9 @@
     [self.navigationController pushViewController:othersInfoVC animated:YES];
     
     [othersInfoVC.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+    
+    
+    
 }
 
 // 关闭：button：点击事件
@@ -323,45 +462,100 @@
 - (void)connectBtnClick{
     NSLog(@"联系他：button：点击事件");
     
-    // 模型
-    CYOthersInfoViewModel *othersInfoViewModel = [[CYOthersInfoViewModel alloc] init];
     
-    if (self.dataArray.count) {
-        
-        othersInfoViewModel = self.dataArray[0];
-        
-    }
+    // 网络请求：判断是否为好友
+    // 参数
+    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&oppUserId=%@",cIfIsFriendUrl,self.onlyUser.userID,self.oppUserId];
     
-    // 如果是好友，聊天界面
-    if (othersInfoViewModel.IsFriend) {
-        
-        // 融云SDK
-        // 新建一个聊天会话viewController 对象
-        CYChatVC *chatVC = [[CYChatVC alloc] init];
+    [self showLoadingView];
+    
+    [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"判断是否为好友：progress:%@",uploadProgress);
         
         
-        
-        // 设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
-        chatVC.conversationType = ConversationType_PRIVATE;
-        
-        
-        // 设置会话的目标会话ID。（单聊、客服、公众服务号会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
-        chatVC.targetId = othersInfoViewModel.Id;
-        
-        // 设置聊天会话界面要显示的标题
-        chatVC.title = othersInfoViewModel.RealName;
-        
-        // 显示聊天会话界面
-        [self.navigationController pushViewController:chatVC animated:YES];
-    }
-    else{
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"判断是否为好友：请求成功！");
         
         
-        // 加好友界面
-        [self addFriendViewWithOppUserId:othersInfoViewModel.Id];
-    }
+        // 2.3.1.1、获取code 值
+        NSString *code = responseObject[@"code"];
+        
+        // 2.3.1.2、判断返回值
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"判断是否为好友：结果成功！");
+            
+            // 如果是好友，聊天界面
+            if ([responseObject[@"res"][@"IsFriend"] boolValue]) {
+                
+                
+                // 聊天界面
+                [self chatToElsePeopleVC];
+                
+                
+            }
+            else{
+                
+                
+                // 加好友界面
+                [self addFriendViewWithOppUserId:self.oppUserId];
+            }
+            
+            [self hidenLoadingView];
+            
+        }
+        else{
+            NSLog(@"判断是否为好友：结果失败！");
+            NSLog(@"msg:%@",responseObject[@"res"][@"msg"]);
+            
+            
+            // 2.3.1.2.2、加关注失败，弹窗
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+        }
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"判断是否为好友：请求失败！");
+        NSLog(@"error:%@",error);
+        
+        
+        // 2.3.1.2.2、加关注请求失败，弹窗
+        [self showHubWithLabelText:@"网络错误，请重新上传！" andHidAfterDelay:3.0];
+        
+        
+    } withToken:self.onlyUser.userToken];
+    
+    
     
 }
+
+// 聊天界面
+- (void)chatToElsePeopleVC{
+    
+    
+    // 模型
+    
+    
+    
+    // 融云SDK
+    // 新建一个聊天会话viewController 对象
+    CYChatVC *chatVC = [[CYChatVC alloc] init];
+    
+    
+    
+    // 设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
+    chatVC.conversationType = ConversationType_PRIVATE;
+    
+    
+    // 设置会话的目标会话ID。（单聊、客服、公众服务号会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
+    chatVC.targetId = _videoDetailsViewModel.VideoUserId;
+    
+    // 设置聊天会话界面要显示的标题
+    chatVC.title = _videoDetailsViewModel.VideoUserName;
+    
+    // 显示聊天会话界面
+    [self.navigationController pushViewController:chatVC animated:YES];
+    
+}
+
 
 // 加好友界面
 - (void)addFriendViewWithOppUserId:(NSString *)oppUserId{
@@ -635,14 +829,6 @@
     _giveGiftTipView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
     
     
-    
-    //    if (cScreen_Width == 320) {
-    //
-    //        CGRect tempRect = _giveGiftTipView.oneRoseBtn.frame;
-    //
-    //        _giveGiftTipView.oneRoseBtn.frame = CGRectMake(tempRect.origin.x, tempRect.origin.y - 10, tempRect.size.width, tempRect.size.height - 10);
-    //    }
-    
     //    _giveGiftTipView.backgroundColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:0.70];
     _giveGiftTipView.backgroundColor = [UIColor clearColor];
     //    _giveGiftTipView.giveGiftBgImgView.hidden = YES;
@@ -778,7 +964,7 @@
             
             
             // 请求数据结束，取消加载
-            //            [self hidenLoadingView];
+//            [self hidenLoadingView];
             
             
             NSString * tempMoneyStr = responseObject[@"res"][@"data"][@"money"];
@@ -804,18 +990,6 @@
                 [self hidenLoadingView];
                 
                 
-                // 余额不足弹窗：VC
-                //                CYBalanceNotEnoughVC *balanceNotEnoughVC = [[CYBalanceNotEnoughVC alloc] init];
-                //
-                //
-                //                //                UINavigationController *tempBalanceNotEnoughNav = [CYUtilities createDefaultNavCWithRootVC:balanceNotEnoughVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
-                //                //
-                //                //                [balanceNotEnoughVC.navigationController setNavigationBarHidden:YES animated:YES];
-                //
-                //                //                [self showViewController:tempVideoNav sender:self];
-                //                //                [self presentViewController:tempBalanceNotEnoughNav animated:YES completion:nil];
-                //                [self presentViewController:balanceNotEnoughVC animated:YES completion:nil];
-                
                 
                 
 #pragma mark------------------------ 余额不足弹窗：开始 --------------------------------------
@@ -827,13 +1001,6 @@
                 _balanceNotEnoughView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
                 
                 
-                
-                if (cScreen_Width == 320) {
-                    
-                    //                    CGRect tempRect = _balanceNotEnoughView.oneRoseBtn.frame;
-                    
-                    //                    _balanceNotEnoughView.oneRoseBtn.frame = CGRectMake(tempRect.origin.x, tempRect.origin.y - 10, tempRect.size.width, tempRect.size.height - 10);
-                }
                 
                 
                 _balanceNotEnoughView.backgroundColor = [UIColor clearColor];
@@ -936,7 +1103,7 @@
             
             
             // 请求数据结束，取消加载
-            //            [self hidenLoadingView];
+//            [self hidenLoadingView];
             
             [self showHubWithLabelText:[NSString stringWithFormat:@"送%ld朵玫瑰成功！",(long)giftCount] andHidAfterDelay:3.0];
             
@@ -1162,9 +1329,6 @@
             // 余额不足，则弹到充值界面
             else {
                 
-                // 请求数据结束，取消加载
-                [self hidenLoadingView];
-                
                 
                 // 余额不足弹窗：
 #pragma mark------------------------ 余额不足弹窗：开始 ---------------------------------------
@@ -1389,67 +1553,99 @@
 - (void)playBtnClick{
     NSLog(@"播放：button：点击事件");
     
-#warning 播放地址请求
-    // 网络请求：请求视频播放地址
-//    [self requestVideoPlayUrl];
+    
+//    
+//    // 视频地址的赋值
+//    // 模型：当前用户的信息模型
+//    CYOthersInfoViewModel *tempOthersInfoViewModel = self.dataArray[0];
+//    
+//    // 当前用户的视频数组
+//    NSArray *videosArr = tempOthersInfoViewModel.UserVideoList;
+//    
+//    // 视频模型
+//    CYOtherVideoCellModel *videoCellModel = [[CYOtherVideoCellModel alloc] init];
+//    
+//    // 当前视频的地址
+//    NSString *tempVideoUrl = [[NSString alloc] init];
+//    
+//    
+//    // 如果没有indexPath，即主界面的视频
+//    if (self.indexPath == nil) {
+//        
+//        // 判断视频数量
+//        if (videosArr.count == 1) {
+//            
+//            // 如果是一个，默认为播放
+//            videoCellModel = videosArr[0];
+//            // 第一个为默认，则视频的地址为第一个的视频地址
+//            tempVideoUrl = videoCellModel.Video;
+//            
+//        }
+//        else if (videosArr.count == 2) {
+//            
+//            videoCellModel = videosArr[0];
+//            NSLog(@"videoCellModel.Default:%d",videoCellModel.Default);
+//            // 如果是两个，看是否默认
+//            if (videoCellModel.Default == YES) {
+//                
+//                // 第一个为默认，则视频的地址为第一个的视频地址
+//                tempVideoUrl = videoCellModel.Video;
+//            }
+//            else {
+//                
+//                // 第一个视频不是默认，则把打第二个视频模型赋值，第二个的视频地址为视频的地址。
+//                videoCellModel = videosArr[1];
+//                tempVideoUrl = videoCellModel.Video;
+//            }
+//        }
+//        
+//    }
+//    else {
+//        
+//        // 如果有indexPath，即是从他人详情页的视频界面跳过来，用indexPath去判断播放哪个视频
+//        CYOtherVideoCellModel *tempVideoCellModel = self.videoDetailsView.othersInfoVM.UserVideoList[self.indexPath.row];
+//        
+//        tempVideoUrl = tempVideoCellModel.Video;
+//        
+//    }
+//    
+//    // 构建播放地址
+//    NSString *urlStr = [NSString stringWithFormat:@"%@%@",cHostUrl,tempVideoUrl];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    [self showLoadingView];
+    
+//    CYVideoDetailsViewModel *tempModel = self.tempArr[0];
+    NSString *newUrlStr = [NSString stringWithFormat:@"%@%@",cHostUrl,_videoDetailsViewModel.VideoUrl];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     // 获取成功，播放视频
-    [self playVideoWithUrl:@""];
+//    [self playVideoWithUrl:urlStr];
+    [self playVideoWithUrl:newUrlStr];
     
 }
 
-
-// 网络请求：请求视频播放地址
-- (void)requestVideoPlayUrl{
-    NSLog(@"网络请求：请求视频播放地址");
-    
-    // 网络请求：请求视频播放后台
-    // 新地址：
-    NSString *newVideoUrl = [NSString stringWithFormat:@""];
-    
-    // 参数
-    NSDictionary *params = @{
-                             @"":@"",
-                             };
-    
-    // 网络请求：请求视频播放后台,视频的地址
-    [CYNetWorkManager postRequestWithUrl:newVideoUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"请求视频播放地址：%@",uploadProgress);
-        
-    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"请求视频播放地址：请求成功！");
-        
-        
-        // 1、
-        NSString *code = responseObject[@"code"];
-        
-        // 1.2.1.1.2、和成功的code 匹配
-        if ([code isEqualToString:@"0"]) {
-            NSLog(@"主视频热门界面：获取成功！：%@",responseObject);
-            
-            // 获取成功，播放视频
-            [self playVideoWithUrl:responseObject[@""]];
-            
-            
-        }
-        else{
-            NSLog(@"请求视频播放地址：获取失败:responseObject:%@",responseObject);
-            NSLog(@"请求视频播放地址：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
-            
-            
-            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
-            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
-            
-        }
-    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"请求视频播放地址：请求失败！失败原因：error：%@",error);
-        
-        
-        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
-    } withToken:self.onlyUser.userToken];
-    
-}
 
 
 // 获取成功，播放视频
@@ -1461,97 +1657,25 @@
     [audioSession setActive:YES error:nil];
     self.audioPlayer.delegate = self;
     
-
-    // 视频地址的赋值
-    // 模型：当前用户的信息模型
-    CYOthersInfoViewModel *tempOthersInfoViewModel = self.dataArray[0];
-    
-    // 当前用户的视频数组
-    NSArray *videosArr = tempOthersInfoViewModel.UserVideoList;
-    
-    // 视频模型
-    CYOtherVideoCellModel *videoCellModel = [[CYOtherVideoCellModel alloc] init];
-    
-    // 当前视频的地址
-    NSString *tempVideoUrl = [[NSString alloc] init];
-    
-    
-    // 如果没有indexPath，即主界面的视频
-    if (self.indexPath == nil) {
-        
-        // 判断视频数量
-        if (videosArr.count == 1) {
-            
-            // 如果是一个，默认为播放
-            videoCellModel = videosArr[0];
-            // 第一个为默认，则视频的地址为第一个的视频地址
-            tempVideoUrl = videoCellModel.Video;
-            
-        }
-        else if (videosArr.count == 2) {
-            
-            videoCellModel = videosArr[0];
-            NSLog(@"videoCellModel.Default:%d",videoCellModel.Default);
-            // 如果是两个，看是否默认
-            if (videoCellModel.Default == YES) {
-                
-                // 第一个为默认，则视频的地址为第一个的视频地址
-                tempVideoUrl = videoCellModel.Video;
-            }
-            else {
-                
-                // 第一个视频不是默认，则把打第二个视频模型赋值，第二个的视频地址为视频的地址。
-                videoCellModel = videosArr[1];
-                tempVideoUrl = videoCellModel.Video;
-            }
-        }
-        
-    }
-    else {
-        
-        // 如果有indexPath，即是从他人详情页的视频界面跳过来，用indexPath去判断播放哪个视频
-        CYOtherVideoCellModel *tempVideoCellModel = self.videoDetailsView.othersInfoVM.UserVideoList[self.indexPath.row];
-        
-        tempVideoUrl = tempVideoCellModel.Video;
-        
-    }
-    
-    // 构建播放地址
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@",cHostUrl,tempVideoUrl];
-//    NSString *urlStr = @"http://live.nznychina.com/zcy/s1.m3u8";
-//    NSString *urlStr = @"rtmp://video-center.alivecdn.com/zcy/s1?vhost=live.nznychina.com";
-    
-    
-    // 可以是本地视频、也可以是网络视频
-    self.moviePlayerVC = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:urlStr]];
-    self.moviePlayerVC.moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
-    
-//    NSLog(@"self.moviePlayerVC.childViewControllers:%@",self.moviePlayerVC.childViewControllers);
-//    
-//    NSLog(@"self.moviePlayerVC.moviePlayer.backgroundView.subviews:%@",self.moviePlayerVC.moviePlayer.backgroundView.subviews);
-//    NSArray *arr = self.moviePlayerVC.moviePlayer.view.subviews;
-//    
-//    [self.moviePlayerVC preferredStatusBarStyle];
-//    [self.moviePlayerVC prefersStatusBarHidden];
-    
-    
-//    self.moviePlayerVC = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:@"http://video.nznychina.com/play/video/abc/yang/"]];
-//    self.moviePlayerVC = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:@"http://192.168.1.112/hls/s2.m3u8"]];
-//    self.moviePlayerVC = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:@"rtmp://192.168.1.112:1935/hls/s2"]];
-//    self.moviePlayerVC = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:[[NSBundle mainBundle] pathForResource:@"http://192.168.1.112/hls/s2" ofType:@"m3u8"]]];
     
     // MPMoviePlayerController 只是一个容器，里面有一个能够播放视频的视图
+    // 可以是本地视频、也可以是网络视频
+    self.moviePlayerVC = [[MPMoviePlayerViewController alloc]initWithContentURL:[NSURL URLWithString:newVideoUrl]];
+    
+    // 控制面板风格：嵌入视频风格
+    self.moviePlayerVC.moviePlayer.controlStyle = MPMovieControlStyleEmbedded;
+    
     // 设置播放器的frame
     self.moviePlayerVC.view.frame = CGRectMake(0, 70, cScreen_Width, self.videoDetailsView.frame.size.height - 70 - self.videoDetailsView.bottomTipDecConView.frame.size.height);
     
     
     [self.view addSubview:self.moviePlayerVC.view];
     
+    [self hidenLoadingView];
     
-    
-    self.videoDetailsView.bgImgView.hidden = YES;
-    self.videoDetailsView.playBtn.hidden = YES;
-    self.videoDetailsView.backgroundColor = [UIColor clearColor];
+//    self.videoDetailsView.bgImgView.hidden = YES;
+//    self.videoDetailsView.playBtn.hidden = YES;
+//    self.videoDetailsView.backgroundColor = [UIColor clearColor];
     
 }
 

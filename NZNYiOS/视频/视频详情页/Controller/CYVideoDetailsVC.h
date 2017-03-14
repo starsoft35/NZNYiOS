@@ -31,6 +31,12 @@
 // 所查看的用户Id
 @property (nonatomic, copy) NSString *oppUserId;
 
+// 所查看的当前视频的Id
+@property (nonatomic, copy) NSString *videoId;
+
+// 所查看的当前视频的地址
+@property (nonatomic, copy) NSString *videoPlayUrl;
+
 
 // 选中的第几个cell
 @property (nonatomic, copy) NSIndexPath *indexPath;

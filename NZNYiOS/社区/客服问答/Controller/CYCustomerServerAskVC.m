@@ -143,6 +143,7 @@
     
     // 假数据
     titleDetailModel.title = customerServerAskCellModel.Title;
+    
     titleDetailModel.detail = @"";
     
     

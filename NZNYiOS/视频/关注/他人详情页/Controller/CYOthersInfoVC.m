@@ -178,13 +178,21 @@
     
     _othersInfoView = [[[NSBundle mainBundle] loadNibNamed:@"CYOthersInfoView" owner:nil options:nil] lastObject];
     
-    NSLog(@"self.dataArray.count:%ld",(unsigned long)self.dataArray.count);
+//    NSLog(@"self.dataArray.count:%ld",(unsigned long)self.dataArray.count);
     
-    CGRect tempRect = CGRectMake(0, 0, cScreen_Width, _othersInfoView.infoOrVideoOrLiveView.frame.size.height - 76);
+    
+    // 头像：圆角
+    _othersInfoView.headImgView.layer.cornerRadius = (60.0 / 1334.0) * (cScreen_Height - 64);
+    
+    
+//    CGRect tempRect = CGRectMake(0, 0, cScreen_Width, _othersInfoView.infoOrVideoOrLiveView.frame.size.height - 76);
+//    NSLog(@"_othersInfoView.infoOrVideoOrLiveView.frame.size.height:%lf",_othersInfoView.infoOrVideoOrLiveView.frame.size.height);
+    
+    CGRect tempRect = CGRectMake(0, 0, cScreen_Width, 388.0 / 667.0 * (cScreen_Height - 64) - 35);
 //        CGRect tempRec = CGRectMake(0, 0, cScreen_Width, 388 - 30);
     
-//    NSLog(@"tempRec.size.height:%lf",tempRec.size.height);
-    NSLog(@"_othersInfoView.infoOrVideoOrLiveView:%@",_othersInfoView.infoOrVideoOrLiveView);
+//    NSLog(@"tempRec.size.height:%lf",tempRect.size.height);
+//    NSLog(@"_othersInfoView.infoOrVideoOrLiveView:%@",_othersInfoView.infoOrVideoOrLiveView);
     
     // 资料
     // 导航VC
@@ -216,15 +224,29 @@
     CYOthersInfoVideoLiveVC *middleVC = [[CYOthersInfoVideoLiveVC alloc] initWithSubVC:@[_otherInfoVC,_otherVideoVC,_otherLiveVC] andTitles:@[@"资料",@"视频",@"直播"]];
 //    CYOthersInfoVideoLiveVC *videoVC = [[CYOthersInfoVideoLiveVC alloc] initWithSubVC:@[_otherInfoVC,videoNav,l] andTitles:@[@"资料",@"视频",@"直播"]];
     
-    float middleVCHeight = _othersInfoView.infoOrVideoOrLiveView.frame.size.height;
-    CGRect middleVCRect = CGRectMake(0, 0, cScreen_Width, middleVCHeight);
+//    float middleVCHeight = _othersInfoView.infoOrVideoOrLiveView.frame.size.height / 1334.0 * cScreen_Height;
+//    float middleVCHeight = 388.0 / 667.0 * (cScreen_Height - 0);
+//    NSLog(@"_othersInfoView.infoOrVideoOrLiveView.frame.size.height:%f",_othersInfoView.infoOrVideoOrLiveView.frame.size.height);
+//    NSLog(@"middleVCHeight:%f",middleVCHeight);
+//    NSLog(@"cScreen_Height:%f",cScreen_Height);
+//    
     
-    middleVC.view.frame = middleVCRect;
-//    middleVC.bgScrollView.frame = CGRectMake(0, 35, cScreen_Width, middleVCHeight - 35 - 64);
+//    CGRect middleVCRect = CGRectMake(0, 0, cScreen_Width, middleVCHeight);
+    
+    middleVC.view.frame = CGRectMake(0, 0, cScreen_Width, 388.0 / 667.0 * cScreen_Height);
+    middleVC.bgScrollView.frame = CGRectMake(0, 35, cScreen_Width, 388.0 / 667.0 * (cScreen_Height - 64) - 35);
     
 //    [videoVC setScrollViewFrame];
     // 中部视图：赋值
     [_othersInfoView.infoOrVideoOrLiveView addSubview:middleVC.view];
+    
+    
+    
+    
+    
+    
+    
+    
     
     // 联系他：button：点击事件
     [_othersInfoView.contactBtn addTarget:self action:@selector(contactBtnClick) forControlEvents:UIControlEventTouchUpInside];

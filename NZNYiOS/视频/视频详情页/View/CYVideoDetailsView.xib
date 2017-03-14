@@ -29,7 +29,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqu-hX-tUM" userLabel="1.1-上部头像姓名ID关注-View">
                             <rect key="frame" x="13" y="0.0" width="175" height="40"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="关注名字背景.png" translatesAutoresizingMaskIntoConstraints="NO" id="c48-iW-qdF" userLabel="1.1.0-上部背景-Image View">
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="关注名字背景.png" translatesAutoresizingMaskIntoConstraints="NO" id="c48-iW-qdF" userLabel="1.1.0-上部背景-Image View">
                                     <rect key="frame" x="0.0" y="0.0" width="175" height="40"/>
                                 </imageView>
                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="直播已关注底.png" translatesAutoresizingMaskIntoConstraints="NO" id="npG-gB-1fB" userLabel="1.1.00-上部已关注背景-Image View">
@@ -58,7 +58,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQD-0q-cD3" userLabel="1.1.4-关注-Button">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQD-0q-cD3" userLabel="1.1.4-关注-Button">
                                     <rect key="frame" x="120" y="5" width="50" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="gQD-0q-cD3" secondAttribute="height" multiplier="100:60" id="eW3-ZQ-MNl"/>

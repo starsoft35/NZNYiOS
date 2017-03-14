@@ -25,10 +25,10 @@
 
 
 // 模型：他人详情页
-@property (nonatomic, strong) CYOthersInfoViewModel *othersInfoVM;
+//@property (nonatomic, strong) CYOthersInfoViewModel *othersInfoVM;
 
 // 模型：视频详情页
-//@property (nonatomic, strong) CYVideoDetailsViewModel *videoDetailsViewModel;
+@property (nonatomic, strong) CYVideoDetailsViewModel *videoDetailsViewModel;
 
 // 背景
 @property (weak, nonatomic) IBOutlet UIImageView *bgImgView;

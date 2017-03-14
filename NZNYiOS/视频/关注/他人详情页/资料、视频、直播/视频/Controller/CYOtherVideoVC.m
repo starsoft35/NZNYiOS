@@ -242,6 +242,30 @@
     
     
     
+    
+    NSIndexPath *currentIndexPath = [[self.baseCollectionView indexPathsForVisibleItems] firstObject];
+    NSLog(@"currentIndexPath.section:%ld",currentIndexPath.section);
+    NSLog(@"currentIndexPath.row:%ld",(long)currentIndexPath.row);
+    
+    
+    
+    // 视频cell：模型
+    CYOtherVideoCellModel *videoCellModel = self.videoListDataArr[currentIndexPath.row];
+    
+    // 视频详情页
+    CYVideoDetailsVC *videoDetailsVC = [[CYVideoDetailsVC alloc] init];
+    
+    videoDetailsVC.oppUserId = self.oppUserId;
+    //    videoDetailsVC.indexPath = indexPath;
+    videoDetailsVC.videoId = videoCellModel.Id;
+    
+    
+    //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
+    UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:videoDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+    
+    
+    [self showViewController:tempVideoNav sender:self];
+    
 }
 
 
@@ -256,17 +280,10 @@
     NSLog(@"选中了第 %ld 个collectionCell",(long)indexPath.row);
     
     
-    // 视频详情页
-    CYVideoDetailsVC *videoDetailsVC = [[CYVideoDetailsVC alloc] init];
-    
-    videoDetailsVC.oppUserId = self.oppUserId;
-//    videoDetailsVC.indexPath = indexPath;
-    
-    //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
-    UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:videoDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+    // 视频cell：模型
+    CYOtherVideoCellModel *videoCellModel = self.videoListDataArr[indexPath.row];
     
     
-    [self showViewController:tempVideoNav sender:self];
     
     
      

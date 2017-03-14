@@ -23,7 +23,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="这是四个" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46e-oc-T2B" userLabel="1-title-Label">
                         <rect key="frame" x="15" y="13" width="62" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="46e-oc-T2B" secondAttribute="height" multiplier="61:18" id="Au8-pr-nTB"/>
+                            <constraint firstAttribute="width" secondItem="46e-oc-T2B" secondAttribute="height" multiplier="62:18" id="Au8-pr-nTB"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>

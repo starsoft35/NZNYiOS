@@ -11,47 +11,48 @@
 @implementation CYVideoDetailsView
 
 
-// 赋值：模型：他人详情页
-- (void)setOthersInfoVM:(CYOthersInfoViewModel *)othersInfoVM{
+// 赋值：模型：视频详情页
+- (void)setVideoDetailsViewModel:(CYVideoDetailsViewModel *)videoDetailsViewModel{
     
-    _othersInfoVM = othersInfoVM;
+    
+    _videoDetailsViewModel = videoDetailsViewModel;
     
     
     // 视频详情页背景
-//    _bgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:othersInfoVM.Portrait];
-    if ([othersInfoVM.Portrait isEqualToString:@""]) {
+    //    _bgImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:othersInfoVM.Portrait];
+    if ([videoDetailsViewModel.VideoUserPortrait isEqualToString:@""]) {
         
         _headImgView.image = [UIImage imageNamed:@"默认头像"];
     }
     else {
         
-        [_bgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,othersInfoVM.Portrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
+        [_bgImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,videoDetailsViewModel.VideoUserPortrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     // 头像
-//    _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:othersInfoVM.Portrait];
-    if ([othersInfoVM.Portrait isEqualToString:@""]) {
+    //    _headImgView.image = [CYUtilities setUrlImgWithHostUrl:cHostUrl andUrl:othersInfoVM.Portrait];
+    if ([videoDetailsViewModel.VideoUserPortrait isEqualToString:@""]) {
         
         _headImgView.image = [UIImage imageNamed:@"默认头像"];
     }
     else {
         
-        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,othersInfoVM.Portrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
+        [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,videoDetailsViewModel.VideoUserPortrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
     
     _headImgView.layer.cornerRadius = (30.0 / 1334.0) * cScreen_Height;
     
     // 姓名
-    _nameLab.text = othersInfoVM.RealName;
+    _nameLab.text = videoDetailsViewModel.VideoUserName;
     
     // ID
-    _idLab.text = [NSString stringWithFormat:@"ID：%ld",othersInfoVM.FId];
+    _idLab.text = [NSString stringWithFormat:@"ID：%ld",videoDetailsViewModel.VideoUserFId];
     
     
     // 关注
     // 如果已经关注，则隐藏
-    if (othersInfoVM.IsFollow == YES) {
+    if (videoDetailsViewModel.IsFollow == YES) {
         
         _topHeadNameIDFollowBgImgView.hidden = YES;
         
@@ -76,24 +77,29 @@
     
     
     // 标签赋值
-    [self setTagValureWithOthersInfoViewModel:othersInfoVM];
+    [self setTagValureWithOthersInfoViewModel:videoDetailsViewModel];
     
     
     // 宣言
-    _declarationLab.text = [NSString stringWithFormat:@"爱情宣言：%@",othersInfoVM.Declaration];
+    _declarationLab.text = [NSString stringWithFormat:@"爱情宣言：%@",videoDetailsViewModel.VideoUserDeclaration];
     
+    
+}
+
+// 赋值：模型：他人详情页
+- (void)setOthersInfoVM:(CYOthersInfoViewModel *)othersInfoVM{
     
 }
 
 
 // 标签赋值
-- (void)setTagValureWithOthersInfoViewModel:(CYOthersInfoViewModel *)othersInfoViewModel{
+- (void)setTagValureWithOthersInfoViewModel:(CYVideoDetailsViewModel *)videoDetailsViewModel{
     
     int tempCount = 1;
     NSString *tagStr = [[NSString alloc] init];
-    for (CYOtherTagModel * tempTagModel in othersInfoViewModel.UserTagList) {
+    for (CYOtherTagModel * tempTagModel in videoDetailsViewModel.VideoUserTagList) {
         
-        if (othersInfoViewModel.UserTagList.count >= 1) {
+        if (videoDetailsViewModel.VideoUserTagList.count >= 1) {
             
             if (tempCount == 1) {
                 
