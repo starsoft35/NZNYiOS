@@ -19,6 +19,11 @@
 #import "CYBaseSwipeViewController.h"
 
 
+// 会员
+#import "CYManMemberVC.h"
+#import "CYAllMemberVC.h"
+#import "CYWomanMemberVC.h"
+
 
 // 视频
 #import "CYVideoFollowVC.h"
@@ -345,6 +350,17 @@
 // 添加所有的tabBar子控制器
 - (void)setUpAllTabBarViewController{
     
+    
+    
+    // 会员
+    CYManMemberVC *manMemberVC = [[CYManMemberVC alloc] init];
+    CYAllMemberVC *allMemberVC = [[CYAllMemberVC alloc] init];
+    CYWomanMemberVC *womanMemberVC = [[CYWomanMemberVC alloc] init];
+    
+    // 第0个tabBar：会员页面
+    CYBaseSwipeViewController *memberVC = [[CYBaseSwipeViewController alloc] initWithSubVC:@[manMemberVC,allMemberVC,womanMemberVC] andTitles:@[@"男左",@"全部",@"女右"]];
+//    [self setUpOneTabBarViewController:memberVC image:[UIImage imageNamed:@"会员"] selectedImage:[UIImage imageWithOriginalName:@"会员当前"] title:@"会员"];
+//    [memberVC addSubViewToBgScrollViewWithIndex:1];
     
     
     

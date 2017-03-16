@@ -260,11 +260,123 @@
     videoDetailsVC.videoId = videoCellModel.Id;
     
     
-    //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
-    UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:videoDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
     
     
-    [self showViewController:tempVideoNav sender:self];
+    
+    
+    
+    
+    
+    
+    // 网络请求：他人详情页
+    // URL参数
+    NSDictionary *params = @{
+                             @"userId":self.onlyUser.userID,
+                             @"oppUserId":self.oppUserId,
+                             };
+    
+    [self showLoadingView];
+    
+    // 网络请求：他人详情页
+    [CYNetWorkManager getRequestWithUrl:cOppUserInfoUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"获取他人详情页进度：%@",uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"他人详情页：请求成功！");
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"他人详情页：获取成功！");
+            NSLog(@"他人详情页：%@",responseObject);
+            
+            // 解析数据，模型存到数组
+            CYOthersInfoViewModel *otherInfoModel = [[CYOthersInfoViewModel alloc] initWithDictionary:responseObject[@"res"][@"data"][@"model"] error:nil];
+            
+            
+            // 模型赋值
+            if (otherInfoModel.UserVideoList.count != 0) {
+                
+                
+                NSInteger tempCount = 0;
+                NSInteger tempFlag = 0;
+                
+                for (CYOtherVideoCellModel *tempOtherVideoCellModel in otherInfoModel.UserVideoList) {
+                    
+                    tempCount ++;
+                    
+                    if (tempOtherVideoCellModel.Default) {
+                        
+                        tempFlag = 1;
+                        
+                        videoDetailsVC.videoId = tempOtherVideoCellModel.Id;
+                        
+                        
+                        //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
+                        UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:videoDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+                        
+                        
+                        [self showViewController:tempVideoNav sender:self];
+                        
+                        
+                        [self hidenLoadingView];
+//                        return ;
+                    }
+                    
+                    else {
+                        
+                        if (tempFlag == 0 && tempCount == 2) {
+                            
+                            
+                            [self showHubWithLabelText:@"视频坐飞船走了，可能是主人删除了" andHidAfterDelay:3.0];
+                        }
+                        
+                    }
+                    
+                }
+                
+                
+            }
+            else {
+                
+                [self showHubWithLabelText:@"视频坐飞船走了，可能是主人删除了" andHidAfterDelay:3.0];
+            }
+            
+            
+            
+        }
+        else{
+            NSLog(@"他人详情页：获取失败:responseObject:%@",responseObject);
+            NSLog(@"他人详情页：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"他人详情页：请求失败！");
+        NSLog(@"失败原因：error：%@",error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
+//    UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:videoDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+//    
+//    
+//    [self showViewController:tempVideoNav sender:self];
     
 }
 

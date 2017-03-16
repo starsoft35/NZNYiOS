@@ -73,8 +73,20 @@
                 // 左侧：use、share 显示
                 [self setLeftVideoShowUseAndShareBtn];
                 
-                // 左侧使用
-                [self setLeftVideoIsUse];
+                
+                if (leftModel.Default) {
+                
+                    // 左侧默认使用
+                    
+                    // 左侧正在使用
+                    [self setLeftVideoIsUse];
+                }
+                else {
+                    
+                    
+                    // 左侧：使用
+                    [self setLeftVideoNoUse];
+                }
                 
                 
                 break;
@@ -125,9 +137,25 @@
                 // 左侧：use、share 显示
                 [self setLeftVideoShowUseAndShareBtn];
                 
-                
-                // 左侧使用
-                [self setLeftVideoIsUse];
+                // 如果左侧是默认
+                if (leftModel.Default) {
+                    
+                    
+                    // 左侧：正在使用
+                    [self setLeftVideoIsUse];
+                    
+                    // 右侧：使用
+                    [self setRightVideoNoUse];
+                }
+                else {
+                    
+                    // 左侧：使用
+                    [self setLeftVideoNoUse];
+                    
+                    // 右侧：正在使用
+                    [self setRightVideoIsUse];
+                    
+                }
                 
                 break;
             case 2:

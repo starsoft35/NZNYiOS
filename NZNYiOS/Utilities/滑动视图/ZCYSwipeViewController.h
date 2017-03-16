@@ -21,4 +21,7 @@
 // 设置scrollView 的 frame
 - (void)setScrollViewFrame;
 
+// 添加视图到对应的scrollView
+- (void)addSubViewToBgScrollViewWithIndex:(NSInteger)index;
+
 @end
