@@ -15,6 +15,9 @@
 #import "CYOthersInfoViewModel.h"
 
 
+// 视频详情页：VC
+#import "CYVideoDetailsVC.h"
+
 //中部scrollView：VC
 #import "CYOthersInfoVideoLiveVC.h"
 // 资料：VC
@@ -92,7 +95,73 @@
 //    // 加载数据
 //    [self loadData];
     
+//    [self.navigationItem.backBarButtonItem setAction:@selector(tempNavBackBarItemClick)];
+//    [self.navigationController.navigationItem.backBarButtonItem setAction:@selector(tempNavBackBarItemClick)];
+    
+//    UIBarButtonItem *tempBackBarBtnItem = [[UIBarButtonItem alloc] initWithTitle:@"temp" style:2 target:self action:@selector(tempNavBackBarItemClick)];
+//    [self.navigationController.navigationBar.backItem setBackBarButtonItem:tempBackBarBtnItem];
+//    self.navigationItem.backBarButtonItem = tempBackBarBtnItem;
+//    self.navigationController.navigationItem.backBarButtonItem = tempBackBarBtnItem;
+//    self.navigationController.navigationItem.rightBarButtonItem = tempBackBarBtnItem;
+    
+    
+    
+    
+    
+    
+    
+//    self.navigationItem.rightBarButtonItem = tempBackBarBtnItem;
+//    self.navigationItem.backBarButtonItem = tempBackBarBtnItem;
+    
+    
+    
+    
+    
+    
+    
+    
+//    UINavigationItem *tempBackItem = [[UINavigationItem alloc] initWithTitle:@"temp2"];
+//    [self.navigationController.navigationBar.backItem setitem];
+    
+//    [self.navigationController.barHideOnSwipeGestureRecognizer addTarget:self action:@selector(tempNavBackBarItemClick)];
+    
 }
+//
+- (void)tempNavBackBarItemClick{
+    NSLog(@"tempNavBackBarItemClick");
+    
+}
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    
+    if (![[self.navigationController viewControllers] containsObject:self])
+    {
+        NSLog(@"用户点击了返回按钮");
+        
+        
+        
+//        for (UIViewController *controller in self.navigationController.viewControllers) {
+//            
+//            
+//            
+//            if ([controller isKindOfClass:[CYVideoDetailsVC class]]) {
+//                
+//                [self.navigationController popToViewController:controller animated:YES];
+//                
+//            }
+//            
+//        }
+        
+        
+    }
+    if ([self.navigationController.viewControllers indexOfObject:self]==NSNotFound){
+        
+        NSLog(@"用户点击了返回按钮2");
+    }
+    
+}
+
 
 //
 - (void)viewWillAppear:(BOOL)animated{

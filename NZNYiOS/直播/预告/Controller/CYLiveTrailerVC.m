@@ -159,7 +159,7 @@
     model.liveStatusTitle = @"预告";
     
     // 直播状态背景图
-        model.liveStatusBgImgName = @"直播预告";
+    model.liveStatusBgImgName = @"直播预告";
     
     // 观看人数
     model.isWatchCount = NO;

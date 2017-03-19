@@ -272,6 +272,8 @@
         
         // 导航VC：获取当前视图所在位置的导航控制器
         [[self navigationControllerWithView:self.view] pushViewController:certificateDetailVC animated:YES];
+        
+        
     }
     
 }

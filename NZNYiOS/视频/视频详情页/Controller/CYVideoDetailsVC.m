@@ -93,7 +93,8 @@
     [super viewWillAppear:animated];
     
     // 隐藏导航栏
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     
 //    [[UIApplication sharedApplication] setStatusBarHidden:YES];
@@ -108,7 +109,15 @@
     
     // 显示导航栏
     self.navigationController.navigationBarHidden = NO;
+    
+    
+    if (![[self.navigationController viewControllers] containsObject:self])
+    {
+        NSLog(@"用户点击了返回按钮");
+    }
+    
 }
+
 
 
 // 加载数据
@@ -259,7 +268,7 @@
     
     // 网络请求：判断是否已关注
     // 参数
-    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&oppUserId=%@",cIfIsFriendUrl,self.onlyUser.userID,self.oppUserId];
+    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&oppUserId=%@",cIfIsFollowUrl,self.onlyUser.userID,self.oppUserId];
     
     [self showLoadingView];
     
@@ -364,11 +373,77 @@
     othersInfoVC.oppUserId = self.oppUserId;
     
     
-    [self.navigationController pushViewController:othersInfoVC animated:YES];
     
-    [othersInfoVC.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+//    [othersInfoVC.navigationItem.backBarButtonItem setAction:@selector(tempNavBackBarItemClick)];
+//    [othersInfoVC.navigationController.navigationItem.backBarButtonItem setAction:@selector(tempNavBackBarItemClick)];
+//    [self.navigationController.barHideOnSwipeGestureRecognizer addTarget:othersInfoVC action:@selector(tempNavBackBarItemClick)];
     
     
+    
+//    UIBarButtonItem *tempBackBarBtnItem = [[UIBarButtonItem alloc] init];
+//    
+//    tempBackBarBtnItem.title = @"nichousha";
+//    tempBackBarBtnItem.target = othersInfoVC;
+//    
+//    [self.navigationItem.backBarButtonItem setAction:@selector(tempNavBackBarItemClick)];
+//    
+//    self.navigationItem.backBarButtonItem = tempBackBarBtnItem;
+    
+    
+    
+    
+    
+    
+    
+    NSInteger tmpCount = self.navigationController.viewControllers.count;
+    NSInteger tmpFlag = 0;
+    BOOL ifHaveVC = NO;
+    
+    
+    // 查找是否已经进入过他人详情页
+    for (UIViewController *controller in self.navigationController.viewControllers) {
+        
+        tmpFlag ++;
+        
+        // 进入过他人详情页：则直接跳转，不再创建新的
+        if ([controller isKindOfClass:[CYOthersInfoVC class]]) {
+            
+            [self.navigationController popToViewController:controller animated:YES];
+            //                                [self showViewController:controller sender:self];
+            
+            ifHaveVC = YES;
+            
+        }
+        else if (tmpCount == tmpFlag && ifHaveVC == NO){
+            
+            
+            
+            //                                [self.navigationController pushViewController:tempVideoNav animated:YES];
+            //
+            //                                [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+//            [self showViewController:tempVideoNav sender:self];
+            
+            
+            
+            [self.navigationController pushViewController:othersInfoVC animated:YES];
+            
+            [othersInfoVC.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+}
+
+
+
+//
+- (void)tempNavBackBarItemClick{
+    NSLog(@"tempNavBackBarItemClick");
     
 }
 
@@ -378,7 +453,8 @@
     
 //    [self.moviePlayerVC.view removeFromSuperview];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

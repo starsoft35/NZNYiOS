@@ -13,6 +13,10 @@
 // 点赞：模型
 #import "CYWhoPraiseMeCellModel.h"
 
+
+// 他人详情页
+#import "CYOthersInfoVC.h"
+
 @interface CYMyReceivedVC ()
 
 @end
@@ -163,6 +167,30 @@
     return cell;
 }
 
+
+//
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //当离开某行时，让某行的选中状态消失
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+    CYWhoPraiseMeCellModel *whoPraiseMeCellModel = self.dataArray[indexPath.row];
+    
+    // 他人详情页
+    CYOthersInfoVC *othersInfoVC = [[CYOthersInfoVC alloc] init];
+    
+    //    othersInfoVC.view.frame = CGRectMake(0, 0, 400, 400);
+    
+    othersInfoVC.oppUserId = whoPraiseMeCellModel.UserId;
+    
+    othersInfoVC.hidesBottomBarWhenPushed = YES;
+    
+//    [self.navigationController pushViewController:othersInfoVC animated:YES];
+    // 导航VC：获取当前视图所在位置的导航控制器
+    [[self navigationControllerWithView:self.view] pushViewController:othersInfoVC animated:YES];
+    
+}
 
 // cell 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

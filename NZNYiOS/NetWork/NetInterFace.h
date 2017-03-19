@@ -230,6 +230,8 @@
 // 5.1.1.1-申请好友
 #define cApplyFriendUrl (@"api/Relationship/ApplyFriend")
 
+// 5.1.1.2.0-判断A是否关注了B
+#define cIfIsFollowUrl (@"api/Relationship/IsFollow")
 // 5.1.1.2.1-加关注
 #define cAddFollowUrl (@"api/Relationship/AddFollow")
 // 5.1.1.2.2-取消关注

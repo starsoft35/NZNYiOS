@@ -6388,8 +6388,8 @@
 				TargetAttributes = {
 					8A309E741D63172900F41396 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ZAW8YEPUB7;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = WQKV283JX3;
+						ProvisioningStyle = Automatic;
 					};
 					8A309E8D1D63172900F41396 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -7358,7 +7358,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: NAN ZUO NV YOU SHANGHAI INFORMATION TECHNOLOGY CO LTD (ZAW8YEPUB7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
-				DEVELOPMENT_TEAM = ZAW8YEPUB7;
+				DEVELOPMENT_TEAM = WQKV283JX3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7386,10 +7386,10 @@
 					"-Objc",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS0319;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "15e759fc-2289-4db5-93dc-13b8732f6c32";
-				PROVISIONING_PROFILE_SPECIFIER = "2-27-test2";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -7402,7 +7402,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: NAN ZUO NV YOU SHANGHAI INFORMATION TECHNOLOGY CO LTD (ZAW8YEPUB7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
-				DEVELOPMENT_TEAM = ZAW8YEPUB7;
+				DEVELOPMENT_TEAM = WQKV283JX3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7430,10 +7430,10 @@
 					"-Objc",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS0319;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "15e759fc-2289-4db5-93dc-13b8732f6c32";
-				PROVISIONING_PROFILE_SPECIFIER = "2-27-test2";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

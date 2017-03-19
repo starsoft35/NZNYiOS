@@ -310,16 +310,75 @@
                     
                     if (tempOtherVideoCellModel.Default) {
                         
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         tempFlag = 1;
                         
                         videoDetailsVC.videoId = tempOtherVideoCellModel.Id;
                         
                         
-                        //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
+//                        //  导航条设置为不透明的（这样创建的视图（0，0）点，是在导航条左下角开始的。）
                         UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:videoDetailsVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+//
+//                        
+//                        [self showViewController:tempVideoNav sender:self];
                         
                         
-                        [self showViewController:tempVideoNav sender:self];
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        NSInteger tmpCount = [self navigationControllerWithView:self.view].viewControllers.count;
+                        NSInteger tmpFlag = 0;
+                        BOOL ifHaveVC = NO;
+                        
+                        for (UIViewController *controller in [self navigationControllerWithView:self.view].viewControllers) {
+                            
+                            tmpFlag ++;
+                            
+                            if ([controller isKindOfClass:[CYVideoDetailsVC class]]) {
+                                
+                                [[self navigationControllerWithView:self.view] popToViewController:controller animated:YES];
+//                                [self showViewController:controller sender:self];
+                                
+                                ifHaveVC = YES;
+                                
+                            }
+                            else if (tmpCount == tmpFlag && ifHaveVC == NO){
+                                
+                                
+                                
+//                                [self.navigationController pushViewController:tempVideoNav animated:YES];
+//                                
+//                                [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+                                
+                                
+                                
+//                                [self showViewController:tempVideoNav sender:self];
+                                
+                                
+                                [[self navigationControllerWithView:self.view] pushViewController:videoDetailsVC animated:YES];
+                                
+                                
+                            }
+                            
+                        }
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         
                         [self hidenLoadingView];

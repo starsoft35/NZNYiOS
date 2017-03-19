@@ -369,9 +369,20 @@
     
     UINavigationController *tempVideoNav = [CYUtilities createDefaultNavCWithRootVC:aliPlayAndRCIMVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
     
-    [aliPlayAndRCIMVC.navigationController setNavigationBarHidden:YES animated:YES];
+//    [aliPlayAndRCIMVC.navigationController setNavigationBarHidden:YES animated:YES];
+//    
+//    [self showViewController:tempVideoNav sender:self];
     
-    [self showViewController:tempVideoNav sender:self];
+    
+    
+    
+    
+    
+    
+    aliPlayAndRCIMVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:aliPlayAndRCIMVC animated:YES];
+    
+    
 }
 
 // 阿里播放界面：VC

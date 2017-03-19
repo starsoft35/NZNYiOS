@@ -23,6 +23,14 @@
 #import "CYOthersInfoViewModel.h"
 
 
+// 直播详情页:VC
+//#import "CYLivePlayDetailsVC.h"
+
+
+// 阿里播放器和融云IM：界面：VC
+#import "CYLiveALiPlayAndRCIMVC.h"
+
+
 @interface CYOtherLiveVC ()
 
 @end
@@ -215,7 +223,263 @@
     //当离开某行时，让某行的选中状态消失
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    
+    // 他人直播模型
+    CYOtherLiveCellModel *liveCellModel = self.liveListDataArr[indexPath.row];
+    
+    // 判断是否正在直播
+    // 如果是正在直播，则可以进入下级界面(CYOtherLiveCellModel。Status == 4，为正在直播状态)
+    if (liveCellModel.Status == 4) {
+        
+        
+        // 网络请求：进入直播间
+        [self requestAudienceEnterLiveRoomWithLiveId:liveCellModel.LiveId andOppUserId:self.oppUserId andDiscussionId:liveCellModel.LiveId];
+        
+    }
+    // 如果不是正在直播，则不能进入
+    else {
+        
+    }
+    
 }
+
+
+// 网络请求：观众进入直播间
+- (void)requestAudienceEnterLiveRoomWithLiveId:(NSString *)liveId andOppUserId:(NSString *)oppUserId andDiscussionId:(NSString *)discussionId{
+    NSLog(@"网络请求：观众进入直播间");
+    
+    // 网络请求：观众进入直播间
+    // 新地址
+    NSString *newUrl = [NSString stringWithFormat:@"%@?userId=%@&liveId=%@",cEnterLiveRoomUrl,self.onlyUser.userID,liveId];
+    
+    
+    [self showLoadingView];
+    
+    // 网络请求：观众进入直播间
+    [CYNetWorkManager postRequestWithUrl:newUrl params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"获取观众进入直播间进度：%@",uploadProgress);
+        
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"观众进入直播间：请求成功！");
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"观众进入直播间：获取成功！");
+            NSLog(@"观众进入直播间：%@",responseObject);
+            
+            // 取消加载
+            [self hidenLoadingView];
+            
+            // 直播间Id
+            NSString *liveRoomId = responseObject[@"res"][@"data"][@"liveRoomId"];
+            //            liveRoomId = @"f643314d-0e29-4e16-915d-b36364c46416";
+            
+            // 直播播放地址
+            NSString *livePlayUrl = responseObject[@"res"][@"data"][@"url"];
+            
+            NSLog(@"livePlayUrl:%@",livePlayUrl);
+            
+            
+            // 连接RCDLive
+            [self connectRCDLiveWithUrl:livePlayUrl andOppUserId:oppUserId andLiveId:liveId andLiveRoomId:liveRoomId andDiscussionId:discussionId];
+            
+            
+            // 阿里播放和融云IM界面：VC
+            //            [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:userId andLiveId:liveId andLiveRoomId:liveRoomId andDiscussionId:discussionId];
+            
+            
+        }
+        else{
+            NSLog(@"观众进入直播间：获取失败:responseObject:%@",responseObject);
+            NSLog(@"观众进入直播间：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"观众进入直播间：请求失败！");
+        NSLog(@"失败原因：error：%@",error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+// 连接RCDLive
+- (void)connectRCDLiveWithUrl:(NSString *)livePlayUrl andOppUserId:(NSString *)oppUserId andLiveId:(NSString *)liveId andLiveRoomId:(NSString *)liveRoomId andDiscussionId:(NSString *)discussionId{
+    NSLog(@"连接RCDLive");
+    
+    
+    
+    
+    
+    // 请求数据：获取用户在融云的token
+    NSDictionary *params = @{
+                             @"userId":self.onlyUser.userID
+                             };
+    
+    // 请求数据：获取用户在融云的token
+    [CYNetWorkManager getRequestWithUrl:cRongTokenUrl params:params progress:^(NSProgress *uploadProgress) {
+        NSLog(@"获取用户在融云的token进度：%@",uploadProgress);
+        
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"获取用户在融云的token：请求成功！");
+        
+        
+        // 1、
+        NSString *code = responseObject[@"code"];
+        
+        // 1.2.1.1.2、和成功的code 匹配
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"获取用户在融云的token：获取成功！");
+            NSLog(@"获取用户在融云的token：%@",responseObject);
+            
+            NSString *rongToken = [[NSString alloc] init];
+            
+            rongToken = responseObject[@"res"][@"data"][@"rongToken"];
+            
+            
+            // 融云：初始化：使用RCDLive进行初始化
+            [self setRongCloudWithRCDLiveWithUrl:livePlayUrl andOppUserId:oppUserId andLiveId:liveId andLiveRoomId:liveRoomId andDiscussionId:discussionId];
+            
+        }
+        else{
+            NSLog(@"获取用户在融云的token：获取失败:responseObject:%@",responseObject);
+            NSLog(@"获取用户在融云的token：获取失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+            // 1.2.1.1.2.2、获取失败：弹窗提示：获取失败的返回信息
+            //            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+            
+        }
+        
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"获取用户在融云的token：请求失败！:error:%@",error);
+        
+        [self showHubWithLabelText:@"请检查网络，重新加载" andHidAfterDelay:3.0];
+        
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+
+// 融云：初始化：使用RCDLive进行初始化
+- (void)setRongCloudWithRCDLiveWithUrl:(NSString *)livePlayUrl andOppUserId:(NSString *)oppUserId andLiveId:(NSString *)liveId andLiveRoomId:(NSString *)liveRoomId andDiscussionId:(NSString *)discussionId{
+    
+    
+    [[RCDLive sharedRCDLive] initRongCloud:cRongAppKey];
+    
+    // 关闭所有的前台消息提示音
+    [RCIM sharedRCIM].disableMessageAlertSound = YES;
+    
+    //注册自定义消息：送礼
+    [[RCDLive sharedRCDLive] registerRongCloudMessageType:[RCDLiveGiftMessage class]];
+    
+    // 阿里播放和融云IM界面：VC
+    [self pushAliPlayAndRCIMVCWithUrl:livePlayUrl andOppUserId:oppUserId andLiveId:liveId andLiveRoomId:liveRoomId andDiscussionId:discussionId];
+    
+    
+}
+
+
+// 阿里播放和融云IM界面：VC
+- (void)pushAliPlayAndRCIMVCWithUrl:(NSString *)playUrl andOppUserId:(NSString *)oppUserId andLiveId:(NSString *)liveId andLiveRoomId:(NSString *)LiveRoomId andDiscussionId:(NSString *)discussionId{
+    NSLog(@"阿里播放和融云IM界面：VC");
+    
+    CYLiveALiPlayAndRCIMVC *aliPlayAndRCIMVC = [[CYLiveALiPlayAndRCIMVC alloc] init];
+    
+    aliPlayAndRCIMVC.conversationType = ConversationType_CHATROOM;
+    
+    // targetId：为聊天室Id，由直播详情页给出
+    aliPlayAndRCIMVC.targetId = discussionId;
+    aliPlayAndRCIMVC.targetId = oppUserId;
+    //    aliPlayAndRCIMVC.targetId = self.onlyUser.userID;
+    aliPlayAndRCIMVC.targetId = liveId;
+    
+    //    aliPlayAndRCIMVC.targetId = @"ChatRoom01";
+    NSLog(@"play:targetId:%@",aliPlayAndRCIMVC.targetId);
+    
+    // 自定义需要的
+    aliPlayAndRCIMVC.playUrl = playUrl;
+    aliPlayAndRCIMVC.oppUserId = oppUserId;
+    aliPlayAndRCIMVC.liveID = liveId;
+    // 观众在直播间的拥有的id，用于观众离开直播间时调用；
+    aliPlayAndRCIMVC.liveRoomId = LiveRoomId;
+    //    aliPlayAndRCIMVC.liveRoomId = @"ChatRoom01";
+    
+    UINavigationController *tempLiveNav = [CYUtilities createDefaultNavCWithRootVC:aliPlayAndRCIMVC BgColor:nil TintColor:[UIColor whiteColor] translucent:NO titleColor:[UIColor whiteColor] title:@"" bgImg:[UIImage imageNamed:@"Title1"]];
+    
+//    [aliPlayAndRCIMVC.navigationController setNavigationBarHidden:YES animated:YES];
+    
+//    [self showViewController:tempVideoNav sender:self];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    NSInteger tmpCount = [self navigationControllerWithView:self.view].viewControllers.count;
+    NSInteger tmpFlag = 0;
+    BOOL ifHaveVC = NO;
+    
+    for (UIViewController *controller in [self navigationControllerWithView:self.view].viewControllers) {
+        
+        tmpFlag ++;
+        
+        if ([controller isKindOfClass:[CYLiveALiPlayAndRCIMVC class]]) {
+            
+            [[self navigationControllerWithView:self.view] popToViewController:controller animated:YES];
+            //                                [self showViewController:controller sender:self];
+            
+            ifHaveVC = YES;
+            
+        }
+        else if (tmpCount == tmpFlag && ifHaveVC == NO){
+            
+            
+            
+            //                                [self.navigationController pushViewController:tempVideoNav animated:YES];
+            //
+            //                                [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+            
+            
+            
+//            [self showViewController:tempLiveNav sender:self];
+            
+            
+            
+            [[self navigationControllerWithView:self.view] pushViewController:aliPlayAndRCIMVC animated:YES];
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
 
 // cell 的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

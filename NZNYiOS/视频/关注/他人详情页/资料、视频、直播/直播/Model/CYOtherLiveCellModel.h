@@ -22,7 +22,7 @@
 // 观看人数
 @property (nonatomic, assign) NSInteger LookCount;
 
-// 实际开始时间
+// 直播状态
 @property (nonatomic, assign) NSInteger Status;
 
 

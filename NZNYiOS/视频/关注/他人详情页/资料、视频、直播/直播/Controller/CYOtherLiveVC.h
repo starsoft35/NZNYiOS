@@ -22,6 +22,6 @@
 @property (nonatomic,strong) NSMutableArray *liveListDataArr;
 
 // 暂时没有内容提示：label
-@property (nonatomic, strong) UILabel *noDataLab;
+//@property (nonatomic, strong) UILabel *noDataLab;
 
 @end

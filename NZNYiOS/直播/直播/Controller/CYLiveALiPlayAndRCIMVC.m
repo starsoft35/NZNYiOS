@@ -603,6 +603,12 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
+    
+    // 显示导航栏
+    self.navigationController.navigationBarHidden = NO;
+    
+    
+    
     [[NSNotificationCenter defaultCenter]
      removeObserver:self
      name:@"kRCPlayVoiceFinishNotification"
@@ -959,8 +965,54 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     othersInfoVC.oppUserId = self.oppUserId;
     
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.navigationController pushViewController:othersInfoVC animated:YES];
+//    [self.navigationController setNavigationBarHidden:NO animated:YES];
+//    [self.navigationController pushViewController:othersInfoVC animated:YES];
+    
+    
+    
+    
+    
+    
+    NSInteger tmpCount = self.navigationController.viewControllers.count;
+    NSInteger tmpFlag = 0;
+    BOOL ifHaveVC = NO;
+    
+    
+    // 查找是否已经进入过他人详情页
+    for (UIViewController *controller in self.navigationController.viewControllers) {
+        
+        tmpFlag ++;
+        
+        // 进入过他人详情页：则直接跳转，不再创建新的
+        if ([controller isKindOfClass:[CYOthersInfoVC class]]) {
+            
+            [self.navigationController popToViewController:controller animated:YES];
+            //                                [self showViewController:controller sender:self];
+            
+            ifHaveVC = YES;
+            
+        }
+        else if (tmpCount == tmpFlag && ifHaveVC == NO){
+            
+            
+            
+            //                                [self.navigationController pushViewController:tempVideoNav animated:YES];
+            //
+            //                                [self.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+            //            [self showViewController:tempVideoNav sender:self];
+            
+            
+            
+            [self.navigationController pushViewController:othersInfoVC animated:YES];
+            
+            [othersInfoVC.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
+        }
+        
+    }
+    
+    
+    
+    
     
     //    [othersInfoVC.navigationController.navigationBar setBackgroundColor:[UIColor clearColor]];
     
@@ -1043,7 +1095,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     // 销毁播放器、退出聊天室
     [self destroyPlayerAndQuitChatRoom];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark--------------------------- 上部视图：结束 ---------------------------------------

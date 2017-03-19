@@ -87,9 +87,9 @@
 }
 
 // 赋值：模型：他人详情页
-- (void)setOthersInfoVM:(CYOthersInfoViewModel *)othersInfoVM{
-    
-}
+//- (void)setOthersInfoVM:(CYOthersInfoViewModel *)othersInfoVM{
+//    
+//}
 
 
 // 标签赋值
