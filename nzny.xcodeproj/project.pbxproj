@@ -815,6 +815,13 @@
 		8AFA3A581DACC2F9001880C9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFA3A571DACC2F9001880C9 /* MessageUI.framework */; };
 		8AFA3A5A1DACC306001880C9 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFA3A591DACC306001880C9 /* JavaScriptCore.framework */; };
 		8AFA3A5C1DACC314001880C9 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFA3A5B1DACC314001880C9 /* libstdc++.tbd */; };
+		8AFF7F551E7F813F0047BF9F /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF7F481E7F813F0047BF9F /* TAAbstractDotView.m */; };
+		8AFF7F561E7F813F0047BF9F /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF7F4A1E7F813F0047BF9F /* TAAnimatedDotView.m */; };
+		8AFF7F571E7F813F0047BF9F /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF7F4C1E7F813F0047BF9F /* TADotView.m */; };
+		8AFF7F581E7F813F0047BF9F /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF7F4E1E7F813F0047BF9F /* TAPageControl.m */; };
+		8AFF7F591E7F813F0047BF9F /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF7F501E7F813F0047BF9F /* SDCollectionViewCell.m */; };
+		8AFF7F5A1E7F813F0047BF9F /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF7F521E7F813F0047BF9F /* SDCycleScrollView.m */; };
+		8AFF7F5B1E7F813F0047BF9F /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF7F541E7F813F0047BF9F /* UIView+SDExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1984,6 +1991,20 @@
 		8AFA3A571DACC2F9001880C9 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		8AFA3A591DACC306001880C9 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		8AFA3A5B1DACC314001880C9 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		8AFF7F471E7F813F0047BF9F /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		8AFF7F481E7F813F0047BF9F /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		8AFF7F491E7F813F0047BF9F /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		8AFF7F4A1E7F813F0047BF9F /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		8AFF7F4B1E7F813F0047BF9F /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		8AFF7F4C1E7F813F0047BF9F /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		8AFF7F4D1E7F813F0047BF9F /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		8AFF7F4E1E7F813F0047BF9F /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		8AFF7F4F1E7F813F0047BF9F /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		8AFF7F501E7F813F0047BF9F /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		8AFF7F511E7F813F0047BF9F /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		8AFF7F521E7F813F0047BF9F /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		8AFF7F531E7F813F0047BF9F /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		8AFF7F541E7F813F0047BF9F /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5427,6 +5448,7 @@
 		8AD17B221E30E68500A3579C /* libs */ = {
 			isa = PBXGroup;
 			children = (
+				8AFF7F441E7F813F0047BF9F /* 图片、文字-轮播 */,
 				8A653D031E46CCCA00B5B01B /* IMYWebView */,
 				8A653D091E46CCCA00B5B01B /* photoBroser */,
 				8AD17B231E30E68500A3579C /* AFNetworking */,
@@ -6336,6 +6358,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8AFF7F441E7F813F0047BF9F /* 图片、文字-轮播 */ = {
+			isa = PBXGroup;
+			children = (
+				8AFF7F451E7F813F0047BF9F /* SDCycleScrollView */,
+			);
+			path = "图片、文字-轮播";
+			sourceTree = "<group>";
+		};
+		8AFF7F451E7F813F0047BF9F /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				8AFF7F461E7F813F0047BF9F /* PageControl */,
+				8AFF7F4F1E7F813F0047BF9F /* SDCollectionViewCell.h */,
+				8AFF7F501E7F813F0047BF9F /* SDCollectionViewCell.m */,
+				8AFF7F511E7F813F0047BF9F /* SDCycleScrollView.h */,
+				8AFF7F521E7F813F0047BF9F /* SDCycleScrollView.m */,
+				8AFF7F531E7F813F0047BF9F /* UIView+SDExtension.h */,
+				8AFF7F541E7F813F0047BF9F /* UIView+SDExtension.m */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		8AFF7F461E7F813F0047BF9F /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				8AFF7F471E7F813F0047BF9F /* TAAbstractDotView.h */,
+				8AFF7F481E7F813F0047BF9F /* TAAbstractDotView.m */,
+				8AFF7F491E7F813F0047BF9F /* TAAnimatedDotView.h */,
+				8AFF7F4A1E7F813F0047BF9F /* TAAnimatedDotView.m */,
+				8AFF7F4B1E7F813F0047BF9F /* TADotView.h */,
+				8AFF7F4C1E7F813F0047BF9F /* TADotView.m */,
+				8AFF7F4D1E7F813F0047BF9F /* TAPageControl.h */,
+				8AFF7F4E1E7F813F0047BF9F /* TAPageControl.m */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -6388,8 +6447,8 @@
 				TargetAttributes = {
 					8A309E741D63172900F41396 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = WQKV283JX3;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = ZAW8YEPUB7;
+						ProvisioningStyle = Manual;
 					};
 					8A309E8D1D63172900F41396 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -6915,6 +6974,7 @@
 				8AD17F2C1E30E68700A3579C /* CYInfoHeaderCellModel.m in Sources */,
 				8AD17F251E30E68700A3579C /* CYNearbyPeopleVC.m in Sources */,
 				8AD17CFB1E30E68600A3579C /* CYMyAccountDetailVC.m in Sources */,
+				8AFF7F561E7F813F0047BF9F /* TAAnimatedDotView.m in Sources */,
 				8AD17D171E30E68600A3579C /* RCDLiveMessageCellNotificationModel.m in Sources */,
 				8AD17EF11E30E68700A3579C /* ActionSheetCustomPicker.m in Sources */,
 				8AD17F2B1E30E68700A3579C /* CYBaseModel.m in Sources */,
@@ -6929,6 +6989,7 @@
 				8AD17F361E30E68700A3579C /* CYTitleAndDetailCell.m in Sources */,
 				8AD17EC11E30E68700A3579C /* AFNetworkActivityIndicatorManager.m in Sources */,
 				8A653D191E46CD0E00B5B01B /* WebViewURLViewController.m in Sources */,
+				8AFF7F591E7F813F0047BF9F /* SDCollectionViewCell.m in Sources */,
 				8AD17ED21E30E68700A3579C /* MBProgressHUD.m in Sources */,
 				8AD17CFF1E30E68600A3579C /* CYLiveViewController.m in Sources */,
 				8AD17CC01E30E68600A3579C /* CYMyLikeVC.m in Sources */,
@@ -7008,6 +7069,7 @@
 				8AD17F221E30E68700A3579C /* CYSetUpVC.m in Sources */,
 				8AD17C841E30E68600A3579C /* CYNotFriendTipVC.m in Sources */,
 				8AD17C9D1E30E68600A3579C /* CYVideoDetailsView.m in Sources */,
+				8AFF7F5B1E7F813F0047BF9F /* UIView+SDExtension.m in Sources */,
 				8AD17F2F1E30E68700A3579C /* CYBaseCollectionViewController.m in Sources */,
 				8A819C9F1E4727CB0094833F /* CYCustomerServerAskCellModel.m in Sources */,
 				8A653D161E46CCCA00B5B01B /* HZPhotoBrowserView.m in Sources */,
@@ -7077,6 +7139,7 @@
 				8A27EEE51E346506001A7224 /* CYWechatPaymentUnifiedOrderModel.m in Sources */,
 				8AD17EF71E30E68700A3579C /* DistancePickerView.m in Sources */,
 				8A46B96A1E7677BC007A9C3E /* CYMyFriendVC.m in Sources */,
+				8AFF7F5A1E7F813F0047BF9F /* SDCycleScrollView.m in Sources */,
 				8AD17D111E30E68600A3579C /* RCDLiveMessageBaseCell.m in Sources */,
 				8AD17F081E30E68700A3579C /* UIView+WebCacheOperation.m in Sources */,
 				8AD17EBA1E30E68700A3579C /* AFNetworkReachabilityManager.m in Sources */,
@@ -7095,6 +7158,7 @@
 				8AD17D071E30E68600A3579C /* CYLivePlayDetailsViewModel.m in Sources */,
 				8AD17C9B1E30E68600A3579C /* CYVideoDetailsVC.m in Sources */,
 				8AD17ECF1E30E68700A3579C /* JSONModel+networking.m in Sources */,
+				8AFF7F571E7F813F0047BF9F /* TADotView.m in Sources */,
 				8AD17F311E30E68700A3579C /* CYBaseTableViewController.m in Sources */,
 				8A653D121E46CCCA00B5B01B /* IMYWebView.m in Sources */,
 				8AD17EC51E30E68700A3579C /* UIProgressView+AFNetworking.m in Sources */,
@@ -7189,6 +7253,7 @@
 				8AD17C771E30E68600A3579C /* CYVideoIsFriendModel.m in Sources */,
 				8AD17D061E30E68600A3579C /* Reachability.m in Sources */,
 				8AD17CBB1E30E68600A3579C /* CYMyTagCellModel.m in Sources */,
+				8AFF7F581E7F813F0047BF9F /* TAPageControl.m in Sources */,
 				8AD17C911E30E68600A3579C /* CYOtherVideoVC.m in Sources */,
 				8AD17EBF1E30E68700A3579C /* AFAutoPurgingImageCache.m in Sources */,
 				8AD17C7A1E30E68600A3579C /* CYVideoFollowVC.m in Sources */,
@@ -7208,6 +7273,7 @@
 				8AD17CAB1E30E68600A3579C /* CYMyUserInfoNameVC.m in Sources */,
 				8AD17EC01E30E68700A3579C /* AFImageDownloader.m in Sources */,
 				8AD17CED1E30E68600A3579C /* CYPhoneCertifiVC.m in Sources */,
+				8AFF7F551E7F813F0047BF9F /* TAAbstractDotView.m in Sources */,
 				8A50B5211E6BD98500EDC316 /* CYActiveEnrollConditionTipViewModel.m in Sources */,
 				8AD17EFE1E30E68700A3579C /* SDWebImageDownloader.m in Sources */,
 				8AD17D1D1E30E68600A3579C /* RCDLiveInputView.m in Sources */,
@@ -7358,7 +7424,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: NAN ZUO NV YOU SHANGHAI INFORMATION TECHNOLOGY CO LTD (ZAW8YEPUB7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
-				DEVELOPMENT_TEAM = WQKV283JX3;
+				DEVELOPMENT_TEAM = ZAW8YEPUB7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7386,10 +7452,10 @@
 					"-Objc",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS0319;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "15e759fc-2289-4db5-93dc-13b8732f6c32";
+				PROVISIONING_PROFILE_SPECIFIER = "2-27-test2";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -7402,7 +7468,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: NAN ZUO NV YOU SHANGHAI INFORMATION TECHNOLOGY CO LTD (ZAW8YEPUB7)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = YES;
-				DEVELOPMENT_TEAM = WQKV283JX3;
+				DEVELOPMENT_TEAM = ZAW8YEPUB7;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -7430,10 +7496,10 @@
 					"-Objc",
 				);
 				"OTHER_LDFLAGS[arch=*]" = "-all_load";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS0319;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nznychina.nznyiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "15e759fc-2289-4db5-93dc-13b8732f6c32";
+				PROVISIONING_PROFILE_SPECIFIER = "2-27-test2";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

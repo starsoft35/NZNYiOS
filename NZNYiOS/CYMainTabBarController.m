@@ -358,8 +358,8 @@
     CYWomanMemberVC *womanMemberVC = [[CYWomanMemberVC alloc] init];
     
     // 第0个tabBar：会员页面
-    CYBaseSwipeViewController *memberVC = [[CYBaseSwipeViewController alloc] initWithSubVC:@[manMemberVC,allMemberVC,womanMemberVC] andTitles:@[@"男左",@"全部",@"女右"]];
-//    [self setUpOneTabBarViewController:memberVC image:[UIImage imageNamed:@"会员"] selectedImage:[UIImage imageWithOriginalName:@"会员当前"] title:@"会员"];
+    CYBaseSwipeViewController *memberVC = [[CYBaseSwipeViewController alloc] initWithSubVC:@[allMemberVC,manMemberVC,womanMemberVC] andTitles:@[@"全部",@"男左",@"女右"]];
+    [self setUpOneTabBarViewController:memberVC image:[UIImage imageNamed:@"会员"] selectedImage:[UIImage imageWithOriginalName:@"会员当前"] title:@"会员"];
 //    [memberVC addSubViewToBgScrollViewWithIndex:1];
     
     

@@ -43,23 +43,20 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kht-LL-GkF" userLabel="2.1-姓名、性别、年龄-View">
                             <rect key="frame" x="0.0" y="0.0" width="259" height="15.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张大大大" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="6qP-V9-kDQ" userLabel="2.1.1-姓名-Label">
-                                    <rect key="frame" x="0.0" y="0.0" width="62" height="15.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="6qP-V9-kDQ" secondAttribute="height" multiplier="4" id="9r3-R2-wjN"/>
-                                    </constraints>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张大大大" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qP-V9-kDQ" userLabel="2.1.1-姓名-Label">
+                                    <rect key="frame" x="0.0" y="0.0" width="61.5" height="15.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="资料性别男.png" translatesAutoresizingMaskIntoConstraints="NO" id="uCe-bl-Hyz" userLabel="2.1.2-性别-Image View">
-                                    <rect key="frame" x="72" y="0.0" width="16" height="16"/>
+                                    <rect key="frame" x="71.5" y="0.0" width="16" height="16"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="uCe-bl-Hyz" secondAttribute="height" id="dSU-Pt-VuL"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 岁" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="obv-BV-zQz" userLabel="2.1.3-年龄Label">
-                                    <rect key="frame" x="98" y="0.0" width="153" height="15.5"/>
+                                    <rect key="frame" x="97.5" y="0.0" width="29" height="15.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" red="0.50190365309999996" green="0.50199371579999996" blue="0.50189799069999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -75,7 +72,7 @@
                                 <constraint firstAttribute="bottom" secondItem="uCe-bl-Hyz" secondAttribute="bottom" id="jAb-6U-ywF"/>
                                 <constraint firstAttribute="bottom" secondItem="6qP-V9-kDQ" secondAttribute="bottom" id="sJc-qa-QYv"/>
                                 <constraint firstItem="uCe-bl-Hyz" firstAttribute="top" secondItem="Kht-LL-GkF" secondAttribute="top" id="va2-AR-Gk0"/>
-                                <constraint firstAttribute="trailing" secondItem="obv-BV-zQz" secondAttribute="trailing" constant="8" id="yir-wt-4BY"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="obv-BV-zQz" secondAttribute="trailing" constant="8" id="yir-wt-4BY"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7eb-iT-lQS" userLabel="2.2-诚信等级-View">
@@ -121,7 +118,7 @@
                                     </constraints>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="QJw-xA-3iO" secondAttribute="bottom" id="7Hb-En-6PH"/>
                                 <constraint firstItem="0OI-K9-CEo" firstAttribute="leading" secondItem="9qk-rf-pfl" secondAttribute="trailing" constant="5" id="GXt-wz-bOs"/>
@@ -144,10 +141,10 @@
                                 <constraint firstItem="L0L-Wx-vt8" firstAttribute="top" secondItem="7eb-iT-lQS" secondAttribute="top" id="phJ-Rg-l76"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qG5-uY-vSm" userLabel="2.3爱情宣言-View">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qG5-uY-vSm" userLabel="2.3-标签-View">
                             <rect key="frame" x="0.0" y="49.5" width="259" height="15.5"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预谋邂逅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peR-4K-Bkk" userLabel="2.3.1-爱情宣言-Label">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预谋邂逅" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="peR-4K-Bkk" userLabel="2.3.1-标签-Label">
                                     <rect key="frame" x="0.0" y="0.0" width="259" height="15.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <color key="textColor" red="0.50190365309999996" green="0.50199371579999996" blue="0.50189799069999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -193,16 +190,16 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="ageLab" destination="obv-BV-zQz" id="XC2-MN-lzY"/>
-                <outlet property="declarationLab" destination="peR-4K-Bkk" id="oyg-sZ-ad3"/>
-                <outlet property="firstStarImgView" destination="SoO-ID-oOH" id="DGp-Zr-sxj"/>
-                <outlet property="fiveStarImgView" destination="0OI-K9-CEo" id="Yin-8G-Qit"/>
-                <outlet property="fourStarImgView" destination="9qk-rf-pfl" id="UDc-ez-KCU"/>
-                <outlet property="genderImgView" destination="uCe-bl-Hyz" id="zHe-gj-MZY"/>
-                <outlet property="headImgView" destination="YBG-X9-QcJ" id="k7I-34-2gZ"/>
-                <outlet property="nameLab" destination="6qP-V9-kDQ" id="Bju-wc-yLs"/>
-                <outlet property="secondStarImgView" destination="QJw-xA-3iO" id="Wxy-bB-kR0"/>
-                <outlet property="thirdStarImgView" destination="LWf-vl-4Hl" id="mXo-EC-sVN"/>
+                <outlet property="ageLab" destination="obv-BV-zQz" id="yCv-92-6lg"/>
+                <outlet property="fifthStarImgView" destination="0OI-K9-CEo" id="701-SE-zdV"/>
+                <outlet property="firStarImgView" destination="SoO-ID-oOH" id="eQm-dB-Qzh"/>
+                <outlet property="fourthStarImgView" destination="9qk-rf-pfl" id="QwM-Lf-XwY"/>
+                <outlet property="genderImgView" destination="uCe-bl-Hyz" id="8ej-8z-Bpv"/>
+                <outlet property="headImgView" destination="YBG-X9-QcJ" id="AnN-vU-heY"/>
+                <outlet property="nameLab" destination="6qP-V9-kDQ" id="6hG-fO-3gX"/>
+                <outlet property="secStarImgView" destination="QJw-xA-3iO" id="eg0-18-8pO"/>
+                <outlet property="tagLab" destination="peR-4K-Bkk" id="WBd-zg-zxM"/>
+                <outlet property="thirdStarImgView" destination="LWf-vl-4Hl" id="bzy-HY-szM"/>
             </connections>
             <point key="canvasLocation" x="21.5" y="35.5"/>
         </view>

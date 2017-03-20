@@ -54,6 +54,16 @@
 
 
 
+#pragma 0、会员
+// 1-全部会员列表
+#define cAllMembersListUrl (@"api/Member/MembersList")
+// 1-男会员列表
+#define cBoyMembersListUrl (@"api/Member/BoyMembersList")
+// 1-女会员列表
+#define cGirlMembersListUrl (@"api/Member/GirlMembersList")
+
+
+
 #pragma 1、视频
 // 1.1-热门视频
 #define cHotVideoListUrl (@"api/Video/HotVideoList")
@@ -96,9 +106,11 @@
 #define cServiceActivityListUrl (@"api/Activity/ServiceActivityList")
 // 3.4.1-反馈
 #define cFeedBackAddUrl (@"api/FeedBack/Add")
-// 3.5-活动详情页
+// 3.5-活动公告：轮播
+#define cActivityIndexNoticeListUrl (@"api/Activity/ActivityIndexNoticeList")
+// 3.6-活动详情页
 #define cActivityDetailsUrl (@"api/Activity/ActivityDetail")
-// 3.5.1-活动报名
+// 3.6.1-活动报名
 #define cActivityApplyUrl (@"api/Activity/Apply")
 
 

@@ -19,6 +19,7 @@
 // 上部固定的视图
 @property (nonatomic, strong) CYCommunityHeaderView *topView;
 
-
+// 数据源
+@property (nonatomic,strong)NSMutableArray *activeCarouselArray;
 
 @end

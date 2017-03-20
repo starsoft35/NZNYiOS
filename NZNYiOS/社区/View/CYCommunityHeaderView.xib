@@ -24,7 +24,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="线下活动" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3T-ul-mzD" userLabel="2.线下活动-Label">
-                    <rect key="frame" x="16" y="69" width="49.5" height="14.5"/>
+                    <rect key="frame" x="16" y="69" width="49.5" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="往期回顾" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4C-Z4-bf1" userLabel="4.往期回顾-Label">
-                    <rect key="frame" x="164" y="69" width="49.5" height="14.5"/>
+                    <rect key="frame" x="164" y="69" width="49.5" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -48,31 +48,31 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="客服问答" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="797-DW-u8t" userLabel="6.客服问答-Label">
-                    <rect key="frame" x="311" y="69" width="49.5" height="14.5"/>
+                    <rect key="frame" x="311" y="69" width="49.5" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ohh-AH-c6R" userLabel="7.0-活动滑动图分割线-Progress View">
-                    <rect key="frame" x="13" y="92.5" width="362" height="1"/>
+                    <rect key="frame" x="13" y="92" width="362" height="1"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="cav-wq-CiD"/>
                     </constraints>
                 </progressView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lat-ye-vFB" userLabel="7.活动滑动图-View">
-                    <rect key="frame" x="13" y="93.5" width="349" height="33.5"/>
+                    <rect key="frame" x="13" y="93" width="349" height="34"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Right-.png" translatesAutoresizingMaskIntoConstraints="NO" id="nbL-eS-LVZ" userLabel="7.3.下一页-Image View">
-                            <rect key="frame" x="340" y="9.5" width="9" height="16"/>
+                            <rect key="frame" x="339" y="8.5" width="10" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="nbL-eS-LVZ" secondAttribute="height" multiplier="18:32" id="bO2-Ob-1mG"/>
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufl-qB-y10" userLabel="7.2-轮播图-View">
-                            <rect key="frame" x="27.5" y="0.0" width="302" height="33.5"/>
+                            <rect key="frame" x="28.5" y="0.0" width="300" height="34"/>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="喇叭.png" translatesAutoresizingMaskIntoConstraints="NO" id="2GR-Ds-YNh" userLabel="7.1.喇叭-Image View">
-                            <rect key="frame" x="0.0" y="9.5" width="17.5" height="15"/>
+                            <rect key="frame" x="0.0" y="9.5" width="18.5" height="15.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="2GR-Ds-YNh" secondAttribute="height" multiplier="31:26" id="cM3-FQ-dUL"/>
                             </constraints>
@@ -115,17 +115,19 @@
                 <constraint firstAttribute="trailing" secondItem="Ohh-AH-c6R" secondAttribute="trailing" id="2G7-zA-BUh"/>
                 <constraint firstItem="9ib-Xq-utg" firstAttribute="top" secondItem="Lat-ye-vFB" secondAttribute="bottom" id="3JY-Xu-xkQ"/>
                 <constraint firstAttribute="trailing" secondItem="Lat-ye-vFB" secondAttribute="trailing" constant="13" id="3dT-9f-BYW"/>
+                <constraint firstItem="Lat-ye-vFB" firstAttribute="height" secondItem="tIR-Bs-KM3" secondAttribute="height" multiplier="68:294" id="7Dj-UU-BdM"/>
                 <constraint firstItem="9ib-Xq-utg" firstAttribute="height" secondItem="tIR-Bs-KM3" secondAttribute="height" multiplier="40:294" id="AoJ-Yz-BQG"/>
                 <constraint firstItem="Ohh-AH-c6R" firstAttribute="leading" secondItem="tIR-Bs-KM3" secondAttribute="leading" constant="13" id="BBP-48-bTK"/>
                 <constraint firstAttribute="trailing" secondItem="9ib-Xq-utg" secondAttribute="trailing" id="CQQ-u0-xB3"/>
                 <constraint firstItem="797-DW-u8t" firstAttribute="centerX" secondItem="y2f-Vy-pmt" secondAttribute="centerX" id="DZe-zx-h94"/>
-                <constraint firstItem="Lat-ye-vFB" firstAttribute="top" secondItem="o4C-Z4-bf1" secondAttribute="bottom" constant="10" id="GsH-xa-mlp"/>
-                <constraint firstItem="Lat-ye-vFB" firstAttribute="top" secondItem="Ohh-AH-c6R" secondAttribute="bottom" id="H2e-68-n8z"/>
+                <constraint firstItem="Lat-ye-vFB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ohh-AH-c6R" secondAttribute="bottom" id="H2e-68-n8z"/>
                 <constraint firstItem="7XF-2S-qJG" firstAttribute="width" secondItem="tIR-Bs-KM3" secondAttribute="width" multiplier="88:750" id="HVE-XJ-vLw"/>
                 <constraint firstItem="ryP-bX-YlF" firstAttribute="width" secondItem="7XF-2S-qJG" secondAttribute="width" id="Kq2-dv-Qam"/>
                 <constraint firstItem="o4C-Z4-bf1" firstAttribute="centerX" secondItem="ryP-bX-YlF" secondAttribute="centerX" id="LPa-lC-ZIZ"/>
                 <constraint firstItem="o4C-Z4-bf1" firstAttribute="top" secondItem="ryP-bX-YlF" secondAttribute="bottom" constant="10" id="NLh-U4-lpX"/>
+                <constraint firstItem="Ohh-AH-c6R" firstAttribute="top" secondItem="797-DW-u8t" secondAttribute="bottom" constant="8" id="Qli-zL-feZ"/>
                 <constraint firstItem="y2f-Vy-pmt" firstAttribute="top" secondItem="ryP-bX-YlF" secondAttribute="top" id="T2v-ar-1p8"/>
+                <constraint firstItem="o4C-Z4-bf1" firstAttribute="height" secondItem="tIR-Bs-KM3" secondAttribute="height" multiplier="15:147" id="TXc-FW-by7"/>
                 <constraint firstItem="y2f-Vy-pmt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ryP-bX-YlF" secondAttribute="trailing" constant="18" id="TwO-zy-IfR"/>
                 <constraint firstItem="o4C-Z4-bf1" firstAttribute="height" secondItem="797-DW-u8t" secondAttribute="height" id="UMV-Rg-Zur"/>
                 <constraint firstAttribute="trailing" secondItem="y2f-Vy-pmt" secondAttribute="trailing" constant="18" id="UzS-UK-0se"/>
