@@ -107,6 +107,9 @@
     NSLog(@"确认支付：button：点击事件");
     
     
+    
+    
+    
     // 获取时间戳
     NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
     NSLog(@"interval:%f",interval);
@@ -122,8 +125,24 @@
         if (isWechat) {
             NSLog(@"当前为：微信支付");
             
-            // 微信支付
-            [self WXPay];
+            
+            
+            // 判断是否已经有微信，并已登录
+            BOOL isWeChatDown = [WXApi isWXAppInstalled];
+            if (isWeChatDown == YES) {
+                
+                
+                
+                // 微信支付
+                [self WXPay];
+                
+            }
+            else {
+                
+                [self showHubWithLabelText:@"请先安装微信" andHidAfterDelay:3.0];
+            }
+            
+            
             
         }
         // 否则，选择的是支付宝支付：
@@ -137,6 +156,7 @@
         }
         
     }
+    
     
 }
 

@@ -45,13 +45,18 @@
     NSLog(@"手机上传：点击事件");
     
     // 跳转到相机或相册页面。
-    UIImagePickerController *imgPickerController = [[UIImagePickerController alloc] init];
+//    UIImagePickerController *imgPickerController = [[UIImagePickerController alloc] init];
+//    
+//    imgPickerController.delegate = self;
+//    imgPickerController.allowsEditing = YES;
+//    imgPickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+//    
+//    [self presentViewController:imgPickerController animated:YES completion:nil];
     
-    imgPickerController.delegate = self;
-    imgPickerController.allowsEditing = YES;
-    imgPickerController.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
     
-    [self presentViewController:imgPickerController animated:YES completion:nil];
+    // 头像点击事件：手势
+    [self headImgViewChangeClick];
+    
 }
 
 
@@ -62,95 +67,110 @@
     
 }
 
-//// 头像点击事件：手势
-//- (void)headImgViewChangeClick{
-//    NSLog(@"头像点击事件：手势");
-//    
-//    // 选择框：相机、相册
-//    UIActionSheet *sheet;
-//    
-//    // 判断是否支持相机
-//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-//        
-//        sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从相册选择", nil];
-//    }
-//    else {
-//        
-//        sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"从相册选择", nil];
-//    }
-//    
-//    //
-//    sheet.tag = 255;
-//    [sheet showInView:self.view];
-//    
-//    
-//}
+// 头像点击事件：手势
+- (void)headImgViewChangeClick{
+    NSLog(@"头像点击事件：手势");
+    
+    // 选择框：相机、相册
+    UIActionSheet *sheet;
+    
+    // 判断是否支持相机
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"拍照",@"从相册选择", nil];
+    }
+    else {
+        
+        sheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:@"取消" otherButtonTitles:@"从相册选择", nil];
+    }
+    
+    //
+    sheet.tag = 255;
+    [sheet showInView:self.view];
+    
+    
+}
 
-//// 选择框：相机、相册，选择的是哪一个：代理事件
-//- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-//    
-//    if (actionSheet.tag == 255) {
-//        
-//        NSUInteger sourceType = 0;
-//        
-//        // 判断是否支持相机
-//        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-//            
-//            switch (buttonIndex) {
-//                case 0:
-//                    // 取消
-//                    return;
-//                case 1:
-//                    // 相机
-//                    sourceType = UIImagePickerControllerSourceTypeCamera;
-//                    
-//                    break;
-//                case 2:
-//                    // 相册
-//                    sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//                    
-//                    break;
-//                    
-//                default:
-//                    break;
-//            }
-//        }
-//        else {
-//            
-//            if (buttonIndex == 0) {
-//                
-//                return;
-//            }
-//            else {
-//                sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-//            }
-//        }
-//        
-//        // 跳转到相机或相册页面。
-//        UIImagePickerController *imgPickerController = [[UIImagePickerController alloc] init];
-//        
-//        imgPickerController.delegate = self;
-//        imgPickerController.allowsEditing = YES;
-//        imgPickerController.sourceType = sourceType;
-//        
-//        [self presentViewController:imgPickerController animated:YES completion:nil];
-//        
-//        //        [imgPickerController release];
-//    }
-//}
+// 选择框：相机、相册，选择的是哪一个：代理事件
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (actionSheet.tag == 255) {
+        
+        NSUInteger sourceType = 0;
+        
+        // 判断是否支持相机
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            
+            switch (buttonIndex) {
+                case 0:
+                    // 取消
+                    return;
+                case 1:
+                    // 相机
+                    sourceType = UIImagePickerControllerSourceTypeCamera;
+                    
+                    break;
+                case 2:
+                    // 相册
+                    sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                    
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+        else {
+            
+            if (buttonIndex == 0) {
+                
+                return;
+            }
+            else {
+                sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            }
+        }
+        
+        // 跳转到相机或相册页面。
+        UIImagePickerController *imgPickerController = [[UIImagePickerController alloc] init];
+        
+        imgPickerController.delegate = self;
+        imgPickerController.allowsEditing = YES;
+        imgPickerController.sourceType = sourceType;
+        
+        [self presentViewController:imgPickerController animated:YES completion:nil];
+        
+        //        [imgPickerController release];
+    }
+}
 
 
 // ImagePicker delegate 事件
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     
+    
+    
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    
+    
+    
     [picker dismissViewControllerAnimated:YES completion:nil];
     
-    UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-    
-    
-    // 上传图片
-    [self uploadImgWithImg:image];
-    
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        NSLog(@"选择的是照片~~");
+        
+        
+        UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
+        
+        
+        // 上传图片
+        [self uploadImgWithImg:image];
+    }
+    else {
+        
+        [self showHubWithLabelText:@"请选择照片上传" andHidAfterDelay:3.0];
+    }
+
 }
 
 
