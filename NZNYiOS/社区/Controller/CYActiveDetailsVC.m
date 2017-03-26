@@ -114,6 +114,10 @@ NSInteger tagCount;//全局变量
     
     
     // 赋值
+    // 活动名：
+    _activeEnrollConditionTipView.activeNameLab.text = [NSString stringWithFormat:@"《%@》",self.activeDetailsVCModel.Title];
+    _activeEnrollConditionTipView.activeNameLab.textColor = [UIColor colorWithRed:0.87 green:0.53 blue:0.27 alpha:1.00];
+    
     // 报名费：
     NSString *activeFee = [NSString stringWithFormat:@"活动费用：%ld",(long)self.activeDetailsVCModel.Fee];
     

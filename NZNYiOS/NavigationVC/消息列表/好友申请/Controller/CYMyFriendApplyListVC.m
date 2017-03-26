@@ -15,6 +15,12 @@
 // cell
 #import "CYMyFriendApplyListCell.h"
 
+
+// 他人详情页
+#import "CYOthersInfoVC.h"
+
+
+
 @interface CYMyFriendApplyListVC ()
 
 // 当前要删除的好友的indexPath
@@ -217,7 +223,19 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     // 模型
-//    CYMyFriendApplyListCellModel *tempFriendApplyListCellModel = self.dataArray[indexPath.row];
+    CYMyFriendApplyListCellModel *tempFriendApplyListCellModel = self.dataArray[indexPath.row];
+    
+    
+    // 他人详情页
+    CYOthersInfoVC *othersInfoVC = [[CYOthersInfoVC alloc] init];
+    
+    //    othersInfoVC.view.frame = CGRectMake(0, 0, 400, 400);
+    
+    othersInfoVC.oppUserId = tempFriendApplyListCellModel.UserId;
+    
+    othersInfoVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:othersInfoVC animated:YES];
     
     
 }

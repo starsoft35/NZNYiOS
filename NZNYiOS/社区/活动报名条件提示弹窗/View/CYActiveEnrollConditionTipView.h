@@ -15,6 +15,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *tipCloseBtn;
 
 
+// 活动名：label
+@property (weak, nonatomic) IBOutlet UILabel *activeNameLab;
+
+
 
 // 活动费用：label
 @property (weak, nonatomic) IBOutlet UILabel *activeFeeLab;

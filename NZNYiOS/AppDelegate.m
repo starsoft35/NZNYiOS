@@ -29,6 +29,9 @@
 // 用户：单例
 #import "CYUser.h"
 
+// 支付宝：SDK
+#import <AlipaySDK/AlipaySDK.h>
+
 
 
 @interface AppDelegate ()
@@ -417,6 +420,35 @@
     appdelegate.window.rootViewController = mainTabBarVC;
     
 }
+
+#pragma ----支付宝：开始
+//
+//- (BOOL)application:(UIApplication *)application
+//            openURL:(NSURL *)url
+//  sourceApplication:(NSString *)sourceApplication
+//         annotation:(id)annotation {
+//    
+//    if ([url.host isEqualToString:@"safepay"]) {
+//        //跳转支付宝钱包进行支付，处理支付结果
+//        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+//            NSLog(@"result = %@",resultDic);
+//        }];
+//    }
+//    return YES;
+//}
+
+// NOTE: 9.0以后使用新API接口
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+{
+    if ([url.host isEqualToString:@"safepay"]) {
+        //跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSLog(@"result = %@",resultDic);
+        }];
+    }
+    return YES;
+}
+#pragma --- 支付宝：结束
 
 // 提示框
 - (void)showHubWithLabelText:(NSString *)text andHidAfterDelay:(double)afterDelay{

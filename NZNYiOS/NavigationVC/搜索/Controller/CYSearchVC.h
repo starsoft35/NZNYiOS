@@ -17,5 +17,10 @@
 // 搜索结果：label
 @property (nonatomic, strong) UILabel *searchResultLab;
 
+// 是否第一次进入
+// 年龄
+@property (nonatomic , assign) BOOL isFirstGoIn;
+
+
 
 @end

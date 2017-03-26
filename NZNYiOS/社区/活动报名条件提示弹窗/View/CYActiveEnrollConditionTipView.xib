@@ -100,6 +100,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="activeFeeLab" destination="meM-CB-ogb" id="8zH-Fl-b7C"/>
+                <outlet property="activeNameLab" destination="tF4-vK-dRJ" id="dn2-uD-BYY"/>
                 <outlet property="confirmEnrollBtn" destination="O95-hM-byi" id="jYG-1k-fzr"/>
                 <outlet property="tipCloseBtn" destination="Rwg-u3-oUU" id="ly5-eq-HEE"/>
             </connections>

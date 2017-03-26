@@ -947,7 +947,7 @@ static const CGFloat iPhoneScreenPortraitWidth = 320.f;
     if(error_code > 500 || error_code == ALIVC_ERR_FUNCTION_DENIED) {
         
         [mPlayer reset];
-        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:[mSourceURL absoluteString] message:error_msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"主播暂时离开，请稍后重试" message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         
         [alter show];
         return;

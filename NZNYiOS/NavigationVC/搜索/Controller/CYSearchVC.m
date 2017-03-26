@@ -41,6 +41,10 @@
     // 设置navigation 上面的搜索框
     [self setNavigationBarItem];
     
+    
+    _isFirstGoIn = YES;
+    
+    
     // 设置搜索结果label
     [self setTipSearchResultLabel];
     
@@ -51,8 +55,16 @@
     
     [super viewWillAppear:animated];
     
-    // 将要显示的时候，加载数据，用于刷新
-    [self loadData];
+    
+    if (_isFirstGoIn) {
+        
+        _isFirstGoIn = NO;
+    }
+    else {
+        
+        // 将要显示的时候，加载数据，用于刷新
+        [self loadData];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
@@ -72,7 +84,7 @@
     
     self.searchResultLab.frame = CGRectMake((12.0 / 750.0) * cScreen_Width, (80.0 / 1334.0) * cScreen_Height, (726.0 / 750.0) * cScreen_Width, (30.0 / 1334.0) * cScreen_Height);
     
-    self.searchResultLab.text = @"刚进入时，请输入姓名或ID号，搜索好友";
+    self.searchResultLab.text = @"请输入姓名或ID号，搜索好友";
     
     self.searchResultLab.textAlignment = NSTextAlignmentCenter;
     self.searchResultLab.font = [UIFont systemFontOfSize:15];
@@ -140,59 +152,70 @@
 - (void)loadData{
     
     
-    // 网路请求：搜索人
-    // 参数
-    NSDictionary *params = @{
-                             @"userId":self.onlyUser.userID,
-                             @"searchString":self.searchTextField.text
-                             };
+    NSLog(@"self.searchTextField.text:%@",self.searchTextField.text);
     
-    [self showLoadingView];
     
-    // 网络请求：搜索人
-    [CYNetWorkManager getRequestWithUrl:cSearchPeopleUrl params:params progress:^(NSProgress *uploadProgress) {
-        NSLog(@"搜索人请求：进度：%@",uploadProgress);
+    if ([self.searchTextField.text isEqualToString:@""]) {
         
-    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"搜索人请求：请求成功！");
-        // 1、
-        NSString *code = responseObject[@"code"];
+        [self showHubWithLabelText:@"请输入姓名或ID" andHidAfterDelay:3.0];
+    }
+    else {
         
-        // 1.2.1.1.2、和成功的code 匹配
-        if ([code isEqualToString:@"0"]) {
-            NSLog(@"搜索人：搜索成功！");
-            NSLog(@"搜索人：responseObject：%@",responseObject);
-            
-            // 清空：每次刷新都需要
-            [self.dataArray removeAllObjects];
-            
-            // 解析数据，模型存到数组
-            [self.dataArray addObjectsFromArray:[CYSearchViewCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
-            
-            // 刷新数据
-            [self.baseTableView reloadData];
-            
-            // 判断是否显示搜索结果Label
-            [self showSearchLabel];
-            
-            // 请求数据结束，取消加载
-            [self hidenLoadingView];
-            
-        }
-        else{
-            NSLog(@"搜索人：搜索失败:responseObject:%@",responseObject);
-            NSLog(@"搜索人：搜索失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
-            // 1.2.1.1.2.2、搜索人失败：弹窗提示：获取失败的返回信息
-            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
-            
-        }
+        // 网路请求：搜索人
+        // 参数
+        NSDictionary *params = @{
+                                 @"userId":self.onlyUser.userID,
+                                 @"searchString":self.searchTextField.text
+                                 };
         
-    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"搜索人请求：请求失败！");
+        [self showLoadingView];
         
-        [self showHubWithLabelText:@"请检查网络" andHidAfterDelay:3.0];
+        // 网络请求：搜索人
+        [CYNetWorkManager getRequestWithUrl:cSearchPeopleUrl params:params progress:^(NSProgress *uploadProgress) {
+            NSLog(@"搜索人请求：进度：%@",uploadProgress);
+            
+        } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+            NSLog(@"搜索人请求：请求成功！");
+            // 1、
+            NSString *code = responseObject[@"code"];
+            
+            // 1.2.1.1.2、和成功的code 匹配
+            if ([code isEqualToString:@"0"]) {
+                NSLog(@"搜索人：搜索成功！");
+                NSLog(@"搜索人：responseObject：%@",responseObject);
+                
+                // 清空：每次刷新都需要
+                [self.dataArray removeAllObjects];
+                
+                // 解析数据，模型存到数组
+                [self.dataArray addObjectsFromArray:[CYSearchViewCellModel arrayOfModelsFromDictionaries:responseObject[@"res"][@"data"][@"list"]]];
+                
+                // 刷新数据
+                [self.baseTableView reloadData];
+                
+                // 判断是否显示搜索结果Label
+                [self showSearchLabel];
+                
+                // 请求数据结束，取消加载
+                [self hidenLoadingView];
+                
+            }
+            else{
+                NSLog(@"搜索人：搜索失败:responseObject:%@",responseObject);
+                NSLog(@"搜索人：搜索失败:responseObject:res:msg:%@",responseObject[@"res"][@"msg"]);
+                // 1.2.1.1.2.2、搜索人失败：弹窗提示：获取失败的返回信息
+                [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+                
+            }
+            
+        } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"搜索人请求：请求失败！");
+            
+            [self showHubWithLabelText:@"请检查网络" andHidAfterDelay:3.0];
+            
+        } withToken:self.onlyUser.userToken];
         
-    } withToken:self.onlyUser.userToken];
+    }
     
 }
 

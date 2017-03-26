@@ -12,7 +12,7 @@
 
 
 // 主机地址
-#define cHostUrl (@"http://api.212bg.com")
+#define cHostUrl (@"https://api.212bg.com")
 //#define cHostUrl (@"http://192.168.1.103/nzny/index.php/")
 
 // 推流、拉流主机地址
