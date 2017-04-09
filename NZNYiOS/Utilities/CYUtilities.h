@@ -71,6 +71,7 @@
 + (NSString *)getCurrentTime;
 
 
-
+// 自动计算label的高度、宽度
++ (CGSize)labelAutoCalculateRectWith:(NSString *)text FontSize:(CGFloat)fontSize MaxSize:(CGSize)maxSize;
 
 @end

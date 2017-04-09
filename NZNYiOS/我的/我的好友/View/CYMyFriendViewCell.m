@@ -28,6 +28,8 @@
         [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,myFriendViewCellModel.Portrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
+    _headImgView.layer.cornerRadius = (50.0 / 1334.0) * cScreen_Height;
+    
     // 姓名
     _nameLab.text = myFriendViewCellModel.RealName;
     
@@ -42,7 +44,7 @@
     }
     
     // 年龄
-    _ageLab.text = [NSString stringWithFormat:@"%ld 岁",myFriendViewCellModel.Age];
+    _ageLab.text = [NSString stringWithFormat:@"%d 岁",myFriendViewCellModel.Age];
     
     // 爱情宣言
     _declarationLab.text = myFriendViewCellModel.Declaration;
@@ -52,10 +54,19 @@
         
         
         _topLab.text = @"已置顶";
+//        _topLab.hidden = NO;
+        
+        _topLabWidth.constant = 37;
+        _topLabRigntDistance.constant = 13;
     }
     else {
         
         _topLab.text = @"";
+//        _topLab.hidden = YES;
+        _topLabWidth.constant = 0;
+        _topLabRigntDistance.constant = 0;
+        
+        
     }
     
     
@@ -63,5 +74,11 @@
     
 }
 
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    
+}
 
 @end

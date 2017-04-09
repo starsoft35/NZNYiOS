@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -27,7 +27,7 @@
                     <rect key="frame" x="0.0" y="5" width="375" height="44"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Okw-nn-AJe" userLabel="1.0.点击出现地址选择器-View">
-                            <rect key="frame" x="140" y="0.0" width="222" height="44"/>
+                            <rect key="frame" x="170" y="0.0" width="192" height="44"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-pin.png" translatesAutoresizingMaskIntoConstraints="NO" id="0wr-oY-3LK" userLabel="1.1.位置图标-Image View">
@@ -37,9 +37,9 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNj-R0-Nbb" userLabel="1.2.使用当前位置-Button">
-                            <rect key="frame" x="35" y="14" width="105" height="15"/>
+                            <rect key="frame" x="35" y="14" width="135" height="15"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="rNj-R0-Nbb" secondAttribute="height" multiplier="7" id="Fvf-Zx-nVB"/>
+                                <constraint firstAttribute="width" secondItem="rNj-R0-Nbb" secondAttribute="height" multiplier="9" id="Fvf-Zx-nVB"/>
                             </constraints>
                             <state key="normal" title="使用当前位置">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>

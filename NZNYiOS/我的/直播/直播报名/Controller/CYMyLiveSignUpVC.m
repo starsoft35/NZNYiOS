@@ -171,7 +171,7 @@
     
     
     
-    _balanceNotEnoughView.backgroundColor = [UIColor clearColor];
+    _balanceNotEnoughView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
     _balanceNotEnoughView.balanceNotEnoughBgImgView.hidden = YES;
     
     // 余额不足：弹窗关闭：button：点击事件

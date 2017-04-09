@@ -286,8 +286,8 @@
     _addFriendView.frame = CGRectMake(0, -128, cScreen_Width, cScreen_Height);
     
     
-//    _addFriendView.backgroundColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:0.50];
-    _addFriendView.backgroundColor = [UIColor clearColor];
+    
+    _addFriendView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
     //    _giveGiftTipView.giveGiftBgImgView.hidden = YES;
     
     // tipCloseBtn：关闭弹窗：点击事件

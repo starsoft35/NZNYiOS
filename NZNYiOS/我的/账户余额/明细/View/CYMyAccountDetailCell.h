@@ -30,5 +30,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *moneyLab;
 
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *moneyLabRightDistance;
+
 
 @end

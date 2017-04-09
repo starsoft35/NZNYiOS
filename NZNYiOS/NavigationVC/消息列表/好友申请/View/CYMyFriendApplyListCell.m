@@ -27,6 +27,8 @@
         [_headImgView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",cHostUrl,friendApplyListCellModel.Portrait]] placeholderImage:[UIImage imageNamed:@"默认头像"]];
     }
     
+    _headImgView.layer.cornerRadius = (50.0 / 1334.0) * cScreen_Height;
+    
     // 姓名
     _nameLab.text = friendApplyListCellModel.RealName;
     

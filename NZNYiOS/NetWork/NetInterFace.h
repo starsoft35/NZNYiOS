@@ -223,8 +223,11 @@
 
 // 4、5.6、我的好友：列表
 #define cMyFriendsListUrl (@"api/Relationship/FriendsList")
-
-// 4、5.6.1、删除好友
+// 4、5.6.1、置顶好友
+#define cAddFriendToTopUrl (@"api/Relationship/AddTop")
+// 4、5.6.2、取消置顶好友
+#define cDelFriendToTopUrl (@"api/Relationship/DelTop")
+// 4、5.6.3、删除好友
 #define cDeleteFriendUrl (@"api/Relationship/DelFriend")
 
 

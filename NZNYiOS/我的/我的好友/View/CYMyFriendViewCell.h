@@ -36,9 +36,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *declarationLab;
 
 
-// 置顶
+// 置顶：View
+@property (weak, nonatomic) IBOutlet UIView *addToTopView;
+
+
+// 置顶：label
 @property (weak, nonatomic) IBOutlet UILabel *topLab;
 
+// 置顶label的宽度：
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLabWidth;
+
+// 置顶label到右边的距离
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLabRigntDistance;
 
 
 @end

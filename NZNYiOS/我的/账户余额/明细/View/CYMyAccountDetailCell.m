@@ -27,16 +27,22 @@
     _introductionLab.text = myAccountDetailCellModel.Introduction;
     
     // 花费金额
+    NSString *tempMoney = [[NSString alloc] init];
     if (myAccountDetailCellModel.Money > 0) {
         
         
-        _moneyLab.text = [NSString stringWithFormat:@"+%.2lf",myAccountDetailCellModel.Money];
+        tempMoney = [NSString stringWithFormat:@"+%.2lf",myAccountDetailCellModel.Money];
     }
     else {
         
         // 小叶给了-号
-        _moneyLab.text = [NSString stringWithFormat:@"%.2lf",myAccountDetailCellModel.Money];
+        tempMoney = [NSString stringWithFormat:@"%.2lf",myAccountDetailCellModel.Money];
     }
+    _moneyLab.text = tempMoney;
+    
+    // 自动计算label的高度、宽度
+    CGSize tempMoneySize = [CYUtilities labelAutoCalculateRectWith:tempMoney FontSize:14 MaxSize:CGSizeMake(240.0 / 375.0 * cScreen_Width, 80.0 / 667.0 * cScreen_Height)];
+    _moneyLabRightDistance.constant = tempMoneySize.width;
 }
 
 

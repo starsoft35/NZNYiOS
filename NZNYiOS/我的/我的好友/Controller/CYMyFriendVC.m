@@ -150,6 +150,8 @@
     // 赋值
     myFriendViewCell.myFriendViewCellModel = self.dataArray[indexPath.row];
     
+    
+    
     return myFriendViewCell;
     
 }
@@ -238,50 +240,190 @@
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
-    // 添加一个删除按钮
+    // 赋值：选择的当前行数
+    _deleteIndexPath = indexPath;
+    
+    // 模型
+    CYMyFriendViewCellModel *tempMyFriendModel = self.dataArray[indexPath.row];
+    
+    
+    // 1、添加一个删除按钮
     UITableViewRowAction *deleteRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"删除好友" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         NSLog(@"第：%@ 行，点击了删除",indexPath);
         
-#warning 网络请求：删除好友
-        // 1、更新数据
         
-        _deleteIndexPath = indexPath;
+        
         // 左滑删除好友：点击事件：提示框
         [self deleteRowActionClick];
         
         
+//        // 1、更新数据
 //        NSMutableArray *arrModel = self.dataArray[indexPath.row];
 //        [arrModel removeObjectAtIndex:indexPath.row];
-        
-        NSLog(@"self.dataArray:%@",self.dataArray);
-        
-        // 2、更新UI
+//        
+//        NSLog(@"self.dataArray:%@",self.dataArray);
+//        
+//        // 2、更新UI
 //        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         
     }];
     
-    // 添加一个置顶按钮
-    UITableViewRowAction *topRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"置顶" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        NSLog(@"点击了置顶");
-        
-#warning 网络请求：置顶
-        // 1、更新数据
-        [self.dataArray insertObject:self.dataArray[indexPath.row] atIndex:0];
-        [self.dataArray removeObjectAtIndex:(indexPath.row + 1)];
-        
-        NSLog(@"self.dataArray:%@",self.dataArray);
-        
-        // 2、更新UI
-        NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
-        [tableView moveRowAtIndexPath:indexPath toIndexPath:firstIndexPath];
-    }];
     
-    topRowAction.backgroundColor = [UIColor colorWithRed:0.91 green:0.51 blue:0.23 alpha:1.00];
+    if (tempMyFriendModel.Top) {
+        
+        // 已经置顶，则取消置顶
+        
+        
+        // 2、添加一个取消置顶按钮
+        UITableViewRowAction *deleteTopRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"取消置顶" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+            NSLog(@"点击了取消置顶");
+            
+            
+            // 左滑好友取消置顶：点击事件
+            [self deleteFriendToTopRowActionClickWithIndexPath:self.deleteIndexPath];
+            
+        }];
+        
+        
+        
+        deleteTopRowAction.backgroundColor = [UIColor colorWithRed:0.91 green:0.51 blue:0.23 alpha:1.00];
+        
+        // 将设置好的按钮放到数组中返回
+        return @[deleteRowAction,deleteTopRowAction];
+        
+        
+    }
+    else {
+        
+        // 没有置顶，则置顶
+        
+        // 3、添加一个置顶按钮
+        UITableViewRowAction *topRowAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"置顶" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+            NSLog(@"点击了置顶");
+            
+            
+            // 左滑好友置顶：点击事件
+            [self addFriendToTopRowActionClickWithIndexPath:self.deleteIndexPath];
+            
+            
+            //
+            //        // 1、更新数据
+            //        [self.dataArray insertObject:self.dataArray[indexPath.row] atIndex:0];
+            //        [self.dataArray removeObjectAtIndex:(indexPath.row + 1)];
+            //
+            //        NSLog(@"self.dataArray:%@",self.dataArray);
+            //
+            //        // 2、更新UI
+            //        NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
+            //        [tableView moveRowAtIndexPath:indexPath toIndexPath:firstIndexPath];
+            
+            
+        }];
+        
+        
+        
+        topRowAction.backgroundColor = [UIColor colorWithRed:0.91 green:0.51 blue:0.23 alpha:1.00];
+        
+        // 将设置好的按钮放到数组中返回
+        return @[deleteRowAction,topRowAction];
+        
+    }
     
     
     // 将设置好的按钮放到数组中返回
-//    return @[deleteRowAction,topRowAction];
-    return @[deleteRowAction];
+//    return @[deleteRowAction];
+}
+
+
+// 左滑好友置顶：点击事件
+- (void)addFriendToTopRowActionClickWithIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"左滑好友置顶：点击事件");
+    
+    
+    // 模型
+    CYMyFriendViewCellModel *tempMyFriendModel = self.dataArray[indexPath.row];
+    
+    // Url参数
+    NSString *newUrlStr = [NSString stringWithFormat:@"%@?id=%@",cAddFriendToTopUrl,tempMyFriendModel.Id];
+    
+    // 网络请求：好友置顶
+    [CYNetWorkManager postRequestWithUrl:newUrlStr params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"好友置顶进度：%@",uploadProgress);
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"好友置顶：请求成功！");
+        
+        // 2.3.1.1、获取code 值
+        NSString *code = responseObject[@"code"];
+        
+        // 2.3.1.2、判断返回值
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"好友置顶：置顶成功！");
+            
+            // 更新数据
+            [self loadData];
+            
+        }
+        else{
+            NSLog(@"好友置顶：置顶失败！");
+            NSLog(@"msg:%@",responseObject[@"res"][@"msg"]);
+            
+            // 2.3.1.2.2、上传图片失败，弹窗
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+        }
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"好友置顶：请求失败");
+        
+        [self showHubWithLabelText:@"好友置顶失败，请检查网络" andHidAfterDelay:3.0];
+        
+    } withToken:self.onlyUser.userToken];
+    
+}
+
+
+// 左滑取消好友置顶：点击事件
+- (void)deleteFriendToTopRowActionClickWithIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"取消好友置顶：点击事件");
+    
+    
+    // 模型
+    CYMyFriendViewCellModel *tempMyFriendModel = self.dataArray[indexPath.row];
+    
+    // Url参数
+    NSString *newUrlStr = [NSString stringWithFormat:@"%@?id=%@",cDelFriendToTopUrl,tempMyFriendModel.Id];
+    
+    // 网络请求：取消好友置顶
+    [CYNetWorkManager postRequestWithUrl:newUrlStr params:nil progress:^(NSProgress *uploadProgress) {
+        NSLog(@"取消好友置顶进度：%@",uploadProgress);
+    } whenSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"取消好友置顶：请求成功！");
+        
+        // 2.3.1.1、获取code 值
+        NSString *code = responseObject[@"code"];
+        
+        // 2.3.1.2、判断返回值
+        if ([code isEqualToString:@"0"]) {
+            NSLog(@"取消好友置顶：取消置顶成功！");
+            
+            // 更新数据
+            [self loadData];
+            
+        }
+        else{
+            NSLog(@"取消好友置顶：取消置顶失败！");
+            NSLog(@"msg:%@",responseObject[@"res"][@"msg"]);
+            
+            // 2.3.1.2.2、上传图片失败，弹窗
+            [self showHubWithLabelText:responseObject[@"res"][@"msg"] andHidAfterDelay:3.0];
+        }
+        
+    } whenFailure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"取消好友置顶：请求失败");
+        
+        [self showHubWithLabelText:@"取消好友置顶失败，请检查网络" andHidAfterDelay:3.0];
+        
+    } withToken:self.onlyUser.userToken];
+    
 }
 
 // 左滑删除好友：点击事件

@@ -447,10 +447,8 @@
                         AppDelegate *appdelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
                         
                         appdelegate.window.rootViewController = [[CYMainTabBarController alloc] init];
-                        
-//                        [self navigationControllerWithView:self.view].view.window.rootViewController = [[CYMainTabBarController alloc] init];
-                        
-//                        [self presentViewController:[[CYMainTabBarController alloc] init] animated:YES completion:nil];
+//                        UIWindow *window = [[[UIApplication sharedApplication] windows] objectAtIndex:0];
+//                        window.rootViewController = [[CYMainTabBarController alloc] init];
                         
                     }
                     else{

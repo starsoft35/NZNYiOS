@@ -1437,8 +1437,8 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
 //        _giveGiftTipView.oneRoseBtn.frame = CGRectMake(tempRect.origin.x, tempRect.origin.y - 10, tempRect.size.width, tempRect.size.height - 10);
 //    }
     
-//    _giveGiftTipView.backgroundColor = [UIColor colorWithRed:0.55 green:0.55 blue:0.55 alpha:0.70];
-    _giveGiftTipView.backgroundColor = [UIColor clearColor];
+    
+    _giveGiftTipView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
 //    _giveGiftTipView.giveGiftBgImgView.hidden = YES;
     
     // tipCloseBtn：关闭弹窗：点击事件
@@ -1649,7 +1649,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
                 }
                 
                 
-                _balanceNotEnoughView.backgroundColor = [UIColor clearColor];
+                _balanceNotEnoughView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
                 _balanceNotEnoughView.balanceNotEnoughBgImgView.hidden = YES;
                 
                 // 余额不足：弹窗关闭：button：点击事件
@@ -1854,7 +1854,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
     
     _likeTipWithMoneyView.frame = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
     
-    _likeTipWithMoneyView.backgroundColor = [UIColor clearColor];
+    _likeTipWithMoneyView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
     
     
     // 弹窗关闭：点击事件
@@ -2038,7 +2038,7 @@ static NSString *const RCDLiveGiftMessageCellIndentifier = @"RCDLiveGiftMessageC
                 }
                 
                 
-                _balanceNotEnoughView.backgroundColor = [UIColor clearColor];
+                _balanceNotEnoughView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
                 _balanceNotEnoughView.balanceNotEnoughBgImgView.hidden = YES;
                 
                 // 余额不足：弹窗关闭：button：点击事件

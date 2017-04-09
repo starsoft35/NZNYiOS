@@ -46,6 +46,8 @@
     
     _addFriendView.sayToYouTextView.delegate = self;
     
+    
+    
     self.view = _addFriendView;
     
 }
