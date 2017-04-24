@@ -19,5 +19,117 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x89c6;&#x9891;/&#x89c6;&#x9891;&#x8be6;&#x60c5;&#x9875;/Controller/CYVideoDetailsVC.m"
+            timestampString = "514005777.643287"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "749"
+            endingLineNumber = "749"
+            landmarkName = "-textViewDidBeginEditing:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[CYVideoDetailsVC textViewDidBeginEditing:]"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chun/Documents/5.%E7%94%B7%E5%B7%A6%E5%A5%B3%E5%8F%B3/1.%E4%BB%A3%E7%A0%81/NZNYiOS/NZNYiOS/%E8%A7%86%E9%A2%91/%E8%A7%86%E9%A2%91%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/CYVideoDetailsVC.m"
+                  timestampString = "514005827.6735"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "749"
+                  endingLineNumber = "749"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__44-[CYVideoDetailsVC textViewDidBeginEditing:]_block_invoke"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chun/Documents/5.%E7%94%B7%E5%B7%A6%E5%A5%B3%E5%8F%B3/1.%E4%BB%A3%E7%A0%81/NZNYiOS/NZNYiOS/%E8%A7%86%E9%A2%91/%E8%A7%86%E9%A2%91%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/CYVideoDetailsVC.m"
+                  timestampString = "514005827.674993"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "749"
+                  endingLineNumber = "749"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/&#x89c6;&#x9891;/&#x89c6;&#x9891;&#x8be6;&#x60c5;&#x9875;/Controller/CYVideoDetailsVC.m"
+            timestampString = "514006174.534739"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "757"
+            endingLineNumber = "757"
+            landmarkName = "-textViewDidEndEditing:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[CYVideoDetailsVC textViewDidEndEditing:]"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chun/Documents/5.%E7%94%B7%E5%B7%A6%E5%A5%B3%E5%8F%B3/1.%E4%BB%A3%E7%A0%81/NZNYiOS/NZNYiOS/%E8%A7%86%E9%A2%91/%E8%A7%86%E9%A2%91%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/CYVideoDetailsVC.m"
+                  timestampString = "514006193.725789"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "757"
+                  endingLineNumber = "757"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[CYVideoDetailsVC textViewDidEndEditing:]_block_invoke"
+                  moduleName = "nzny"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chun/Documents/5.%E7%94%B7%E5%B7%A6%E5%A5%B3%E5%8F%B3/1.%E4%BB%A3%E7%A0%81/NZNYiOS/NZNYiOS/%E8%A7%86%E9%A2%91/%E8%A7%86%E9%A2%91%E8%AF%A6%E6%83%85%E9%A1%B5/Controller/CYVideoDetailsVC.m"
+                  timestampString = "514006193.727283"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "757"
+                  endingLineNumber = "757"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NZNYiOS/AppDelegate.m"
+            timestampString = "514535633.961317"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
+            landmarkName = "-onReq:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

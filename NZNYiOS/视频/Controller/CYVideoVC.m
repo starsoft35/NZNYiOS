@@ -381,7 +381,7 @@
     
     //
     [UIView animateWithDuration:0.5 animations:^{
-        self.addFriendView.frame = CGRectMake(0, -128, cScreen_Width, cScreen_Height);
+        self.addFriendView.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
         
     }];
     
@@ -401,7 +401,7 @@
     
     // 键盘弹出：上拉弹窗
     [UIView animateWithDuration:0.5 animations:^{
-        self.addFriendView.frame = CGRectMake(0, -192, cScreen_Width, cScreen_Height);
+        self.addFriendView.bounds = CGRectMake(0, 64, cScreen_Width, cScreen_Height);
     }];
 }
 

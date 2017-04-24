@@ -125,7 +125,7 @@
     
     //
     [UIView animateWithDuration:0.5 animations:^{
-        self.view.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
+        self.addFriendView.mainAddFriendView.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
         
     }];
     
@@ -145,8 +145,17 @@
     
     // 键盘弹出：上拉弹窗
     [UIView animateWithDuration:0.5 animations:^{
-        self.view.bounds = CGRectMake(0, 128, cScreen_Width, cScreen_Height);
+        self.addFriendView.bounds = CGRectMake(0, 128, cScreen_Width, cScreen_Height);
     }];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    
+    // 加好友：恢复位置
+    [UIView animateWithDuration:0.5 animations:^{
+        self.addFriendView.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
+    }];
+    
 }
 
 

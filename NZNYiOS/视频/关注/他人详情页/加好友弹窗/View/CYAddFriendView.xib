@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -144,6 +144,7 @@
             <connections>
                 <outlet property="addFriendBtn" destination="6CF-5v-Dn3" id="wLH-ss-vhg"/>
                 <outlet property="guideHerToSayLab" destination="4kj-v8-kIp" id="m5L-GM-MNE"/>
+                <outlet property="mainAddFriendView" destination="gLz-Xx-tdm" id="t2g-hb-nGU"/>
                 <outlet property="maxCountLab" destination="UOH-vp-yUY" id="yWt-wy-3En"/>
                 <outlet property="sayToYouTextView" destination="i6L-uB-RhZ" id="REW-f3-2mL"/>
                 <outlet property="surplusCountLab" destination="WPo-0g-7ed" id="zSe-c4-UAI"/>

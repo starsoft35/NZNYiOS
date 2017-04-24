@@ -11,6 +11,10 @@
 @interface CYAddFriendView : UIView
 
 
+// 主视图
+@property (weak, nonatomic) IBOutlet UIView *mainAddFriendView;
+
+
 // 弹窗关闭：button
 @property (weak, nonatomic) IBOutlet UIButton *tipCloseBtn;
 

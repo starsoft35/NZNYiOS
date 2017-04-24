@@ -747,10 +747,18 @@
     
     // 键盘弹出：上拉弹窗
     [UIView animateWithDuration:0.5 animations:^{
-        self.addFriendView.frame = CGRectMake(0, -128, cScreen_Width, cScreen_Height);
+        self.addFriendView.bounds = CGRectMake(0, 128, cScreen_Width, cScreen_Height);
     }];
 }
 
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    
+    // 加好友：恢复位置
+    [UIView animateWithDuration:0.5 animations:^{
+        self.addFriendView.bounds = CGRectMake(0, 0, cScreen_Width, cScreen_Height);
+    }];
+    
+}
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     
@@ -1591,6 +1599,7 @@
     [UIView animateWithDuration:0.5 animations:^{
         self.likeTipWithMoneyView.bounds = CGRectMake(0, 128, cScreen_Width, cScreen_Height);
     }];
+    
     
 }
 
